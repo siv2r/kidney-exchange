@@ -1,0 +1,93 @@
+body{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.6em;
+    margin: 0%;
+}
+
+.container{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#mainHeader{
+    background: #39CCCC;
+    color: #001f3f;
+}
+
+#mainHeader h1{
+    text-align: center;
+}
+
+#mainNav{
+    background: floralwhite;
+    color: black;
+}
+
+#mainNav ul{
+    padding: 0%;
+    margin: 0%;
+    list-style: none;
+}
+
+#mainNav li{
+    display: inline;
+    padding: 5px 10px;
+}
+
+#mainNav a{
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+#mainNav li:hover{
+    background: #aaa;
+}
+
+
+#s1{
+    background-image: url('../images/b1.jpg');
+    background-position: center center;
+    min-height: 200px;
+
+}
+
+#s1 h2{
+    color: honeydew;
+}
+
+#s1 p{
+    color: honeydew;
+}
+
+#s2{
+    background-image: url('../images/b2.jpg');
+    background-position: center center;
+    min-height: 200px;
+
+}
+
+#s2 h2{
+    color: honeydew;
+}
+
+#s2 ol{
+    color: honeydew;
+}
+
+#s3{
+    background-image: url('../images/b3.jpg');
+    background-position: center center;
+
+}
+
+#s3 h2{
+    color: honeydew;
+}
+
+#s3 form{
+    color: honeydew;
+}
