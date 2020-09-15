@@ -17,20 +17,21 @@
 
 <body>
 
-    <header id="mainHeader">
-        <div class="container">
-            <h1>Kidney Exchange Program</h1>
-        </div>
-    </header>
+  <header id="mainHeader">
+    <div class="container">
+      <h1>Kidney Exchange Program</h1>
+    </div>
+  </header>
 
-    <nav id="mainNav">
-        <div class="container">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="register.php">Register</a></li>
-                <li style="float: right;"><a href="login.php">Login</a></li>
-            </ul>
-        </div>
-    </nav> 
+  <nav id="mainNav">
+    <div class="container">
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="register_patient.php">Register (Patient)</a></li>
+        <li><a href="register_hospital.php">Register (Hospital)</a></li>
+        <li id="login"><a href="login.php">Login</a></li>
+      </ul>
+    </div>
+  </nav> 

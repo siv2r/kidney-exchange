@@ -33,8 +33,18 @@ body{
 }
 
 #mainNav li{
-    display: inline;
+    float: left;
     padding: 5px 10px;
+}
+
+#mainNav li#login{
+  float: right;
+}
+
+nav ul:after{
+  display: block;
+  content: "";
+  clear: both;
 }
 
 #mainNav a{

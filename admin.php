@@ -27,8 +27,35 @@ mysqli_free_result($result3);
 
 <style>
 
-section{
-  background: #DFCFBE;
+button {
+	background-color: #dcdcdc;
+	color: black;
+	padding: 10px 20px;
+  display: inline-block;
+  margin: 10px;
+	border: 2px solid #c0c0c0;
+	cursor: pointer;
+  width: 25%;
+	font-size: 18px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-radius: 5%;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+#button_block{
+  float: left;
+  text-align: left;
+  box-sizing: border-box;
+  width: 40%;
+  padding: 10px;
+  display:block;
+}  
+
+body{
+  background: #F0FFFF;
 }
 
 table {
@@ -36,18 +63,18 @@ table {
   border-collapse: collapse;
 }
 
-#recipients{
+#recipients_med, #donors_med{
   width: 80%;
   margin: auto;
 } 
 
-#donors{
-  width: 60%;
+#recipients_personal, #donors_personal{
+  width: 50%;
   margin: auto;
 }
 
 #hospitals{
-  width: 30%;
+  width: 70%;
   margin: auto;
 }
 
@@ -78,84 +105,153 @@ table th {
 
 <?php include("templates/header.php"); ?>
 
-<section class="w3-container w3-section w3-2019-sweet-corn">
+  <div id="button_block">
+    <button id="personalBtn">Personal info</button>
+    <button id="medBtn">Medical info</button>
+    <button id="hospBtn">Hospital info</button>
+  </div> <br><br><br>
 
-  <br><br>
+  <div class="personal_tab">
 
-  <h2 id="rh">Recipients</h2>
+    <h2 id="rh">Recipients</h2>
 
-  <table id="recipients">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Blood Type</th>
-      <th>HLA Antigens</th>
-      <th>Unacceptable Antigens</th>
-      <th>Historic Crossmatch</th>
-    </tr>
-    
-    <?php foreach($result1_array as $row1){ ?>
+    <table id="recipients_personal">
       <tr>
-        <td><?php echo $row1['id'] ?></td>
-        <td><?php echo $row1['name'] ?></td>
-        <td><?php echo $row1['age'] ?></td>
-        <td><?php echo $row1['gender'] ?></td>
-        <td><?php echo $row1['blood_type'] ?></td>
-        <td><?php echo $row1['hla_antigens'] ?></td>
-        <td><?php echo $row1['unacceptable_antigens'] ?></td>
-        <td><?php echo $row1['historical_crossmatch'] ?></td>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
       </tr>
-    <?php } ?>
-
-  </table><br><br>
-
-  <h2 id="dh">Donors</h2>
-
-  <table id="donors">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Blood Type</th>
-      <th>HLA Antigens</th>
-    </tr>
-
-    
-    <?php foreach($result2_array as $row2){ ?>
-      <tr>
-        <td><?php echo $row2['id'] ?></td>
-        <td><?php echo $row2['name'] ?></td>
-        <td><?php echo $row2['age'] ?></td>
-        <td><?php echo $row2['gender'] ?></td>
-        <td><?php echo $row2['blood_type'] ?></td>
-        <td><?php echo $row2['hla_antigens'] ?></td>
-      </tr>
-    <?php } ?>
       
-  </table><br><br>
-
-  <h2 id="hh">Hospitals</h2>
-
-  <table id="hospitals">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-    </tr>
-
-
-      <?php foreach($result3_array as $row3){ ?>
+      <?php foreach($result1_array as $row1){ ?>
         <tr>
-          <td><?php echo $row3['id'] ?></td>
-          <td><?php echo $row3['name'] ?></td>
+          <td><?php echo $row1['id'] ?></td>
+          <td><?php echo $row1['name'] ?></td>
+          <td><?php echo $row1['age'] ?></td>
+          <td><?php echo $row1['gender'] ?></td>
         </tr>
       <?php } ?>
 
-  </table>
+    </table>
+
+    <h2 id="dh">Donors</h2>
+
+    <table id="donors_personal">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+      </tr>
+
+      
+      <?php foreach($result2_array as $row2){ ?>
+        <tr>
+          <td><?php echo $row2['id'] ?></td>
+          <td><?php echo $row2['name'] ?></td>
+          <td><?php echo $row2['age'] ?></td>
+          <td><?php echo $row2['gender'] ?></td>
+        </tr>
+      <?php } ?>
+        
+    </table>
+
+  </div>
+
+  <div class="med_tab">
+
+    <h2 id="rh">Recipients</h2>
+
+    <table id="recipients_med">
+      <tr>
+        <th>ID</th>
+        <th>Diabetes Type</th>
+        <th>Blood Presuure</th>
+        <th>Blood Type</th>
+        <th>HLA Antigens</th>
+        <th>Unacceptable Antigens</th>
+        <th>Historic Crossmatch</th>
+      </tr>
+      
+      <?php foreach($result1_array as $row1){ ?>
+        <tr>
+          <td><?php echo $row1['id'] ?></td>
+          <td><?php echo $row1['diabetes_type'] ?></td>
+          <td><?php echo $row1['blood_pressure'] ?></td>
+          <td><?php echo $row1['blood_type'] ?></td>
+          <td><?php echo $row1['hla_antigens'] ?></td>
+          <td><?php echo $row1['unacceptable_antigens'] ?></td>
+          <td><?php echo $row1['historical_crossmatch'] ?></td>
+        </tr>
+      <?php } ?>
+
+    </table>
+
+    <h2 id="dh">Donors</h2>
+
+    <table id="donors_med">
+      <tr>
+        <th>ID</th>
+        <th>Diabetes Type</th>
+        <th>GFR</th>
+        <th>Blood Pressure</th>
+        <th>Blood Type</th>
+        <th>HLA Antigens</th>
+      </tr>
+
+      
+      <?php foreach($result2_array as $row2){ ?>
+        <tr>
+          <td><?php echo $row2['id'] ?></td>
+          <td><?php echo $row2['diabetes_type'] ?></td>
+          <td><?php echo $row2['gfr'] ?></td>
+          <td><?php echo $row2['blood_pressure'] ?></td>
+          <td><?php echo $row2['blood_type'] ?></td>
+          <td><?php echo $row2['hla_antigens'] ?></td>
+        </tr>
+      <?php } ?>
+        
+    </table>
+
+  </div>
+
+  <div class="hosp_tab">
+    <h2 id="hh">Hospitals Registered</h2>
+
+    <table id="hospitals">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th>License</th>
+        <th>Nephrologist</th>
+        <th>Nephrologist ID</th>
+        <th>Surgeon</th>
+        <th>Surgeon ID</th>
+      </tr>
+
+
+        <?php foreach($result3_array as $row3){ ?>
+          <tr>
+            <td><?php echo $row3['id'] ?></td>
+            <td><?php echo $row3['name'] ?></td>
+            <td><?php echo $row3['addr'] ?></td>
+            <td><?php echo $row3['type'] ?></td>
+            <td><?php echo $row3['license'] ?></td>
+            <td><?php echo $row3['nephro_name'] ?></td>
+            <td><?php echo $row3['nephro_id'] ?></td>
+            <td><?php echo $row3['surg_name'] ?></td>
+            <td><?php echo $row3['surg_id'] ?></td>
+          </tr>
+        <?php } ?>
+
+    </table>
+  </div>
 
 </section>
+
+<script src="scripts/admin.js"></script>
 
 </body>
 </html>
