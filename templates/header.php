@@ -1,37 +1,32 @@
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kidney exchange program</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidney Exchange Program</title>
+  <!-- adding jQuery, select2 plugin and custom script file -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="./css/styles.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+</head>
 
 <style>
 
-#mainHeader, #mainNav{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 </style>
 
 <body>
-
-  <header id="mainHeader">
-    <div class="container">
-      <h1>Kidney Exchange Program</h1>
-    </div>
-  </header>
-
-  <nav id="mainNav">
-    <div class="container">
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="register_patient.php">Register (Patient)</a></li>
-        <li><a href="register_hospital.php">Register (Hospital)</a></li>
-        <li id="login"><a href="login.php">Login</a></li>
-      </ul>
-    </div>
-  </nav> 
+  

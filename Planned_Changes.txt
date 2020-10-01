@@ -3,9 +3,7 @@ Issues:
   1. Register (Patient) resubmits on refresh
   2. Proper validation method for Register (Patient)
   3. Color of navigation bar in admin.php
+  4. type='date' not supported in safari or internet explorer 11
 
 Code clean up:
-  1. Common css template for forms
-  2. New page for message display
-  3. Remove preselection in the drop down
   4. Style the multiselect (check out Wizard)

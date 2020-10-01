@@ -1,62 +1,15 @@
 body{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-family: "Verdana, Geneva, Tahoma, sans-serif";
+    font-size: 20px;
     line-height: 1.6em;
     margin: 0%;
 }
 
-.container{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+.wrapper{   
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
-
-#mainHeader{
-    background: #39CCCC;
-    color: #001f3f;
-}
-
-#mainHeader h1{
-    text-align: center;
-}
-
-#mainNav{
-    background: floralwhite;
-    color: black;
-}
-
-#mainNav ul{
-    padding: 0%;
-    margin: 0%;
-    list-style: none;
-}
-
-#mainNav li{
-    float: left;
-    padding: 5px 10px;
-}
-
-#mainNav li#login{
-  float: right;
-}
-
-nav ul:after{
-  display: block;
-  content: "";
-  clear: both;
-}
-
-#mainNav a{
-    color: black;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-#mainNav li:hover{
-    background: #aaa;
-}
-
 
 #s1{
     background-image: url('../images/b1.jpg');

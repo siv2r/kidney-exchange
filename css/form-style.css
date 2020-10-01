@@ -1,0 +1,198 @@
+
+/* Including css for the headers */
+
+.header-img{
+  background-image: url("https://images.unsplash.com/photo-1502485019198-a625bd53ceb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"); 
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 480px;
+}
+
+.nav-container{
+  position: absolute;
+  width: 100%;
+}
+
+#heading{
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------- */
+
+
+body{
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  line-height: 1.6em;
+}
+
+#reg-form{
+  background-color: whitesmoke;
+  padding: 20px 40px;
+}
+
+fieldset{
+  margin: 30px 10px;
+}
+
+#form-heading{
+  text-align: center;
+}
+
+
+div.input-field{
+  margin: 20px;
+}
+
+button, input, select, textarea{
+  font-family: inherit;
+  font-size: 95%;
+  padding: 5px;
+  margin: 0.5%;
+  outline: none;
+  box-sizing: border-box;
+  width: 25%;
+}
+
+input[type='radio']{      /*increase the size of radio buttons*/
+  height: 19px;
+  width: 19px;
+  margin: 5px;
+}
+
+div.input-field label:first-child{
+  display: inline-block;
+  width:30%;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 2%;
+}
+
+
+/* -----------------Formatting address fields-------------- */
+/* .addr input:nth-child(n+){
+  display: block;
+  margin-left: 36%;               equal to width of the labels + extra margin applied for the input, select, button, textarea
+  margin-bottom: 1%;
+}*/
+
+#addr1{
+  width: 46.5%;
+}
+
+#addr2{
+  width: 46.5%;
+  margin-left: 31.1%;
+}
+
+#city, #zip-code{
+  margin-left: 31.1%;
+  width: 22.5%;
+}
+
+#state, #country{
+  width: 22.5%;
+}
+/* ----------------Formatting the hla fields------------- */
+
+.hla-parent{
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 10px 0px;
+}
+
+#hla-parent-label{
+  display: inline-block;
+  width:30%;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 2%;
+}
+
+.hla{
+  display: inline-block;
+  width: 32%;
+  text-align: right;
+  box-sizing: border-box;
+  margin: 10px 0px;
+}
+
+.hla select{
+  width: 78%;
+  box-sizing: border-box;
+}
+
+#b, #d, #dq{
+  margin-left: 30%;
+}
+
+#a{
+  margin-left: 0;
+}
+
+
+
+
+/* ------------------------------------------------------ */
+#serology, #hla{
+  display: block;
+  width: 35%;
+  text-align: right;
+}
+
+/* ------------passport image----------------- */
+
+#pass-img img{
+  width: 85%;
+}
+
+#pass-img input{
+  display: none;
+}
+
+#pass-img{
+  float: left;
+  padding: 0;
+  width: 15%;
+  height: 15%;
+  box-sizing: border-box;
+  padding: 8px;
+  text-align: center;
+}
+
+#pass-img:after{
+  content: "Upload your image";
+  display: block;
+  clear: both;
+}
+
+#name label, #age label, #sex label, #dob label, #height label{  /* adjusting adjacent input fiels*/
+  width: 16%;
+}
+
+/* ------------------------------------------- */
+
+#next-btn, #prev-btn{
+  background-color:  darkgrey;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+#btn-block{
+  text-align: center;
+  width: 65%;
+  margin-left: 45%;
+}
+
