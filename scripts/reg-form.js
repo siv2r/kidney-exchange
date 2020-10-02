@@ -219,7 +219,8 @@ $(document).ready(function(){
       },
   
       messages: {
-        r_fname: "This field is required!"
+        r_fname: "This field is required!",
+	r_lname: "This field is required!"
       },
       
     });
