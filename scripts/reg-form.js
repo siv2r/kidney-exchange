@@ -174,9 +174,9 @@ $(document).ready(function(){
 
   function next_tab(){
 
-		let isValid = validate_form(); // check the validity of the current tab
-		console.log(isValid);
-		if(!isValid) return false;
+		// let isValid = validate_form(); // check the validity of the current tab
+		// console.log(isValid);
+		// if(!isValid) return false;
 
 		console.log("form valid!");
 
@@ -205,23 +205,64 @@ $(document).ready(function(){
 
 
 	function validate_form(){
-    console.log("entered validate function");
+
+    $.validator.setDefaults({
+      errorClass: 'help-block error-width',
+      highlight: function(element){
+        if($(element).hasClass('beautify')){
+          $(element).addClass('has-error');
+          $(element).next().addClass('has-error');   //tweak select2 field
+        }
+
+        else if ($(element).is('input[radio]')){
+          $(element.parent()).addClass('has-error');
+        }
+        else 
+          $(element).addClass('has-error');
+
+      },
+      unhighlight: function(element){
+        // remove the tweak for select2 here
+        $(element).removeClass('has-error');
+      },
+      errorPlacement: function (error, element){
+        if(element.prop('type') === 'radio' || element.prop('type') === 'select-multiple'){
+          error.appendTo(element.parent());
+          console.log(element.parent());
+        } 
+        else {
+          error.insertAfter(element);
+        }
+      }
+    });
 		
 		let form = $("#reg-form")
     form.validate({
       rules: {
-        r_fname: {
-          required: true
+        r_fname: "required",
+        r_lname: "required",
+        r_sex: "required",
+        r_email: {
+          email: true
         },
-        r_lname:{
-          required: true
-        },
+        r_hiv: "required",
+        r_hepB: "required",
+        r_hepC: "required"
       },
   
       messages: {
-        r_fname: "This field is required!"
+       
       },
       
+    });
+
+    $('.requiredField').each(function() {
+      $(this).rules('add', {
+        required: true,
+        messages: {
+          required:  "This field is required"
+        }
+      });
     });
 
     return form.valid();

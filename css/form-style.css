@@ -37,6 +37,7 @@ body{
 #reg-form{
   background-color: whitesmoke;
   padding: 20px 40px;
+  box-sizing: border-box;
 }
 
 fieldset{
@@ -49,7 +50,7 @@ fieldset{
 
 
 div.input-field{
-  margin: 20px;
+  margin: 10px 0px;
 }
 
 button, input, select, textarea{
@@ -68,42 +69,73 @@ input[type='radio']{      /*increase the size of radio buttons*/
   margin: 5px;
 }
 
-div.input-field label:first-child{
-  display: inline-block;
-  width:30%;
+/* -------------------Flex box styling-------------------- */
+
+.input-field{
+  display: flex;
+}
+
+.label-box{
+  flex: 3.5 0 0;
   text-align: right;
-  box-sizing: border-box;
-  padding-right: 2%;
+  padding: 5px 10px;
+  font-size: 22px;
+  line-height: 1.6em;
 }
 
-
-/* -----------------Formatting address fields-------------- */
-/* .addr input:nth-child(n+){
-  display: block;
-  margin-left: 36%;               equal to width of the labels + extra margin applied for the input, select, button, textarea
-  margin-bottom: 1%;
-}*/
-
-#addr1{
-  width: 46.5%;
+.input-box{
+  flex: 7 0 0;
+  padding: 5px 10px;
 }
 
-#addr2{
-  width: 46.5%;
-  margin-left: 31.1%;
+.input-box input{
+  padding: 5px;
+  font-size: 20px;
+  margin: 5px;
 }
 
-#city, #zip-code{
-  margin-left: 31.1%;
-  width: 22.5%;
+.input-box .single{
+  width: 70%;
 }
 
-#state, #country{
-  width: 22.5%;
+.input-box .double{
+  width: 44%;
 }
+
+/* --------------------------Adjusting address input fields------------------------*/
+
+#addr1, #addr2{
+  width: 90%;
+}
+
+/* -----------------------------------Adusting HLA labels linke A, B, C---------------- */
+
+.antigen{
+  margin: 15px;
+}
+
+.antigen label{
+  display: inline-block;
+  width: 8%;
+}
+
+/* ---------------------------------------Custom error class----------------------------- */
+
+.has-error{
+  border: 1px solid #c51244;
+  background-color: #fff0f4;
+}
+
+.help-block{
+  color: #c51244;
+  font-size: 18px;
+  display: inline-block;
+  width: 60%;
+}
+
 /* ----------------Formatting the hla fields------------- */
 
-.hla-parent{
+/* .hla-parent{
   display: inline-block;
   box-sizing: border-box;
   margin: 10px 0px;
@@ -136,21 +168,21 @@ div.input-field label:first-child{
 
 #a{
   margin-left: 0;
-}
+} */
 
 
 
 
 /* ------------------------------------------------------ */
-#serology, #hla{
+/* #serology, #hla{
   display: block;
   width: 35%;
   text-align: right;
-}
+} */
 
 /* ------------passport image----------------- */
 
-#pass-img img{
+/* #pass-img img{
   width: 85%;
 }
 
@@ -172,10 +204,6 @@ div.input-field label:first-child{
   content: "Upload your image";
   display: block;
   clear: both;
-}
-
-#name label, #age label, #sex label, #dob label, #height label{  /* adjusting adjacent input fiels*/
-  width: 16%;
 }
 
 /* ------------------------------------------- */
