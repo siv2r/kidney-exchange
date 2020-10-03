@@ -133,53 +133,6 @@ input[type='radio']{      /*increase the size of radio buttons*/
   width: 60%;
 }
 
-/* ----------------Formatting the hla fields------------- */
-
-/* .hla-parent{
-  display: inline-block;
-  box-sizing: border-box;
-  margin: 10px 0px;
-}
-
-#hla-parent-label{
-  display: inline-block;
-  width:30%;
-  text-align: right;
-  box-sizing: border-box;
-  padding-right: 2%;
-}
-
-.hla{
-  display: inline-block;
-  width: 32%;
-  text-align: right;
-  box-sizing: border-box;
-  margin: 10px 0px;
-}
-
-.hla select{
-  width: 78%;
-  box-sizing: border-box;
-}
-
-#b, #d, #dq{
-  margin-left: 30%;
-}
-
-#a{
-  margin-left: 0;
-} */
-
-
-
-
-/* ------------------------------------------------------ */
-/* #serology, #hla{
-  display: block;
-  width: 35%;
-  text-align: right;
-} */
-
 /* ------------passport image----------------- */
 
 /* #pass-img img{
