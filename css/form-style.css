@@ -53,6 +53,10 @@ div.input-field{
   margin: 10px 0px;
 }
 
+.select2 .select2-selection {
+  border-radius: 2px;
+}
+
 button, input, select, textarea{
   font-family: inherit;
   font-size: 95%;
@@ -114,7 +118,7 @@ input[type='radio']{      /*increase the size of radio buttons*/
   margin: 15px;
 }
 
-.antigen label{
+.antigen label:not(.help-block) {
   display: inline-block;
   width: 8%;
 }
@@ -124,6 +128,11 @@ input[type='radio']{      /*increase the size of radio buttons*/
 .has-error{
   border: 1px solid #c51244;
   background-color: #fff0f4;
+}
+
+.select2.has-error .select2-selection {
+  background: transparent;
+  border: none;
 }
 
 .help-block{
