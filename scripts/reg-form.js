@@ -37,12 +37,12 @@ $(document).ready(function(){
   $("#prev-transp").change(function(){
 
     if($(this).val() === "yes"){
-      $("#date-of-transp").show();
+      $("#dot").show();  //show date of transplant field
       //write some validation condtions
     }
 
     else{
-      $("#date-of-transp").hide();
+      $("#dot").hide();
       //remove validations
     }
   });
@@ -174,9 +174,9 @@ $(document).ready(function(){
 
   function next_tab(){
 
-		let isValid = validate_form(); // check the validity of the current tab
-		console.log(isValid);
-		if(!isValid) return false;
+    let isValid = validate_form(); // check the validity of the current tab
+    console.log(isValid);
+    if(!isValid) return false;
 
 		console.log("form valid!");
 
@@ -205,23 +205,212 @@ $(document).ready(function(){
 
 
 	function validate_form(){
-    console.log("entered validate function");
-		
+
+    // Custom error messages
+    $.validator.setDefaults({
+      errorClass: 'help-block error-width',
+      highlight: function(element){
+        if($(element).hasClass('beautify')){
+          $(element).addClass('has-error');
+          $(element).next().addClass('has-error');   //tweak select2 field
+        }
+
+        else if ($(element).is('input[radio]')){
+          $(element.parent()).addClass('has-error');
+        }
+        else 
+          $(element).addClass('has-error');
+
+      },
+      unhighlight: function(element){
+        // remove the tweak for select2 here
+        $(element).removeClass('has-error');
+      },
+      errorPlacement: function (error, element){
+        if(element.prop('type') === 'radio' || element.prop('type') === 'select-multiple'){
+          error.appendTo(element.parent());
+          console.log(element.parent());
+        } 
+        else {
+          error.insertAfter(element);
+        }
+      }
+    });
+
+    // Custom validation methods
+    $.validator.addMethod( "alphanumeric", function( value, element ) {
+      return this.optional( element ) || /^[A-Za-z0-9_,]+$/i.test( value );
+    }, "Letters, numbers, comma and underscores only please" );
+
+    $.validator.addMethod( "lettersonly", function( value, element ) {
+      return this.optional( element ) || /^[A-Za-z]+$/i.test( value );
+    }, "Letters only please" );
+
+    $.validator.addMethod( "nowhitespace", function( value, element ) {
+      return this.optional( element ) || /^\S+$/i.test( value );
+    }, "Please do not enter any whitespaces" );
+
+    $.validator.addMethod( "startsCapital", function( value, element ) {
+      return this.optional( element ) || /^[A-Z]/i.test( value );
+    }, "Please start your name with a capital letter" );
+
+    $.validator.addMethod( "mobileIndia", function( value, element ) {
+      return this.optional( element ) || /^[6-9]\d{9}$/i.test( value );
+    }, "Please enter a valid 10 digit mobile number" );
+
+    $.validator.addMethod( "pincodeIndia", function( value, element ) {
+      return this.optional( element ) || /^[1-9]{1}[0-9]{5}$/i.test( value );
+    }, "Please enter a valid pincode for your region" );
+
+    $.validator.addMethod( "twoDecimal", function( value, element ) {
+      return this.optional( element ) || /^[0-9]+$/i.test( value ) || /^[0-9]+\.[0-9][0-9]$/i.test( value );
+    }, "Please round off to two decimal places" );
+    
+    //applying validation
 		let form = $("#reg-form")
     form.validate({
       rules: {
+        // name validations
         r_fname: {
-          required: true
+          required: true,
+          nowhitespace: true,
+          lettersonly: true,
+          startsCapital: true
         },
-        r_lname:{
-          required: true
+        r_lname: {
+          required: true,
+          nowhitespace: true,
+          lettersonly: true,
+          startsCapital: true
         },
+        d_fname: {
+          required: true,
+          nowhitespace: true,
+          lettersonly: true,
+          startsCapital: true
+        },
+        d_lname: {
+          required: true,
+          nowhitespace: true,
+          lettersonly: true,
+          startsCapital: true
+        },
+
+        //bmi validations
+        r_height: {
+          twoDecimal: true
+        },
+        r_weight: {
+          twoDecimal: true
+        },
+        d_height: {
+          twoDecimal: true
+        },
+        d_weight: {
+          twoDecimal: true
+        },
+
+        //address validations
+        r_addr1: {
+          alphanumeric: true
+        },
+        r_addr2: {
+          alphanumeric: true
+        },
+        r_city: {
+          lettersonly: true,
+          nowhitespace: true,
+          startsCapital: true
+        },
+        r_state: {
+          lettersonly: true,
+          nowhitespace: true,
+          startsCapital: true
+        },
+        r_pincode: {
+          nowhitespace: true,
+          pincodeIndia: true
+        },
+        r_country: {
+          lettersonly: true,
+          nowhitespace: true,
+          startsCapital: true
+        },
+        d_addr1: {
+          alphanumeric: true
+        },
+        d_addr2: {
+          alphanumeric: true
+        },
+        d_city: {
+          lettersonly: true,
+          nowhitespace: true,
+          startsCapital: true
+        },
+        d_state: {
+          lettersonly: true,
+          nowhitespace: true,
+          startsCapital: true
+        },
+        d_pincode: {
+          nowhitespace: true,
+          pincodeIndia: true
+        },
+        d_country: {
+          lettersonly: true,
+          nowhitespace: true,
+          startsCapital: true
+        },
+
+        //mobile number validations
+        r_cno: {
+          mobileIndia: true
+        },
+        d_cno: {
+          mobileIndia: true
+        },
+        //email id validations 
+        r_email: {
+          email: true
+        },
+        d_email: {
+          email: true
+        },
+
+        // radio buttons validation
+        //gender validations
+        r_sex: "required",
+        d_sex: "required",
+        //serology validations
+        r_hiv: "required",
+        r_hepB: "required",
+        r_hepC: "required",
+        d_hiv: "required",
+        d_hepB: "required",
+        d_hepC: "required"
       },
   
       messages: {
-        r_fname: "This field is required!"
+        r_sex: "Please fill this field",
+        d_sex: "Please fill this field",
+        //serology validations
+        r_hiv: "Please fill this field",
+        r_hepB: "Please fill this field",
+        r_hepC: "Please fill this field",
+        d_hiv: "Please fill this field",
+        d_hepB: "Please fill this field",
+        d_hepC: "Please fill this field"
       },
       
+    });
+
+    $('.requiredField').each(function() {
+      $(this).rules('add', {
+        required: true,
+        messages: {
+          required:  "Please fill this field"
+        }
+      });
     });
 
     return form.valid();
