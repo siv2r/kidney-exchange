@@ -14,6 +14,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="scripts/reg-form.js"></script> 
+  <script src="scripts/validation.js"></script> 
 </head>
 
 <style>
@@ -65,7 +66,7 @@
               <label>Name :</label>
             </div>
             <div class="input-box">
-              <input type="text" name="r_fname" value="" class="double requiredField">
+              <input type="text" name="r_fname" value="" id="a" class="double requiredField">
               <input type="text" name="r_lname" value="" class="double requiredField">
             </div >
           </div>
@@ -74,8 +75,8 @@
             <div class="label-box"> 
               <label>Sex :</label>
             </div>
-            <div class="input-box">
-              <input type="radio" id='male' name='r_sex' value="male">
+            <div class="input-box" id="radio-sex" >
+              <input type="radio" id='male' name='r_sex' value="male" required>
               <label for="male">Male</label>
               <input type="radio" id='female' name='r_sex' value="female">
               <label for="female">Female</label>
@@ -247,7 +248,7 @@
             <div class="label-box">
               <label>HIV -</label>
             </div>
-            <div class="input-box">
+            <div class="input-box"  id="radio-hiv">
               <input type="radio" id='hiv-p' name='r_hiv' value="positive">
               <label for="hiv-p">Positive</label>
               <input type="radio" id='hiv-n' name='r_hiv' value="negative">
@@ -259,7 +260,7 @@
             <div class="label-box">
               <label for="r_hepB">Hepatitis B -</label>
             </div>
-            <div class="input-box">
+            <div class="input-box" id="radio-hep">
               <input type="radio" id='r_hepBP' name='r_hepB' value="positive">
               <label for="r_hepBP">Positive</label>
               <input type="radio" id='r_hepBN' name='r_hepB' value="negative">
@@ -271,7 +272,7 @@
             <div class="label-box">
               <label for="r_hepC">Hepatitis C -</label>
             </div>
-            <div class="input-box">
+            <div class="input-box" id="radio-hepc">
               <input type="radio" id='r_hepCP' name='r_hepC' value="positive">
               <label for="r_hepCP">Positive</label>
               <input type="radio" id='r_hepCN' name='r_hepC' value="negative">
@@ -707,6 +708,8 @@
     
     </form>
   </div>
+
+
 </body>
 
 </html> 

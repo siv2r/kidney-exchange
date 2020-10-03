@@ -121,6 +121,10 @@ body{
 	opacity: 0.9;
   background-size: 300%;
 }
+#radio-gender {
+    vertical-align: middle !important;
+    padding-bottom: 18px;
+}
 
 #regForm {
 	box-sizing: border-box;
@@ -305,12 +309,13 @@ input.invalid{
     <input type="number" id="r_age" name="r_age" value="" placeholder="20">
 
     <label>Gender:</label>
+    <div id="radio-gender">
     <input type="radio" id="r_male" name="r_gender" value="male">
     <label for="r_male">Male</label>
     <input type="radio" id="r_female" name="r_gender" value="female">
     <label for="r_female">Female</label>
     <input type="radio" id="r_other" name="r_gender" value="other">
-    <label for="r_other">Other</label>
+    <label for="r_other">Other</label></div>
 
     <!-- <label>Place of residence:</label>
     <input type="text" name="r_addr1" value="" placeholder="e.g Address line 1">
@@ -645,6 +650,9 @@ input.invalid{
 <script src="scripts/regForm.js"></script>
 
 
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts/validation.js"></script> 
 
 </html>
