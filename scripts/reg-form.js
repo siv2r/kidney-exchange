@@ -251,7 +251,7 @@ $(document).ready(function(){
     }, "Please do not enter any whitespaces" );
 
     $.validator.addMethod( "startsCapital", function( value, element ) {
-      return this.optional( element ) || /^[A-Z]/i.test( value );
+      return this.optional( element ) || /[A-Z]/.test( value[0]);
     }, "Please start your name with a capital letter" );
 
     $.validator.addMethod( "mobileIndia", function( value, element ) {
