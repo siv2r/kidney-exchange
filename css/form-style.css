@@ -112,7 +112,7 @@ input[type='radio']{      /*increase the size of radio buttons*/
   width: 90%;
 }
 
-/* -----------------------------------Adusting HLA labels linke A, B, C---------------- */
+/* -----------------------------------Adjusting HLA labels linke A, B, C---------------- */
 
 .antigen{
   margin: 15px;
@@ -127,7 +127,7 @@ input[type='radio']{      /*increase the size of radio buttons*/
 
 .has-error{
   border: 1px solid #c51244;
-  background-color: #fff0f4;
+  background-color: #fff0f4; 
 }
 
 .select2.has-error .select2-selection {
