@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
 
 
 	//connecting to database
-  include("templates/db-connect.php");
+  include("../templates/db-connect.php");
   
   //check if this hospital record is present in the database
   $sql_check = "SELECT EXISTS (SELECT * FROM hospitals WHERE license='$hosp_license' LIMIT 1)";
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
 
 body{
 	margin: 0;
-	background-image: url("./images/register.jpg");
+	background-image: url("../images/register.jpg");
 	opacity: 0.9;
   background-size: 300%;
 }
@@ -179,7 +179,7 @@ button:hover {
 
 </style>
 
-<?php include("templates/header.php"); ?>
+<?php include("../templates/header.php"); ?>
 
   <form action="#" method="POST" id="regForm">
 

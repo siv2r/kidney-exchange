@@ -318,23 +318,23 @@ $(document).ready(function(){
           alphanumeric: true
         },
         r_city: {
-          lettersonly: true,
           nowhitespace: true,
-          startsCapital: true
+          lettersonly: true,
+          // startsCapital: true
         },
         r_state: {
-          lettersonly: true,
           nowhitespace: true,
-          startsCapital: true
+          lettersonly: true,
+          // startsCapital: true
         },
         r_pincode: {
           nowhitespace: true,
           pincodeIndia: true
         },
         r_country: {
-          lettersonly: true,
           nowhitespace: true,
-          startsCapital: true
+          lettersonly: true,
+          // startsCapital: true
         },
         d_addr1: {
           alphanumeric: true
@@ -343,23 +343,23 @@ $(document).ready(function(){
           alphanumeric: true
         },
         d_city: {
-          lettersonly: true,
           nowhitespace: true,
-          startsCapital: true
+          lettersonly: true,
+          // startsCapital: true
         },
         d_state: {
-          lettersonly: true,
           nowhitespace: true,
-          startsCapital: true
+          lettersonly: true,
+          // startsCapital: true
         },
         d_pincode: {
           nowhitespace: true,
           pincodeIndia: true
         },
         d_country: {
-          lettersonly: true,
           nowhitespace: true,
-          startsCapital: true
+          lettersonly: true,
+          // startsCapital: true
         },
 
         //mobile number validations

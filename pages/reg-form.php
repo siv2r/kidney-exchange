@@ -13,7 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-  <script src="scripts/reg-form.js"></script> 
+  <script src="../scripts/reg-form.js"></script> 
 </head>
 
 <style>
@@ -33,13 +33,13 @@
 
 </style>
 
-<link rel="stylesheet" href="./css/form-style.css">
+<link rel="stylesheet" href="../css/form-style.css">
 
 <body>
 
   <div class="header-img">
     <div class="nav-container">
-      <?php include("templates/nav-bar.php") ?>
+      <?php include("../templates/nav-bar.php") ?>
     </div>
     <h2 id="heading">Registration form</h2>
   </div>
@@ -193,7 +193,7 @@
         
           <legend>Medical Information</legend>
 
-          <?php include("templates/r_hla.php") ?>
+          <?php include("../templates/r_hla.php") ?>
         
           <div class='input-field'>
             <div class="label-box">
@@ -583,7 +583,7 @@
         
           <legend>Medical Information</legend>
 
-          <?php include("templates/d_hla.php") ?>
+          <?php include("../templates/d_hla.php") ?>
         
           <div class='input-field'>
             <div class="label-box">

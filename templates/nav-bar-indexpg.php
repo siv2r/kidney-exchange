@@ -36,11 +36,11 @@
 
 <nav>
   <ul>
-    <li><a href="../index.php">Home</a></li>
+    <li><a href="index.php">Home</a></li>
     <li><a href="#">About</a></li>
     <li><a href="#">Contact</a></li>
-    <li><a href="reg-form.php">Register (Patient)</a></li>
-    <li><a href="register_hospital.php">Register (Hospital)</a></li>
-    <li id="login"><a href="login.php">Login</a></li>
+    <li><a href="pages/reg-form.php">Register (Patient)</a></li>
+    <li><a href="pages/register_hospital.php">Register (Hospital)</a></li>
+    <li id="login"><a href="pages/login.php">Login</a></li>
   </ul>
 </nav>

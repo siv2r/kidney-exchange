@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
   $entered_username = $_POST['uname'];
   $entered_password = $_POST['pswd'];
 
-  include("templates/db-connect.php");
+  include("../templates/db-connect.php");
 
   //Create query
   $query = "SELECT * FROM admin_accounts WHERE username = '". $entered_username ."' AND passwrd = '" . $entered_password . "' LIMIT 1";
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
 
 <html lang="en">
 
-<link rel="stylesheet" href="./css/login_styles.css">
+<link rel="stylesheet" href="../css/login_styles.css">
 
 <style>
 
@@ -46,12 +46,12 @@ form, button, a{
 
 </style>
 
-<?php include("templates/header.php"); ?>
+<?php include("../templates/header.php"); ?>
     
     <section id="loginBackground">
         <form action="#" method="POST">
             <div class="imgcontainer">
-                <img src="images/avatar.jpg" alt="Avatar" class="avatar">
+                <img src="../images/avatar.jpg" alt="Avatar" class="avatar">
             </div>
 
             <div class="container2">
