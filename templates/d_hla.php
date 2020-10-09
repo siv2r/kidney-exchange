@@ -1,46 +1,51 @@
 <div class='input-field'> 
   <div class="label-box">
-    <label>HLA Antigens :</label>
+    <label>HLA Antigens   </label>
   </div>
   <div class="input-box">
     <div class="antigen">
-      <label for="d_hla_a"> A: </label>
+      <label for="d_hla_a"> A  
+        <label class="required">*</label>
+      </label>
+
       <select class="beautify requiredField single" id="d_hla_a" name="d_hla_a[]" multiple>  <!-- added requiredField class -->
-        <option value="">None</option>
-        <option value="">A1</option>
-        <option value="">A2</option>
-        <option value="">A203</option>
-        <option value="">A210</option>
-        <option value="">A3	</option>
-        <option value="">A9	</option>
-        <option value="">A10</option>		 
-        <option value="">A11</option>		 
-        <option value="">A19</option>			 
-        <option value="">A23(9)</option>	 	 
-        <option value="">A24(9)</option>	 	 
-        <option value="">A2403</option>	 	 
-        <option value="">A25(10)</option>	 	 
-        <option value="">A26(10)</option>	 	 
-        <option value="">A28</option>	 
-        <option value="">A29(19)</option>	 	 
-        <option value="">A30(19)</option>	 	 
-        <option value="">A31(19)</option>	 	 
-        <option value="">A32(19)</option>	 
-        <option value="">A33(19)</option> 	 
-        <option value="">A34(10)</option> 
-        <option value="">A36</option>
-        <option value="">A43</option>	 	 
-        <option value="">A66(10)</option>	 
-        <option value="">A68(28)</option>	 
-        <option value="">A69(28)</option> 	 
-        <option value="">A74(19)</option>
-        <option value="">A80</option>
+        <option value="None">None</option>
+        <option value="A1">A1</option>
+        <option value="A2">A2</option>
+        <option value="A203">A203</option>
+        <option value="A210">A210</option>
+        <option value="A3">A3	</option>
+        <option value="A9">A9	</option>
+        <option value="A10">A10</option>		 
+        <option value="A11">A11</option>		 
+        <option value="A19">A19</option>			 
+        <option value="A23(9)">A23(9)</option>	 	 
+        <option value="A24(9)">A24(9)</option>	 	 
+        <option value="A2403">A2403</option>	 	 
+        <option value="A25(10)">A25(10)</option>	 	 
+        <option value="A26(10)">A26(10)</option>	 	 
+        <option value="A28">A28</option>	 
+        <option value="A29(19)">A29(19)</option>	 	 
+        <option value="A30(19)">A30(19)</option>	 	 
+        <option value="A31(19)">A31(19)</option>	 	 
+        <option value="A32(19)">A32(19)</option>	 
+        <option value="A33(19)">A33(19)</option> 	 
+        <option value="A34(10)">A34(10)</option> 
+        <option value="A36">A36</option>
+        <option value="A43">A43</option>	 	 
+        <option value="A66(10)">A66(10)</option>	 
+        <option value="A68(28)">A68(28)</option>	 
+        <option value="A69(28)">A69(28)</option> 	 
+        <option value="A74(19)">A74(19)</option>
+        <option value="A80">A80</option>
       </select>
     </div>
 
 
     <div class="antigen">
-      <label for="d_hla_b"> B: </label>
+      <label for="d_hla_b"> B
+        <label class="required">*</label>
+      </label>
       <select class="beautify requiredField single" id="d_hla_b" name="d_hla_b[]" multiple> <!-- added requiredField class -->
       <option value="">None</option>	
       <option value="">B5</option>	
@@ -96,9 +101,41 @@
       </select>
     </div>
 
+    <div class="antigen">
+      <label for="d_hla_dr">DR
+        <label class="required">*</label>
+      </label>
+      <select class="beautify single requiredField" id="d_hla_dr" name="d_hla_dr[]" multiple>   <!-- added requiredField class -->
+        <option value="">None</option>
+        <option value="">DR1</option>
+        <option value="">DR103</option>
+        <option value="">DR2</option>
+        <option value="">DR3</option>
+        <option value="">DR4</option>
+        <option value="">DR5</option>
+        <option value="">DR6</option>
+        <option value="">DR7</option>
+        <option value="">DR8</option>
+        <option value="">DR9</option>
+        <option value="">DR10</option>
+        <option value="">DR11(5)</option>	 	 
+        <option value="">DR12(5)</option>	 	 
+        <option value="">DR13(6)</option>	 	 
+        <option value="">DR14(6)</option>	 	 
+        <option value="">DR1403</option>	 	 
+        <option value="">DR1404</option>	 	 
+        <option value="">DR15(2)</option>	 	 
+        <option value="">DR16(2)</option>	 	 
+        <option value="">DR17(3)</option>	 	 
+        <option value="">DR18(3)</option>	 	 	 
+        <option value="">DR51</option>	 	 
+        <option value="">DR52</option>	 	 
+        <option value="">DR53</option>
+      </select>
+    </div>
 
     <div class="antigen">
-      <label for="d_hla_c"> C: </label>
+      <label for="d_hla_c"> C   </label>
       <select class="beautify single" id="d_hla_c" name="d_hla_c[]" multiple>
         <option value="">None</option>
         <option value="">Cw1</option>	
@@ -116,7 +153,7 @@
 
 
     <div class="antigen">
-      <label for="d_hla_d" > D: </label>
+      <label for="d_hla_d" > D   </label>
       <select class="beautify single" id="d_hla_d" name="d_hla_d[]" multiple>
         <option value="">None</option>
         <option value="">Dw1</option>
@@ -148,41 +185,8 @@
       </select>
     </div>
 
-
     <div class="antigen">
-      <label for="d_hla_dr">DR: </label>
-      <select class="beautify single requiredField" id="d_hla_dr" name="d_hla_dr[]" multiple>   <!-- added requiredField class -->
-        <option value="">None</option>
-        <option value="">DR1</option>
-        <option value="">DR103</option>
-        <option value="">DR2</option>
-        <option value="">DR3</option>
-        <option value="">DR4</option>
-        <option value="">DR5</option>
-        <option value="">DR6</option>
-        <option value="">DR7</option>
-        <option value="">DR8</option>
-        <option value="">DR9</option>
-        <option value="">DR10</option>
-        <option value="">DR11(5)</option>	 	 
-        <option value="">DR12(5)</option>	 	 
-        <option value="">DR13(6)</option>	 	 
-        <option value="">DR14(6)</option>	 	 
-        <option value="">DR1403</option>	 	 
-        <option value="">DR1404</option>	 	 
-        <option value="">DR15(2)</option>	 	 
-        <option value="">DR16(2)</option>	 	 
-        <option value="">DR17(3)</option>	 	 
-        <option value="">DR18(3)</option>	 	 	 
-        <option value="">DR51</option>	 	 
-        <option value="">DR52</option>	 	 
-        <option value="">DR53</option>
-      </select>
-    </div>
-
-
-    <div class="antigen">
-      <label for="d_hla_dq">DQ: </label>
+      <label for="d_hla_dq">DQ   </label>
       <select class="beautify single" id="d_hla_dq" name="d_hla_dq[]" multiple>
         <option value="">None</option>
         <option value="">DQ1</option>	
@@ -198,7 +202,7 @@
     </div>
 
     <div class="antigen">
-      <label for="d_hla_dp">DP: </label>
+      <label for="d_hla_dp">DP   </label>
       <select class="beautify single" id="d_hla_dp" name="d_hla_dp[]" multiple>
         <option value="">None</option>
         <option value="">DPw1</option>
@@ -215,7 +219,8 @@
 
 <div class="input-field">
   <div class="label-box">
-    <label for="d_hla-report" class="label-box">HLA report :</label>
+    <label for="d_hla-report" class="label-box">HLA report   </label>
+    <label class="required">* </label>
   </div>     
   <div class="input-box">
     <input type="file" id="d_hla-report" name="d_hla-report" value="" class="requiredField single">

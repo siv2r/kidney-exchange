@@ -238,9 +238,13 @@ $(document).ready(function(){
     });
 
     // Custom validation methods
+    $.validator.addMethod( "supernumeric", function( value, element ) {
+      return this.optional( element ) || /^[A-Za-z0-9_,-. ]+$/i.test( value );
+    }, "alphanumeric, comma, undersocre, dots, hyphen only please" );
+
     $.validator.addMethod( "alphanumeric", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z0-9_,]+$/i.test( value );
-    }, "Letters, numbers, comma and underscores only please" );
+      return this.optional( element ) || /^[A-Za-z0-9]+$/i.test( value );
+    }, "Letters and numbers only please" );
 
     $.validator.addMethod( "lettersonly", function( value, element ) {
       return this.optional( element ) || /^[A-Za-z]+$/i.test( value );
@@ -312,10 +316,10 @@ $(document).ready(function(){
 
         //address validations
         r_addr1: {
-          alphanumeric: true
+          supernumeric: true
         },
         r_addr2: {
-          alphanumeric: true
+          supernumeric: true
         },
         r_city: {
           nowhitespace: true,
@@ -337,10 +341,10 @@ $(document).ready(function(){
           // startsCapital: true
         },
         d_addr1: {
-          alphanumeric: true
+          supernumeric: true
         },
         d_addr2: {
-          alphanumeric: true
+          supernumeric: true
         },
         d_city: {
           nowhitespace: true,

@@ -118,7 +118,7 @@ input[type='radio']{      /*increase the size of radio buttons*/
   margin: 15px;
 }
 
-.antigen label:not(.help-block) {
+.antigen label:not(.help-block):not(.required) {
   display: inline-block;
   width: 8%;
 }
@@ -142,32 +142,46 @@ input[type='radio']{      /*increase the size of radio buttons*/
   width: 60%;
 }
 
-/* ------------passport image----------------- */
-
-/* #pass-img img{
-  width: 85%;
+label.required{
+  content:"*";
+  color: red;
 }
 
-#pass-img input{
-  display: none;
+
+/* ------------passport image and form heading----------------- */
+
+.heading-box{
+  flex: 7 0 0;
+}
+
+.heading-box h3{
+  font-size: 28px;
+  text-transform: capitalize;
+  margin-left: 50%;
+  margin-top: 10%;
+}
+
+.pass-img-box{
+  flex: 3 0 0;
 }
 
 #pass-img{
-  float: left;
-  padding: 0;
-  width: 15%;
-  height: 15%;
-  box-sizing: border-box;
-  padding: 8px;
-  text-align: center;
-}
-
-#pass-img:after{
-  content: "Upload your image";
+  width: 50%;
   display: block;
-  clear: both;
 }
 
+.pass-img-box input{   /*Try using width of this as 0 and using jquery validation*/
+  width: 90%;
+  margin: 5px;
+  padding: 5px;
+}
+
+.pass-img-box label{
+  width: 90%;
+  display: block;
+  text-align: right;
+  margin: 5px;
+}
 /* ------------------------------------------- */
 
 #next-btn, #prev-btn{
