@@ -20,10 +20,14 @@
 }
 
 .wrapper{
-  width: 80%;
+  width: 70%;
   margin: auto;
   padding: 10px;
   box-sizing: border-box;
+}
+
+body{
+  margin: 0%;
 }
 
 </style>

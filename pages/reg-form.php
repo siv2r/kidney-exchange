@@ -45,7 +45,7 @@
   </div>
 
   <div class="wrapper">
-    <form action="./reg-form-process.php" method="post" id="reg-form">
+    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data">
       
       <div class='tab'>
         
@@ -461,7 +461,7 @@
               <label for="passport-img">
                 <img id="pass-img" src="../images/blank-avatar.png">
               </label>
-              <input type="file" id="passport-img" name="r_img" class="requiredField">
+              <input type="file" id="passport-img" name="d_img" class="requiredField">
             </div>
         </div>
         
@@ -485,11 +485,11 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='male' name='d_sex'>
+              <input type="radio" id='male' name='d_sex' value="male">
               <label for="male">Male</label>
-              <input type="radio" id='female' name='d_sex'>
+              <input type="radio" id='female' name='d_sex' value="female">
               <label for="female">Female</label>
-              <input type="radio" id='other' name='dd_sex'>
+              <input type="radio" id='other' name='dd_sex' value="other">
               <label for="other">Other</label>
             </div>
           </div>
@@ -569,7 +569,7 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <select id="d_rel-donor" name="d_rel-donor" class="requiredField single">
+              <select id="d_rel-donor" name="d_rel" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
                 <option value="Father">Father</option>
                 <option value="Mother">Mother</option>
@@ -660,7 +660,7 @@
                 <label class="required">* </label>
               </div>
               <div class="input-box">
-                <input type="text" class="requredField single" name="d_comorb-others" value="">
+                <input type="text" class="requredField single" name="d_comorb-others">
               </div>
           </div>
         

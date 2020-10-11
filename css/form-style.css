@@ -194,6 +194,10 @@ label.required{
   width: 30%;
 }
 
+#next-btn:hover, #prev-btn:hover{
+  opacity: 0.8;
+}
+
 #btn-block{
   text-align: center;
   width: 65%;
