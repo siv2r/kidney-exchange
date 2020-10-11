@@ -351,26 +351,33 @@ if(!empty($_POST['r_fname'])){
 
   $sql4 = "INSERT INTO donor_files (id, profile_pic, blood_report, hla_report) VALUES ($d_id, $d_img, $d_b_report, $d_hla_report)";
 
+  $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ('$mid_id' ,$r_id, $d_id, \"NULL\", 'y')";
+
 
 
 	if(!mysqli_query($conn, $sql1)){
     $status = 'Failed';
-		$statusMsg = 'patient query error' . mysqli_error($conn);
+		$statusMsg = 'patient query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql2)){
     $status = 'Failed';
-		$statusMsg = 'donor query error' . mysqli_error($conn);
+		$statusMsg = 'donor query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql3)){
     $status = 'Failed';
-		$statusMsg = 'patient_files query error' . mysqli_error($conn);
+		$statusMsg = 'patient_files query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql4)){
     $status = 'Failed';
-		$statusMsg = 'donor_files query error' . mysqli_error($conn);
+		$statusMsg = 'donor_files query error ' . mysqli_error($conn);
+  }
+
+	else if(!mysqli_query($conn, $sql5)){
+    $status = 'Failed';
+		$statusMsg = 'pd_pairs ' . mysqli_error($conn);
   }
   
   else{

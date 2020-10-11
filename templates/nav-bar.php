@@ -41,6 +41,7 @@
     <li><a href="#">Contact</a></li>
     <li><a href="reg-form.php">Register (Patient)</a></li>
     <li><a href="register_hospital.php">Register (Hospital)</a></li>
-    <li id="login"><a href="login.php">Login</a></li>
+    <li><a href="data.php">Data</a></li>
+    <!-- <li id="login"><a href="login.php">Login</a></li> -->
   </ul>
 </nav>
