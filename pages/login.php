@@ -34,9 +34,10 @@ if(isset($_POST['submit'])){
 <link rel="stylesheet" href="../css/login_styles.css">
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 form, button, a{
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: "Open Sans";
 }
 
 #invalid{

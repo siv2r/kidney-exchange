@@ -17,9 +17,10 @@
 </head>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 * {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family:"Open Sans";
   margin: 0%;
   box-sizing: border-box;
 }
@@ -82,11 +83,11 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='male' name='r_sex' value="male">
+              <input type="radio" id='male' name='r_sex' value="Male">
               <label for="male">Male</label>
-              <input type="radio" id='female' name='r_sex' value="female">
+              <input type="radio" id='female' name='r_sex' value="Female">
               <label for="female">Female</label>
-              <input type="radio" id='other' name='r_sex' value="other">
+              <input type="radio" id='other' name='r_sex' value="Other">
               <label for="other">Other</label>
             </div>
           </div>
@@ -267,9 +268,9 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='hiv-p' name='r_hiv' value="p">
+              <input type="radio" id='hiv-p' name='r_hiv' value="Positive">
               <label for="hiv-p">Positive</label>
-              <input type="radio" id='hiv-n' name='r_hiv' value="n">
+              <input type="radio" id='hiv-n' name='r_hiv' value="Negative">
               <label for="hiv-n">Negative</label>
             </div>
           </div>
@@ -280,9 +281,9 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='r_hepBP' name='r_hepB' value="p">
+              <input type="radio" id='r_hepBP' name='r_hepB' value="Positive">
               <label for="r_hepBP">Positive</label>
-              <input type="radio" id='r_hepBN' name='r_hepB' value="n">
+              <input type="radio" id='r_hepBN' name='r_hepB' value="Negative">
               <label for="r_hepBN">Negative</label>
             </div>
           </div>
@@ -293,9 +294,9 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='r_hepCP' name='r_hepC' value="p">
+              <input type="radio" id='r_hepCP' name='r_hepC' value="Positive">
               <label for="r_hepCP">Positive</label>
-              <input type="radio" id='r_hepCN' name='r_hepC' value="n">
+              <input type="radio" id='r_hepCN' name='r_hepC' value="Negative">
               <label for="r_hepCN">Negative</label>
             </div>
           </div>
@@ -308,8 +309,8 @@
             <div class="input-box">
               <select id="prev-transp" name="r_prev-transp" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>
@@ -332,9 +333,9 @@
             <div class="input-box">
               <select id="mode-of-dialysis" name="r_mod" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="hemodialysis">Hemodialysis</option>
-                <option value="peritoneal dialysis">Peritoneal dialysis</option>
-                <option value="no dialysis">No dialysis</option>
+                <option value="Hemodialysis">Hemodialysis</option>
+                <option value="Peritoneal dialysis">Peritoneal dialysis</option>
+                <option value="No dialysis">No dialysis</option>
               </select>
             </div>
           </div>
@@ -373,8 +374,8 @@
             <div class="input-box">
               <select id="ddp" name="r_ddp" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>
@@ -417,8 +418,8 @@
             <div class="input-box">
               <select id="prov-clear" name="r_prov-clear" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="y">Yes</option>
-                <option value="n">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>
@@ -431,8 +432,8 @@
             <div class="input-box">
               <select id="pre-transp" name="r_pre-transp" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>
@@ -485,11 +486,11 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='male' name='d_sex' value="male">
+              <input type="radio" id='male' name='d_sex' value="Male">
               <label for="male">Male</label>
-              <input type="radio" id='female' name='d_sex' value="female">
+              <input type="radio" id='Female' name='d_sex' value="female">
               <label for="female">Female</label>
-              <input type="radio" id='other' name='dd_sex' value="other">
+              <input type="radio" id='other' name='dd_sex' value="Other">
               <label for="other">Other</label>
             </div>
           </div>
@@ -576,6 +577,8 @@
                 <option value="Spouse">Spouse</option>
                 <option value="Son">Son</option>
                 <option value="Daughter">Daughter</option>
+                <option value="Brother">Brother</option>
+                <option value="Sister">Sister</option>
                 <option value="Paternal grandmother">Paternal grandmother</option>
                 <option value="Paternal grandfather">Paternal grandfather</option>
                 <option value="Maternal grandmother">Maternal grandmother</option>
@@ -672,9 +675,9 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='d_hiv-p' name='d_hiv' value="p">
+              <input type="radio" id='d_hiv-p' name='d_hiv' value="Positive">
               <label for="d_hiv-p">Positive</label>
-              <input type="radio" id='d_hiv-n' name='d_hiv' value="n">
+              <input type="radio" id='d_hiv-n' name='d_hiv' value="Negative">
               <label for="d_hiv-n">Negative</label>
             </div>
           </div>
@@ -685,9 +688,9 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='d_hepBP' name='d_hepB' value="p">
+              <input type="radio" id='d_hepBP' name='d_hepB' value="Positive">
               <label for="d_hepBP">Positive</label>
-              <input type="radio" id='d_hepBN' name='d_hepB' value="n">
+              <input type="radio" id='d_hepBN' name='d_hepB' value="Negative">
               <label for="d_hepBN">Negative</label>
             </div>
           </div>
@@ -698,9 +701,9 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='d_hepCP' name='d_hepC' value="p">
+              <input type="radio" id='d_hepCP' name='d_hepC' value="Positive">
               <laCel for="d_hepCP">Positive</laCel>
-              <input type="radio" id='d_hepCN' name='d_hepC' value="n">
+              <input type="radio" id='d_hepCN' name='d_hepC' value="Negative">
               <label for="d_hepCN">Negative</label>
             </div>
           </div>
@@ -713,8 +716,8 @@
             <div class="input-box">
               <select id="d_alcohol" name="d_alcohol" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="y">Yes</option>
-                <option value="n">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>
@@ -727,8 +730,8 @@
             <div class="input-box">
               <select id="d_smoking" name="d_smoking" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="y">Yes</option>
-                <option value="n">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>
@@ -741,8 +744,8 @@
             <div class="input-box">
               <select id="d_prov-clear" name="d_prov-clear" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="y">Yes</option>
-                <option value="n">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
               </select>
             </div>
           </div>

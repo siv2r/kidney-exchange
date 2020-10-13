@@ -240,60 +240,60 @@ if(!empty($_POST['r_fname'])){
 
   // ---------------------------------------------------------------------------------------------------
 
-  $a[] = $r_name; 
-  $a[] =  $r_sex;
-  $a[] =   $r_dob ;
-  $a[] =   $r_height;
-  $a[] =   $r_weight;
-  $a[] =   $r_btype; 
-  $a[] = $r_id;
-  $a[] =   $r_address;
-  $a[] =   $r_cno;
-  $a[] =   $r_email;
+  // $a[] = $r_name; 
+  // $a[] =  $r_sex;
+  // $a[] =   $r_dob ;
+  // $a[] =   $r_height;
+  // $a[] =   $r_weight;
+  // $a[] =   $r_btype; 
+  // $a[] = $r_id;
+  // $a[] =   $r_address;
+  // $a[] =   $r_cno;
+  // $a[] =   $r_email;
 
-  $a[] =   $r_basicd;
-  $a[] =   $r_gr;
-  $a[] =   $r_comorb;
-  $a[] =   $r_hiv;
-  $a[] =   $r_hepb;
-  $a[] =   $r_hepc;
-  $a[] =   $r_prev_transp;
-  $a[] =   $r_dialysis;
-  $a[] =   $r_ddp;
-  $a[] =   $r_nephro;
-  $a[] =   $r_dcenter;
-  $a[] =   $r_prov_clear;
-  $a[] =   $r_pre_transp;
-  $a[] =   $r_hla;
-  $a[] =   $r_ua;
+  // $a[] =   $r_basicd;
+  // $a[] =   $r_gr;
+  // $a[] =   $r_comorb;
+  // $a[] =   $r_hiv;
+  // $a[] =   $r_hepb;
+  // $a[] =   $r_hepc;
+  // $a[] =   $r_prev_transp;
+  // $a[] =   $r_dialysis;
+  // $a[] =   $r_ddp;
+  // $a[] =   $r_nephro;
+  // $a[] =   $r_dcenter;
+  // $a[] =   $r_prov_clear;
+  // $a[] =   $r_pre_transp;
+  // $a[] =   $r_hla;
+  // $a[] =   $r_ua;
 
 
-  $b[] = $d_name; 
-  $b[] =  $d_sex;
-  $b[] =   $d_dob ;
-  $b[] =   $d_height;
-  $b[] =   $d_weight;
-  $b[] =   $d_btype; 
-  $b[] =   $d_rel; 
-  $b[] = $d_id;
-  $b[] =   $d_address;
-  $b[] =   $d_cno;
-  $b[] =   $d_email;
+  // $b[] = $d_name; 
+  // $b[] =  $d_sex;
+  // $b[] =   $d_dob ;
+  // $b[] =   $d_height;
+  // $b[] =   $d_weight;
+  // $b[] =   $d_btype; 
+  // $b[] =   $d_rel; 
+  // $b[] = $d_id;
+  // $b[] =   $d_address;
+  // $b[] =   $d_cno;
+  // $b[] =   $d_email;
 
-  $b[] =   $d_comorb;
-  $b[] =   $d_hiv;
-  $b[] =   $d_hepb;
-  $b[] =   $d_hepc;
-  $b[] =   $d_prov_clear;
-  $b[] =   $d_hla;
-  $b[] =   $d_alcohol;
-  $b[] =   $d_smoking;
+  // $b[] =   $d_comorb;
+  // $b[] =   $d_hiv;
+  // $b[] =   $d_hepb;
+  // $b[] =   $d_hepc;
+  // $b[] =   $d_prov_clear;
+  // $b[] =   $d_hla;
+  // $b[] =   $d_alcohol;
+  // $b[] =   $d_smoking;
 
-  print_r($_POST);
-  echo '<br>';
-  print_r($a);
-  echo '<br>';
-  print_r($b);
+  // print_r($_POST);
+  // echo '<br>';
+  // print_r($a);
+  // echo '<br>';
+  // print_r($b);
 
   // --------------------------------processing the image and report data-----------------------------------------------------
 
@@ -356,47 +356,44 @@ if(!empty($_POST['r_fname'])){
 
 
 	if(!mysqli_query($conn, $sql1)){
-    $status = 'Failed';
+    $status = 0;
 		$statusMsg = 'patient query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql2)){
-    $status = 'Failed';
+    $status = 0;
 		$statusMsg = 'donor query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql3)){
-    $status = 'Failed';
+    $status = 0;
 		$statusMsg = 'patient_files query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql4)){
-    $status = 'Failed';
+    $status = 0;
 		$statusMsg = 'donor_files query error ' . mysqli_error($conn);
   }
 
 	else if(!mysqli_query($conn, $sql5)){
-    $status = 'Failed';
+    $status = 0;
 		$statusMsg = 'pd_pairs ' . mysqli_error($conn);
   }
   
   else{
-    $status = 'Sucessful';
+    $status = 1;
     $statusMsg = 'Your registration is successful!!!';
   }
 
-}
+  session_start();
 
-if(empty($status)){
-  echo 'Please enter the patient first name' . '<br>';
-}
-else{
-  echo "$status" . "<br>";
-  echo "$statusMsg" . "<br>";
-}
+  $_SESSION['r_id'] = $r_id;
+  $_SESSION['d_id'] = $d_id;
+  $_SESSION['status'] = $status;
+  $_SESSION['msg'] = $statusMsg;
 
-// Failed
-// patient query errorUnknown column 'MpGxs' in 'field list'
+  header("Location: ./message.php");
 
+}
 
 ?>

@@ -62,6 +62,8 @@ if(isset($_POST['submit'])){
 
 <style>
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body{
 	margin: 0;
 	background-image: url("../images/register.jpg");
@@ -77,11 +79,11 @@ body{
 	min-width: 300px;
 	margin: auto;
 	padding: 40px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-family: "Open Sans";
 }
 
 option, select{
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-family: "Open Sans";
 }
 
 
@@ -95,7 +97,7 @@ input[type="text"], input[type="number"], select{
   border: 1px solid #dddddd;
   border-radius: 5%;
   cursor: pointer;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-family: "Open Sans";
   font-size: 18px;
 }
 
@@ -142,7 +144,7 @@ button {
 	cursor: pointer;
   width: 28%;
 	font-size: 18px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-family: "Open Sans";
   margin-left: 37%;
 }
 

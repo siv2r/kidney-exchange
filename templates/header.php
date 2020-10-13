@@ -12,9 +12,10 @@
 </head>
 
 <style>
-
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+  
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family:"Open Sans";
   margin: 0%;
   box-sizing: border-box;
 }

@@ -3,8 +3,8 @@
   nav{
     width: 100%;
     background-color: rgb(0, 0, 0, 0.2);
-    font-family: "Verdana, Geneva, Tahoma, sans-serif";
-    font-size: 20px;
+    font-family: "Open Sans";
+    font-size: 18px;
     line-height: 1.6em;
   }
 
@@ -22,15 +22,13 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 2px;
-    font-weight: 600;
     padding: 25px;
     transition: all ease 0.5s;
   }
 
   nav ul li a:hover{
-    background-color: #221b4385;
+    background-color: #a28089;
   }
 </style>
 
@@ -42,6 +40,6 @@
     <li><a href="pages/reg-form.php">Register (Patient)</a></li>
     <li><a href="pages/register_hospital.php">Register (Hospital)</a></li>
     <li><a href="pages/data.php">Data</a></li>
-    <!-- <li id="login"><a href="pages/login.php">Login</a></li> -->
+    <li id="login"><a href="pages/login.php">Login/Sign Up</a></li>
   </ul>
 </nav>
