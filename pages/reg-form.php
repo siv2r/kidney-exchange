@@ -264,7 +264,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label>HIV -</label>
+              <label>HIV </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -277,7 +277,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="r_hepB">Hepatitis B -</label>
+              <label for="r_hepB">Hepatitis B </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -290,7 +290,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="r_hepC">Hepatitis C -</label>
+              <label for="r_hepC">Hepatitis C </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -671,7 +671,7 @@
 
           <div class='input-field'>
             <div class="label-box">
-              <label>HIV -</label>
+              <label>HIV </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -684,7 +684,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="d_hepB">Hepatitis B -</label>
+              <label for="d_hepB">Hepatitis B </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -697,7 +697,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="d_hepC">Hepatitis C -</label>
+              <label for="d_hepC">Hepatitis C </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">

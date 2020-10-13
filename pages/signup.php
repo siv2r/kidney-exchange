@@ -14,9 +14,9 @@ body{
 form {
   background: rgb(0, 0, 0, 0.5);
   width: 40%;
-  height: 60%;
+  height: 80%;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 20px;
 }
 
@@ -78,7 +78,7 @@ img.avatar {
 			</div> -->
 
 			<div class="form-elements">
-				<h3>LOGIN</h3>
+				<h3>SIGN UP</h3>
 			</div>
 
 			<div class="form-elements">
@@ -86,9 +86,11 @@ img.avatar {
 			</div>
 
 			<div class="form-elements">
-				<input type="text" name="uid" placeholder="Username/Email">
+				<input type="text" name="uname" placeholder="Username">
+				<input type="text" name="email" placeholder="Email">
 				<input type="password" name="pswd" placeholder="Password">
-				<button>Login</button>
+				<input type="password" name="re-pswd" placeholder="Re-enter Password">
+				<button>Sign Up</button>
 			</div>
 
 			

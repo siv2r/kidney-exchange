@@ -55,11 +55,6 @@ if(isset($_POST['submit'])){
 
 ?>
 
-
-<!DOCTYPE html>
-
-<html lang="en">
-
 <style>
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
@@ -182,6 +177,10 @@ button:hover {
 </style>
 
 <?php include("../templates/header.php"); ?>
+
+  <div class="nav-container">
+      <?php include("../templates/nav-bar.php") ?>
+  </div>
 
   <form action="#" method="POST" id="regForm">
 
