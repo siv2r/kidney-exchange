@@ -239,7 +239,7 @@ $(document).ready(function(){
 
     // Custom validation methods
     $.validator.addMethod( "supernumeric", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z0-9_,-. ]+$/i.test( value );
+      return this.optional( element ) || /^[A-Za-z0-9_,-.' ]+$/i.test( value );
     }, "alphanumeric, comma, undersocre, dots, hyphen only please" );
 
     $.validator.addMethod( "alphanumeric", function( value, element ) {

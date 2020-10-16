@@ -1,261 +1,256 @@
-<?php
 
-
-
-// Array ( [hosp_name] => Fortis Malar [hosp_addr1] => No. 52, 1st Main Rd, Gandhi Nagar [hosp_addr2] => Adyar [hosp_district] => Chennai [hosp_state] => Tamil Nadu [hosp_pincode] => 600020 [hosp_type] => Private [hosp_license] => TN#17654 [nephro_fname] => Pradeep [nephro_lname] => Rajashekar [nephro_id] => FM#154 [surg_fname] => Anirudh [surg_lname] => Tiwari [surg_id] => FM#162 [submit] => submit )
-
-if(isset($_POST['submit'])){
-
-  $insertion = "";
-  $error = "";
-  $id = "";
-
-  //hospital info
-  $hosp_name = $_POST['hosp_name'];
-  $hosp_addr = "{$_POST['hosp_addr1']}, {$_POST['hosp_addr2']}, {$_POST['hosp_district']}, {$_POST['hosp_state']} {$_POST['hosp_pincode']}";
-  $hosp_type = $_POST['hosp_type'];
-  $hosp_license = $_POST['hosp_license'];
-  $nephro_name = "{$_POST['nephro_fname']} {$_POST['nephro_lname']}";
-  $nephro_id = $_POST['nephro_id'];
-  $surg_name = "{$_POST['surg_fname']} {$_POST['surg_lname']}";
-  $surg_id = $_POST['surg_id'];
-
-
-	//connecting to database
-  include("../templates/db-connect.php");
-  
-  //check if this hospital record is present in the database
-  $sql_check = "SELECT EXISTS (SELECT * FROM hospitals WHERE license='$hosp_license' LIMIT 1)";
-  $check_result = mysqli_query($conn, $sql_check);
-  if(!$check_result) $error = 'Dabase check error'. mysqli_error($conn);
-  $check_result_array = mysqli_fetch_array($check_result, MYSQLI_NUM);
-
-//  print_r($check_result_array);
-
-  if($check_result_array[0] == 0){
-    $insertion = "done";
-    //insert the values if not present
-    $sql_insert = "INSERT INTO hospitals(`name`, `addr`, `type`, `license`, `nephro_name`, `nephro_id`, `surg_name`, `surg_id`) VALUES ('$hosp_name', '$hosp_addr', '$hosp_type', '$hosp_license', '$nephro_name', '$nephro_id', '$surg_name', '$surg_id')";
-
-    if(!mysqli_query($conn, $sql_insert)){
-      $insertion = "";
-      echo 'Insetion query error' . mysqli_error($conn);
-    }
-
-  }
-
-  $id_query = "SELECT id FROM hospitals WHERE license='$hosp_license' LIMIT 1";
-  $id_query_result = mysqli_query($conn, $id_query);
-  if(!$id_query_result) $error = 'id query error'. mysqli_error($conn);
-  $id_query_result_array  = mysqli_fetch_array($id_query_result, MYSQLI_NUM);
-
-  $id = $id_query_result_array[0];
-
-}
-
-?>
-
+<link rel="stylesheet" href="../css/form-style.css">
 <style>
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body{
 	margin: 0;
-	background-image: url("../images/register.jpg");
-	opacity: 0.9;
-  background-size: 300%;
+	/* background-image: url("../images/register.jpg"); */
+	/* opacity: 0.9;
+  background-size: 300%; */
+  font-family: "Open Sans";
 }
 
-#regForm {
+#hospForm {
 	box-sizing: border-box;
 	background-color: #ffff;
 	border: 3px solid #f1f1f1;
-	width: 60%;
 	min-width: 300px;
 	margin: auto;
-	padding: 40px;
-	font-family: "Open Sans";
+	padding: 40px 50px;
 }
 
-option, select{
-	font-family: "Open Sans";
+.label-box{
+  flex: 2.5 0 0;
+  text-align: right;
+  padding: 5px 10px;
+  font-size: 22px;
+  line-height: 1.6em;
+}
+
+.input-box{
+  flex: 7 0 0;
+  padding: 5px 10px;
+}
+
+.input-box .single{
+  width: 80%;
+}
+
+.input-box .double{
+  width: 39%;
 }
 
 
-input[type="text"], input[type="number"], select{
-	display: block;
-	width: 30%;
-	margin: 10px 0px;
-	padding: 8px 12px;
+
+/* input[type="text"], input[type="number"], select{
   color: #333333;
   background-color: #eeeeee;
   border: 1px solid #dddddd;
   border-radius: 5%;
   cursor: pointer;
-	font-family: "Open Sans";
-  font-size: 18px;
-}
+} */
 
 legend{
   font-weight: bold;
   font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-input:focus, input:hover, select:focus, select:hover{
+/* input:focus, input:hover, select:focus, select:hover{
   outline: none;
   border: 1px solid #aaaaaa;
-}
+}  */
 
-input[type="radio"]{
-  background-color: #eeeeee;
-  border: 1px solid #dddddd;
-  border-radius: 5%;
-  cursor: pointer;
 
-}
-
-#regHeader{
-	text-align: center;
-}
-
-label{
-  box-sizing: border-box;
-  display: inline-block;
-  margin-top: 20px;
-}
-
-fieldset{
+/* fieldset{
   padding: 0px 20px 20px 20px;
   margin: 20px;
-}
+} */
 
 button {
 	background-color: darkgrey;
 	color: black;
 	padding: 10px 20px;
   display: inline-block;
-  margin: 10px;
+  margin: auto;
 	border: none;
 	cursor: pointer;
-  width: 28%;
-	font-size: 18px;
-	font-family: "Open Sans";
-  margin-left: 37%;
-}
+  width: 30%;
+  font-size: 20px;
+  justify-content: center;
+} 
 
 button:hover {
 	opacity: 0.8;
 }
 
-#reg_success {
-  font-size: 22px;
-  color: green;
-  text-align: center;
-  font-weight: bold;
+.header-img{
+  /* background-image: url("https://images.unsplash.com/photo-1502485019198-a625bd53ceb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");  */
+  background-image: url(../images/darkBackground.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  min-height: 400px;
 }
 
-#reg{
-  font-size: 22px;
-  color: orange;
-  text-align: center;
-  font-weight: bold;
+#hosp-heading{
+  color: #fff;
+  position: absolute;
+  top: 45%;
+  left: 43%;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-#reg_fail{
-  font-size: 22px;
+/* ---------------------Coustom Error Class------------ */
+
+.has-error{
+  border: 1px solid #c51244;
+  background-color: #fff0f4; 
+}
+
+.help-block{
+  color: #c51244;
+  font-size: 18px;
+  display: inline-block;
+  width: 60%;
+}
+
+label.required{
+  content:"*";
   color: red;
-  text-align: center;
-  font-weight: bold;
-}
-
-#your_id{
-  font-size: 22px;
-	text-align: center;
-  font-weight: bold;
 }
 
 </style>
 
 <?php include("../templates/header.php"); ?>
 
-  <div class="nav-container">
+  <div class="header-img">
+    <div class="nav-container">
       <?php include("../templates/nav-bar.php") ?>
+    </div>
+    <h2 id="hosp-heading">Hospital form</h2>
   </div>
 
-  <form action="#" method="POST" id="regForm">
+  <div class="wrapper">
+    <form action="../include/getHosp.inc.php" method="POST" id="hospForm">
+    
+      <fieldset>
+        <legend>Hospital Information</legend>
+      
+        <div class='input-field'>
+          <div class="label-box">
+            <label>Name</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="h_name" value="" class="single requiredField">
+          </div >
+        </div>
+        
+        <div class='input-field addr'>
+          <div class="label-box">
+            <label>Address  </label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="h_addr1" value="" placeholder="e.g Address line 1" class="requiredField single">
+            <input type="text" name="h_addr2" value="" placeholder="e.g Address line 2" class="requiredField single">
+            <input type="text" name="h_city" value="" placeholder="e.g Chennai" class="requiredField double">
+            <input type="text" name="h_state" value="" placeholder="e.g TamilNadu" class="requiredField double">
+            <input type="number" name="h_pincode" value="" placeholder="e.g 600001" class="requiredField double"> 
+            <input type="text"  name="h_country" value="" placeholder="e.g India" class="requiredField double"> 
+          </div>
+        </div>
+      
+        <div class="input-field">
+          <div class="label-box">
+            <label for="type" id="type">Type</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <select name="h_type" class="requiredField single">
+              <option value="" selected disabled>Choose</option>
+              <option value="Government">Government</option>
+              <option value="Private (Govn insured)">Private (Govn insured)</option>
+              <option value="Private">Private</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="input-field">
+          <div class="label-box">
+            <label>License Information</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="h_license" class="requiredField single">
+          </div>
+        </div>
+      
+      </fieldset>
+    
+      <fieldset>
+        <legend>Nephrologist Information</legend>
+      
+        <div class='input-field'>
+          <div class="label-box">
+            <label>Name</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="nephro_fname" value="" class="double requiredField">
+            <input type="text" name="nephro_lname" value="" class="double requiredField">
+          </div >
+        </div>
+      
+        <div class="input-field">
+          <div class="label-box">
+            <label>ID</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="nephro_id" value="" class="single requiredField">
+          </div>
+        </div>
+      </fieldset>
+    
+      <fieldset>
+        <legend>Surgeon Information</legend>
+      
+        <div class='input-field'>
+          <div class="label-box">
+            <label>Name</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="surg_fname" value="" class="double requiredField">
+            <input type="text" name="surg_lname" value="" class="double requiredField">
+          </div >
+        </div>
+        
+        <div class="input-field">
+          <div class="label-box">
+            <label>ID</label>
+            <label class="required">* </label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="surg_id" value="" class="single requiredField">
+          </div>
+        </div> 
+      </fieldset>
+    
+      <div class="input-field">
+        <button type="button" name="submitBtn" value="submitBtn" id="submitBtn">Submit</button>
+      </div>
+    
+    <form>
+  </div>
 
-  <?php if(!empty($insertion) && !empty($id)) { ?>
-    <p id="reg_success">Registration successful!</p>
-    <p id="reg_success"><?php echo "Your Hospital id : '$id' ";  ?></p>
-  <?php } else if(empty($insertion) && !empty($id)) { ?>
-    <p id="reg">Your hospital is already registered</p>
-    <p id="reg"><?php echo "Your Hospital id : '$id' ";  ?></p>
-  <?php } else if(!empty($error)) { ?>
-    <p id="reg_fail">Registration Failed!</p>
-    <p id="reg_fail"><?php echo "Please try again afterwards";  ?></p>
-  <?php } ?>
-
-  <h2 id="regHeader">Registration Form (Hospital)</h2>
-
-  <fieldset>
-  <legend>Hospital Information</legend>
-
-  <label for="hoso">Name:</label>
-	<input type="text" id="hosp_name" name="hosp_name" value="" placeholder="Dr. Mehta"  pattern="[A-Z][a-zA-z._ ]*" title="Start with uppercase and Do not use apostophe" required>
-
-	<label>Address:</label>
-	<input type="text" name="hosp_addr1" value="" placeholder="e.g Address line 1" required>
-	<input type="text" name="hosp_addr2" value="" placeholder="e.g Address line 2" required>
-	<input type="text" name="hosp_district" value="" placeholder="e.g Chennai" required>
-	<input type="text" name="hosp_state" value="" placeholder="e.g TamilNadu" required>
-	<input type="number" name="hosp_pincode" value="" placeholder="e.g 600001" required> 
-
-
-	<label for="type" id="type">Type:</label>
-	<select name="hosp_type" required>
-			<option value="" selected="true" disabled="disabled">Choose</option>
-			<option value="Government">Government</option>
-			<option value="Private (Govn insured)">Private (Govn insured)</option>
-			<option value="Private">Private</option>
-  </select>
-  
-  <label>License Information:</label>
-  <input type="text" name="hosp_license" value="" required>
-
-  </fieldset>
-  
-  <fieldset>
-    <legend>Nephrologist Information</legend>
-
-    <label for="nephro_fname">First Name:</label>
-    <input type="text" id="nephro_fname" name="nephro_fname" value="" placeholder="e.g John"  pattern="[A-Z][a-z]*" title="Start with uppercase followed by lowercase alphabets" required>
-
-
-    <label for="nephro_lname">Last Name:</label>
-    <input type="text" id="nephro_lname" name="nephro_lname" value="" placeholder="e.g Smith" pattern="[A-Z][a-z]*" title="Start with uppercase followed by lowercase alphabets" required>
-
-    <label>ID:</label>
-	  <input type="text" name="nephro_id" value="" required>
-  </fieldset>
-
-  <fieldset>
-    <legend>Surgeon Information</legend>
-
-    <label for="surg_fname">First Name:</label>
-    <input type="text" id="surg_fname" name="surg_fname" value="" placeholder="e.g John"  pattern="[A-Z][a-z]*" title="Start with uppercase followed by lowercase alphabets" required>
-
-
-    <label for="surg_lname">Last Name:</label>
-    <input type="text" id="surg_lname" name="surg_lname" value="" placeholder="e.g Smith" pattern="[A-Z][a-z]*" title="Start with uppercase followed by lowercase alphabets" required>
-
-    <label>ID:</label>
-	  <input type="text" name="surg_id" value="" required> 
-  </fieldset>
-
-  <button type="submit" name="submit" value="submit">Submit</button>
-  
-</form>
-
+  <script src="../scripts/validateHosp.js"></script>
 </body>
 
 </html>

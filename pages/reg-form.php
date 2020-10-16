@@ -32,6 +32,15 @@
   box-sizing: border-box;
 }
 
+.header-img{
+  /* background-image: url("https://images.unsplash.com/photo-1502485019198-a625bd53ceb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");  */
+  background-image: url(../images/darkBackground.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  min-height: 400px;
+}
+
 </style>
 
 <link rel="stylesheet" href="../css/form-style.css">
@@ -42,7 +51,7 @@
     <div class="nav-container">
       <?php include("../templates/nav-bar.php") ?>
     </div>
-    <h2 id="heading">Registration form</h2>
+    <h2 id="pd-heading">Registration form</h2>
   </div>
 
   <div class="wrapper">
@@ -50,17 +59,17 @@
       
       <div class='tab'>
         
-       <div class="input-field">
-          <div class="heading-box">
-            <h3>Patient details</h3>
-          </div>
+        <div class="input-field">
+        <div class="heading-box">
+          <h3>Patient details</h3>
+        </div>
 
-          <div class="pass-img-box">
-            <label for="passport-img">
-              <img id="pass-img" src="../images/blank-avatar.png">
-            </label>
-            <input type="file" id="passport-img" name="r_img" class="requiredField">
-          </div>
+        <div class="pass-img-box">
+          <label for="passport-img">
+            <img id="pass-img" src="../images/blank-avatar.png">
+          </label>
+          <input type="file" id="passport-img" name="r_img" class="requiredField">
+        </div>
        </div>
         
         <fieldset>

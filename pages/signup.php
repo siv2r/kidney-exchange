@@ -14,10 +14,10 @@ body{
 form {
   background: rgb(0, 0, 0, 0.5);
   width: 40%;
-  height: 80%;
+  height: 86%;
   margin: auto;
-  margin-top: 50px;
-  padding: 20px;
+  margin-top: 30px;
+  padding: 3px 20px;
 }
 
 input{
@@ -71,7 +71,7 @@ img.avatar {
       <?php include("../templates/nav-bar.php") ?>
   </div>
 
-	<form action="#" method="POST">
+	<form action="../include/signup.inc.php" method="POST">
 
 			<!-- <div class="imgcontainer">
 					<img src="../images/avatar.jpg" alt="Avatar" class="avatar">
@@ -88,9 +88,10 @@ img.avatar {
 			<div class="form-elements">
 				<input type="text" name="uname" placeholder="Username">
 				<input type="text" name="email" placeholder="Email">
+				<input type="number" name="hosp_id" placeholder="Hospital ID">
 				<input type="password" name="pswd" placeholder="Password">
-				<input type="password" name="re-pswd" placeholder="Re-enter Password">
-				<button>Sign Up</button>
+				<input type="password" name="re_pswd" placeholder="Re-enter Password">
+				<button type="submit" name="submit" value="submit">Sign Up</button>
 			</div>
 
 			

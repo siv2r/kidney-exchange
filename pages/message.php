@@ -5,8 +5,14 @@
 
   $status = $_SESSION['status'];
   $statusMsg = $_SESSION['msg'];
-  $r_id = $_SESSION['r_id'];
-  $d_id = $_SESSION['d_id'];
+
+  if($_SESSION['form'] == 'patient-form' && isset($_SESSION['r_id'])){
+    $r_id = $_SESSION['r_id'];
+    $d_id = $_SESSION['d_id'];
+  }
+  else if($_SESSION['form'] == 'hospital-form' && isset($_SESSION['h_id'])){
+    $h_id = $_SESSION['h_id'];
+  }
 
 ?>
 
@@ -58,10 +64,14 @@
     <div id="msg-box">
       <div class="success">
         <?php  
-          if($status == 1){
+          if($status == 1 && $_SESSION['form'] == 'patient-form'){
             echo "<p>$statusMsg</p>";
-            echo "<p>The patient id is $r_id</p>";
-            echo "<p>The donor id is $d_id</p>";
+            echo "<p>Your patient id is $r_id</p>";
+            echo "<p>Your donor id is $d_id</p>";
+          }
+          else if($status == 1 && $_SESSION['form'] == 'hospital-form'){
+            echo "<p>$statusMsg</p>";
+            echo "<p>Your hospital id is $h_id</p>";
           }
         ?>
       </div>

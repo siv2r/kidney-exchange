@@ -63,6 +63,14 @@ img.avatar {
 	font-size: 30px;
 }
 
+form a{
+  margin: 10%;
+  font-size: 20px;
+  color: white;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
 </style>
 
 <?php include("../templates/header.php"); ?>
@@ -71,7 +79,7 @@ img.avatar {
       <?php include("../templates/nav-bar.php") ?>
   </div>
 
-	<form action="#" method="POST">
+	<form action="../include/login.inc.php" method="POST">
 
 			<!-- <div class="imgcontainer">
 					<img src="../images/avatar.jpg" alt="Avatar" class="avatar">
@@ -89,7 +97,10 @@ img.avatar {
 				<input type="text" name="uid" placeholder="Username/Email">
 				<input type="password" name="pswd" placeholder="Password">
 				<button>Login</button>
-			</div>
+      </div>
+
+      <a href="#">Forgot Password?</a>
+
 
 			
 	</form>
