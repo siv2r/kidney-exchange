@@ -14,7 +14,6 @@ body{
 form {
   background: rgb(0, 0, 0, 0.5);
   width: 40%;
-  height: 60%;
   margin: auto;
   margin-top: 100px;
   padding: 20px;
@@ -71,6 +70,16 @@ form a{
   letter-spacing: 1px;
 }
 
+/* ---------------error messages------------------------- */
+#failed{
+  color: #c51244;
+  font-size: 28px;
+}
+#success{
+  color: #32cd32;
+  font-size: 28px;
+}
+
 </style>
 
 <?php include("../templates/header.php"); ?>
@@ -90,13 +99,26 @@ form a{
 			</div>
 
 			<div class="form-elements">
-					<img src="../images/red-avatar.png" alt="Avatar" class="avatar">
+          <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
+          <?php 
+            if(isset($_GET["error"])) {
+              if ($_GET["error"] == "emptyInputLogin") {
+                echo "<p id='failed'>Please fill all the fields</p>";
+              }
+              else if ($_GET["error"] == "invalidUsername") {
+                echo "<p id='failed'>Invalid username/email</p>";
+              }
+              else if ($_GET["error"] == "invalidPassword") {
+                echo "<p id='failed'>Invalid password</p>";
+              }            
+            }
+          ?>
 			</div>
 
 			<div class="form-elements">
 				<input type="text" name="uid" placeholder="Username/Email">
 				<input type="password" name="pswd" placeholder="Password">
-				<button>Login</button>
+				<button type="submit" name="submit" value="submit">Login</button>
       </div>
 
       <a href="#">Forgot Password?</a>
