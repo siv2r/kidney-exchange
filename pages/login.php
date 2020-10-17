@@ -39,6 +39,7 @@ button {
 	border: none;
 	width: 100%;
 	font-size: 150%;
+  outline: none;
 }
 
 button:hover {

@@ -12,9 +12,8 @@ if(isset($_POST["submit"])){
     exit();
   }
 
-  echo "user is going to be logged in";
   loginUser($conn, $uid, $pswd);
-  echo "user logged in";
+
 }
 
 else{

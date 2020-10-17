@@ -34,6 +34,7 @@ button {
 	border: none;
 	width: 100%;
 	font-size: 150%;
+  outline: none;
 }
 
 button:hover {
@@ -108,6 +109,12 @@ img.avatar {
               }
               else if ($_GET["error"] == "noHospIdExists") {
                 echo "<p id='failed'>Your hospital is not registered with us</p>";
+              }
+              else if ($_GET["error"] == "hospstmtfailed") {
+                echo "<p id='failed'>Something went wrong while checking hospital id</p>";
+              }
+              else if ($_GET["error"] == "userstmtfailed") {
+                echo "<p id='failed'>Something went wrong while creating user</p>";
               }
               else if ($_GET["error"] == "none") {
                 echo "<p id='success'>Registration successful!!!</p>";

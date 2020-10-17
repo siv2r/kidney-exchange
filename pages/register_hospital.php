@@ -54,7 +54,7 @@ body{
 legend{
   font-weight: bold;
   font-size: 20px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
@@ -142,7 +142,7 @@ label.required{
         <legend>Hospital Information</legend>
       
         <div class='input-field'>
-          <div class="label-box">
+          <div class="label-}box">
             <label>Name</label>
             <label class="required">* </label>
           </div>

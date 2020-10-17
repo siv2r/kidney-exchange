@@ -42,7 +42,7 @@ if (isset($_POST['uname'])) {
     exit();
   }
 
-  if (noHospIdExists($conn, $hosp_id) !== false) {
+  if (getHospitalById($conn, $hosp_id) !== true) {
     header("location: ../pages/signup.php?error=noHospIdExists");
     exit();
   }
