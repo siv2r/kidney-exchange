@@ -353,7 +353,8 @@ if(!empty($_POST['r_fname'])){
 
   $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ('$mid_id' ,$r_id, $d_id, \"NULL\", 'y')";
 
-
+  session_start();
+  $_SESSION['form'] = 'pd-form';
 
 	if(!mysqli_query($conn, $sql1)){
     $status = 0;
@@ -383,17 +384,13 @@ if(!empty($_POST['r_fname'])){
   else{
     $status = 1;
     $statusMsg = 'Your registration is successful!!!';
+    $_SESSION['r_id'] = $r_id;
+    $_SESSION['d_id'] = $d_id;
   }
 
-  session_start();
-
-  $_SESSION['r_id'] = $r_id;
-  $_SESSION['d_id'] = $d_id;
   $_SESSION['status'] = $status;
   $_SESSION['msg'] = $statusMsg;
 
   header("Location: ./message.php");
-
 }
 
-?>

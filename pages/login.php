@@ -1,83 +1,132 @@
 <?php
 
-$invalid = "";
-
-if(isset($_POST['submit'])){
-
-  $entered_username = $_POST['uname'];
-  $entered_password = $_POST['pswd'];
-
-  include("../templates/db-connect.php");
-
-  //Create query
-  $query = "SELECT * FROM admin_accounts WHERE username = '". $entered_username ."' AND passwrd = '" . $entered_password . "' LIMIT 1";
-
-  //Fectch the results
-  $result = mysqli_query($conn, $query);
-
-  if(mysqli_num_rows($result) == 1){
-    header("Location: admin.php");
-  } 
-
-  else {
-    $invalid = "Invalid credentials!";
-  }
-
-}
+//some php code for verifying the user
 
 ?>
 
-<!DOCTYPE html>
-
-<html lang="en">
-
-<link rel="stylesheet" href="../css/login_styles.css">
-
 <style>
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body{
+  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
 
-form, button, a{
-  font-family: "Open Sans";
+form {
+  background: rgb(0, 0, 0, 0.5);
+  width: 40%;
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
 }
 
-#invalid{
-  color: red;
-  text-align: center;
+input{
+  width: 100%;
+  padding: 15px 20px;
+  margin: 15px 0;
+  display: inline-block;
+	box-sizing: border-box;
+	outline: none;
+	font-size: 150%;
+}
+
+button {
+  /* background-color: #b30d4b; */
+  background-color: #ad0c4d;
+  color: white;
+  padding: 16px 20px;
+  margin: 15px 0;
+	cursor: pointer;
+	border: none;
+	width: 100%;
+	font-size: 150%;
+  outline: none;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+img.avatar {
+	width: 22%;
+	opacity: 0.8;
+  border-radius: 60%;
+}
+
+.form-elements{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+.form-elements h3{
+	color: white;
+	font-size: 30px;
+}
+
+form a{
+  margin: 10%;
+  font-size: 20px;
+  color: white;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+/* ---------------error messages------------------------- */
+#failed{
+  color: #c51244;
+  font-size: 28px;
+}
+#success{
+  color: #32cd32;
+  font-size: 28px;
 }
 
 </style>
 
 <?php include("../templates/header.php"); ?>
-    
-    <section id="loginBackground">
-        <form action="#" method="POST">
-            <div class="imgcontainer">
-                <img src="../images/avatar.jpg" alt="Avatar" class="avatar">
-            </div>
 
-            <div class="container2">
-                <label for="uname"><strong>Username</strong></label>
-                <br>
-                <input type="text" placeholder="Enter Username" name="uname" required><br>
+	<div class="nav-container">
+      <?php include("../templates/nav-bar.php") ?>
+  </div>
 
-                <label for="psw"><strong>Password</strong></label>
-                <br>
-                <input type="password" placeholder="Enter Password" name="pswd" required>
-                
-                <button type="submit" name="submit" value="submit">Login</button> <br>
+	<form action="../include/login.inc.php" method="POST">
 
-                <a href="#">Forgot password?</a>
-                
-                <?php if(!empty($invalid)){?>
+			<!-- <div class="imgcontainer">
+					<img src="../images/avatar.jpg" alt="Avatar" class="avatar">
+			</div> -->
 
-                  <p id="invalid"><?php echo $invalid; ?></p>
+			<div class="form-elements">
+				<h3>LOGIN</h3>
+			</div>
 
-                <?php } ?>
+			<div class="form-elements">
+          <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
+          <?php 
+            if(isset($_GET["error"])) {
+              if ($_GET["error"] == "emptyInputLogin") {
+                echo "<p id='failed'>Please fill all the fields</p>";
+              }
+              else if ($_GET["error"] == "invalidUsername") {
+                echo "<p id='failed'>Invalid username/email</p>";
+              }
+              else if ($_GET["error"] == "invalidPassword") {
+                echo "<p id='failed'>Invalid password</p>";
+              }            
+            }
+          ?>
+			</div>
 
-            </div>
-        </form>
-    </section>
+			<div class="form-elements">
+				<input type="text" name="uid" placeholder="Username/Email">
+				<input type="password" name="pswd" placeholder="Password">
+				<button type="submit" name="submit" value="submit">Login</button>
+      </div>
 
-</body>
+      <a href="#">Forgot Password?</a>
 
-</html>
+
+			
+	</form>
+
+
+<?php include("../include/footer.inc.php") ?>

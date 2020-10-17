@@ -32,6 +32,15 @@
   box-sizing: border-box;
 }
 
+.header-img{
+  /* background-image: url("https://images.unsplash.com/photo-1502485019198-a625bd53ceb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");  */
+  background-image: url(../images/darkBackground.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  min-height: 400px;
+}
+
 </style>
 
 <link rel="stylesheet" href="../css/form-style.css">
@@ -42,7 +51,7 @@
     <div class="nav-container">
       <?php include("../templates/nav-bar.php") ?>
     </div>
-    <h2 id="heading">Registration form</h2>
+    <h2 id="pd-heading">Registration form</h2>
   </div>
 
   <div class="wrapper">
@@ -50,17 +59,17 @@
       
       <div class='tab'>
         
-       <div class="input-field">
-          <div class="heading-box">
-            <h3>Patient details</h3>
-          </div>
+        <div class="input-field">
+        <div class="heading-box">
+          <h3>Patient details</h3>
+        </div>
 
-          <div class="pass-img-box">
-            <label for="passport-img">
-              <img id="pass-img" src="../images/blank-avatar.png">
-            </label>
-            <input type="file" id="passport-img" name="r_img" class="requiredField">
-          </div>
+        <div class="pass-img-box">
+          <label for="passport-img">
+            <img id="pass-img" src="../images/blank-avatar.png">
+          </label>
+          <input type="file" id="passport-img" name="r_img" class="requiredField">
+        </div>
        </div>
         
         <fieldset>
@@ -264,7 +273,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label>HIV -</label>
+              <label>HIV </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -277,7 +286,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="r_hepB">Hepatitis B -</label>
+              <label for="r_hepB">Hepatitis B </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -290,7 +299,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="r_hepC">Hepatitis C -</label>
+              <label for="r_hepC">Hepatitis C </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -400,13 +409,49 @@
             </div>
           </div>
         
-          <div class='input-field'>
+          <!-- <div class='input-field'>
             <div class="label-box">
               <label for="dialysis-center">Dialysis center or Hospital  </label> 
               <label class="required">* </label>
             </div> 
             <div class="input-box">
               <input type="text" id="dialysis-center" name="r_d-center" value="" class="requiredField single">
+            </div>
+          </div> -->
+        
+          <div class='input-field'>
+            <div class="label-box">
+              <label for="dialysis-center">Dialysis center or Hospital  </label> 
+              <label class="required">* </label>
+            </div> 
+            <div class="input-box">
+              <select name="r_d-center" class="requiredField single">
+                <?php 
+
+                  require_once("../templates/db-connect.php");
+                  require_once("../include/functions.inc.php");
+                  
+                  if($_SESSION['userType'] === "Transplant coordinator") {
+                    $val = $_SESSION['userHospital']['id'];
+                    $name = $_SESSION['userHospital']['name'];
+                    echo "<option value='$val' selected >$name</option>"; //to store name or value?
+                  }
+
+                  else if ($_SESSION['userType'] === "Admin") {
+                    if($hosp_array = getHospitals($conn)) {
+                      foreach($hosp_array as $key => $value){
+                        $optionVal = $value['id'];
+                        $optionName = $value['name'];
+                        echo "<option value='$optionVal'>$optionName</option>"; //to store name or value?
+                      }
+                    }
+                    else {
+                      echo "Error in getting hospitals from the database";
+                    }
+                  }
+                
+                ?>
+              </select>
             </div>
           </div>
           
@@ -671,7 +716,7 @@
 
           <div class='input-field'>
             <div class="label-box">
-              <label>HIV -</label>
+              <label>HIV </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -684,7 +729,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="d_hepB">Hepatitis B -</label>
+              <label for="d_hepB">Hepatitis B </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
@@ -697,7 +742,7 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="d_hepC">Hepatitis C -</label>
+              <label for="d_hepC">Hepatitis C </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
