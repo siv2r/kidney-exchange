@@ -142,7 +142,7 @@ label.required{
         <legend>Hospital Information</legend>
       
         <div class='input-field'>
-          <div class="label-}box">
+          <div class="label-box">
             <label>Name</label>
             <label class="required">* </label>
           </div>

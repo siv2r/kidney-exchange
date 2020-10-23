@@ -36,7 +36,7 @@ $(document).ready(function(){
 
   $("#prev-transp").change(function(){
 
-    if($(this).val() === "yes"){
+    if($(this).val() === "Yes"){
       $("#dot").show();  //show date of transplant field
       //write some validation condtions
     }
@@ -53,13 +53,13 @@ $(document).ready(function(){
 
     let input_value = $(this).val();
 
-    if(input_value === "hemodialysis"){
+    if(input_value === "Hemodialysis"){
       $("#date-of-dialysis").show();
       $("#vascular-access").show();
       //add validations
     }
 
-    else if(input_value === "peritoneal dialysis"){
+    else if(input_value === "Peritoneal dialysis"){
       $("#date-of-dialysis").show();
       $("#vascular-access").hide();
       //add validaitons for date of dialysis
@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 
   $("#ddp").change(function(){
-    if($(this).val() === "yes"){
+    if($(this).val() === "Yes"){
       $("#ddp-regno").show();
       //write some validation condtions
     }
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 
   $("#pre-transp").change(function(){
-    if($(this).val() === "yes"){
+    if($(this).val() === "Yes"){
       $("#pre-transp-specify").show();
       //write some validation condtions
     }
@@ -267,8 +267,12 @@ $(document).ready(function(){
     }, "Please enter a valid pincode for your region" );
 
     $.validator.addMethod( "twoDecimal", function( value, element ) {
-      return this.optional( element ) || /^[0-9]+$/i.test( value ) || /^[0-9]+\.[0-9][0-9]$/i.test( value );
+      return this.optional( element ) || /^[0-9]+$/i.test( value ) || /^.*[0-9]+\.[0-9][0-9]$/i.test( value );
     }, "Please round off to two decimal places" );
+
+    $.validator.addMethod( "positiveOnly", function( value, element ) {
+      return this.optional( element ) || /^[^-][0-9].*$/i.test( value );
+    }, "Please enter a positive number" );
     
     //applying validation
 		let form = $("#reg-form")
@@ -302,15 +306,19 @@ $(document).ready(function(){
 
         //bmi validations
         r_height: {
+          positiveOnly: true,
           twoDecimal: true
         },
         r_weight: {
+          positiveOnly: true,
           twoDecimal: true
         },
         d_height: {
+          positiveOnly: true,
           twoDecimal: true
         },
         d_weight: {
+          positiveOnly: true,
           twoDecimal: true
         },
 

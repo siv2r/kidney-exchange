@@ -1,22 +1,3 @@
-
-<?php 
-
-  session_start();
-
-  $status = $_SESSION['status'];
-  $statusMsg = $_SESSION['msg'];
-
-  if($_SESSION['form'] == 'patient-form' && isset($_SESSION['r_id'])){
-    $r_id = $_SESSION['r_id'];
-    $d_id = $_SESSION['d_id'];
-  }
-  else if($_SESSION['form'] == 'hospital-form' && isset($_SESSION['h_id'])){
-    $h_id = $_SESSION['h_id'];
-  }
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,12 +40,26 @@
     <?php include("../templates/nav-bar.php") ?>
   </div>
 
+  <?php 
+    $status = $_SESSION['status'];
+    $statusMsg = $_SESSION['msg'];
+
+    if($_SESSION['form'] == 'pd-form' && isset($_SESSION['r_id'])){
+      $r_id = $_SESSION['r_id'];
+      $d_id = $_SESSION['d_id'];
+    }
+    else if($_SESSION['form'] == 'hospital-form' && isset($_SESSION['h_id'])){
+      $h_id = $_SESSION['h_id'];
+    }
+
+  ?>
+
   <div class="wrapper">
 
     <div id="msg-box">
       <div class="success">
         <?php  
-          if($status == 1 && $_SESSION['form'] == 'patient-form'){
+          if($status == 1 && $_SESSION['form'] == 'pd-form'){
             echo "<p>$statusMsg</p>";
             echo "<p>Your patient id is $r_id</p>";
             echo "<p>Your donor id is $d_id</p>";

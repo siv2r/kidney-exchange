@@ -235,7 +235,7 @@
               <label>Genetics/renal biopsy (if any)  </label>
             </div>
             <div class="input-box">
-              <input type="text" name="r_gr-biopsy" value="" class="single">
+              <input type="text" name="r_gr-biopsy" class="single">
             </div>
           </div>
         
@@ -246,13 +246,13 @@
             </div>
             <div class="input-box">
               <select class="beautify requiredField single" id="comorb" name="r_comorb[]" multiple>
-                <option value="none">None</option>
+                <option value="None">None</option>
                 <option value="Type1 DM">Type1 DM</option>
                 <option value="Type2 DM">Type2 DM</option>
                 <option value="Hypertension">Hypertension</option>
-                <option value="Coronary Artery Disease">Coronary Artery Disease</option>
+                <option value="Coronary artery disease">Coronary Artery Disease</option>
                 <option value="Chronic liver disease">Chronic liver disease</option>
-                <option value="Chronic Obstructive Pulmonary disease">Chronic Obstructive Pulmonary disease</option>
+                <option value="Chronic obstructive pulmonary disease">Chronic Obstructive Pulmonary disease</option>
                 <option value="Cancer">Cancer</option>
                 <option value="Others">Others</option>
               </select>
@@ -693,9 +693,9 @@
                 <option value="Type1 DM">Type1 DM</option>
                 <option value="Type2 DM">Type2 DM</option>
                 <option value="Hypertension">Hypertension</option>
-                <option value="Coronary Artery Disease">Coronary Artery Disease</option>
+                <option value="Coronary artery disease">Coronary Artery Disease</option>
                 <option value="Chronic liver disease">Chronic liver disease</option>
-                <option value="Chronic Obstructive Pulmonary disease">Chronic Obstructive Pulmonary disease</option>
+                <option value="Chronic obstructive pulmonary disease">Chronic Obstructive Pulmonary disease</option>
                 <option value="Cancer">Cancer</option>
                 <option value="Others">Others</option>
               </select>
@@ -797,24 +797,17 @@
         
         </fieldset>
       </div>
-    
-      <div id="msg_tab">
-        <p>Registration confirmation info </p>
-      </div>
-    
-    
+        
       <div id='btn-block'>
         <button type="button" id='prev-btn'>Previous</button>
         <button type="button" id='next-btn'>Next</button>
       </div>
-    
-    
-    
+
     </form>
   </div>
-</body>
 
-</html> 
+<?php 
+  require_once("../include/footer.inc.php");
 
 
 
