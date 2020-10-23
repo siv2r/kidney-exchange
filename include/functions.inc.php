@@ -194,4 +194,48 @@ function getHospitals($conn) {     //returns all hospitals in database as associ
   }
 }
 
+function deletePatientById($conn, $id) {
+  $query1 = "DELETE FROM patients WHERE id=$id;";
+  $query2 = "DELETE FROM patient_files WHERE id=$id;";
+
+  if(!mysqli_query($conn, $query1)) {
+    echo 'patients delete query error' . mysqli_error($conn);
+    return false;
+  }
+
+  if(!mysqli_query($conn, $query2)) {
+    echo 'patient_files delete query error' . mysqli_error($conn);
+    return false;
+  }
+
+  return true;
+}
+
+function deleteDonorById($conn, $id) {
+  $query1 = "DELETE FROM donors WHERE id=$id;";
+  $query2 = "DELETE FROM donor_files WHERE id=$id;";
+
+  if(!mysqli_query($conn, $query1)) {
+    echo 'donors delete query error' . mysqli_error($conn);
+    return false;
+  }
+
+  if(!mysqli_query($conn, $query2)) {
+    echo 'donor_files delete query error' . mysqli_error($conn);
+    return false;
+  }
+
+  return true;
+}
+
+function deletePairById($conn, $id) {
+  $query = "DELETE FROM pd_pairs WHERE pair_id=$id;";
+
+  if(!mysqli_query($conn, $query)) {
+    echo 'pd_pairs delete query error' . mysqli_error($conn);
+    return false;
+  }
+
+  return true;
+}
 

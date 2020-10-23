@@ -365,27 +365,27 @@ if(!empty($_POST['r_fname'])){
 
 	if(!mysqli_query($conn, $sql1)){
     $status = 0;
-		$statusMsg = 'patient query error ' . mysqli_error($conn);
+		$statusMsg = 'patient insert query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql2)){
     $status = 0;
-		$statusMsg = 'donor query error ' . mysqli_error($conn);
+		$statusMsg = 'donor insert query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql3)){
     $status = 0;
-		$statusMsg = 'patient_files query error ' . mysqli_error($conn);
+		$statusMsg = 'patient_files insert query error ' . mysqli_error($conn);
   }
   
 	else if(!mysqli_query($conn, $sql4)){
     $status = 0;
-		$statusMsg = 'donor_files query error ' . mysqli_error($conn);
+		$statusMsg = 'donor_files insert query error ' . mysqli_error($conn);
   }
 
 	else if(!mysqli_query($conn, $sql5)){
     $status = 0;
-		$statusMsg = 'pd_pairs ' . mysqli_error($conn);
+		$statusMsg = 'pd_pairs insert query ' . mysqli_error($conn);
   }
   
   else{

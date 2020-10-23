@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <style>
   * {
     margin: 0%;
@@ -84,10 +87,6 @@
   }
 </style>
 
-<?php
-session_start();
-?>
-
 <nav>
   <div class="nav-wrap">
     <p>Kidney Exchange</p>
@@ -95,17 +94,19 @@ session_start();
       <li><a href="index.php">Home</a></li>
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
-      <?php
-      if (isset($_SESSION['userId']) && $_SESSION['userType'] === "Admin") {
-        echo '<li><a href="pages/register_hospital.php">Register (Hospital)</a></li>';
-      }
-      ?>
     </ul>
 
     <?php
     if (isset($_SESSION['userId'])) {
       echo '<ul>';
-      echo   '<li><a href="pages/reg-form.php">Register (Patient)</a></li>';
+      echo   '<li><a href="#">Register</a>';
+      echo     '<ul>';
+      echo       '<li><a href="pages/reg-form.php">Patient</a></li>';
+      if (isset($_SESSION['userId']) && $_SESSION['userType'] === "Admin") {
+        echo       '<li><a href="pages/register_hospital.php">Hospital</a></li>';
+      }
+      echo     '</ul>';
+      echo   '</li>';
       echo   '<li><a href="#">Data</a>';
       echo     '<ul>';
       echo       '<li><a href="pages/dataOverview.php">Overview</a></li>';
@@ -126,5 +127,4 @@ session_start();
     }
     ?>
   </div>
-  <!-- </ul> -->
 </nav>
