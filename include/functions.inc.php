@@ -194,3 +194,4 @@ function getHospitals($conn) {     //returns all hospitals in database as associ
   }
 }
 
+

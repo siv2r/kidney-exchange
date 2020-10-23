@@ -34,6 +34,16 @@ if(isset($_POST['submit'])){
   .nav-container{
     position: static;
   }
+
+  fieldset label{
+    display: block;
+    margin: 20px 10px;
+  }
+
+  fieldset div.input-field{
+    margin: 0%;
+    height: 70px;
+  }
 </style>
 
 
@@ -66,7 +76,7 @@ if(isset($_POST['submit'])){
         </div>
         <div class="input-box">
           <p><?php echo $row[0] ?></p>
-        </div >
+        </div>
       </div>
 
       <div class='input-field'>

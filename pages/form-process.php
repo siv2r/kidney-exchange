@@ -38,10 +38,13 @@ $statusMsg = '';
 
 if(!empty($_POST['r_fname'])){
 
+  // this stores the hospital chosen in the paitent form 
+  $r_dcenter = addslashes($_POST['r_d-center']);
+
   //id generation
 	$mid_id = random_strings(5);
-  $r_id =  $mid_id . '-' . 'p';
-  $d_id =  $mid_id . '-' . 'd';
+  $r_id =  $r_dcenter . '-' . $mid_id . '-' . 'p';
+  $d_id =  $r_dcenter . '-' . $mid_id . '-' . 'd';
 
   //patient info
   //patient personal info
@@ -77,32 +80,31 @@ if(!empty($_POST['r_fname'])){
   $r_hepc = $_POST['r_hepC'];
   $r_prev_transp = $_POST['r_prev-transp'];
 
-  if($r_prev_transp == 'yes'){
+  if($r_prev_transp == 'Yes'){
     $r_prev_transp = $r_prev_transp . ', '. $_POST['r_dot'];
   }
 
   $r_dialysis = $_POST['r_mod'];
 
-  if($r_dialysis == 'hemodialysis'){
+  if($r_dialysis == 'Hemodialysis'){
     $r_dialysis = $r_dialysis . ', '. $_POST['r_dod'] . ', ' . $_POST['r_vs-access'];
   }
-  else if($r_dialysis == 'peritoneal dialysis'){
+  else if($r_dialysis == 'Peritoneal dialysis'){
     $r_dialysis = $r_dialysis . ', '. $_POST['r_dod'];
   }
 
   $r_ddp = $_POST['r_ddp'];
 
-  if($r_ddp == 'yes'){
+  if($r_ddp == 'Yes'){
     $r_ddp = $r_ddp . ', '. $_POST['r_ddp-regno'];
   }
 
 
   $r_nephro = addslashes($_POST['r_p-nephro']);
-  $r_dcenter = addslashes($_POST['r_d-center']);
   $r_prov_clear = $_POST['r_prov-clear'];
   $r_pre_transp = $_POST['r_pre-transp'];
 
-  if($r_pre_transp == 'yes'){
+  if($r_pre_transp == 'Yes'){
     $r_pre_transp = $r_pre_transp . ', ' . $_POST['pre-transp-specify'];
   }
 
@@ -209,7 +211,8 @@ if(!empty($_POST['r_fname'])){
   $r_dialysis    = (!empty($r_dialysis)) ? "'$r_dialysis'" : "NULL";
   $r_ddp         = (!empty($r_ddp)) ? "'$r_ddp'" : "NULL";
   $r_nephro      = (!empty($r_nephro)) ? "'$r_nephro'" : "NULL";
-  $r_dcenter     = (!empty($r_dcenter)) ? "'$r_dcenter'" : "NULL";
+  // $r_dcenter     = (!empty($r_dcenter)) ? "'$r_dcenter'" : "NULL"; //should not be left empty
+  $r_dcenter = "'$r_dcenter'";
   $r_prov_clear  = (!empty($r_prov_clear)) ? "'$r_prov_clear'" : "NULL";
   $r_pre_transp  = (!empty($r_pre_transp)) ? "'$r_pre_transp'" : "NULL";
   $r_hla         = (!empty($r_hla)) ? "'$r_hla'" : "NULL";
@@ -351,9 +354,13 @@ if(!empty($_POST['r_fname'])){
 
   $sql4 = "INSERT INTO donor_files (id, profile_pic, blood_report, hla_report) VALUES ($d_id, $d_img, $d_b_report, $d_hla_report)";
 
-  $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ('$mid_id' ,$r_id, $d_id, \"NULL\", 'y')";
+  $status = "Active"; // Active or Inactive
+  // $hosp_id = $r_dcenter;
+
+  $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ('$mid_id' ,$r_id, $d_id, $r_dcenter, 'Active')";
 
   session_start();
+  
   $_SESSION['form'] = 'pd-form';
 
 	if(!mysqli_query($conn, $sql1)){
@@ -391,6 +398,11 @@ if(!empty($_POST['r_fname'])){
   $_SESSION['status'] = $status;
   $_SESSION['msg'] = $statusMsg;
 
-  header("Location: ./message.php");
+  header("Location: ../pages/message.php");
+}
+
+else {
+  header("location: ../pages/reg-form.php");
+  exit();
 }
 
