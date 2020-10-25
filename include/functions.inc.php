@@ -239,3 +239,77 @@ function deletePairById($conn, $id) {
   return true;
 }
 
+function getPatientById($conn, $patient_id) {
+  $query = "SELECT * FROM patients WHERE id = ?;";
+
+  // using prepared statements method to prevent sql injections by the user
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $query)) {
+    echo "getPatientById() stmt failed";
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $patient_id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    return $row;
+  } else {
+    return false;
+  }
+}
+
+function getDonorById($conn, $donor_id) {
+  $query = "SELECT * FROM donors WHERE id = ?;";
+
+  // using prepared statements method to prevent sql injections by the user
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $query)) {
+    echo "getDonorById() stmt failed";
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $donor_id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    return $row;
+  } else {
+    return false;
+  }
+}
+
+function getPatients($conn) {     //returns all patients in database as associative array
+  $query = "SELECT * FROM patients ORDER BY id;";
+  $result = mysqli_query($conn, $query);
+
+  if (mysqli_num_rows($result) > 0) {
+    $patients_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $patients_array;
+  } else {
+    return false;
+  }
+}
+
+function getDonors($conn) {     //returns all patients in database as associative array
+  $query = "SELECT * FROM donors ORDER BY id;";
+  $result = mysqli_query($conn, $query);
+
+  if (mysqli_num_rows($result) > 0) {
+    $donors_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $donors_array;
+  } else {
+    return false;
+  }
+}
+
+function bmiVal($height, $weight) {
+  $res = '';
+  if(!empty($height) && !empty($weight)) {
+    $res = number_format(($weight*100*100)/($height*$height), 2);
+  }
+  return $res;
+}
+

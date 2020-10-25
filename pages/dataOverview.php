@@ -9,12 +9,9 @@ mysqli_free_result($result);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php include("../templates/header.php") ?>
 
 <link rel="stylesheet" href="../css/data-style.css">
-
-<?php include("../templates/header.php") ?>
 
 <div class="nav-container">
   <?php include("../templates/nav-bar.php") ?>
@@ -22,7 +19,7 @@ mysqli_free_result($result);
 
 <div class="wrapper">
   
-  <h2>PD Pairs</h2>
+  <h2 class="heading">PD Pairs</h2>
 
   <table>
     <tr>
@@ -42,7 +39,7 @@ mysqli_free_result($result);
         <td><?php echo $row['hosp_id'] ?></td>
         <td><?php echo $row['status'] ?></td>
         <td>
-          <a class="button info" href="../pages/reg-form.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
+          <a class="button info" href="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
           <a class="button danger" href="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
         </td>
 

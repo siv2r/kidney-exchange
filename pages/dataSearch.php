@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include("../templates/header.php") ?>
 
 <link rel="stylesheet" href="../css/data-style.css">
-
-<?php include("../templates/header.php") ?>
 
 <div class="nav-container">
   <?php include("../templates/nav-bar.php") ?>
@@ -11,13 +8,11 @@
 
 <div class="wrapper">
 
-  <form method="post" action="patient-data.php" class="search">
+  <form method="post" action="../pages/pairData2.php" class="search">
     <input type="text" name="id" id="id" placeholder="Enter the patient id here">
     <button type="submit" id="searchBtn" class="button" name='submit' value="submit">Search</button>
   </form>
 
 </div>
 
-</body>
-
-</html>
+<?php include_once("../include/footer.inc.php") ?>

@@ -169,7 +169,7 @@ if(!empty($_POST['r_fname'])){
 
     else if(preg_match($pattern2, $key)){
       if(empty($r_ua)){
-        $r_ua = implode(',', $value);
+        $r_ua = implode(', ', $value);
       }
       else{
         $r_ua = $r_ua . ', ' . implode(', ', $value);
