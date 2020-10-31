@@ -18,10 +18,7 @@
     min-height: 480px;
   } */
 
-  .nav-container{
-    position: absolute;
-    width: 100%;
-  }
+
 </style>
 
 <?php include("templates/header.php") ?>

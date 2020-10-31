@@ -55,6 +55,10 @@
       $del_r_id = $_SESSION['del_r_id'];
       $del_d_id = $_SESSION['del_d_id'];
     }
+    else if(isset($_SESSION['form']) && $_SESSION['form'] == 'edit' && isset($_SESSION['edit_r_id'])) { 
+      $edit_r_id = $_SESSION['edit_r_id'];
+      $edit_d_id = $_SESSION['edit_d_id'];
+    }
 
   ?>
 
@@ -81,6 +85,14 @@
             echo "<p>$statusMsg</p>";
             echo "<p>Patient id : $del_r_id</p>";
             echo "<p>Donor id : $del_d_id</p>";
+            // unset($_SESSION['form']);
+            // unset($_SESSION['del_r_id']);
+            // unset($_SESSION['del_d_id']);
+          }
+          else if($status == 1 && $_SESSION['form'] == 'edit'){
+            echo "<p>$statusMsg</p>";
+            echo "<p>Patient id : $edit_r_id</p>";
+            echo "<p>Donor id : $edit_d_id</p>";
             // unset($_SESSION['form']);
             // unset($_SESSION['del_r_id']);
             // unset($_SESSION['del_d_id']);

@@ -72,6 +72,9 @@ if (isset($_GET['pair_id'])) {
   <div class="wrapper">
     <form action="../include/updatePair.inc.php" method="post" id="reg-form" enctype="multipart/form-data">
 
+      <input type="text" name="r_id" value="<?php echo $patient_id; ?>">
+      <input type="text" name="d_id" value="<?php echo $donor_id; ?>">
+
       <div class='tab'>
 
         <div class="input-field">
@@ -795,7 +798,7 @@ if (isset($_GET['pair_id'])) {
               <select id="d_prov-clear" name="d_prov-clear" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
                 <option value="Yes" <?php if ($dProvClear == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($dProvClear == "Yes") echo "selected"; ?>>No</option>
+                <option value="No" <?php if ($dProvClear == "No") echo "selected"; ?>>No</option>
               </select>
             </div>
           </div>

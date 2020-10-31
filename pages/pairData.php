@@ -3,46 +3,98 @@
 $status = '';
 $statusMsg = '';
 
-if(isset($_POST['submit'])){
-  $id = $_POST['id'];
+if(isset($_POST['submit'])) {
+  $patient_id = $_POST['id'] . '-p';
+  $donor_id = $_POST['id'] . '-d';
 
   include("../templates/db-connect.php");
+  include("../include/functions.inc.php");
 
-  //Create query
-  $query = "SELECT * FROM patients WHERE id = '$id' LIMIT 1";
+  //get data from the database
+  $pData = getPatientById($conn, $patient_id);
+  $pFiles = getPatientFilesById($conn, $patient_id);
+  $dData = getDonorById($conn, $donor_id);
+  $dFiles = getDonorFilesById($conn, $donor_id);
 
-  //Fectch the results
-  $result = mysqli_query($conn, $query);
+  if($pData == false || $dData == false || $pFiles == false || $dFiles == false) {
+    echo "Database fetch error" . '<br>';
+    exit();
+  }
 
+  //calculate BMI and Date
+  $pBMI = bmiVal($pData['height'], $pData['weight']);
+  $pCreated = formatDate($pData['created_at']);
+  $pUpdated = formatDate($pData['updated_at']);
 
-  if(mysqli_num_rows($result) == 0){
-    header("Location: data.php");
-  } 
+  $dBMI = bmiVal($dData['height'], $dData['weight']);
+  $dCreated = formatDate($dData['created_at']);
+  $dUpdated = formatDate($dData['updated_at']);
+}
 
-  $row = mysqli_fetch_array($result, MYSQLI_NUM);
+else {
+  header("location: ../pages/dataSearch.php");
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
-<link rel="stylesheet" href="../css/form-style.css">
-<link rel="stylesheet" href="../css/data-style.css">
-
 <style>
-  .nav-container{
+  /* .nav-container{
     position: static;
-  }
+  } */
 
-  fieldset label{
+  img {
+    border: 1px solid silver;
     display: block;
-    margin: 20px 10px;
+    margin: 20px 10% 20px 70%;
   }
 
-  fieldset div.input-field{
-    margin: 0%;
-    height: 70px;
+  .heading {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  body {
+    font-size: 20px;
+  }
+
+  button {
+    background-color: #dcdcdc;
+    color: black;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 5%;
+    outline: none;
+    border: none;
+    width: 20%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+  }
+
+  table td, table th {
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
+
+  table tr:nth-child(even){background-color: #f2f2f2;}
+
+  table tr:hover {background-color: #ddd;}
+
+  table th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+    color: black;
+    width: 35%;
+    letter-spacing: 1px;
   }
 </style>
 
@@ -54,291 +106,223 @@ if(isset($_POST['submit'])){
   </div>
 
   <div class="wrapper">
-    <div class="input-field">
-      <div class="heading-box">
-        <h3>Patient details</h3>
-      </div>
+    <button id="patientBtn">Patient</button>
+    <button id="donorBtn">Donor</button>
 
-      <div class="pass-img-box">
-        <label for="passport-img">
-          <img id="pass-img" src="../images/blank-avatar.png">
-        </label>
-        <input type="file" id="passport-img" name="r_img" class="requiredField">
-      </div>
+    <div class="patient">
+      <h2 class="heading">Patient data</h2>
+      <img src="data:image/jpeg;base64,<?php echo base64_encode($pFiles['profile_pic']); ?>" width="183px" height="183px">
+      <table>
+        <tr>
+          <th>Id</th>
+          <td><?php echo $pData['id'] ?></td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td><?php echo $pData['name'] ?></td>
+        </tr>
+        <tr>
+          <th>Sex</th>
+          <td><?php echo $pData['sex'] ?></td>
+        </tr>
+        <tr>
+          <th>Date of Birth</th>
+          <td><?php echo $pData['dob'] ?></td>
+        </tr>
+        <tr>
+          <th>Height</th>
+          <td><?php echo $pData['height'] ?></td>
+        </tr>
+        <tr>
+          <th>Weight</th>
+          <td><?php echo $pData['weight'] ?></td>
+        </tr>
+        <tr>
+          <th>BMI</th>
+          <td><?php echo $pBMI ?></td>
+        </tr>
+        <tr>
+          <th>Blood Group</th>
+          <td><?php echo $pData['blood_group'] ?></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td><?php echo $pData['address'] ?></td>
+        </tr>
+        <tr>
+          <th>Contact No</th>
+          <td><?php echo $pData['contact_number'] ?></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><?php echo $pData['email'] ?></td>
+        </tr>
+        <tr>
+          <th>HLA Antigens</th>
+          <td><?php echo $pData['hla_antigens'] ?></td>
+        </tr>
+        <tr>
+          <th>Unacceptable Antigens</th>
+          <td><?php echo $pData['ua_antigens'] ?></td>
+        </tr>
+        <tr>
+          <th>Basic Disease</th>
+          <td><?php echo $pData['basic_disease'] ?></td>
+        </tr>
+        <tr>
+          <th>Genetic/Renal Biopsy</th>
+          <td><?php echo $pData['gr_biopsy'] ?></td>
+        </tr>
+        <tr>
+          <th>Comorbid Condt</th>
+          <td><?php echo $pData['comorb'] ?></td>
+        </tr>
+        <tr>
+          <th>HIV</th>
+          <td><?php echo $pData['hiv'] ?></td>
+        </tr>
+        <tr>
+          <th>Hepatitis B</th>
+          <td><?php echo $pData['hep_b'] ?></td>
+        </tr>
+        <tr>
+          <th>Hepatitis C</th>
+          <td><?php echo $pData['hep_c'] ?></td>
+        </tr>
+        <tr>
+          <th>Previous Transplant</th>
+          <td><?php echo $pData['prev_transp'] ?></td>
+        </tr>
+        <tr>
+          <th>Dialysis</th>
+          <td><?php echo $pData['dialysis'] ?></td>
+        </tr>
+        <tr>
+          <th>Deceased Donor Program</th>
+          <td><?php echo $pData['dd_program'] ?></td>
+        </tr>
+        <tr>
+          <th>Primary Nephrologist</th>
+          <td><?php echo $pData['prime_nephro'] ?></td>
+        </tr>
+        <tr>
+          <th>Hospital</th>
+          <td><?php echo $pData['hospital'] ?></td>
+        </tr>
+        <tr>
+          <th>Provisional Clearance</th>
+          <td><?php echo $pData['prov_clearance'] ?></td>
+        </tr>
+        <tr>
+          <th>Pre Transplant Surgery</th>
+          <td><?php echo $pData['pre_transp_surgery'] ?></td>
+        </tr>
+        <tr>
+          <th>Created at</th>
+          <td><?php echo $pCreated ?></td>
+        </tr>
+        <tr>
+          <th>Updated at</th>
+          <td><?php echo $pUpdated ?></td>
+        </tr>
+      </table>
     </div>
-
-    <fieldset>
-      <legend>Personal Information</legend>
-            
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Id</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[0] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Name</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[1] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Sex</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[2] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Date of Birth</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[3] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Height</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[4] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Weight</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[5] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>BMI</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo number_format(($row[5]*100*100)/($row[4]*$row[4]), 2) ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Blood Group</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[6] ?></p>
-        </div>
-      </div>
-
-    </fieldset>
-
-    <fieldset>
-      <legend>Contact Information</legend>
-
-      <div class='input-field addr'>
-        <div class="label-box">
-          <label>Address  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[7] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Contact number  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[8] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Email</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[9] ?></p>
-        </div>
-      </div>
-
-    </fieldset>
-
-    <fieldset>
-
-      <legend>Medical Information</legend>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>HLA Antigens</lable>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[10] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Unacceptable Antigens</lable>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[11] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Basic disease  </lable>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[12] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Genetics/renal biopsy </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[13] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label for="comorb">Comorbid conditions  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[14] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>HIV </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[15] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label for="r_hepB">Hepatitis B </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[16] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label for="r_hepC">Hepatitis C </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[17] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label for="prev-transp">Previous Transplant  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[18] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Dialysis  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[19] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Deceased donor program  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[20] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Primary Nephrologist</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[21] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Hospital/Dialysis Center  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[22] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Provisional Clearance  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[23] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Pre-transplant surgery planned</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[24] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Created at  </label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[25] ?></p>
-        </div>
-      </div>
-
-      <div class='input-field'>
-        <div class="label-box">
-          <label>Updated at</label>
-        </div>
-        <div class="input-box">
-          <p><?php echo $row[26] ?></p>
-        </div>
-      </div>
-
-      </div>
+    
+    <div class="donor">
+      <h2 class="heading">Donor data</h2>
+      <img src="data:image/jpeg;base64,<?php echo base64_encode($dFiles['profile_pic']); ?>" width="183px" height="183px">
+      <table>
+        <tr>
+          <th>Id</th>
+          <td><?php echo $dData['id'] ?></td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td><?php echo $dData['name'] ?></td>
+        </tr>
+        <tr>
+          <th>Sex</th>
+          <td><?php echo $dData['sex'] ?></td>
+        </tr>
+        <tr>
+          <th>Date of Birth</th>
+          <td><?php echo $dData['dob'] ?></td>
+        </tr>
+        <tr>
+          <th>Height</th>
+          <td><?php echo $dData['height'] ?></td>
+        </tr>
+        <tr>
+          <th>Weight</th>
+          <td><?php echo $dData['weight'] ?></td>
+        </tr>
+        <tr>
+          <th>BMI</th>
+          <td><?php echo $dBMI ?></td>
+        </tr>
+        <tr>
+          <th>Blood Group</th>
+          <td><?php echo $dData['blood_group'] ?></td>
+        </tr>
+        <tr>
+          <th>Relation to patient</th>
+          <td><?php echo $dData['relation'] ?></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td><?php echo $dData['address'] ?></td>
+        </tr>
+        <tr>
+          <th>Contact No</th>
+          <td><?php echo $dData['contact_number'] ?></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><?php echo $dData['email'] ?></td>
+        </tr>
+        <tr>
+          <th>HLA Antigens</th>
+          <td><?php echo $dData['hla_antigens'] ?></td>
+        </tr>
+        <tr>
+          <th>Comorbid Condt</th>
+          <td><?php echo $dData['comorb'] ?></td>
+        </tr>
+        <tr>
+          <th>HIV</th>
+          <td><?php echo $dData['hiv'] ?></td>
+        </tr>
+        <tr>
+          <th>Hepatitis B</th>
+          <td><?php echo $dData['hep_b'] ?></td>
+        </tr>
+        <tr>
+          <th>Hepatitis C</th>
+          <td><?php echo $dData['hep_c'] ?></td>
+        </tr>
+        <tr>
+          <th>Alcohol</th>
+          <td><?php echo $dData['alcohol'] ?></td>
+        </tr>
+        <tr>
+          <th>Smoking</th>
+          <td><?php echo $dData['smoking'] ?></td>
+        </tr>
+        <tr>
+          <th>Provisional Clearance</th>
+          <td><?php echo $dData['prov_clearance'] ?></td>
+        </tr>
+        <tr>
+          <th>Created at</th>
+          <td><?php echo $dCreated ?></td>
+        </tr>
+        <tr>
+          <th>Updated at</th>
+          <td><?php echo $dUpdated ?></td>
+        </tr>
+      </table>
+    </div>
   </div>
-
-
-
-
-  <script src="../scripts/data.js"></script>
+  <script src="../scripts/pairData.js"></script>       
 </body>
 </html>

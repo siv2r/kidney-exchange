@@ -30,14 +30,6 @@ body {
   margin: 2px;
 }
 
-.info:hover {
-	opacity: 1.8;
-}
-
-.danger:hover {
-	opacity: 1.8;
-}
-
 table {
   border-collapse: collapse;
   width: 80%;

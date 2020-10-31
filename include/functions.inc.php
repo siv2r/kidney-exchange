@@ -260,6 +260,46 @@ function getPatientById($conn, $patient_id) {
   }
 }
 
+function getPatientFilesById($conn, $patient_id) {
+  $query = "SELECT * FROM patient_files WHERE id = ?;";
+
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $query)) {
+    echo "getPatientFilesById() stmt failed";
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $patient_id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    return $row;
+  } else {
+    return false;
+  }
+}
+
+function getDonorFilesById($conn, $donor_id) {
+  $query = "SELECT * FROM donor_files WHERE id = ?;";
+
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $query)) {
+    echo "getDonorFilesById() stmt failed";
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $donor_id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    return $row;
+  } else {
+    return false;
+  }
+}
+
 function getDonorById($conn, $donor_id) {
   $query = "SELECT * FROM donors WHERE id = ?;";
 
@@ -311,5 +351,10 @@ function bmiVal($height, $weight) {
     $res = number_format(($weight*100*100)/($height*$height), 2);
   }
   return $res;
+}
+
+function formatDate($timestamp) {
+  $ts = strtotime($timestamp);
+  return date("d-m-Y", $ts);
 }
 

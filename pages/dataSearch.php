@@ -8,8 +8,8 @@
 
 <div class="wrapper">
 
-  <form method="post" action="../pages/pairData2.php" class="search">
-    <input type="text" name="id" id="id" placeholder="Enter the patient id here">
+  <form method="post" action="../pages/pairData.php" class="search">
+    <input type="text" name="id" id="id" placeholder="Enter pair id only">
     <button type="submit" id="searchBtn" class="button" name='submit' value="submit">Search</button>
   </form>
 
