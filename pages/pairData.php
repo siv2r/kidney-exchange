@@ -1,12 +1,24 @@
 <?php 
 
+session_start();
+
 $status = '';
 $statusMsg = '';
 
 if(isset($_POST['submit'])) {
+
+  //check if the transplant coordinator is searching in the same hospital
+  $checkHospid = explode('-', $_POST['id']);
+
+  if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
+    header("location: ../pages/dataSearch.php?error=notSameHosp");
+    exit();
+  } 
+  
   $patient_id = $_POST['id'] . '-p';
   $donor_id = $_POST['id'] . '-d';
 
+  //now proceed
   include("../templates/db-connect.php");
   include("../include/functions.inc.php");
 

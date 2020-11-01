@@ -321,6 +321,27 @@ function getDonorById($conn, $donor_id) {
   }
 }
 
+function getPairById($conn, $pair_id) {
+  $query = "SELECT * FROM pd_pairs WHERE pair_id = ?;";
+
+  // using prepared statements method to prevent sql injections by the user
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $query)) {
+    echo "getPairById() stmt failed";
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $pair_id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($result)) {
+    return $row;
+  } else {
+    return false;
+  }
+}
+
 function getPatients($conn) {     //returns all patients in database as associative array
   $query = "SELECT * FROM patients ORDER BY id;";
   $result = mysqli_query($conn, $query);

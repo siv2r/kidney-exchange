@@ -19,6 +19,7 @@ $dArray = getDonors($conn);
     #donorTable {
       width: 70%;
     }
+
   </style>
 
   <div class="nav-container">
@@ -42,6 +43,11 @@ $dArray = getDonors($conn);
 
       <?php foreach ($pArray as $row) : ?>
         <?php 
+          $checkHospid = explode('-', $row['id']);
+
+          if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
+            continue;
+          } 
           //get the row values
           $pAge = date_diff(date_create($row['dob']), date_create('today'))->y;
           $pBMI = bmiVal($row['height'], $row['weight']);
@@ -82,6 +88,12 @@ $dArray = getDonors($conn);
 
       <?php foreach ($dArray as $row) : ?>
         <?php 
+
+          $checkHospid = explode('-', $row['id']);
+
+          if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
+            continue;
+          } 
           //get the row values
           $dAge = date_diff(date_create($row['dob']), date_create('today'))->y;
           $dBMI = bmiVal($row['height'], $row['weight']);

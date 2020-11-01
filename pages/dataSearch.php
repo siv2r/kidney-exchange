@@ -13,6 +13,12 @@
     <button type="submit" id="searchBtn" class="button" name='submit' value="submit">Search</button>
   </form>
 
+  <?php 
+    if(isset($_GET['error'])) {
+      echo "Please enter only your hospital data" . "<br>";
+    }
+  ?>
+
 </div>
 
 <?php include_once("../include/footer.inc.php") ?>

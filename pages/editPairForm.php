@@ -72,8 +72,8 @@ if (isset($_GET['pair_id'])) {
   <div class="wrapper">
     <form action="../include/updatePair.inc.php" method="post" id="reg-form" enctype="multipart/form-data">
 
-      <input type="text" name="r_id" value="<?php echo $patient_id; ?>">
-      <input type="text" name="d_id" value="<?php echo $donor_id; ?>">
+      <input type="text" name="r_id" value="<?php echo $patient_id; ?>" hidden>
+      <input type="text" name="d_id" value="<?php echo $donor_id; ?>" hidden>
 
       <div class='tab'>
 
