@@ -550,7 +550,7 @@ if (isset($_GET['pair_id'])) {
               <label for="male">Male</label>
               <input type="radio" id='Female' name='d_sex' value="Female" <?php if ($dSex == 'Female') echo "checked"; ?>>
               <label for="female">Female</label>
-              <input type="radio" id='other' name='dd_sex' value="Other" <?php if ($dSex == 'Other') echo "checked"; ?>>
+              <input type="radio" id='other' name='d_sex' value="Other" <?php if ($dSex == 'Other') echo "checked"; ?>>
               <label for="other">Other</label>
             </div>
           </div>

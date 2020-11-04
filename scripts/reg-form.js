@@ -175,7 +175,6 @@ $(document).ready(function(){
   function next_tab(){
 
     let isValid = validate_form(); // check the validity of the current tab
-    console.log(isValid);
     if (!isValid) {
       window.scrollTo(0, 0); // maye be change this to first error occurence???
       return false;
@@ -232,7 +231,6 @@ $(document).ready(function(){
       errorPlacement: function (error, element){
         if(element.prop('type') === 'radio' || element.prop('type') === 'select-multiple'){
           error.appendTo(element.parent());
-          console.log(element.parent());
         } 
         else {
           error.insertAfter(element);
@@ -242,15 +240,15 @@ $(document).ready(function(){
 
     // Custom validation methods
     $.validator.addMethod( "supernumeric", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z0-9_,-.' ]+$/i.test( value );
+      return this.optional( element ) || /^[A-Za-z0-9_,-.' ]+$/.test( value );
     }, "alphanumeric, comma, undersocre, dots, hyphen only please" );
 
     $.validator.addMethod( "alphanumeric", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z0-9]+$/i.test( value );
+      return this.optional( element ) || /^[A-Za-z0-9]+$/.test( value );
     }, "Letters and numbers only please" );
 
     $.validator.addMethod( "lettersonly", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z]+$/i.test( value );
+      return this.optional( element ) || /^[A-Za-z]+$/.test( value );
     }, "Letters only please" );
 
     $.validator.addMethod( "nowhitespace", function( value, element ) {
@@ -262,20 +260,20 @@ $(document).ready(function(){
     }, "Please start your name with a capital letter" );
 
     $.validator.addMethod( "mobileIndia", function( value, element ) {
-      return this.optional( element ) || /^[6-9]\d{9}$/i.test( value );
+      return this.optional( element ) || /^[6-9]\d{9}$/.test( value );
     }, "Please enter a valid 10 digit mobile number" );
 
     $.validator.addMethod( "pincodeIndia", function( value, element ) {
-      return this.optional( element ) || /^[1-9]{1}[0-9]{5}$/i.test( value );
+      return this.optional( element ) || /^[1-9]{1}[0-9]{5}$/.test( value );
     }, "Please enter a valid pincode for your region" );
 
     $.validator.addMethod( "twoDecimal", function( value, element ) {
-      return this.optional( element ) || /^[0-9]+$/i.test( value ) || /^.*[0-9]+\.[0-9][0-9]$/i.test( value );
+      return this.optional( element ) || /^[0-9]+\.[0-9][0-9]$/.test( value ) || /^[0-9]+$/.test( value );
     }, "Please round off to two decimal places" );
 
     $.validator.addMethod( "positiveOnly", function( value, element ) {
-      return this.optional( element ) || /^[^-][0-9].*$/i.test( value );
-    }, "Please enter a positive number" );
+      return this.optional( element ) || (value > 1);
+    }, "Please enter a positive number greater than 1" );
     
     //applying validation
 		let form = $("#reg-form")
