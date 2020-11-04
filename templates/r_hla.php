@@ -11,7 +11,7 @@
         <label class="required">*</label>
       </label>
       
-      <select class="beautify requiredField single" id="r_hla_a" name="r_hla_a[]" multiple>  <!-- added requiredField class -->
+      <select class="beautify requiredField single" id="r_hla_a" name="r_hla_a" multiple>  <!-- added requiredField class -->
         <option value="None">None</option>
         <option value="A1">A1</option>
         <option value="A2">A2</option>
@@ -50,7 +50,7 @@
         <label class="required">*</label>
       </label>
 
-      <select class="beautify requiredField single" id="r_hla_b" name="r_hla_b[]" multiple> <!-- added requiredField class -->
+      <select class="beautify requiredField single" id="r_hla_b" name="r_hla_b" multiple> <!-- added requiredField class -->
       <option value="None">None</option>	
       <option value="B5">B5</option>	
       <option value="B7">B7	</option>
@@ -112,7 +112,7 @@
         <label class="required">*</label>
       </label>
 
-      <select class="beautify single requiredField" id="r_hla_dr" name="r_hla_dr[]" multiple>   <!-- added requiredField class -->
+      <select class="beautify single requiredField" id="r_hla_dr" name="r_hla_dr" multiple>   <!-- added requiredField class -->
       <option value="None">None</option>
         <option value="DR1">DR1</option>
         <option value="DR103">DR103</option>

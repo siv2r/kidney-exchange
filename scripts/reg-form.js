@@ -274,6 +274,10 @@ $(document).ready(function(){
     $.validator.addMethod( "positiveOnly", function( value, element ) {
       return this.optional( element ) || (value > 1);
     }, "Please enter a positive number greater than 1" );
+
+    $.validator.addMethod("hlaRestrict", function(value, element) {
+      return value.length == 2;
+    }, "Please select exactly two anitgens");
     
     //applying validation
 		let form = $("#reg-form")
@@ -388,6 +392,26 @@ $(document).ready(function(){
         },
         d_email: {
           email: true
+        },
+
+        //antigen count restrict
+        r_hla_a: {
+          hlaRestrict: true
+        },
+        r_hla_b: {
+          hlaRestrict: true
+        },
+        r_hla_dr: {
+          hlaRestrict: true
+        },
+        d_hla_a: {
+          hlaRestrict: true
+        },
+        d_hla_b: {
+          hlaRestrict: true
+        },
+        d_hla_dr: {
+          hlaRestrict: true
         },
 
         // radio buttons validation
