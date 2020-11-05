@@ -276,6 +276,7 @@ $(document).ready(function(){
     }, "Please enter a positive number greater than 1" );
 
     $.validator.addMethod("hlaRestrict", function(value, element) {
+      console.log(value);
       return value.length == 2;
     }, "Please select exactly two anitgens");
     
@@ -395,22 +396,22 @@ $(document).ready(function(){
         },
 
         //antigen count restrict
-        r_hla_a: {
+        "r_hla_a[]": {
           hlaRestrict: true
         },
-        r_hla_b: {
+        "r_hla_b[]": {
           hlaRestrict: true
         },
-        r_hla_dr: {
+        "r_hla_dr[]": {
           hlaRestrict: true
         },
-        d_hla_a: {
+        "d_hla_a[]": {
           hlaRestrict: true
         },
-        d_hla_b: {
+        "d_hla_b[]": {
           hlaRestrict: true
         },
-        d_hla_dr: {
+        "d_hla_dr[]": {
           hlaRestrict: true
         },
 
