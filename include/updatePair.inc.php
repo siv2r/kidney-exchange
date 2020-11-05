@@ -119,33 +119,37 @@ if(!empty($_POST['r_fname'])){
   $pattern3 = "/^d_hla_[abdrqpc]+/";
 
   foreach($_POST as $key => $value){
+    //if user leaves the option empty
     if(!is_array($value) || empty($value)) continue;
+
+    //if the user chooses none option in anitgen field
+    if(sizeof($value) == 1 && empty($value[0])) continue;
 
     if(preg_match($pattern1, $key)){
       if(empty($r_hla)){
-        $r_hla = implode(', ', $value);
+        $r_hla = implode(', ', array_filter($value));
       }
       else{
-        $r_hla = $r_hla . ', ' . implode(', ', $value);
+        $r_hla = $r_hla . ', ' . implode(', ', array_filter($value));
       }
       
     }
 
     else if(preg_match($pattern2, $key)){
       if(empty($r_ua)){
-        $r_ua = implode(', ', $value);
+        $r_ua = implode(', ', array_filter($value));
       }
       else{
-        $r_ua = $r_ua . ', ' . implode(', ', $value);
+        $r_ua = $r_ua . ', ' . implode(', ', array_filter($value));
       }
     }
 
     else if(preg_match($pattern3, $key)){
       if(empty($d_hla)){
-        $d_hla = implode(', ', $value);
+        $d_hla = implode(', ', array_filter($value));
       }
       else{
-        $d_hla = $d_hla . ', ' . implode(', ', $value);
+        $d_hla = $d_hla . ', ' . implode(', ', array_filter($value));
       }
     }
 
