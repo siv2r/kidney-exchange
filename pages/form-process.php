@@ -137,29 +137,29 @@ if(!empty($_POST['r_fname'])){
 
     if(preg_match($pattern1, $key)){
       if(empty($r_hla)){
-        $r_hla = implode(', ', $value);
+        $r_hla = implode(', ', array_filter($value));  //NOTE: This will filter out 0 values also
       }
       else{
-        $r_hla = $r_hla . ', ' . implode(', ', $value);
+        $r_hla = $r_hla . ', ' . implode(', ', array_filter($value));
       }
       
     }
 
     else if(preg_match($pattern2, $key)){
       if(empty($r_ua)){
-        $r_ua = implode(', ', $value);
+        $r_ua = implode(', ', array_filter($value));
       }
       else{
-        $r_ua = $r_ua . ', ' . implode(', ', $value);
+        $r_ua = $r_ua . ', ' . implode(', ', array_filter($value));
       }
     }
 
     else if(preg_match($pattern3, $key)){
       if(empty($d_hla)){
-        $d_hla = implode(', ', $value);
+        $d_hla = implode(', ', array_filter($value));
       }
       else{
-        $d_hla = $d_hla . ', ' . implode(', ', $value);
+        $d_hla = $d_hla . ', ' . implode(', ', array_filter($value));
       }
     }
 

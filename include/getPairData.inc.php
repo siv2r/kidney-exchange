@@ -167,7 +167,7 @@ $relationValues = array(
 
 //set HLA default values
 $HlaA = array (
-  "None",
+  "Null",
   "A1",
   "A2",
   "A203",
@@ -199,7 +199,7 @@ $HlaA = array (
 );
 
 $HlaB = array (
-  "None",
+  "Null",
   "B5",
   "B7",
   "B703",
@@ -255,7 +255,7 @@ $HlaB = array (
 );
 
 $HlaDR = array (
-  "None",
+  "Null",
   "DR1",
   "DR103",
   "DR2",

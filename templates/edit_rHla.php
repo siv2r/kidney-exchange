@@ -68,9 +68,13 @@
       <select class="beautify single" id="r_hla_c" name="r_hla_c[]" multiple>
         <?php
         foreach ($HlaC as $value) {
-          if (in_array($value, $rHlaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -84,9 +88,13 @@
       <select class="beautify single" id="r_hla_d" name="r_hla_d[]" multiple>
         <?php
         foreach ($HlaD as $value) {
-          if (in_array($value, $rHlaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -99,9 +107,13 @@
       <select class="beautify single" id="r_hla_dq" name="r_hla_dq[]" multiple>
         <?php
         foreach ($HlaDQ as $value) {
-          if (in_array($value, $rHlaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -114,9 +126,13 @@
       <select class="beautify single" id="r_hla_dp" name="r_hla_dp[]" multiple>
         <?php
         foreach ($HlaDP as $value) {
-          if (in_array($value, $rHlaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -149,9 +165,13 @@
       <select class="beautify single" id="r_ua_a" name="r_ua_a[]" multiple>
         <?php
         foreach ($HlaA as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -164,9 +184,13 @@
       <select class="beautify single" id="r_ua_b" name="r_ua_b[]" multiple>
         <?php
         foreach ($HlaB as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -179,9 +203,13 @@
       <select class="beautify single" id="r_ua_dr" name="r_ua_dr[]" multiple>
         <?php
         foreach ($HlaDR as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -194,9 +222,13 @@
       <select class="beautify single" id="r_ua_c" name="r_ua_c[]" multiple>
         <?php
         foreach ($HlaC as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -209,9 +241,13 @@
       <select class="beautify single" id="r_ua_d" name="r_ua_d[]" multiple>
         <?php
         foreach ($HlaD as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -224,9 +260,13 @@
       <select class="beautify single" id="r_ua_dq" name="r_ua_dq[]" multiple>
         <?php
         foreach ($HlaDQ as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -239,9 +279,13 @@
       <select class="beautify single" id="r_ua_dp" name="r_ua_dp[]" multiple>
         <?php
         foreach ($HlaDP as $value) {
-          if (in_array($value, $rUaArray)) {
+          if ($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $rUaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }

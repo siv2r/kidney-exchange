@@ -13,9 +13,13 @@
         <!-- added requiredField class -->
         <?php
         foreach ($HlaA as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -33,9 +37,13 @@
         <!-- added requiredField class -->
         <?php
         foreach ($HlaB as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -52,9 +60,13 @@
         <!-- added requiredField class -->
         <?php
         foreach ($HlaDR as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -68,9 +80,13 @@
       <select class="beautify single" id="d_hla_c" name="d_hla_c[]" multiple>
         <?php
         foreach ($HlaC as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -84,9 +100,13 @@
       <select class="beautify single" id="d_hla_d" name="d_hla_d[]" multiple>
         <?php
         foreach ($HlaD as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -99,9 +119,13 @@
       <select class="beautify single" id="d_hla_dq" name="d_hla_dq[]" multiple>
         <?php
         foreach ($HlaDQ as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
@@ -114,9 +138,13 @@
       <select class="beautify single" id="d_hla_dp" name="d_hla_dp[]" multiple>
         <?php
         foreach ($HlaDP as $value) {
-          if (in_array($value, $dHlaArray)) {
+          if($value == "None") {
+            echo "<option value=''>$value</option>";
+          }
+          else if (in_array($value, $dHlaArray)) {
             echo "<option value='$value' selected>$value</option>";
-          } else {
+          } 
+          else {
             echo "<option value='$value'>$value</option>";
           }
         }
