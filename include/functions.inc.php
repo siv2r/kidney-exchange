@@ -194,9 +194,9 @@ function getHospitals($conn) {     //returns all hospitals in database as associ
   }
 }
 
-function deletePatientById($conn, $id) {
-  $query1 = "DELETE FROM patients WHERE id=$id;";
-  $query2 = "DELETE FROM patient_files WHERE id=$id;";
+function deletePatientById($conn, $patient_id) {
+  $query1 = "DELETE FROM patients WHERE id=$patient_id;";
+  $query2 = "DELETE FROM patient_files WHERE id=$patient_id;";
 
   if(!mysqli_query($conn, $query1)) {
     echo 'patients delete query error' . mysqli_error($conn);
@@ -211,9 +211,9 @@ function deletePatientById($conn, $id) {
   return true;
 }
 
-function deleteDonorById($conn, $id) {
-  $query1 = "DELETE FROM donors WHERE id=$id;";
-  $query2 = "DELETE FROM donor_files WHERE id=$id;";
+function deleteDonorById($conn, $donor_id) {
+  $query1 = "DELETE FROM donors WHERE id=$donor_id;";
+  $query2 = "DELETE FROM donor_files WHERE id=$donor_id;";
 
   if(!mysqli_query($conn, $query1)) {
     echo 'donors delete query error' . mysqli_error($conn);
@@ -228,8 +228,8 @@ function deleteDonorById($conn, $id) {
   return true;
 }
 
-function deletePairById($conn, $id) {
-  $query = "DELETE FROM pd_pairs WHERE pair_id=$id;";
+function deletePairById($conn, $pair_id) {
+  $query = "DELETE FROM pd_pairs WHERE pair_id=$pair_id;";
 
   if(!mysqli_query($conn, $query)) {
     echo 'pd_pairs delete query error' . mysqli_error($conn);

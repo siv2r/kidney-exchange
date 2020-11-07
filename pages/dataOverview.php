@@ -99,9 +99,10 @@ mysqli_free_result($result);
       <th>Pair ID</th>
       <th>Patient ID</th>
       <th>Donor ID</th>
+      <th>Hosp ID</th>
       <th>Status</th>
-      <th >Edit</th>
-      <th >Delete</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
 
     <?php foreach ($result_array as $row) : ?>
@@ -111,9 +112,10 @@ mysqli_free_result($result);
         }   
       ?>
       <tr>
-        <td><?php echo $row['hosp_id'] . '-' .$row['pair_id'] ?></td>
+        <td><?php echo $row['pair_id'] ?></td>
         <td><?php echo $row['patient_id'] ?></td>
         <td><?php echo $row['donor_id'] ?></td>
+        <td><?php echo $row['hosp_id'] ?></td>
         <td>
           <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmation"><?php echo $row['status'] ?></a>
         </td>

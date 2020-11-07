@@ -5,8 +5,8 @@ require_once("../include/functions.inc.php");
 
 if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
   $pair_id = $_GET['pair_id'];
-  $patient_id = $_GET['hosp_id'] . '-' . $_GET['pair_id'] . '-p';
-  $donor_id = $_GET['hosp_id'] . '-' . $_GET['pair_id'] . '-d';
+  $patient_id = $pair_id . '-p';
+  $donor_id = $pair_id . '-d';
 
   $pair_id = "'$pair_id'";
   $patient_id = "'$patient_id'";

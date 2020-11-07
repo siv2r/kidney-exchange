@@ -16,13 +16,14 @@ $statusMsg = '';
 
 if(!empty($_POST['r_fname'])){
 
-  // this stores the hospital chosen in the paitent form 
+  // this stores the hospital id of the hospital chosen in the paitent form 
   $r_dcenter = addslashes($_POST['r_d-center']);
 
   //id generation
-	$mid_id = random_strings(5);
-  $r_id =  $r_dcenter . '-' . $mid_id . '-' . 'p';
-  $d_id =  $r_dcenter . '-' . $mid_id . '-' . 'd';
+  $mid_id = random_strings(5);
+  $pair_id = $r_dcenter . '-' . $mid_id;
+  $r_id =  $pair_id. '-' . 'p';
+  $d_id =  $pair_id. '-' . 'd';
 
   //patient info
   //patient personal info
@@ -338,7 +339,9 @@ if(!empty($_POST['r_fname'])){
   $status = "Active"; // Active or Inactive
   // $hosp_id = $r_dcenter;
 
-  $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ('$mid_id' ,$r_id, $d_id, $r_dcenter, 'Active')";
+  $pair_id = "'$pair_id'";
+
+  $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ($pair_id ,$r_id, $d_id, $r_dcenter, 'Active')";
 
   session_start();
   

@@ -14,9 +14,9 @@ if(isset($_POST['submit'])) {
     header("location: ../pages/dataSearch.php?error=notSameHosp");
     exit();
   } 
-  
-  $patient_id = $_POST['id'] . '-p';
-  $donor_id = $_POST['id'] . '-d';
+  $pair_id = $_POST['id'];
+  $patient_id = $pair_id . '-p';
+  $donor_id = $pair_id . '-d';
 
   //now proceed
   include("../templates/db-connect.php");
