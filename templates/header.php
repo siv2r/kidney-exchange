@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,8 @@
 * {
   font-family:"Open Sans";
   box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
 }
 
 .wrapper{
@@ -23,10 +26,6 @@
   margin: auto;
   padding: 10px;
   box-sizing: border-box;
-}
-
-body{
-  margin: 0%;
 }
 
 </style>

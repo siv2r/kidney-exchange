@@ -12,7 +12,7 @@
       </label>
       
       <select class="beautify requiredField single" id="r_hla_a" name="r_hla_a[]" multiple>  <!-- added requiredField class -->
-        <option value="None">None</option>
+        <option value="Null">Null</option>
         <option value="A1">A1</option>
         <option value="A2">A2</option>
         <option value="A203">A203</option>
@@ -51,7 +51,7 @@
       </label>
 
       <select class="beautify requiredField single" id="r_hla_b" name="r_hla_b[]" multiple> <!-- added requiredField class -->
-      <option value="None">None</option>	
+      <option value="Null">Null</option>	
       <option value="B5">B5</option>	
       <option value="B7">B7	</option>
       <option value="B703">B703</option>
@@ -113,7 +113,7 @@
       </label>
 
       <select class="beautify single requiredField" id="r_hla_dr" name="r_hla_dr[]" multiple>   <!-- added requiredField class -->
-      <option value="None">None</option>
+        <option value="Null">Null</option>
         <option value="DR1">DR1</option>
         <option value="DR103">DR103</option>
         <option value="DR2">DR2</option>
@@ -144,7 +144,7 @@
     <div class="antigen">
       <label for="r_hla_c"> C</label>
       <select class="beautify single" id="r_hla_c" name="r_hla_c[]" multiple>
-        <option value="None">None</option>
+        <option value="">None</option>
         <option value="Cw1">Cw1</option>	
         <option value="Cw2">Cw2</option>	
         <option value="Cw3">Cw3</option>      
@@ -162,7 +162,7 @@
     <div class="antigen">
       <label for="r_hla_d" > D</label>
       <select class="beautify single" id="r_hla_d" name="r_hla_d[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="Dw1">Dw1</option>
         <option value="Dw2">Dw2</option>
         <option value="Dw3">Dw3</option>
@@ -195,7 +195,7 @@
     <div class="antigen">
       <label for="r_hla_dq">DQ</label>
       <select class="beautify single" id="r_hla_dq" name="r_hla_dq[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="DQ1">DQ1</option>	
         <option value="DQ2">DQ2</option>	
         <option value="DQ3">DQ3</option>	
@@ -211,7 +211,7 @@
     <div class="antigen">
       <label for="r_hla_dp">DP</label>
       <select class="beautify single" id="r_hla_dp" name="r_hla_dp[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="DPw1">DPw1</option>
         <option value="DPw2">DPw2</option>
         <option value="DPw3">DPw3</option>
@@ -244,7 +244,7 @@
     <div class="antigen">
       <label for="r_ua_a"> A</label>
       <select class="beautify single" id="r_ua_a" name="r_ua_a[]" multiple>
-        <option value="None">None</option>
+        <option value="">None</option>
         <option value="A1">A1</option>
         <option value="A2">A2</option>
         <option value="A203">A203</option>
@@ -279,7 +279,7 @@
     <div class="antigen">
       <label for="r_ua_b"> B</label>
       <select class="beautify single" id="r_ua_b" name="r_ua_b[]" multiple>
-      <option value="None">None</option>	
+      <option value="">None</option>	
       <option value="B5">B5</option>	
       <option value="B7">B7	</option>
       <option value="B703">B703</option>
@@ -338,7 +338,7 @@
     <div class="antigen">
       <label for="r_ua_dr">DR</label>
       <select class="beautify single" id="r_ua_dr" name="r_ua_dr[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="DR1">DR1</option>
         <option value="DR103">DR103</option>
         <option value="DR2">DR2</option>
@@ -369,7 +369,7 @@
     <div class="antigen">
       <label for="r_ua_c"> C</label>
       <select class="beautify single" id="r_ua_c" name="r_ua_c[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="Cw1">Cw1</option>	
         <option value="Cw2">Cw2</option>	
         <option value="Cw3">Cw3</option>      
@@ -386,7 +386,7 @@
     <div class="antigen">
       <label for="r_ua_d" > D</label>
       <select class="beautify single" id="r_ua_d" name="r_ua_d[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="Dw1">Dw1</option>
         <option value="Dw2">Dw2</option>
         <option value="Dw3">Dw3</option>
@@ -419,7 +419,7 @@
     <div class="antigen">
       <label for="r_ua_dq">DQ</label>
       <select class="beautify single" id="r_ua_dq" name="r_ua_dq[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="DQ1">DQ1</option>	
         <option value="DQ2">DQ2</option>	
         <option value="DQ3">DQ3</option>	
@@ -435,7 +435,7 @@
     <div class="antigen">
       <label for="r_ua_dp">DP</label>
       <select class="beautify single" id="r_ua_dp" name="r_ua_dp[]" multiple>
-      <option value="None">None</option>
+        <option value="">None</option>
         <option value="DPw1">DPw1</option>
         <option value="DPw2">DPw2</option>
         <option value="DPw3">DPw3</option>

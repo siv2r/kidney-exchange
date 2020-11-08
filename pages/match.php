@@ -8,16 +8,10 @@
 
 <div class="wrapper">
 
-  <form method="post" action="../pages/pairData.php" class="search">
+  <form method="post" action="../pages/findMatch.php" class="search">
     <input type="text" name="id" id="id" placeholder="Enter pair id only">
     <button type="submit" id="searchBtn" class="button" name='submit' value="submit">Search</button>
   </form>
-
-  <?php 
-    if(isset($_GET['error'])) {
-      echo "Please enter only your hospital data" . "<br>";
-    }
-  ?>
 
 </div>
 

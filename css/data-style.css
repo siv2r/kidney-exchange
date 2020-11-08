@@ -1,3 +1,7 @@
+body {
+  font-size: 20px;
+}
+
 .button {
 	background-color: #dcdcdc;
 	color: black;
@@ -26,22 +30,6 @@
   margin: 2px;
 }
 
-button:hover {
-	opacity: 0.8;
-}
-
-#button_block{
-  text-align: left;
-  box-sizing: border-box;
-  width: 40%;
-} 
-
-body{
-  background: #F0FFFF;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
-}
-
 table {
   border-collapse: collapse;
   width: 80%;
@@ -60,12 +48,12 @@ table tr:hover {background-color: #ddd;}
 table th {
   padding-top: 10px;
   padding-bottom: 10px;
-  text-align: left;
+  text-align: center;
   background-color: #39CCCC;
   color: black;
 }
 
-.overview h2{
+h2.heading{
   text-align: center;
   margin: 20px;
   padding: 10px;

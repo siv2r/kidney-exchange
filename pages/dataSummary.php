@@ -1,72 +1,116 @@
 <?php
+include_once("../templates/db-connect.php");
+include_once("../include/functions.inc.php");
 
-include("../templates/db-connect.php");
-
-$sql = "SELECT * FROM pd_pairs ORDER BY pair_id";
-$result = mysqli_query($conn, $sql);
-$result_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
-mysqli_free_result($result);
+$pArray = getPatients($conn);
+$dArray = getDonors($conn);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<link rel="stylesheet" href="../css/data-style.css">
-
 <?php include("../templates/header.php") ?>
 
-<div class="nav-container">
-  <?php include("../templates/nav-bar.php") ?>
-</div>
+  <link rel="stylesheet" href="../css/data-style.css">
 
-<div class="wrapper">
+  <style>
+    #patientTable{
+      width: 85%;
+    }
 
-  <div id="button_block">
-    <button name="overviewBtn" class="button" id="overviewBtn">Overview</button>
-    <button name="SearchBtn" class="button" id="searchBtn">Search</button>
+    #donorTable {
+      width: 70%;
+    }
+
+  </style>
+
+  <div class="nav-container">
+    <?php include("../templates/nav-bar.php") ?>
   </div>
 
-  <div class="overview">
-    <h2>PD Pairs</h2>
-
-    <table>
+  <h2 class="heading">Patients</h2>
+    <table id="patientTable">
       <tr>
-        <th>Pair ID</th>
-        <th>Patient ID</th>
-        <th>Donor ID</th>
-        <th>Hospital ID</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>BMI</th>
+        <th>Blood Group</th>
+        <th>HLA Antigens</th>
+        <th>DSA</th>
+        <th>Serology</th>
+        <th>Clearance</th>
+        <th>Dialysis</th>
       </tr>
 
-      <?php foreach ($result_array as $row) { ?>
+      <?php foreach ($pArray as $row) : ?>
+        <?php 
+          $checkHospid = explode('-', $row['id']);
+
+          if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
+            continue;
+          } 
+          //get the row values
+          $pAge = date_diff(date_create($row['dob']), date_create('today'))->y;
+          $pBMI = bmiVal($row['height'], $row['weight']);
+          $pUa = (!empty($row['ua_antigens'])) ? "Yes": "No";
+          $pSerology = ($row['hiv'] == "Positive" 
+          || $row['hep_b'] == "Positive" 
+          || $row['hep_c'] == "Positive") ? "Positive" : "Negative";
+          $pDialysisArray = explode(", ", $row['dialysis']);
+          $pDialysis = $pDialysisArray[0];
+
+        ?>
         <tr>
-          <td><?php echo $row['pair_id'] ?></td>
-          <td><?php echo $row['patient_id'] ?></td>
-          <td><?php echo $row['donor_id'] ?></td>
-          <td><?php echo $row['hosp_id'] ?></td>
-          <td><?php echo $row['status'] ?></td>
-          <td>
-            <a class="button info" href="../pages/reg-form.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
-            <a class="button danger" href="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
-          </td>
-
+          <td><?php echo $row['id'] ?></td>
+          <td><?php echo $row['name'] ?></td>
+          <td><?php echo $pAge ?></td>
+          <td><?php echo $pBMI?></td>
+          <td><?php echo $row['blood_group'] ?></td>
+          <td><?php echo $row['hla_antigens'] ?></td>
+          <td><?php echo $pUa ?></td>
+          <td><?php echo $pSerology ?></td>
+          <td><?php echo $row['prov_clearance'] ?></td>
+          <td><?php echo $pDialysis ?></td>
         </tr>
-      <?php } ?>
+      <?php endforeach; ?>
+    </table>
 
+    <h2 class="heading">Donors</h2>
+    <table id="donorTable">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>BMI</th>
+        <th>Blood Group</th>
+        <th>HLA Antigens</th>
+        <th>Clearance</th>
+      </tr>
+
+      <?php foreach ($dArray as $row) : ?>
+        <?php 
+
+          $checkHospid = explode('-', $row['id']);
+
+          if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
+            continue;
+          } 
+          //get the row values
+          $dAge = date_diff(date_create($row['dob']), date_create('today'))->y;
+          $dBMI = bmiVal($row['height'], $row['weight']);
+
+        ?>
+        <tr>
+          <td><?php echo $row['id'] ?></td>
+          <td><?php echo $row['name'] ?></td>
+          <td><?php echo $dAge ?></td>
+          <td><?php echo $dBMI?></td>
+          <td><?php echo $row['blood_group'] ?></td>
+          <td><?php echo $row['hla_antigens'] ?></td>
+          <td><?php echo $row['prov_clearance'] ?></td>
+        </tr>
+      <?php endforeach; ?>
 
     </table>
-  </div>
+    </div>
 
-  <form method="post" action="patient-data.php" class="search">
-    <input type="text" name="id" id="id" placeholder="Enter the patient id here">
-    <button type="submit" id="searchBtn" class="button" name='submit' value="submit">Search</button>
-  </form>
-
-</div>
-
-<script src="../scripts/data.js"></script>
-</body>
-
-</html>
+<?php include_once("../include/footer.inc.php") ?>

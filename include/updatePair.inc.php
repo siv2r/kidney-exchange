@@ -1,29 +1,14 @@
 <?php 
-
-function random_strings($length_of_string){
-
-	$str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-
-	// Shufle the $str_result and returns substring of specified length
-	return substr(str_shuffle($str_result), 0, $length_of_string);
-}
-
-// --------------------------------------------create a message page to display the registraion result------------------
-
-
 $status = '';
 $statusMsg = '';
 
 if(!empty($_POST['r_fname'])){
 
-  // this stores the hospital id of the hospital chosen in the paitent form 
+  // this stores the hospital chosen in the paitent form 
   $r_dcenter = addslashes($_POST['r_d-center']);
 
-  //id generation
-  $mid_id = random_strings(5);
-  $pair_id = $r_dcenter . '-' . $mid_id;
-  $r_id =  $pair_id. '-' . 'p';
-  $d_id =  $pair_id. '-' . 'd';
+  $r_id =  $_POST['r_id'];
+  $d_id =  $_POST['d_id'];
 
   //patient info
   //patient personal info
@@ -134,7 +119,7 @@ if(!empty($_POST['r_fname'])){
   $pattern3 = "/^d_hla_[abdrqpc]+/";
 
   foreach($_POST as $key => $value){
-    //if user leaves the antigen field empty
+    //if user leaves the option empty
     if(!is_array($value) || empty($value)) continue;
 
     //if the user chooses none option in anitgen field
@@ -142,11 +127,12 @@ if(!empty($_POST['r_fname'])){
 
     if(preg_match($pattern1, $key)){
       if(empty($r_hla)){
-        $r_hla = implode(', ', array_filter($value));  //NOTE: This will filter out 0 values also
+        $r_hla = implode(', ', array_filter($value));
       }
       else{
         $r_hla = $r_hla . ', ' . implode(', ', array_filter($value));
       }
+      
     }
 
     else if(preg_match($pattern2, $key)){
@@ -223,160 +209,93 @@ if(!empty($_POST['r_fname'])){
   $d_smoking     = (!empty($d_smoking)) ? "'$d_smoking'" : "NULL";
   $d_prov_clear  = (!empty($d_prov_clear)) ? "'$d_prov_clear'" : "NULL";
 
-  // ---------------------------------------------------------------------------------------------------
+  // -------------preparing SQL update statements for file data--------
 
-  // $a[] = $r_name; 
-  // $a[] =  $r_sex;
-  // $a[] =   $r_dob ;
-  // $a[] =   $r_height;
-  // $a[] =   $r_weight;
-  // $a[] =   $r_btype; 
-  // $a[] = $r_id;
-  // $a[] =   $r_address;
-  // $a[] =   $r_cno;
-  // $a[] =   $r_email;
-
-  // $a[] =   $r_basicd;
-  // $a[] =   $r_gr;
-  // $a[] =   $r_comorb;
-  // $a[] =   $r_hiv;
-  // $a[] =   $r_hepb;
-  // $a[] =   $r_hepc;
-  // $a[] =   $r_prev_transp;
-  // $a[] =   $r_dialysis;
-  // $a[] =   $r_ddp;
-  // $a[] =   $r_nephro;
-  // $a[] =   $r_dcenter;
-  // $a[] =   $r_prov_clear;
-  // $a[] =   $r_pre_transp;
-  // $a[] =   $r_hla;
-  // $a[] =   $r_ua;
-
-
-  // $b[] = $d_name; 
-  // $b[] =  $d_sex;
-  // $b[] =   $d_dob ;
-  // $b[] =   $d_height;
-  // $b[] =   $d_weight;
-  // $b[] =   $d_btype; 
-  // $b[] =   $d_rel; 
-  // $b[] = $d_id;
-  // $b[] =   $d_address;
-  // $b[] =   $d_cno;
-  // $b[] =   $d_email;
-
-  // $b[] =   $d_comorb;
-  // $b[] =   $d_hiv;
-  // $b[] =   $d_hepb;
-  // $b[] =   $d_hepc;
-  // $b[] =   $d_prov_clear;
-  // $b[] =   $d_hla;
-  // $b[] =   $d_alcohol;
-  // $b[] =   $d_smoking;
-
-  // print_r($_POST);
-  // echo '<br>';
-  // print_r($a);
-  // echo '<br>';
-  // print_r($b);
-
-  // --------------------------------processing the image and report data-----------------------------------------------------
+  $fileQuery = array(); //this contains sql file update statements
 
   // patient files
-  $r_img = "NULL";
   if(!empty($_FILES['r_img']['name'])){
     $r_img = addslashes(file_get_contents($_FILES['r_img']['tmp_name']));
     $r_img = "'$r_img'";
+    array_push($fileQuery, "UPDATE patient_files SET profile_pic=$r_img WHERE id=$r_id;");
   }
-  $r_b_report = "NULL";
+
   if(!empty($_FILES['r_b-report']['name'])){
     $r_b_report = addslashes(file_get_contents($_FILES['r_b-report']['tmp_name']));
     $r_b_report = "'$r_b_report'";
+    array_push($fileQuery, "UPDATE patient_files SET blood_report=$r_b_report WHERE id=$r_id;");
   }
-  $r_hla_report = "NULL";
+
   if(!empty($_FILES['r_hla-report']['name'])){
     $r_hla_report = addslashes(file_get_contents($_FILES['r_hla-report']['tmp_name']));
     $r_hla_report = "'$r_hla_report'";
+    array_push($fileQuery, "UPDATE patient_files SET hla_report=$r_hla_report WHERE id=$r_id;");
   }
-  $r_ua_report = "NULL";
+
   if(!empty($_FILES['r_ua-report']['name'])){
     $r_ua_report = addslashes(file_get_contents($_FILES['r_ua-report']['tmp_name']));
     $r_ua_report = "'$r_ua_report'";
+    array_push($fileQuery, "UPDATE patient_files SET dsa_report=$r_ua_report WHERE id=$r_id;");
   }
 
   // donor files
-  $d_img = "NULL";
   if(!empty($_FILES['d_img']['name'])){
     $d_img = addslashes(file_get_contents($_FILES['d_img']['tmp_name']));
     $d_img = "'$d_img'";
+    array_push($fileQuery, "UPDATE donor_files SET profile_pic=$d_img WHERE id=$d_id;");
   }
-  $d_b_report = "NULL";
+  
   if(!empty($_FILES['d_b-report']['name'])){
     $d_b_report = addslashes(file_get_contents($_FILES['d_b-report']['tmp_name']));
     $d_b_report = "'$d_b_report'";
+    array_push($fileQuery, "UPDATE donor_files SET blood_report=$d_b_report WHERE id=$d_id;");
   }
-  $d_hla_report = "NULL";
+  
   if(!empty($_FILES['d_hla-report']['name'])){
     $d_hla_report = addslashes(file_get_contents($_FILES['d_hla-report']['tmp_name']));
     $d_hla_report = "'$d_hla_report'";
+    array_push($fileQuery, "UPDATE donor_files SET hla_report=$d_hla_report WHERE id=$d_id;");
   }
 
-  // Inserting into the database
+  // Editing into the database
 
 	//connecting to database
 	include("../templates/db-connect.php");
 
 	//creating sql queries
-  $sql1 = "INSERT INTO patients (id, `name`, sex, dob, height, `weight`, blood_group, `address`, contact_number, email, hla_antigens, ua_antigens, basic_disease, gr_biopsy, comorb, hiv, hep_b, hep_c, prev_transp, dialysis, dd_program, prime_nephro, hospital, prov_clearance, pre_transp_surgery) VALUES ($r_id, $r_name, $r_sex, $r_dob, $r_height, $r_weight, $r_btype, $r_address, $r_cno, $r_email, $r_hla, $r_ua, $r_basicd, $r_gr, $r_comorb, $r_hiv, $r_hepb, $r_hepc, $r_prev_transp, $r_dialysis, $r_ddp, $r_nephro, $r_dcenter, $r_prov_clear, $r_pre_transp)";
+  $patientQuery = "UPDATE patients SET `name`=$r_name, sex=$r_sex, dob=$r_dob, height=$r_height, `weight`=$r_weight, blood_group=$r_btype, `address`=$r_address, contact_number=$r_cno, email=$r_email, hla_antigens=$r_hla, ua_antigens=$r_ua, basic_disease=$r_basicd, gr_biopsy=$r_gr, comorb=$r_comorb, hiv=$r_hiv, hep_b=$r_hepb, hep_c=$r_hepc, prev_transp=$r_prev_transp, dialysis=$r_dialysis, dd_program=$r_ddp, prime_nephro=$r_nephro, hospital=$r_dcenter, prov_clearance=$r_prov_clear, pre_transp_surgery=$r_pre_transp WHERE id=$r_id";
 
-  $sql2 = "INSERT INTO donors (id, `name`, sex, dob, height, `weight`, blood_group, relation, `address`, contact_number, email, hla_antigens, comorb, hiv, hep_b, hep_c, alcohol, smoking, prov_clearance) VALUES ($d_id,   $d_name, $d_sex, $d_dob, $d_height, $d_weight, $d_btype,$d_rel, $d_address, $d_cno, $d_email, $d_hla,  $d_comorb, $d_hiv, $d_hepb, $d_hepc, $d_alcohol, $d_smoking, $d_prov_clear)";
+  $donorQuery = "UPDATE donors SET `name`=$d_name, sex=$d_sex, dob=$d_dob, height=$d_height, `weight`=$d_weight, blood_group=$d_btype, relation=$d_rel, `address`=$d_address, contact_number=$d_cno, email=$d_email, hla_antigens=$d_hla, comorb=$d_comorb, hiv=$d_hiv, hep_b=$d_hepb, hep_c=$d_hepc, alcohol=$d_alcohol, smoking=$d_smoking, prov_clearance=$d_prov_clear WHERE id=$d_id";
   
- 
-  $sql3 = "INSERT INTO patient_files (id, profile_pic, blood_report, hla_report, dsa_report) VALUES ($r_id, $r_img, $r_b_report, $r_hla_report, $r_ua_report)";
-
-  $sql4 = "INSERT INTO donor_files (id, profile_pic, blood_report, hla_report) VALUES ($d_id, $d_img, $d_b_report, $d_hla_report)";
-
-  $status = "Active"; // Active or Inactive
-  // $hosp_id = $r_dcenter;
-
-  $pair_id = "'$pair_id'";
-
-  $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ($pair_id ,$r_id, $d_id, $r_dcenter, 'Active')";
-
   session_start();
   
-  $_SESSION['form'] = 'pd-form';
+  $_SESSION['form'] = 'edit';
 
-	if(!mysqli_query($conn, $sql1)){
-    $status = 0;
-		$statusMsg = 'patient insert query error ' . mysqli_error($conn);
-  }
-  
-	else if(!mysqli_query($conn, $sql2)){
-    $status = 0;
-		$statusMsg = 'donor insert query error ' . mysqli_error($conn);
-  }
-  
-	else if(!mysqli_query($conn, $sql3)){
-    $status = 0;
-		$statusMsg = 'patient_files insert query error ' . mysqli_error($conn);
-  }
-  
-	else if(!mysqli_query($conn, $sql4)){
-    $status = 0;
-		$statusMsg = 'donor_files insert query error ' . mysqli_error($conn);
+  foreach ($fileQuery as $queryVal) {
+    if (!mysqli_query($conn, $queryVal)) {
+      $status = 0;
+      echo 'file query update error' . mysqli_error($conn);
+      exit();
+    }
   }
 
-	else if(!mysqli_query($conn, $sql5)){
+	if(!mysqli_query($conn, $patientQuery)){
     $status = 0;
-		$statusMsg = 'pd_pairs insert query ' . mysqli_error($conn);
+    echo 'patient edit query error ' . mysqli_error($conn);
+    exit();
   }
   
+	else if(!mysqli_query($conn, $donorQuery)){
+    $status = 0;
+    echo 'donor edit query error ' . mysqli_error($conn);
+    exit();
+  }
+    
   else{
     $status = 1;
-    $statusMsg = 'Your registration is successful!!!';
-    $_SESSION['r_id'] = $r_id;
-    $_SESSION['d_id'] = $d_id;
+    $statusMsg = 'You have successfully edited the following pair';
+    $_SESSION['edit_r_id'] = $r_id;
+    $_SESSION['edit_d_id'] = $d_id;
   }
 
   $_SESSION['status'] = $status;
@@ -386,7 +305,7 @@ if(!empty($_POST['r_fname'])){
 }
 
 else {
-  header("location: ../pages/reg-form.php");
+  header("location: ../pages/dataOverview.php");
   exit();
 }
 
