@@ -124,6 +124,7 @@ session_start();
       }
       echo     '</ul>';
       echo   '</li>';
+      echo   '<li><a href="pages/match.php">Match</a></li>';
       echo   '<li><a href="#">Data</a>';
       echo     '<ul>';
       echo       '<li><a href="pages/dataOverview.php">Overview</a></li>';
