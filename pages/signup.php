@@ -133,8 +133,6 @@ img.avatar {
         <button type="submit" name="submit" value="submit" id="submitBtn">Sign Up</button>
       </div>
       	
-	</form>
-
-  <!-- <script src="../scripts/validateSignup.js"></script> -->
-
+  </form>
+  
 <?php include("../include/footer.inc.php") ?>
