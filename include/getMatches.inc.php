@@ -91,9 +91,16 @@ function getMatches ($pair_id) {
     // compute the HLA ranking of P1-D2
     $givenPatientHLA = explode(", ", $givenPairData['patientHLA']);
     $totalPairDonorHLA = explode(", ", $row['donorHLA']);
-    $commonHLA = array_intersect($givenPatientHLA, $totalPairDonorHLA);
+    $commonHLA_P1_D2 = array_intersect($givenPatientHLA, $totalPairDonorHLA);
+    $commonHLA_P1_D2 = sizeof($commonHLA_P1_D2) . '/14'; // since there are 7 HLA
 
-    $pairScore = sizeof($commonHLA) . '/14'; // since 7 HLA are there
+    $givenDonorHLA = explode(", ", $givenPairData['donorHLA']);
+    $totalPairPatientHLA = explode(", ", $row['patientHLA']);
+    $commonHLA_P2_D1 = array_intersect($givenDonorHLA, $totalPairPatientHLA);
+    $commonHLA_P2_D1 = sizeof($commonHLA_P2_D1) . '/14'; // since there are 7 HLA
+
+    $pairScore = array($commonHLA_P1_D2, $commonHLA_P2_D1);
+
 
     $validPair = 
     array($row['pairId'], $row['patientName'], $row['donorName'], $pairScore);
@@ -103,10 +110,10 @@ function getMatches ($pair_id) {
 
   //sort the result
   function cmp($a, $b) {
-    if ($a[3] == $b[3]) {
+    if ($a[3][0] == $b[3][0]) {
       return 0;
     }
-    return ($a[3] > $b[3]) ? -1 : 1;
+    return ($a[3][0] > $b[3][0]) ? -1 : 1;
   }
 
   usort($matchResults, "cmp");

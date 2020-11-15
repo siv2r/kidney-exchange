@@ -38,7 +38,7 @@ else {
       <th>Pair ID</th>
       <th>Patient Name</th>
       <th>Donor Name</th>
-      <th>Pair Score</th>
+      <th>Pair Score (P1-D2, P2-D1)</th>
     </tr>
 
     <?php foreach ($matchResults as $row) : ?>
@@ -46,7 +46,7 @@ else {
         <td><?php echo $row[0] ?></td>
         <td><?php echo $row[1] ?></td>
         <td><?php echo $row[2] ?></td>
-        <td><?php echo $row[3] ?></td>
+        <td><?php echo "(". $row[3][0] . ", " . $row[3][1] . ")"; ?></td>
       </tr>
     <?php endforeach; ?>
   </table>
