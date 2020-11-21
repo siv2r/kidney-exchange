@@ -287,6 +287,24 @@ $(document).ready(function () {
       return this.optional(element) || (element.files[0].size <= paramBytes)
     }, "File size must be less than {0} MB");
 
+    $.validator.addMethod("minAge", function(value, element, min) {
+      let today = new Date();
+      let birthDate = new Date(value);
+      let age = today.getFullYear() - birthDate.getFullYear();
+   
+      if (age > min+1) { 
+        return true; 
+      }
+   
+      let m = today.getMonth() - birthDate.getMonth();
+   
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) { 
+        age--; 
+      }
+      return age >= min;
+
+    }, "Donor must be atleast {0} years old!");
+
     //applying validation
     let form = $("#reg-form")
     form.validate({
@@ -315,6 +333,11 @@ $(document).ready(function () {
           nowhitespace: true,
           lettersonly: true,
           startsCapital: true
+        },
+
+        //donor age restriction
+        d_dob: {
+          minAge: 18
         },
 
         //bmi validations
