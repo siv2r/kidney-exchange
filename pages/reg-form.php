@@ -104,11 +104,11 @@
         
           <div class='input-field'>
             <div class="label-box">
-              <label for="do-birth">Date of Birth  </label>
+              <label for="r_dob">Date of Birth  </label>
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="date" id="do-birth" name="r_dob" value="" class="requiredField single">
+              <input type="date" id="r_dob" name="r_dob" value="" class="requiredField single">
             </div>
           </div>
         
