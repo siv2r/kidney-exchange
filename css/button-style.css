@@ -1,0 +1,35 @@
+
+.button {
+  background-color: #dcdcdc;
+  color: black;
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 19px;
+  border-radius: 5%;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.info{
+  background-color: #008CBA;
+  color: white;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.danger{
+  background-color:#f44336;
+  color: white;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.success{
+  background-color:#3CB371;
+  color: white;
+  border-radius: 8px;
+  margin: 5px;
+}
