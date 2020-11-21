@@ -154,7 +154,12 @@ label.required{
   flex: 3 0 0;
 }
 
-#pass-img{
+#r-pass-img{
+  width: 50%;
+  display: block;
+}
+
+#d-pass-img{
   width: 50%;
   display: block;
 }

@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../scripts/reg-form.js"></script> 
 </head>
 
@@ -65,10 +66,10 @@
         </div>
 
         <div class="pass-img-box">
-          <label for="passport-img">
-            <img id="pass-img" src="../images/blank-avatar.png">
+          <label for="r_img">
+            <img id="r-pass-img" src="../images/blank-avatar.png">
           </label>
-          <input type="file" id="passport-img" name="r_img" class="requiredField">
+          <input type="file" id="r_img" name="r_img" class="requiredField">
         </div>
        </div>
         
@@ -504,10 +505,10 @@
             </div>
 
             <div class="pass-img-box">
-              <label for="passport-img">
-                <img id="pass-img" src="../images/blank-avatar.png">
+              <label for="d_img">
+                <img id="d-pass-img" src="../images/blank-avatar.png">
               </label>
-              <input type="file" id="passport-img" name="d_img" class="requiredField">
+              <input type="file" id="d_img" name="d_img" class="requiredField">
             </div>
         </div>
         
@@ -535,7 +536,7 @@
               <label for="male">Male</label>
               <input type="radio" id='Female' name='d_sex' value="female">
               <label for="female">Female</label>
-              <input type="radio" id='other' name='dd_sex' value="Other">
+              <input type="radio" id='other' name='d_sex' value="Other">
               <label for="other">Other</label>
             </div>
           </div>

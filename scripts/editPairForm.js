@@ -282,6 +282,11 @@ $(document).ready(function () {
       return value.length == 2;
     }, "Please select exactly two anitgens");
 
+    $.validator.addMethod('fileSize', function (value, element, param) {
+      let paramBytes = param*1024*1024;
+      return this.optional(element) || (element.files[0].size <= paramBytes)
+    }, "File size must be less than {0} MB");
+
     //applying validation
     let form = $("#reg-form")
     form.validate({
@@ -421,13 +426,44 @@ $(document).ready(function () {
         //gender validations
         r_sex: "required",
         d_sex: "required",
+
         //serology validations
         r_hiv: "required",
         r_hepB: "required",
         r_hepC: "required",
         d_hiv: "required",
         d_hepB: "required",
-        d_hepC: "required"
+        d_hepC: "required",
+
+        //file validation
+        r_img: {
+          extension: "png,jpg,jpeg",
+          fileSize: 2
+        },
+        d_img: {
+          extension: "png,jpg,jpeg",
+          fileSize: 2
+        },
+        "r_b-report": {
+          extension: "pdf",
+          fileSize: 2
+        },
+        "r_hla-report": {
+          extension: "pdf",
+          fileSize: 2
+        },
+        "r_ua-report": {
+          extension: "pdf",
+          fileSize: 2
+        },
+        "d_b-report": {
+          extension: "pdf",
+          fileSize: 2
+        },
+        "d_hla-report": {
+          extension: "pdf",
+          fileSize: 2
+        }
       },
 
       messages: {
@@ -439,7 +475,28 @@ $(document).ready(function () {
         r_hepC: "Please fill this field",
         d_hiv: "Please fill this field",
         d_hepB: "Please fill this field",
-        d_hepC: "Please fill this field"
+        d_hepC: "Please fill this field",
+        r_img: {
+          extension: "Only jpg, jpeg, png are allowed"
+        },
+        d_img: {
+          extension: "Only jpg, jpeg, png are allowed"
+        },
+        "r_b-report": {
+          extension: "Only pdf is allowed"
+        },
+        "r_hla-report": {
+          extension: "Only pdf is allowed"
+        },
+        "r_ua-report": {
+          extension: "Only pdf is allowed"
+        },
+        "d_b-report": {
+          extension: "Only pdf is allowed"
+        },
+        "d_hla-report": {
+          extension: "Only pdf is allowed"
+        }
       },
 
     });

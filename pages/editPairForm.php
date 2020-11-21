@@ -14,6 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../scripts/editPairForm.js"></script>
 </head>
 
@@ -83,10 +84,10 @@ if (isset($_GET['pair_id'])) {
           </div>
 
           <div class="pass-img-box">
-            <label for="passport-img">
-              <img id="pass-img" src="../images/blank-avatar.png">
+            <label for="r_img">
+              <img id="r-pass-img" src="../images/blank-avatar.png">
             </label>
-            <input type="file" id="passport-img" name="r_img">
+            <input type="file" id="r_img" name="r_img">
           </div>
         </div>
 
@@ -519,10 +520,10 @@ if (isset($_GET['pair_id'])) {
           </div>
 
           <div class="pass-img-box">
-            <label for="passport-img">
-              <img id="pass-img" src="../images/blank-avatar.png">
+            <label for="d_img">
+              <img id="d-pass-img" src="../images/blank-avatar.png">
             </label>
-            <input type="file" id="passport-img" name="d_img">
+            <input type="file" id="d_img" name="d_img">
           </div>
         </div>
 
