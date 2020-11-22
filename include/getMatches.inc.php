@@ -3,7 +3,7 @@
 
 function getMatches ($pair_id) {
 
-  require_once("../templates/db-connect.php"); // connect to the database
+  include("../templates/db-connect.php"); // connect to the database
 
   $givenDataQuery = 
   "SELECT patients.blood_group AS patientBloodGroup, 
