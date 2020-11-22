@@ -25,19 +25,16 @@ $dArray = getDonors($conn);
       text-align: center;
       color: #E2B842;
       font-size: 30px;
-      margin: 40px auto 10px auto;
+      margin: 50px auto 10px auto;
     }
 
-    #patientsHeading {
-      margin-top: 10%;
-    }
   </style>
 
   <div class="nav-container">
     <?php include("../templates/nav-bar.php") ?>
   </div>
 
-  <h2 class="heading" id="patientsHeading">Patients</h2>
+  <h2 class="heading">Patients</h2>
   <table id="patientTable">
     <tr>
       <th>ID</th>
