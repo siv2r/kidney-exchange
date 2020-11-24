@@ -13,20 +13,20 @@ if (isset($_POST['id'])) {
 
   // check if pair id is valid or not
   if (isValidPairId($pair_id) == false) {
-    header("location: ../pages/dataSearch.php?error=invalidPairId");
+    header("location: ../pages/match.php?error=invalidPairId");
     exit();
   }
 
   // check if pair id is present in database
   if (getPairById($conn, $pair_id) == false) {
-    header("location: ../pages/dataSearch.php?error=noPairIdExists");
+    header("location: ../pages/match.php?error=noPairIdExists");
     exit();
   }
 
   //check if the transplant coordinator is searching in the same hospital
   $checkHospid = explode('-', $pair_id);
   if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
-    header("location: ../pages/dataSearch.php?error=notSameHosp");
+    header("location: ../pages/match.php?error=notSameHosp");
     exit();
   } 
 
