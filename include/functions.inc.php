@@ -379,3 +379,18 @@ function formatDate($timestamp) {
   return date("d-m-Y", $ts);
 }
 
+function isValidPairId($pair_id) {
+  $pair_id_array = explode('-', $pair_id);
+  if (sizeof($pair_id_array) !== 2) {
+    return false;
+  }
+  // elseif (strlen($pair_id_array[0]) !== 5) {
+  //   return false;
+  // }
+  // elseif ($pair_id_array[1] < 10000) {
+  //   return false;
+  // }
+
+  return true;
+}
+

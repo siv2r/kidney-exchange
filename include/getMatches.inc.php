@@ -3,7 +3,7 @@
 
 function getMatches ($pair_id) {
 
-  require_once("../templates/db-connect.php"); // connect to the database
+  include("../templates/db-connect.php"); // connect to the database
 
   $givenDataQuery = 
   "SELECT patients.blood_group AS patientBloodGroup, 
@@ -29,6 +29,7 @@ function getMatches ($pair_id) {
   $givenPairData = mysqli_fetch_assoc($givenPairResult);
   
   // do not forget to give space in ' +ve'. patient is matched with a donor
+  // diff function and modular
   $allowedPatientBgrp[] = explode(' ', $givenPairData['donorBloodGroup'])[0] . ' +ve';
   $allowedPatientBgrp[] = explode(' ', $givenPairData['donorBloodGroup'])[0] . ' -ve';
   $allowedDonorBgrp[]   = explode(' ', $givenPairData['patientBloodGroup'])[0] . ' +ve';
@@ -72,14 +73,14 @@ function getMatches ($pair_id) {
 
     //check for unaceptable antigens 
 
-    //P1 - D2
+    //P1 - D2 some thing like D2j
     $givenPatientUA = explode(", ", $givenPairData['patientUA']);
-    $totalPairDonorHLA = explode(", ", $row['donorHLA']);
+    $totalPairDonorHLA = explode(", ", $row['donorHLA']); //change the name
     if (array_intersect($givenPatientUA, $totalPairDonorHLA)) {
       unset($totalPairsData[$key]);
       continue;
     }
-    //P2 - D1
+    //P2j - D1
     $givenDonorHLA = explode(", ", $givenPairData['donorHLA']);
     $totalPairPatientUA = explode(", ", $row['patientUA']);
     if (array_intersect($givenDonorHLA, $totalPairPatientUA)) {
@@ -88,7 +89,7 @@ function getMatches ($pair_id) {
     }
 
     // Now both blood matches and DSA not present
-    // compute the HLA ranking of P1-D2
+    // compute the HLA ranking of P1-D2j
     $givenPatientHLA = explode(", ", $givenPairData['patientHLA']);
     $totalPairDonorHLA = explode(", ", $row['donorHLA']);
     $commonHLA_P1_D2 = array_intersect($givenPatientHLA, $totalPairDonorHLA);
