@@ -52,7 +52,7 @@ function getAllowedPatientBgrp ($donorBgrp) {
   }
 
   // O can donate to A, B, AB
-  if($donorBgrpNoRh == 'O') {
+  else if($donorBgrpNoRh == 'O') {
     array_push($allowedPatientBgrp, 'AB +ve');
     array_push($allowedPatientBgrp, 'AB -ve');
     array_push($allowedPatientBgrp, 'A +ve');
@@ -83,7 +83,7 @@ function getAllowedDonorBgrp ($patientBgrp) {
   }
 
   // AB can recieve blood from O, A, B
-  if($patientBgrpNoRh == 'AB') {
+  else if($patientBgrpNoRh == 'AB') {
     array_push($allowedDonorBgrp, 'O +ve');
     array_push($allowedDonorBgrp, 'O -ve');
     array_push($allowedDonorBgrp, 'A +ve');
