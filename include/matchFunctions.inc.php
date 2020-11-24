@@ -33,18 +33,78 @@ function getPairDataById ($conn, $pair_id) {
 
 }
 
+// return allowed blood group as array
+function getAllowedPatientBgrp ($donorBgrp) {
+  $allowedPatientBgrp = []; //result array
+
+  //remove Rh factor i.e, A +ve -> A
+  $donorBgrpNoRh = explode(' ', $donorBgrp)[0];
+
+  //donor's own blood grp is allowed (both +ve and -ve)
+  //don't forget sapce in ' +ve'
+  array_push($allowedPatientBgrp, $donorBgrpNoRh . ' +ve'); 
+  array_push($allowedPatientBgrp, $donorBgrpNoRh . ' -ve');
+
+  // A or B can donate to AB
+  if($donorBgrpNoRh == 'A' || $donorBgrpNoRh == 'B') {
+    array_push($allowedPatientBgrp, 'AB +ve');
+    array_push($allowedPatientBgrp, 'AB -ve');
+  }
+
+  // O can donate to A, B, AB
+  if($donorBgrpNoRh == 'O') {
+    array_push($allowedPatientBgrp, 'AB +ve');
+    array_push($allowedPatientBgrp, 'AB -ve');
+    array_push($allowedPatientBgrp, 'A +ve');
+    array_push($allowedPatientBgrp, 'A -ve');
+    array_push($allowedPatientBgrp, 'B +ve');
+    array_push($allowedPatientBgrp, 'B -ve');
+  }
+
+  return $allowedPatientBgrp;
+}
+
+// return allowed donor blood group as array
+function getAllowedDonorBgrp ($patientBgrp) {
+  $allowedDonorBgrp = []; //result array
+
+  //remove Rh factor i.e, A +ve -> A
+  $patientBgrpNoRh = explode(' ', $patientBgrp)[0];
+
+  //patient's own blood grp is allowed (both +ve and -ve)
+  //don't forget sapce in ' +ve'
+  array_push($allowedDonorBgrp, $patientBgrpNoRh . ' +ve'); 
+  array_push($allowedDonorBgrp, $patientBgrpNoRh . ' -ve');
+
+  // A or B can recieve blood from O
+  if($patientBgrpNoRh == 'A' || $patientBgrpNoRh == 'B') {
+    array_push($allowedDonorBgrp, 'O +ve');
+    array_push($allowedDonorBgrp, 'O -ve');
+  }
+
+  // AB can recieve blood from O, A, B
+  if($patientBgrpNoRh == 'AB') {
+    array_push($allowedDonorBgrp, 'O +ve');
+    array_push($allowedDonorBgrp, 'O -ve');
+    array_push($allowedDonorBgrp, 'A +ve');
+    array_push($allowedDonorBgrp, 'A -ve');
+    array_push($allowedDonorBgrp, 'B +ve');
+    array_push($allowedDonorBgrp, 'B -ve');
+  }
+
+  return $allowedDonorBgrp;
+}
+
 
 function getMatches ($conn, $pair_id) {
 
+  // get the data of given pair
   $givenPairData = getPairDataById($conn, $pair_id);
-  
-  // do not forget to give space in ' +ve'. patient is matched with a donor
-  // diff function and modular
-  $allowedPatientBgrp[] = explode(' ', $givenPairData['donorBloodGroup'])[0] . ' +ve';
-  $allowedPatientBgrp[] = explode(' ', $givenPairData['donorBloodGroup'])[0] . ' -ve';
-  $allowedDonorBgrp[]   = explode(' ', $givenPairData['patientBloodGroup'])[0] . ' +ve';
-  $allowedDonorBgrp[]   = explode(' ', $givenPairData['patientBloodGroup'])[0] . ' -ve';
 
+  $allowedPatientBgrp = getAllowedPatientBgrp($givenPairData['donorBloodGroup']);
+  $allowedDonorBgrp = getAllowedDonorBgrp($givenPairData['patientBloodGroup']);
+
+  // covert to comma separated strings for sql query
   $allowedPatientBgrpStr = implode("', '", $allowedPatientBgrp);
   $allowedDonorBgrpStr   = implode("', '", $allowedDonorBgrp);
 
