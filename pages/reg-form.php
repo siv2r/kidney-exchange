@@ -534,7 +534,7 @@
             <div class="input-box">
               <input type="radio" id='male' name='d_sex' value="Male">
               <label for="male">Male</label>
-              <input type="radio" id='Female' name='d_sex' value="female">
+              <input type="radio" id='female' name='d_sex' value="Female">
               <label for="female">Female</label>
               <input type="radio" id='other' name='d_sex' value="Other">
               <label for="other">Other</label>

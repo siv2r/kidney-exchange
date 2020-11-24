@@ -379,6 +379,10 @@ function formatDate($timestamp) {
   return date("d-m-Y", $ts);
 }
 
+function toAge($dob) {
+  return date_diff(date_create($dob), date_create('today'))->y;
+}
+
 function isValidPairId($pair_id) {
   $pair_id_array = explode('-', $pair_id);
   if (sizeof($pair_id_array) !== 2) {
