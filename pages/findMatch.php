@@ -5,9 +5,9 @@ session_start();
 if (isset($_POST['id'])) {
   
   //connection to database and custom functions
-  include("../templates/db-connect.php");
+  require_once("../templates/db-connect.php");
   require_once("../include/functions.inc.php");
-  require_once("../include/getMatches.inc.php");
+  require_once("../include/matchFunctions.inc.php");
 
   $pair_id = $_POST['id'];
 
@@ -30,7 +30,8 @@ if (isset($_POST['id'])) {
     exit();
   } 
 
-  $matchResults = getMatches($pair_id);
+  $givenPairData = getPairDataById($conn, $pair_id);
+  $matchResults = getMatches($conn, $pair_id);
 
 }
 
@@ -40,46 +41,95 @@ else {
 
 ?>
 
+<style>
+  #possible-match {
+    margin-top: 50px;
+    width: 70%;
+  }
+
+  #possible-match caption {
+    margin: 20px 0;
+  }
+</style>
+
 <?php include("../templates/header.php") ?>
 
-  <link rel="stylesheet" href="../css/table-style.css">
   <link rel="stylesheet" href="../css/button-style.css">
-
-  <style>
-    #resultTable{
-      width: 85%;
-      text-align: center;
-    }
-
-    h2.heading {
-      text-align: center;
-      color: #E2B842;
-      font-size: 30px;
-      margin: 50px auto 10px auto;
-    }
-
-  </style>
+  <link rel="stylesheet" href="../css/lightContentTable.css">
 
   <div class="nav-container">
     <?php include("../templates/nav-bar.php") ?>
   </div>
+  
+  <table class="content-table" id="possible-match">
 
-  <h2 class="heading">Match Results</h2>
-  <table id="resultTable">
-    <tr>
-      <th>Pair ID</th>
-      <th>Patient Name</th>
-      <th>Donor Name</th>
-      <th>Pair Score (P1-D2, P2-D1)</th>
-    </tr>
+    <caption><h2>Possible Matches</h2></caption>
 
     <?php foreach ($matchResults as $row) : ?>
-      <tr>
-        <td><?php echo $row[0] ?></td>
-        <td><?php echo $row[1] ?></td>
-        <td><?php echo $row[2] ?></td>
-        <td><?php echo "(". $row[3][0] . ", " . $row[3][1] . ")"; ?></td>
-      </tr>
+      <!-- table header -->
+      <thead>
+        <tr>
+          <th><?php echo $givenPairData['pairId'] . '/' . $row['pairId'] ?></th>
+          <th>Age</th>
+          <th>Sex</th>
+          <th>Blood group</th>
+          <th>HLA</th>
+          <th>Pair Score</th>
+        </tr>
+      </thead>
+
+      <!-- P1 row -->
+      <tbody>
+        <tr>
+          <td><?php echo $givenPairData['pairId'] . '-p ' . 'P1' ?></td>
+          <td><?php echo toAge($givenPairData['patientDOB']) ?></td>
+          <td><?php echo $givenPairData['patientSex'] ?></td>
+          <td><?php echo $givenPairData['patientBloodGroup'] ?></td>
+          <td><?php echo $givenPairData['patientHLA'] ?></td>
+          <td><?php echo $row['pairScore'][0] ?></td>
+        </tr>
+        
+        <!-- D2 row -->
+        <tr>
+          <td><?php echo $row['pairId'] . '-d ' . 'D2' ?></td>
+          <td><?php echo toAge($row['donorDOB']) ?></td>
+          <td><?php echo $row['donorSex'] ?></td>
+          <td><?php echo $row['donorBloodGroup'] ?></td>
+          <td><?php echo $row['donorHLA'] ?></td>
+          <td><?php echo $row['pairScore'][0] ?></td>
+        </tr>
+        
+        <!-- one blank row -->
+        <tr class="blank_row">
+          <td colspan="6"></td>
+        </tr>
+        
+        <!-- P2 row -->
+        <tr>
+          <td><?php echo $row['pairId'] . '-p ' . 'P2' ?></td>
+          <td><?php echo toAge($row['patientDOB']) ?></td>
+          <td><?php echo $row['patientSex'] ?></td>
+          <td><?php echo $row['patientBloodGroup'] ?></td>
+          <td><?php echo $row['patientHLA'] ?></td>
+          <td><?php echo $row['pairScore'][1] ?></td>
+        </tr>
+        
+        <!-- D1 row -->
+        <tr>
+          <td><?php echo $givenPairData['pairId'] . '-d ' . 'D1' ?></td>
+          <td><?php echo toAge($givenPairData['donorDOB']) ?></td>
+          <td><?php echo $givenPairData['donorSex'] ?></td>
+          <td><?php echo $givenPairData['donorBloodGroup'] ?></td>
+          <td><?php echo $givenPairData['donorHLA'] ?></td>
+          <td><?php echo $row['pairScore'][1] ?></td>
+        </tr>
+        
+        <!--one blank row -->
+        <tr class="blank_row">
+          <td colspan="6"></td>
+        </tr>
+      </tbody>
+
     <?php endforeach; ?>
   </table>
 

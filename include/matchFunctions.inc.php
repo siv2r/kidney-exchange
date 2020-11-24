@@ -1,15 +1,16 @@
 <?php 
 
+function getPairDataById ($conn, $pair_id) {
 
-function getMatches ($pair_id) {
-
-  include("../templates/db-connect.php"); // connect to the database
-
-  $givenDataQuery = 
+  $query = 
   "SELECT patients.blood_group AS patientBloodGroup, 
   donors.blood_group AS donorBloodGroup, 
   patients.name AS patientName, 
   donors.name AS donorName, 
+  patients.dob AS patientDOB, 
+  donors.dob AS donorDOB, 
+  patients.sex AS patientSex, 
+  donors.sex AS donorSex, 
   patients.ua_antigens AS patientUA, 
   patients.hla_antigens AS patientHLA, 
   donors.hla_antigens AS donorHLA, 
@@ -20,13 +21,22 @@ function getMatches ($pair_id) {
   WHERE pd_pairs.pair_id = '$pair_id'
   LIMIT 1";
 
-  $givenPairResult = mysqli_query($conn, $givenDataQuery);
-  if(!$givenPairResult) {
+  $result = mysqli_query($conn, $query);
+  if(!$result) {
     echo "givenPairId database query error" . mysqli_error($conn);
     exit();
   }
 
-  $givenPairData = mysqli_fetch_assoc($givenPairResult);
+  $pairData = mysqli_fetch_assoc($result);
+
+  return $pairData;
+
+}
+
+
+function getMatches ($conn, $pair_id) {
+
+  $givenPairData = getPairDataById($conn, $pair_id);
   
   // do not forget to give space in ' +ve'. patient is matched with a donor
   // diff function and modular
@@ -44,6 +54,10 @@ function getMatches ($pair_id) {
   donors.blood_group AS donorBloodGroup, 
   patients.name AS patientName, 
   donors.name AS donorName, 
+  patients.dob AS patientDOB, 
+  donors.dob AS donorDOB, 
+  patients.sex AS patientSex, 
+  donors.sex AS donorSex, 
   patients.ua_antigens AS patientUA, 
   patients.hla_antigens AS patientHLA, 
   donors.hla_antigens AS donorHLA, 
@@ -104,20 +118,31 @@ function getMatches ($pair_id) {
 
 
     $validPair = 
-    array($row['pairId'], $row['patientName'], $row['donorName'], $pairScore);
+    array(
+      "pairId" => $row['pairId'], 
+      "patientSex" => $row['patientSex'], 
+      "donorSex" => $row['donorSex'],
+      "patientDOB" => $row['patientDOB'],
+      "donorDOB" => $row['donorDOB'],
+      "patientBloodGroup" => $row['patientBloodGroup'],
+      "donorBloodGroup" => $row['donorBloodGroup'],
+      "patientHLA" => $row['patientHLA'],
+      "donorHLA" => $row['donorHLA'],
+      "pairScore" => $pairScore //pairScore[0] -> P1$D2 and pariScore[1] -> P2$D1
+    );
 
     array_push($matchResults, $validPair);
   }
 
-  //sort the result
-  function cmp($a, $b) {
-    if ($a[3][0] == $b[3][0]) {
-      return 0;
-    }
-    return ($a[3][0] > $b[3][0]) ? -1 : 1;
-  }
+  // //sort the result
+  // function cmp($a, $b) {
+  //   if ($a[3][0] == $b[3][0]) {
+  //     return 0;
+  //   }
+  //   return ($a[3][0] > $b[3][0]) ? -1 : 1;
+  // }
 
-  usort($matchResults, "cmp");
+  // usort($matchResults, "cmp");
 
   return $matchResults;
 }
