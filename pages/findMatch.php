@@ -50,6 +50,14 @@ else {
   #possible-match caption {
     margin: 20px 0;
   }
+
+  .content-table tbody tr td:first-child {
+    border-right: 1px solid #dddddd;
+  }
+
+  .content-table thead tr th:first-child {
+    border-right: 1px solid #dddddd;
+  }
 </style>
 
 <?php include("../templates/header.php") ?>
