@@ -43,12 +43,13 @@ else {
 
 <style>
   #possible-match {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     width: 70%;
   }
 
   #possible-match caption {
-    margin: 20px 0;
+    margin: 10px 20px;
+    text-align: left;
   }
 
   .content-table tbody tr td:first-child {
@@ -57,6 +58,11 @@ else {
 
   .content-table thead tr th:first-child {
     border-right: 1px solid #dddddd;
+  }
+
+  #tableHeading {
+    text-align: center;
+    margin: 30px 0 10px 0;
   }
 </style>
 
@@ -69,11 +75,14 @@ else {
     <?php include("../templates/nav-bar.php") ?>
   </div>
   
-  <table class="content-table" id="possible-match">
+  
 
-    <caption><h2>Possible Matches</h2></caption>
+    <h2 id="tableHeading">Possible Matches</h2>
 
-    <?php foreach ($matchResults as $row) : ?>
+    <?php foreach ($matchResults as $index => $row) : ?>
+      <table class="content-table" id="possible-match">
+
+      <caption>Match <?php echo $index+1 ?></caption>
       <!-- table header -->
       <thead>
         <tr>
@@ -89,22 +98,21 @@ else {
       <!-- P1 row -->
       <tbody>
         <tr>
-          <td><?php echo $givenPairData['pairId'] . '-p ' . 'P1' ?></td>
+          <td><?php echo $givenPairData['pairId'] . "-p " . "P<sub>Input</sub>"?></td>
           <td><?php echo toAge($givenPairData['patientDOB']) ?></td>
           <td><?php echo $givenPairData['patientSex'] ?></td>
           <td><?php echo $givenPairData['patientBloodGroup'] ?></td>
           <td><?php echo $givenPairData['patientHLA'] ?></td>
-          <td><?php echo $row['pairScore'][0] ?></td>
+          <td rowspan="2"><?php echo $row['pairScore'][0] ?></td>
         </tr>
         
         <!-- D2 row -->
         <tr>
-          <td><?php echo $row['pairId'] . '-d ' . 'D2' ?></td>
+          <td><?php echo $row['pairId'] . "-d " . "D<sub>Match " . strval($index+1) . "</sub>" ?></td>
           <td><?php echo toAge($row['donorDOB']) ?></td>
           <td><?php echo $row['donorSex'] ?></td>
           <td><?php echo $row['donorBloodGroup'] ?></td>
           <td><?php echo $row['donorHLA'] ?></td>
-          <td><?php echo $row['pairScore'][0] ?></td>
         </tr>
         
         <!-- one blank row -->
@@ -114,31 +122,30 @@ else {
         
         <!-- P2 row -->
         <tr>
-          <td><?php echo $row['pairId'] . '-p ' . 'P2' ?></td>
+          <td><?php echo $row['pairId'] . "-p " . "P<sub>Match " . strval($index+1) . "</sub>" ?></td>
           <td><?php echo toAge($row['patientDOB']) ?></td>
           <td><?php echo $row['patientSex'] ?></td>
           <td><?php echo $row['patientBloodGroup'] ?></td>
           <td><?php echo $row['patientHLA'] ?></td>
-          <td><?php echo $row['pairScore'][1] ?></td>
+          <td rowspan="2"><?php echo $row['pairScore'][1] ?></td>
         </tr>
         
         <!-- D1 row -->
         <tr>
-          <td><?php echo $givenPairData['pairId'] . '-d ' . 'D1' ?></td>
+          <td><?php echo $givenPairData['pairId'] . "-d " . "D<sub>Input</sub>" ?></td>
           <td><?php echo toAge($givenPairData['donorDOB']) ?></td>
           <td><?php echo $givenPairData['donorSex'] ?></td>
           <td><?php echo $givenPairData['donorBloodGroup'] ?></td>
           <td><?php echo $givenPairData['donorHLA'] ?></td>
-          <td><?php echo $row['pairScore'][1] ?></td>
         </tr>
         
         <!--one blank row -->
-        <tr class="blank_row">
+        <!-- <tr class="blank_row">
           <td colspan="6"></td>
-        </tr>
+        </tr> -->
       </tbody>
+    </table>
+  <?php endforeach; ?>
 
-    <?php endforeach; ?>
-  </table>
 
 <?php include_once("../include/footer.inc.php") ?>
