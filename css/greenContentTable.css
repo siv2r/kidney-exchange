@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+.content-table td {
+  padding: 8px;
+  text-align: center;
+}
+
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }

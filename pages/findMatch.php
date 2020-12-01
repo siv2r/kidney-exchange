@@ -42,9 +42,19 @@ else {
 ?>
 
 <style>
+
+/* --------------------Background--------------------------- */
+  body{
+    background-color: seashell;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } 
+
+/* ------------------------Table styles------------------------- */
   #possible-match {
     /* margin-top: 50px; */
     width: 70%;
+    background-color: white;
   }
 
   #possible-match caption {
@@ -69,7 +79,7 @@ else {
 <?php include("../templates/header.php") ?>
 
   <link rel="stylesheet" href="../css/button-style.css">
-  <link rel="stylesheet" href="../css/lightContentTable.css">
+  <link rel="stylesheet" href="../css/greenContentTable.css">
 
   <div class="nav-container">
     <?php include("../templates/nav-bar.php") ?>
@@ -98,7 +108,7 @@ else {
       <!-- P1 row -->
       <tbody>
         <tr>
-          <td><?php echo $givenPairData['pairId'] . "-p " . "P<sub>Input</sub>"?></td>
+          <td><?php echo $givenPairData['pairId'] . "-p P<sub>Input</sub>"?></td>
           <td><?php echo toAge($givenPairData['patientDOB']) ?></td>
           <td><?php echo $givenPairData['patientSex'] ?></td>
           <td><?php echo $givenPairData['patientBloodGroup'] ?></td>

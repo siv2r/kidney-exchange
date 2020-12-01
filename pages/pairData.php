@@ -65,9 +65,17 @@ else {
 <!DOCTYPE html>
 <html lang="en">
 <style>
-  /* .nav-container{
+
+/* --------------------Background--------------------------- */
+  body{
+    background-color: whitesmoke;
+    background-repeat: no-repeat;
+    background-size: cover;
+  } 
+
+  .nav-container{
     position: static;
-  } */
+  }
 
   img {
     border: 1px solid silver;
@@ -102,6 +110,8 @@ else {
     border-collapse: collapse;
     width: 80%;
     margin: auto;
+    background-color: white;
+    padding: 20px;
   }
 
   table td, table th {
