@@ -24,10 +24,12 @@ $dArray = getDonors($conn);
     /* ------------------------Table styles------------------------- */
     #patientTable {
       min-width: 85%;
+      background-color: white;
     }
 
     #donorTable {
       min-width: 80%;
+      background-color: white;
     }
 
     .heading {
