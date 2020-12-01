@@ -62,7 +62,8 @@ else {
     text-align: left;
   }
 
-  .content-table tbody tr td:first-child {
+  .content-table tbody tr td:first-child,
+  .content-table tbody tr td:nth-child(2) {
     border-right: 1px solid #dddddd;
   }
 
@@ -96,7 +97,7 @@ else {
       <!-- table header -->
       <thead>
         <tr>
-          <th><?php echo $givenPairData['pairId'] . '/' . $row['pairId'] ?></th>
+          <th colspan="2"><?php echo $givenPairData['pairId'] . '/' . $row['pairId'] ?></th>
           <th>Age</th>
           <th>Sex</th>
           <th>Blood group</th>
@@ -108,7 +109,8 @@ else {
       <!-- P1 row -->
       <tbody>
         <tr>
-          <td><?php echo $givenPairData['pairId'] . "-p P<sub>Input</sub>"?></td>
+          <td><?php echo $givenPairData['pairId'] . "-p"?></td>
+          <td><?php echo "P<sub>Input</sub>"?></td>
           <td><?php echo toAge($givenPairData['patientDOB']) ?></td>
           <td><?php echo $givenPairData['patientSex'] ?></td>
           <td><?php echo $givenPairData['patientBloodGroup'] ?></td>
@@ -118,7 +120,8 @@ else {
         
         <!-- D2 row -->
         <tr>
-          <td><?php echo $row['pairId'] . "-d " . "D<sub>Match " . strval($index+1) . "</sub>" ?></td>
+          <td><?php echo $row['pairId'] . "-d"?></td>
+          <td><?php echo "D<sub>Match " . strval($index+1) . "</sub>" ?></td>
           <td><?php echo toAge($row['donorDOB']) ?></td>
           <td><?php echo $row['donorSex'] ?></td>
           <td><?php echo $row['donorBloodGroup'] ?></td>
@@ -127,12 +130,13 @@ else {
         
         <!-- one blank row -->
         <tr class="blank_row">
-          <td colspan="6"></td>
+          <td colspan="7"></td>
         </tr>
         
         <!-- P2 row -->
         <tr>
-          <td><?php echo $row['pairId'] . "-p " . "P<sub>Match " . strval($index+1) . "</sub>" ?></td>
+          <td><?php echo $row['pairId'] . "-p " ?></td>
+          <td><?php echo "P<sub>Match " . strval($index+1) . "</sub>" ?></td>
           <td><?php echo toAge($row['patientDOB']) ?></td>
           <td><?php echo $row['patientSex'] ?></td>
           <td><?php echo $row['patientBloodGroup'] ?></td>
@@ -142,7 +146,8 @@ else {
         
         <!-- D1 row -->
         <tr>
-          <td><?php echo $givenPairData['pairId'] . "-d " . "D<sub>Input</sub>" ?></td>
+          <td><?php echo $givenPairData['pairId'] . "-d"?></td>
+          <td><?php echo "D<sub>Input</sub>" ?></td>
           <td><?php echo toAge($givenPairData['donorDOB']) ?></td>
           <td><?php echo $givenPairData['donorSex'] ?></td>
           <td><?php echo $givenPairData['donorBloodGroup'] ?></td>
