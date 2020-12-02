@@ -1,3 +1,6 @@
+<!--this file conatins the neccessary variables -->
+<?php require_once("../include/hlaVariables.inc.php"); ?> 
+
 <div class='input-field'>
   <div class="label-box">
     <label>HLA Antigens</label>
