@@ -66,22 +66,22 @@
       </select>
     </div>
 
-
-    <div class="antigen">
+    <!-- These options are moved to DR -->
+    <!-- <div class="antigen">
       <label for="r_hla_d" > D</label>
       <select class="beautify single" id="r_hla_d" name="r_hla_d[]" multiple>
         <?php
-          foreach ($HlaD as $value) {
-            if ($value == "None") {
-              echo "<option value=''>$value</option>";
-            }
-            else {
-              echo "<option value='$value'>$value</option>";
-            }
-          }
+          // foreach ($HlaD as $value) {
+          //   if ($value == "None") {
+          //     echo "<option value=''>$value</option>";
+          //   }
+          //   else {
+          //     echo "<option value='$value'>$value</option>";
+          //   }
+          // }
         ?>
       </select>
-    </div>
+    </div> -->
 
     <div class="antigen">
       <label for="r_hla_dq">DQ</label>
@@ -199,21 +199,22 @@
       </select>
     </div>
 
-    <div class="antigen">
+    <!-- These options are moved to DR -->
+    <!-- <div class="antigen">
       <label for="r_ua_d" > D</label>
       <select class="beautify single" id="r_ua_d" name="r_ua_d[]" multiple>
         <?php
-          foreach ($HlaD as $value) {
-            if ($value == "None") {
-              echo "<option value=''>$value</option>";
-            }
-            else {
-              echo "<option value='$value'>$value</option>";
-            }
-          }
+          // foreach ($HlaD as $value) {
+          //   if ($value == "None") {
+          //     echo "<option value=''>$value</option>";
+          //   }
+          //   else {
+          //     echo "<option value='$value'>$value</option>";
+          //   }
+          // }
         ?>
       </select>
-    </div>
+    </div> -->
 
     <div class="antigen">
       <label for="r_ua_dq">DQ</label>

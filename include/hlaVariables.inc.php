@@ -132,7 +132,7 @@ $HlaC = array (
 );
 
 $HlaD = array (
-  "None",
+  // "None", remove it since D is appended to DR
   "Dw1",
   "Dw2",
   "Dw3",
@@ -183,3 +183,6 @@ $HlaDP = array (
   "DPw5",
   "DPw6"
 );
+
+// HlaD is appended to HlaDR
+$HlaDR = array_merge($HlaDR, $HlaD);
