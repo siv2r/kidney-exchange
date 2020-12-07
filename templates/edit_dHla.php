@@ -1,3 +1,6 @@
+<!--this file conatins the neccessary variables -->
+<?php require_once("../include/hlaValues.inc.php"); ?> 
+
 <div class='input-field'>
   <div class="label-box">
     <label>HLA Antigens</label>
@@ -94,25 +97,25 @@
       </select>
     </div>
 
-
-    <div class="antigen">
+    <!-- These are options are moved to DR -->
+    <!-- <div class="antigen">
       <label for="d_hla_d"> D</label>
       <select class="beautify single" id="d_hla_d" name="d_hla_d[]" multiple>
         <?php
-        foreach ($HlaD as $value) {
-          if($value == "None") {
-            echo "<option value=''>$value</option>";
-          }
-          else if (in_array($value, $dHlaArray)) {
-            echo "<option value='$value' selected>$value</option>";
-          } 
-          else {
-            echo "<option value='$value'>$value</option>";
-          }
-        }
+        // foreach ($HlaD as $value) {
+        //   if($value == "None") {
+        //     echo "<option value=''>$value</option>";
+        //   }
+        //   else if (in_array($value, $dHlaArray)) {
+        //     echo "<option value='$value' selected>$value</option>";
+        //   } 
+        //   else {
+        //     echo "<option value='$value'>$value</option>";
+        //   }
+        // }
         ?>
       </select>
-    </div>
+    </div> -->
 
     <div class="antigen">
       <label for="d_hla_dq">DQ</label>

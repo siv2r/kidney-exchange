@@ -1,9 +1,21 @@
 <?php include("../templates/header.php") ?>
 
-<link rel="stylesheet" href="../css/data-style.css">
+<link rel="stylesheet" href="../css/searchBar.css">
 <link rel="stylesheet" href="../css/button-style.css">
 
 <style>
+
+/* -----------------------Background Images----------------------- */
+body{
+  background-image: url("https://wallpapercave.com/wp/wp2088513.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+
+.search{
+  margin-top: 20%;
+}
+
 /* -------------------Styling the error messages----------------- */
 
 #failed{
@@ -27,8 +39,8 @@
 <div class="wrapper">
 
   <form method="post" action="../pages/pairData.php" class="search">
-    <input type="text" name="id" id="id" placeholder="Enter pair id only">
-    <button type="submit" id="searchBtn" class="button" name='submit' value="submit">Search</button>
+    <input type="text" name="id" id="id" placeholder="Search the pair id..">
+    <input type="submit" id="searchBtn" class="button" name="submit" value="Search Pair">
   </form>
 
   <?php 

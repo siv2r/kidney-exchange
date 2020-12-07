@@ -10,20 +10,30 @@ $dArray = getDonors($conn);
 <?php include("../templates/header.php") ?>
 
   <link rel="stylesheet" href="../css/button-style.css">
-  <link rel="stylesheet" href="../css/table-style.css">
+  <link rel="stylesheet" href="../css/blueContentTable.css">
 
   <style>
+    /* --------------------Background--------------------------- */
+
+    body{
+      background-color: seashell;
+      background-repeat: no-repeat;
+      background-size: cover;
+    } 
+
+    /* ------------------------Table styles------------------------- */
     #patientTable {
-      width: 95%;
+      min-width: 85%;
+      background-color: white;
     }
 
     #donorTable {
-      width: 80%;
+      min-width: 80%;
+      background-color: white;
     }
 
-    h2.heading {
+    .heading {
       text-align: center;
-      color: #E2B842;
       font-size: 30px;
       margin: 50px auto 10px auto;
     }
@@ -35,7 +45,7 @@ $dArray = getDonors($conn);
   </div>
 
   <h2 class="heading">Patients</h2>
-  <table id="patientTable">
+  <table class="content-table" id="patientTable">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -83,7 +93,7 @@ $dArray = getDonors($conn);
   </table>
 
   <h2 class="heading">Donors</h2>
-  <table id="donorTable">
+  <table class="content-table" id="donorTable">
     <tr>
       <th>ID</th>
       <th>Name</th>

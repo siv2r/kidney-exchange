@@ -54,7 +54,6 @@ if (isset($_GET['pair_id'])) {
   $donor_id = $_GET['pair_id'] . '-d';
 
   require_once("../include/getPairData.inc.php"); //creates and assigns values for the variables
-
 } else {
   header("location: ../pages/dataOverview.php");
 }

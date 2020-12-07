@@ -1,6 +1,5 @@
 .content-table {
   border-collapse: collapse;
-  margin: 25px 0;
   font-size: 1.2em;
   min-width: 400px;
   border-radius: 5px 5px 0 0;
@@ -21,6 +20,11 @@
   text-align: center;
 }
 
+.content-table td {
+  padding: 8px;
+  text-align: center;
+}
+
 .content-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
@@ -29,9 +33,9 @@
   background-color: #f3f3f3;
 }
 
-/* .content-table tbody tr:nth-of-type(5n) {
+.content-table tbody tr:last-of-type {
   border-bottom: 2px solid #009879;
-} */
+}
 
 .content-table tr.blank_row {
   height: 30px; 
