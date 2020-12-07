@@ -50,16 +50,10 @@ else {
     background-size: cover;
   } 
 
-/* ------------------------Table styles------------------------- */
+/* ------------------------Table styles and alignment------------------------- */
   #possible-match {
-    /* margin-top: 50px; */
     width: 70%;
     background-color: white;
-  }
-
-  #possible-match caption {
-    margin: 10px 20px;
-    text-align: left;
   }
 
   .content-table tbody tr td:first-child,
@@ -74,6 +68,14 @@ else {
   #tableHeading {
     text-align: center;
     margin: 30px 0 10px 0;
+  }
+
+  .content-table caption {
+    color: #009879;
+    padding: 5px 10px;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: bolder;
   }
 </style>
 
@@ -106,6 +108,7 @@ else {
         </tr>
       </thead>
 
+      <!-- table body -->
       <!-- P1 row -->
       <tbody>
         <tr>
@@ -154,13 +157,17 @@ else {
           <td><?php echo $givenPairData['donorHLA'] ?></td>
         </tr>
         
-        <!--one blank row -->
-        <!-- <tr class="blank_row">
-          <td colspan="6"></td>
-        </tr> -->
+        <!-- Composite score row -->
+        <tr class="blank_row">
+          <td colspan="5"></td>
+          <td>Composite score</td>
+          <td><?php echo $row['pairScore'][2] ?></td>
+        </tr>
+
       </tbody>
     </table>
   <?php endforeach; ?>
 
+  <!-- <script src="../scripts/fixRowspanHover.js"></script> -->
 
 <?php include_once("../include/footer.inc.php") ?>

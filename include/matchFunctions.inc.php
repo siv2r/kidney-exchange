@@ -229,9 +229,10 @@ function getMatches ($conn, $pair_id) {
       "donorBloodGroup" => $matchedPair['donorBloodGroup'],
       "patientHLA" => $matchedPair['patientHLA'],
       "donorHLA" => $matchedPair['donorHLA'],
-      //pairScore[0] -> P_inp&D_match, pariScore[1] -> P_match&D_inp
-      //pariScore[2] -> (P_inp&D_match) + (P_match&D_inp)
       "pairScore" => $pairScore 
+      //pairScore[0] -> P_inp&D_match
+      //pariScore[1] -> P_match&D_inp
+      //pariScore[2] -> (P_inp&D_match) + (P_match&D_inp)
     );
 
     array_push($matchResults, $validPair);
