@@ -56,7 +56,7 @@
   </div>
 
   <div class="wrapper">
-    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data">
+    <form action="include/insertPatient.inc.php" method="post" id="reg-form" enctype="multipart/form-data">
       
       <div class='tab'>
         
