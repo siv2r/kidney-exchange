@@ -89,7 +89,7 @@ form a{
     <?php include("../templates/nav-bar.php") ?>
   </div>
 
-	<form action="../include/login.inc.php" method="POST">
+	<form action="include/login.inc.php" method="POST">
 
 			<!-- <div class="imgcontainer">
 					<img src="../images/avatar.jpg" alt="Avatar" class="avatar">
