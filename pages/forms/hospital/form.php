@@ -135,7 +135,7 @@ label.required{
   </div>
 
   <div class="wrapper">
-    <form action="../include/getHosp.inc.php" method="POST" id="hospForm">
+    <form action="include/insertHosp.inc.php" method="POST" id="hospForm">
     
       <fieldset>
         <legend>Hospital Information</legend>
