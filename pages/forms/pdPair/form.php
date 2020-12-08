@@ -682,7 +682,7 @@
         
           <legend>Medical Information</legend>
 
-          <?php include("../templates/d_hla.php") ?>
+          <?php include("include/d_hla.php") ?>
         
           <div class='input-field'>
             <div class="label-box">
