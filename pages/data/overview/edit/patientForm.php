@@ -53,7 +53,7 @@ if (isset($_GET['pair_id'])) {
   $patient_id = $_GET['pair_id'] . '-p';
   $donor_id = $_GET['pair_id'] . '-d';
 
-  require_once("../include/getPairData.inc.php"); //creates and assigns values for the variables
+  require_once("include/getPair.inc.php"); //creates and assigns values for the variables
 } else {
   header("location: ../pages/dataOverview.php");
 }
@@ -70,7 +70,7 @@ if (isset($_GET['pair_id'])) {
   </div>
 
   <div class="wrapper">
-    <form action="../include/updatePair.inc.php" method="post" id="reg-form" enctype="multipart/form-data">
+    <form action="include/updatePair.inc.php" method="post" id="reg-form" enctype="multipart/form-data">
 
       <input type="text" name="r_id" value="<?php echo $patient_id; ?>" hidden>
       <input type="text" name="d_id" value="<?php echo $donor_id; ?>" hidden>
