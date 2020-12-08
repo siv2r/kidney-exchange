@@ -297,6 +297,6 @@
       </table>
     </div>
   </div>
-  <script src="../scripts/pairData.js"></script>       
+  <script src="js/displayData.js"></script>       
 </body>
 </html>
