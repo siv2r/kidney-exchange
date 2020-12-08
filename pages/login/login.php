@@ -86,7 +86,7 @@ form a{
 <?php include("../templates/header.php"); ?>
 
 	<div class="nav-container">
-      <?php include("../templates/nav-bar.php") ?>
+    <?php include("../templates/nav-bar.php") ?>
   </div>
 
 	<form action="../include/login.inc.php" method="POST">
@@ -100,7 +100,7 @@ form a{
 			</div>
 
 			<div class="form-elements">
-          <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
+          <img src="../../images/red-avatar.png" alt="Avatar" class="avatar">
           <?php 
             if(isset($_GET["error"])) {
               if ($_GET["error"] == "emptyInputLogin") {
