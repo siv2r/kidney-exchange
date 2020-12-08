@@ -39,7 +39,7 @@ body{
 
 <div class="wrapper">
 
-  <form method="post" action="../pages/findMatch.php" class="search">
+  <form method="post" action="displayMatch.php" class="search">
     <input type="text" name="id" id="id" placeholder="Enter the pair id..">
     <input type="submit" id="searchBtn" class="button" name='submit' value="Find Match">
   </form>
