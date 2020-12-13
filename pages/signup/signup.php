@@ -72,20 +72,20 @@ img.avatar {
 
 </style>
 
-<?php include("../templates/header.php"); ?>
+<?php include("../../partials/header.php"); ?>
 
 	<div class="nav-container">
       <?php include("../../partials/pagesNavBar.php") ?>
   </div>
 
-	<form action="../include/signup.inc.php" method="POST" id=signupForm>
+	<form action="include/signup.inc.php" method="POST" id=signupForm>
 
     <div class="form-elements">
       <h3>SIGN UP</h3>
     </div>
 
     <div class="form-elements">
-        <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
+        <img src="../../images/red-avatar.png" alt="Avatar" class="avatar">
         <?php 
           if(isset($_GET["error"])) {
             if ($_GET["error"] == "emptyInputSignup") {
@@ -134,4 +134,4 @@ img.avatar {
       	
   </form>
   
-<?php include("../include/footer.inc.php") ?>
+<?php include("../../include/footer.php") ?>

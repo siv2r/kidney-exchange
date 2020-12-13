@@ -9,41 +9,41 @@ if (isset($_POST['uname'])) {
   $pswd = $_POST['pswd'];
   $re_pswd = $_POST['re_pswd'];
 
-  require_once("../templates/db-connect.php");
-  require_once("functions.inc.php");
+  require_once("../../../include/dbConnect.inc.php");
+  require_once("../../../include/functions.inc.php");
 
   if (emptyInputSignup($uname, $email, $hosp_id, $pswd, $re_pswd) !== false) {
-    header("location: ../pages/signup.php?error=emptyInputSignup");
+    header("location: ../signup.php?error=emptyInputSignup");
     exit();
   }
 
   if (invalidUname($uname) !== false) {
-    header("location: ../pages/signup.php?error=invalidUname");
+    header("location: ../signup.php?error=invalidUname");
     exit();
   }
 
   if (invalidHospId($hosp_id) !== false) {
-    header("location: ../pages/signup.php?error=invalidHospId");
+    header("location: ../signup.php?error=invalidHospId");
     exit();
   }
 
   if (invalidEmail($email) !== false) {
-    header("location: ../pages/signup.php?error=invalidEmail");
+    header("location: ../signup.php?error=invalidEmail");
     exit();
   }
 
   if (noPswdMatch($pswd, $re_pswd) !== false) {
-    header("location: ../pages/signup.php?error=noPswdMatch");
+    header("location: ../signup.php?error=noPswdMatch");
     exit();
   }
 
   if (UnameExists($conn, $uname, $email) !== false) {
-    header("location: ../pages/signup.php?error=unameExists");
+    header("location: ../signup.php?error=unameExists");
     exit();
   }
 
   if (getHospitalById($conn, $hosp_id) !== true) {
-    header("location: ../pages/signup.php?error=noHospIdExists");
+    header("location: ../signup.php?error=noHospIdExists");
     exit();
   }
 
@@ -52,6 +52,6 @@ if (isset($_POST['uname'])) {
 }
 
 else {
-  header("location: ../pages/signup.php");
+  header("location: ../signup.php");
 }
 
