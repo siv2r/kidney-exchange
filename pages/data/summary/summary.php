@@ -1,6 +1,6 @@
 <?php
-include_once("../templates/db-connect.php");
-include_once("../include/functions.inc.php");
+include_once("../../../include/dbConnect.inc.php");
+include_once("../../../include/functions.inc.php");
 
 $pArray = getPatients($conn);
 $dArray = getDonors($conn);
@@ -130,4 +130,4 @@ $dArray = getDonors($conn);
 
   </table>
 
-<?php include_once("../include/footer.inc.php") ?>
+<?php include_once("../../../partials/footer.php"); ?>
