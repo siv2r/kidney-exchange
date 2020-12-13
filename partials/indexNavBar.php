@@ -1,7 +1,5 @@
 <?php
-if (!isset($_SESSION)) {
-  session_start();
-}
+session_start();
 ?>
 <style>
   * {
@@ -112,37 +110,39 @@ if (!isset($_SESSION)) {
     <p>Kidney Exchange</p>
   </div>
   <ul class="nav-links">
-    <li><a href="../index.php">Home</a></li>
+    <li><a href="#">Home</a></li>
     <!-- <li><a href="#">About</a></li>
     <li><a href="#">Contact</a></li> -->
     <?php
     if (isset($_SESSION['userId'])) {
       // echo '<ul>';
       echo   '<li><a href="#">Register</a>';
+
       echo     '<ul>';
-      echo       '<li><a href="reg-form.php">Patient</a></li>';
+      echo       '<li><a href="pages/reg-form.php">Patient</a></li>';
       if (isset($_SESSION['userId']) && $_SESSION['userType'] === "Admin") {
-        echo       '<li><a href="register_hospital.php">Hospital</a></li>';
+        echo       '<li><a href="pages/register_hospital.php">Hospital</a></li>';
       }
       echo     '</ul>';
+
       echo   '</li>';
-      echo   '<li><a href="match.php">Match</a></li>';
+      echo   '<li><a href="pages/match.php">Match</a></li>';
       echo   '<li><a href="#">Data</a>';
       echo     '<ul>';
-      echo       '<li><a href="dataOverview.php">Overview</a></li>';
-      echo       '<li><a href="dataSummary.php">Summary</a></li>';
-      echo       '<li><a href="dataSearch.php">Search</a></li>';
+      echo       '<li><a href="pages/dataOverview.php">Overview</a></li>';
+      echo       '<li><a href="pages/dataSummary.php">Summary</a></li>';
+      echo       '<li><a href="pages/dataSearch.php">Search</a></li>';
       echo     '</ul>';
       echo   '</li>';
       // echo '</ul>';
       // echo '<ul>';
       echo   '<li><a href="#">Profile</a></li>';
-      echo   '<li><a href="../include/logout.inc.php">Logout</a></li>';
+      echo   '<li><a href="include/logout.inc.php">Logout</a></li>';
       // echo '</ul>';
     } else {
       // echo '<ul>';
-      echo   '<li><a href="login.php">Login</a></li>';
-      echo   '<li><a href="signup.php">Sign Up</a></li>';
+      echo   '<li><a href="pages/login/login.php">Login</a></li>';
+      echo   '<li><a href="pages/signup/signup.php">Sign Up</a></li>';
       // echo '</ul>';
     }
     ?>
