@@ -83,7 +83,7 @@ form a{
 
 </style>
 
-<?php include("../templates/header.php"); ?>
+<?php include("../../partials/header.php"); ?>
 
 	<div class="nav-container">
     <?php include("../../partials/pagesNavBar.php") ?>
@@ -129,4 +129,4 @@ form a{
 	</form>
 
 
-<?php include("../include/footer.inc.php") ?>
+<?php include("../../partials/footer.php") ?>
