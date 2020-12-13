@@ -21,11 +21,11 @@
 
 </style>
 
-<?php include("templates/header.php") ?>
+<?php include("partials/header.php") ?>
 
   <!-- <div class="header-img"> -->
     <div class="nav-container">
-      <?php include("templates/nav-bar-indexpg.php") ?>
+      <?php include("partials/indexNavBar.php") ?>
     </div>
   <!-- </div> -->
 

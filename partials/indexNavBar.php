@@ -119,19 +119,19 @@ session_start();
       echo   '<li><a href="#">Register</a>';
 
       echo     '<ul>';
-      echo       '<li><a href="pages/reg-form.php">Patient</a></li>';
+      echo       '<li><a href="pages/forms/pdPair/form.php">Patient</a></li>';
       if (isset($_SESSION['userId']) && $_SESSION['userType'] === "Admin") {
-        echo       '<li><a href="pages/register_hospital.php">Hospital</a></li>';
+        echo       '<li><a href="pages/forms/hospital/form.php">Hospital</a></li>';
       }
       echo     '</ul>';
 
       echo   '</li>';
-      echo   '<li><a href="pages/match.php">Match</a></li>';
+      echo   '<li><a href="pages/match/search.php">Match</a></li>';
       echo   '<li><a href="#">Data</a>';
       echo     '<ul>';
-      echo       '<li><a href="pages/dataOverview.php">Overview</a></li>';
-      echo       '<li><a href="pages/dataSummary.php">Summary</a></li>';
-      echo       '<li><a href="pages/dataSearch.php">Search</a></li>';
+      echo       '<li><a href="pages/data/overview/overview.php">Overview</a></li>';
+      echo       '<li><a href="pages/data/summary/summary.php">Summary</a></li>';
+      echo       '<li><a href="pages/data/search/search.php">Search</a></li>';
       echo     '</ul>';
       echo   '</li>';
       // echo '</ul>';
