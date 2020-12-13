@@ -125,11 +125,11 @@ label.required{
 
 </style>
 
-<?php include("../templates/header.php"); ?>
+<?php include("../../../partials/header.php"); ?>
 
   <div class="header-img">
     <div class="nav-container">
-      <?php include("../templates/nav-bar.php") ?>
+      <?php include("../../../partials/subpagesNavBar.php") ?>
     </div>
     <h2 id="hosp-heading">Hospital form</h2>
   </div>

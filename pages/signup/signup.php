@@ -75,7 +75,7 @@ img.avatar {
 <?php include("../templates/header.php"); ?>
 
 	<div class="nav-container">
-      <?php include("../templates/nav-bar.php") ?>
+      <?php include("../../partials/pagesNavBar.php") ?>
   </div>
 
 	<form action="../include/signup.inc.php" method="POST" id=signupForm>

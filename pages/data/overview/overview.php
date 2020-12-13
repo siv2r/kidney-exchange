@@ -9,7 +9,7 @@ mysqli_free_result($result);
 
 ?>
 
-<?php include("../templates/header.php") ?>
+<?php include("../../../partials/header.php") ?>
 
 
   <link rel="stylesheet" href="../css/button-style.css">
@@ -23,7 +23,7 @@ mysqli_free_result($result);
   </style>
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../../../partials/subpagesNavBar.php") ?>
   </div>
 
   <div class="wrapper">

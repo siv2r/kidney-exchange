@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="../css/greenContentTable.css">
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../../partials/pagesNavBar.php") ?>
   </div>
   
   

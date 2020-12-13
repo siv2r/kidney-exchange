@@ -37,7 +37,7 @@
 <?php include("../templates/header.php") ?>
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../../partials/pagesNavBar.php") ?>
   </div>
 
   <?php 

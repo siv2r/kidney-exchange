@@ -1,4 +1,4 @@
-<?php include("../templates/header.php") ?>
+<?php include("../../../paritals/header.php") ?>
 
 <link rel="stylesheet" href="../css/searchBar.css">
 <link rel="stylesheet" href="../css/button-style.css">
@@ -33,7 +33,7 @@ body{
 </style>
 
 <div class="nav-container">
-  <?php include("../templates/nav-bar.php") ?>
+  <?php include("../../../partials/subpagesNavBar.php") ?>
 </div>
 
 <div class="wrapper">

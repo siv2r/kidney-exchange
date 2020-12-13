@@ -7,7 +7,7 @@ $dArray = getDonors($conn);
 
 ?>
 
-<?php include("../templates/header.php") ?>
+<?php include("../../../partials/header.php") ?>
 
   <link rel="stylesheet" href="../css/button-style.css">
   <link rel="stylesheet" href="../css/blueContentTable.css">
@@ -41,7 +41,7 @@ $dArray = getDonors($conn);
   </style>
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../../../partials/subpagesNavBar.php") ?>
   </div>
 
   <h2 class="heading">Patients</h2>
