@@ -68,6 +68,6 @@ if(isset($_POST['h_name'])){
   $_SESSION['h_id'] = $last_id;
 
   //redirect to message page
-  header("Location: ../pages/message.php ");
+  header("Location: ../../../message/message.php ");
 } 
 

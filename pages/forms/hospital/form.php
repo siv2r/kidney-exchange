@@ -249,7 +249,7 @@ label.required{
     <form>
   </div>
 
-  <script src="../scripts/validateHosp.js"></script>
+  <script src="js/validateHosp.js"></script>
 </body>
 
 </html>

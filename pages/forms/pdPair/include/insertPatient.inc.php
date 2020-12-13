@@ -223,64 +223,6 @@ if(!empty($_POST['r_fname'])){
   $d_smoking     = (!empty($d_smoking)) ? "'$d_smoking'" : "NULL";
   $d_prov_clear  = (!empty($d_prov_clear)) ? "'$d_prov_clear'" : "NULL";
 
-  // ---------------------------------------------------------------------------------------------------
-
-  // $a[] = $r_name; 
-  // $a[] =  $r_sex;
-  // $a[] =   $r_dob ;
-  // $a[] =   $r_height;
-  // $a[] =   $r_weight;
-  // $a[] =   $r_btype; 
-  // $a[] = $r_id;
-  // $a[] =   $r_address;
-  // $a[] =   $r_cno;
-  // $a[] =   $r_email;
-
-  // $a[] =   $r_basicd;
-  // $a[] =   $r_gr;
-  // $a[] =   $r_comorb;
-  // $a[] =   $r_hiv;
-  // $a[] =   $r_hepb;
-  // $a[] =   $r_hepc;
-  // $a[] =   $r_prev_transp;
-  // $a[] =   $r_dialysis;
-  // $a[] =   $r_ddp;
-  // $a[] =   $r_nephro;
-  // $a[] =   $r_dcenter;
-  // $a[] =   $r_prov_clear;
-  // $a[] =   $r_pre_transp;
-  // $a[] =   $r_hla;
-  // $a[] =   $r_ua;
-
-
-  // $b[] = $d_name; 
-  // $b[] =  $d_sex;
-  // $b[] =   $d_dob ;
-  // $b[] =   $d_height;
-  // $b[] =   $d_weight;
-  // $b[] =   $d_btype; 
-  // $b[] =   $d_rel; 
-  // $b[] = $d_id;
-  // $b[] =   $d_address;
-  // $b[] =   $d_cno;
-  // $b[] =   $d_email;
-
-  // $b[] =   $d_comorb;
-  // $b[] =   $d_hiv;
-  // $b[] =   $d_hepb;
-  // $b[] =   $d_hepc;
-  // $b[] =   $d_prov_clear;
-  // $b[] =   $d_hla;
-  // $b[] =   $d_alcohol;
-  // $b[] =   $d_smoking;
-
-  // print_r($_POST);
-  // echo '<br>';
-  // print_r($a);
-  // echo '<br>';
-  // print_r($b);
-
-  // --------------------------------processing the image and report data-----------------------------------------------------
 
   // patient files
   $r_img = "NULL";
@@ -324,7 +266,7 @@ if(!empty($_POST['r_fname'])){
   // Inserting into the database
 
 	//connecting to database
-	include("../templates/db-connect.php");
+	include("../../../../include/dbConnect.inc.php");
 
 	//creating sql queries
   $sql1 = "INSERT INTO patients (id, `name`, sex, dob, height, `weight`, blood_group, `address`, contact_number, email, hla_antigens, ua_antigens, basic_disease, gr_biopsy, comorb, hiv, hep_b, hep_c, prev_transp, dialysis, dd_program, prime_nephro, hospital, prov_clearance, pre_transp_surgery) VALUES ($r_id, $r_name, $r_sex, $r_dob, $r_height, $r_weight, $r_btype, $r_address, $r_cno, $r_email, $r_hla, $r_ua, $r_basicd, $r_gr, $r_comorb, $r_hiv, $r_hepb, $r_hepc, $r_prev_transp, $r_dialysis, $r_ddp, $r_nephro, $r_dcenter, $r_prov_clear, $r_pre_transp)";
@@ -382,11 +324,10 @@ if(!empty($_POST['r_fname'])){
   $_SESSION['status'] = $status;
   $_SESSION['msg'] = $statusMsg;
 
-  header("Location: ../pages/message.php");
+  header("Location: ../../../message/message.php");
 }
 
 else {
-  header("location: ../pages/reg-form.php");
-  exit();
+  header("location: ../form.php");
 }
 

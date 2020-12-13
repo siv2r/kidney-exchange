@@ -219,7 +219,7 @@
         
           <legend>Medical Information</legend>
 
-          <?php include("../templates/r_hla.php") ?>
+          <?php include("include/patientAntigens.inc.php") ?>
         
           <div class='input-field'>
             <div class="label-box">
@@ -429,8 +429,8 @@
               <select name="r_d-center" class="requiredField single">
                 <?php 
 
-                  require_once("../templates/db-connect.php");
-                  require_once("../include/functions.inc.php");
+                  require_once("../../../include/dbConnect.inc.php");
+                  require_once("../../../include/functions.inc.php");
                   
                   if($_SESSION['userType'] === "Transplant coordinator") {
                     $val = $_SESSION['userHospital']['id'];
@@ -682,7 +682,7 @@
         
           <legend>Medical Information</legend>
 
-          <?php include("include/d_hla.php") ?>
+          <?php include("include/donorAntigens.inc.php") ?>
         
           <div class='input-field'>
             <div class="label-box">
@@ -808,8 +808,7 @@
     </form>
   </div>
 
-<?php 
-  require_once("../include/footer.inc.php");
+<?php require_once("../../../partials/footer.php"); ?>
 
 
 
