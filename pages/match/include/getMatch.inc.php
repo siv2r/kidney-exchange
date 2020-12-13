@@ -5,28 +5,28 @@ session_start();
 if (isset($_POST['id'])) {
   
   //connection to database and custom functions
-  require_once("../templates/db-connect.php");
-  require_once("../include/functions.inc.php");
-  require_once("../include/matchFunctions.inc.php");
+  require_once("../../../include/dbConnect.inc.php");
+  require_once("../../../include/functions.inc.php");
+  require_once("matchFunctions.inc.php");
 
   $pair_id = $_POST['id'];
 
   // check if pair id is valid or not
   if (isValidPairId($pair_id) == false) {
-    header("location: ../pages/match.php?error=invalidPairId");
+    header("location: ../search.php?error=invalidPairId");
     exit();
   }
 
   // check if pair id is present in database
   if (getPairById($conn, $pair_id) == false) {
-    header("location: ../pages/match.php?error=noPairIdExists");
+    header("location: ../search.php?error=noPairIdExists");
     exit();
   }
 
   //check if the transplant coordinator is searching in the same hospital
   $checkHospid = explode('-', $pair_id);
   if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
-    header("location: ../pages/match.php?error=notSameHosp");
+    header("location: ../search.php?error=notSameHosp");
     exit();
   } 
 
@@ -36,5 +36,5 @@ if (isset($_POST['id'])) {
 }
 
 else {
-  header("location: ../pages/match.php");
+  header("location: ../search.php");
 }

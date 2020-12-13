@@ -39,7 +39,7 @@
   }
 </style>
 
-<?php include("../templates/header.php") ?>
+<?php include("../../partials/header.php") ?>
 
   <link rel="stylesheet" href="../css/button-style.css">
   <link rel="stylesheet" href="../css/greenContentTable.css">
@@ -130,4 +130,4 @@
 
   <!-- <script src="../scripts/fixRowspanHover.js"></script> -->
 
-<?php include_once("../include/footer.inc.php") ?>
+<?php include_once("../../partials/footer.php") ?>
