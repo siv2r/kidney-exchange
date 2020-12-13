@@ -41,7 +41,7 @@ function loginUser($conn, $uid, $pswd) {
     }
 
     //redirect to index page
-    header("location: ../../index.php");
+    header("location: ../../../index.php");
     exit();
   }
 

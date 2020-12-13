@@ -5,7 +5,7 @@ if(isset($_POST["submit"])){
   $pswd = $_POST["pswd"];
 
   require_once("../../../include/dbConnect.inc.php");
-  // require_once("../../../include/functions.inc.php");
+  require_once("../../../include/functions.inc.php");
   require_once("loginFunctions.inc.php");
 
   if(emptyInputLogin($uid, $pswd) !== false) {

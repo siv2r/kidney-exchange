@@ -1,4 +1,4 @@
-<?php include("../../../paritals/header.php"); ?>
+<?php include("../../../partials/header.php"); ?>
 
 <link rel="stylesheet" href="../css/searchBar.css">
 <link rel="stylesheet" href="../css/button-style.css">
@@ -59,4 +59,4 @@ body{
 
 </div>
 
-<?php include_once("../../../paritals/footer.php"); ?>
+<?php include_once("../../../partials/footer.php"); ?>
