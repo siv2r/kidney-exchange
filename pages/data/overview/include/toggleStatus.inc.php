@@ -1,7 +1,7 @@
 <?php 
 
-include_once("../templates/db-connect.php");
-include_once("../include/functions.inc.php");
+require_once("../../../../include/dbConnect.inc.php");
+require_once("../../../../include/functions.inc.php");
 
 if (isset($_GET['pair_id'])) {
 
@@ -29,5 +29,7 @@ if (isset($_GET['pair_id'])) {
   
 } 
 
-//redirect to the overview page after changing the status value
-header("location: ../pages/dataOverview.php");
+//redirect to the overview page if
+  //1. after toggling the status value
+  //2. if the person entered through browser url
+header("location: ../overview.php");

@@ -15,7 +15,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
-  <script src="../scripts/editPairForm.js"></script>
+  <script src="js/editPairForm.js"></script>
 </head>
 
 <style>
@@ -55,7 +55,7 @@ if (isset($_GET['pair_id'])) {
 
   require_once("include/getPair.inc.php"); //creates and assigns values for the variables
 } else {
-  header("location: ../pages/dataOverview.php");
+  header("location: ../overview/overview.php");
 }
 
 ?>
@@ -64,7 +64,7 @@ if (isset($_GET['pair_id'])) {
 
   <div class="header-img">
     <div class="nav-container">
-      <?php include("../templates/nav-bar.php") ?>
+      <?php include("../../../partials/subpagesNavBar.php") ?>
     </div>
     <h2 id="pd-heading">Edit pd pair form</h2>
   </div>
@@ -84,7 +84,7 @@ if (isset($_GET['pair_id'])) {
 
           <div class="pass-img-box">
             <label for="r_img">
-              <img id="r-pass-img" src="../images/blank-avatar.png">
+              <img id="r-pass-img" src="../../../images/blank-avatar.png">
             </label>
             <input type="file" id="r_img" name="r_img">
           </div>

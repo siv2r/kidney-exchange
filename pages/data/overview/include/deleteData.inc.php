@@ -1,7 +1,7 @@
 <?php
 
-require_once("../templates/db-connect.php");
-require_once("../include/functions.inc.php");
+require_once("../../../../include/dbConnect.inc.php");
+require_once("../../../../include/functions.inc.php");
 
 if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
   $pair_id = $_GET['pair_id'];
@@ -34,7 +34,7 @@ if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
   $_SESSION['status'] = 1;
   $_SESSION['msg'] = "The following pair is successfully deleted!";
 
-  header("location: ../pages/message.php");
+  header("location: ../../../message/message.php");
 
 
 }
