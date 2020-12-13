@@ -17,5 +17,5 @@ if(isset($_POST["submit"])){
 }
 
 else{
-  header("Location: ../pages/login.php");
+  header("Location: ../login.php");
 }
