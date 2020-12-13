@@ -8,27 +8,27 @@ $statusMsg = '';
 if(isset($_POST['submit'])) {
 
   //connection to database and custom functions
-  include("../templates/db-connect.php");
-  include("../include/functions.inc.php");
+  include("../../../../include/dbConnect.inc.php");
+  include("../../../../include/functions.inc.php");
 
   $pair_id = $_POST['id'];
 
   // check if pair id is valid or not
   if (isValidPairId($pair_id) == false) {
-    header("location: ../pages/dataSearch.php?error=invalidPairId");
+    header("location: ../search.php?error=invalidPairId");
     exit();
   }
 
   // check if pair id is present in database
   if (getPairById($conn, $pair_id) == false) {
-    header("location: ../pages/dataSearch.php?error=noPairIdExists");
+    header("location: ../search.php?error=noPairIdExists");
     exit();
   }
 
   //check if the transplant coordinator is searching in the same hospital
   $checkHospid = explode('-', $pair_id);
   if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
-    header("location: ../pages/dataSearch.php?error=notSameHosp");
+    header("location: ../search.php?error=notSameHosp");
     exit();
   } 
   
@@ -57,5 +57,5 @@ if(isset($_POST['submit'])) {
 }
 
 else {
-  header("location: ../pages/dataSearch.php");
+  header("location: ../search.php");
 }
