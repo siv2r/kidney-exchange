@@ -73,10 +73,10 @@
 </style>
 
 
-<?php include("../templates/header.php") ?>
+<?php include("../../../paritals/header.php") ?>
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../../../paritals/subpagesNavBar.php") ?>
   </div>
 
   <div class="wrapper">

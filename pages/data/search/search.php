@@ -1,4 +1,4 @@
-<?php include("../../../paritals/header.php") ?>
+<?php include("../../../paritals/header.php"); ?>
 
 <link rel="stylesheet" href="../css/searchBar.css">
 <link rel="stylesheet" href="../css/button-style.css">
@@ -38,7 +38,7 @@ body{
 
 <div class="wrapper">
 
-  <form method="post" action="../pages/pairData.php" class="search">
+  <form method="post" action="displayData.php" class="search">
     <input type="text" name="id" id="id" placeholder="Search the pair id..">
     <input type="submit" id="searchBtn" class="button" name="submit" value="Search Pair">
   </form>
@@ -59,4 +59,4 @@ body{
 
 </div>
 
-<?php include_once("../include/footer.inc.php") ?>
+<?php include_once("../../../paritals/footer.php"); ?>
