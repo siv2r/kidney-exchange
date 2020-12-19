@@ -1,11 +1,8 @@
 <?php
 
 // this will be included in editPairForm/form.php
-
-require_once("../templates/db-connect.php");
-require_once("../include/functions.inc.php");
-
-require_once("../include/hlaValues.inc.php");
+require_once("../");
+require_once("../../../../include/functions.inc.php");
 
 $pData = getPatientById($conn, $patient_id);
 $dData = getDonorById($conn, $donor_id);
