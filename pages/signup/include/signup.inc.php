@@ -17,32 +17,32 @@ if (isset($_POST['uname'])) {
     exit();
   }
 
-  if (invalidUname($uname) !== false) {
+  else if (invalidUname($uname) !== false) {
     header("location: ../signup.php?error=invalidUname");
     exit();
   }
 
-  if (invalidHospId($hosp_id) !== false) {
+  else if (invalidHospId($hosp_id) !== false) {
     header("location: ../signup.php?error=invalidHospId");
     exit();
   }
 
-  if (invalidEmail($email) !== false) {
+  else if (invalidEmail($email) !== false) {
     header("location: ../signup.php?error=invalidEmail");
     exit();
   }
 
-  if (noPswdMatch($pswd, $re_pswd) !== false) {
+  else if (noPswdMatch($pswd, $re_pswd) !== false) {
     header("location: ../signup.php?error=noPswdMatch");
     exit();
   }
 
-  if (UnameExists($conn, $uname, $email) !== false) {
+  else if (UnameExists($conn, $uname, $email) !== false) {
     header("location: ../signup.php?error=unameExists");
     exit();
   }
 
-  if (getHospitalById($conn, $hosp_id) !== true) {
+  else if (getHospitalById($conn, $hosp_id) === false) {
     header("location: ../signup.php?error=noHospIdExists");
     exit();
   }
