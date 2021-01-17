@@ -88,3 +88,16 @@ function toJSON($allPairData){
   }
   
 }
+
+
+function calcScore($donor, $patient){
+  return 1;
+}
+
+function isMatch($donor, $patient){
+  // Can donor donate blood to patient?
+
+  // prescence of unacceptable antigen
+
+  return true;
+}

@@ -1,219 +1,61 @@
 <?php 
-require_once("../templates/db-connect.php");
-require_once("./jsonFunctions.php");
+require_once('../include/functions.inc.php');
+require_once('./jsonFunctions.php');
 
-//get pd-pair data from database
-$data = getAllPairData($conn);
-//conver to json
-$jsonData = toJSON($data);
+function createGraph($jsonFileName){
+    // get the json data ---> change this method according to neccessity
+    $json = file_get_contents($jsonFileName);
 
-$jsonData = '{
-  "data": [
-      {
-          "pairId": "10000-khH8n",
-          "pId": "10000-khH8n-p",
-          "dId": "10000-khH8n-d",
-          "hospId": "10000",
-          "pairStatus": "Active",
-          "pName": "Match TestIII",
-          "pSex": "Male",
-          "pDob": "2000-01-01",
-          "pHeight": "178.00",
-          "pWeight": "80.00",
-          "pBGrp": "B -ve",
-          "pAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "pMobile": "9999999999",
-          "pEmail": "random@gmail.com",
-          "pHla": "A2, A210, B17, B37, DR10, DR11(5)",
-          "pUA": null,
-          "pBasicDisease": "test basic disease",
-          "pGrbiopsy": "test renal biopsy",
-          "pComorb": "None",
-          "pHiv": "Negative",
-          "pHepb": "Negative",
-          "pHepc": "Negative",
-          "pPrevTransp": "No",
-          "pDialysis": "No dialysis",
-          "pDDProgram": "No",
-          "pNephro": "test prime nephro",
-          "pProvClearance": "No",
-          "pPreSurgery": "No",
-          "pCreatedAt": "2020-11-08 12:48:28",
-          "pUpdatedAt": "2020-11-29 03:53:47",
-          "dName": "Match TestIIIDonor",
-          "dSex": "Female",
-          "dDob": "2000-01-01",
-          "dHeight": "189.00",
-          "dWeight": "70.00",
-          "dBGrp": "O -ve",
-          "dRelation": "Spouse",
-          "dAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "dMobile": "9999999999",
-          "dEmail": "random@gmail.com",
-          "dHla": "A1, A210, B703, B8, DR3, DR6",
-          "dHiv": "Negative",
-          "dHepb": "Negative",
-          "dHepc": "Negative",
-          "dAlcohol": "No",
-          "dSmoking": "No",
-          "dProvClearance": "No",
-          "dCreatedAt": "2020-11-08 12:48:28",
-          "dUpdatedAt": "2020-11-24 20:24:19"
-      },
-      {
-          "pairId": "10003-CBATk",
-          "pId": "10003-CBATk-p",
-          "dId": "10003-CBATk-d",
-          "hospId": "10003",
-          "pairStatus": "Active",
-          "pName": "Match TestI",
-          "pSex": "Male",
-          "pDob": "2000-01-01",
-          "pHeight": "189.00",
-          "pWeight": "70.00",
-          "pBGrp": "A +ve",
-          "pAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "pMobile": "9999999999",
-          "pEmail": "random@gmail.com",
-          "pHla": "Null, A2, B5, B7, DR1, DR103",
-          "pUA": null,
-          "pBasicDisease": "test basic disease",
-          "pGrbiopsy": "test renal biopsy",
-          "pComorb": "None",
-          "pHiv": "Negative",
-          "pHepb": "Negative",
-          "pHepc": "Negative",
-          "pPrevTransp": "No",
-          "pDialysis": "No dialysis",
-          "pDDProgram": "No",
-          "pNephro": "test prime nephro",
-          "pProvClearance": "Yes",
-          "pPreSurgery": "No",
-          "pCreatedAt": "2020-11-08 12:38:27",
-          "pUpdatedAt": "2020-12-02 13:16:34",
-          "dName": "Match TestIDonor",
-          "dSex": "Female",
-          "dDob": "2000-01-01",
-          "dHeight": "189.00",
-          "dWeight": "78.00",
-          "dBGrp": "B -ve",
-          "dRelation": "Spouse",
-          "dAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "dMobile": "9999999999",
-          "dEmail": "random@gmail.com",
-          "dHla": "A1, A203, B8, B16, DR4, DR11(5)",
-          "dHiv": "Negative",
-          "dHepb": "Negative",
-          "dHepc": "Negative",
-          "dAlcohol": "No",
-          "dSmoking": "No",
-          "dProvClearance": "No",
-          "dCreatedAt": "2020-11-08 12:38:27",
-          "dUpdatedAt": "2020-11-24 13:56:13"
-      },
-      {
-          "pairId": "10003-oGHr0",
-          "pId": "10003-oGHr0-p",
-          "dId": "10003-oGHr0-d",
-          "hospId": "10003",
-          "pairStatus": "Active",
-          "pName": "Raman A",
-          "pSex": "Male",
-          "pDob": "2020-01-01",
-          "pHeight": "189.00",
-          "pWeight": "78.00",
-          "pBGrp": "O -ve",
-          "pAddress": "NEW NO.AP859, H-BLOCK GROUND FLOOR, 11TH MN RD, 2ND ST, Anna nagar, Chennai, Tamilnadu, 600040, India",
-          "pMobile": "9999999999",
-          "pEmail": "random@gmail.com",
-          "pHla": "A1, A2, B5, B7, DR1, DR103",
-          "pUA": null,
-          "pBasicDisease": "Chronic glomerulonephritis",
-          "pGrbiopsy": "test renal biopsy",
-          "pComorb": "Type1 DM",
-          "pHiv": "Negative",
-          "pHepb": "Negative",
-          "pHepc": "Negative",
-          "pPrevTransp": "No",
-          "pDialysis": "No dialysis",
-          "pDDProgram": "No",
-          "pNephro": "Dr. Edwin Fernando",
-          "pProvClearance": "No",
-          "pPreSurgery": "No",
-          "pCreatedAt": "2020-11-08 13:32:35",
-          "pUpdatedAt": "2020-11-08 13:32:35",
-          "dName": "Match Anand",
-          "dSex": "Female",
-          "dDob": "2020-01-01",
-          "dHeight": "189.00",
-          "dWeight": "80.00",
-          "dBGrp": "B -ve",
-          "dRelation": "Son",
-          "dAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "dMobile": "9999999999",
-          "dEmail": "random@gmail.com",
-          "dHla": "A1, A203, B5, B703, DR1, DR103",
-          "dHiv": "Negative",
-          "dHepb": "Negative",
-          "dHepc": "Negative",
-          "dAlcohol": "No",
-          "dSmoking": "No",
-          "dProvClearance": "No",
-          "dCreatedAt": "2020-11-08 13:32:35",
-          "dUpdatedAt": "2020-11-24 13:56:13"
-      },
-      {
-          "pairId": "10005-6aIBc",
-          "pId": "10005-6aIBc-p",
-          "dId": "10005-6aIBc-d",
-          "hospId": "10005",
-          "pairStatus": "Active",
-          "pName": "Match TestII",
-          "pSex": "Female",
-          "pDob": "2000-01-01",
-          "pHeight": "150.00",
-          "pWeight": "50.00",
-          "pBGrp": "B +ve",
-          "pAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "pMobile": "9999999999",
-          "pEmail": "random@gmail.com",
-          "pHla": "A2, A203, B13, B15, DR3, DR4",
-          "pUA": null,
-          "pBasicDisease": "test basic disease",
-          "pGrbiopsy": "test renal biopsy",
-          "pComorb": "None",
-          "pHiv": "Negative",
-          "pHepb": "Negative",
-          "pHepc": "Negative",
-          "pPrevTransp": "No",
-          "pDialysis": "No dialysis",
-          "pDDProgram": "No",
-          "pNephro": "test prime nephro",
-          "pProvClearance": "No",
-          "pPreSurgery": "No",
-          "pCreatedAt": "2020-11-08 12:44:01",
-          "pUpdatedAt": "2020-12-02 13:17:14",
-          "dName": "Match TestIIDonor",
-          "dSex": "Male",
-          "dDob": "2000-01-01",
-          "dHeight": "189.00",
-          "dWeight": "87.00",
-          "dBGrp": "A -ve",
-          "dRelation": "Father",
-          "dAddress": "test addr line1, test addr line2, testcity, teststate, 600040, India",
-          "dMobile": "9999999999",
-          "dEmail": "random@gmail.com",
-          "dHla": "Null, A203, B5, B8, DR1, DR2",
-          "dHiv": "Negative",
-          "dHepb": "Negative",
-          "dHepc": "Negative",
-          "dAlcohol": "No",
-          "dSmoking": "No",
-          "dProvClearance": "No",
-          "dCreatedAt": "2020-11-08 12:44:01",
-          "dUpdatedAt": "2020-12-02 13:17:14"
-      }
-  ]
-}';
+    // convert the json to php array
+    $dataArray = json_decode($json, true);
+    $pairData = $dataArray['data'];
+    $dataLen = sizeof($pairData);
 
-//
+    // cmp graph array
+    $cmpGraph = array();
+    $cmpGraph['data'] = array();
+
+    for ($i=0; $i < $dataLen; $i++) { 
+        $pairId = $pairData[$i]['pairId'];
+        $pairIdContents = array();
+
+        //add pairId's data required for matching
+        $pairIdContents['sources'] = array($pairData[$i]['dId']);
+        $pairIdContents['dAge'] = toAge($pairData[$i]['dDob']);
+
+        //find the matches
+        $pairIdContents['matches'] = array();
+        for ($j=0; $j < $dataLen; $j++) { 
+            if ($j === $i){
+                continue;
+            }
+
+            if (isMatch($pairData[$i], $pairData[$j])) {
+                $matchContents = array();
+                $matchContents['recipient'] = $pairData[$j]['pId'];
+                $matchContents['score'] = calcScore($pairData[$i], $pairData[$j]);
+
+                //push the match contents
+                array_push($pairIdContents['matches'], $matchContents);
+            } 
+        }
+
+        //add current pair result to the final output
+        $cmpGraph['data'][$pairId] = $pairIdContents;
+    }
+
+    //convert the result to json
+    $jsonCmpGraph = json_encode($cmpGraph, JSON_PRETTY_PRINT);
+
+    return $jsonCmpGraph;
+}
+
+//create the compatiblity graph
+$fileName = 'jsonFile.json';
+$graph = createGraph($fileName);
+
+//make it downloadable on the website
+header('Content-disposition: attachment; filename=cmpGraph.json');
+header('Content-type: application/json');
+
+echo($graph);
