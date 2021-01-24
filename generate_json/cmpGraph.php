@@ -1,13 +1,11 @@
 <?php 
 require_once('../include/functions.inc.php');
+require_once('../templates/db-connect.php');
 require_once('./jsonFunctions.php');
 
-function createGraph($jsonFileName){
-    // get the json data ---> change this method according to neccessity
-    $json = file_get_contents($jsonFileName);
-
+function createGraph($jsonData){
     // convert the json to php array
-    $dataArray = json_decode($json, true);
+    $dataArray = json_decode($jsonData, true);
     $pairData = $dataArray['data'];
     $dataLen = sizeof($pairData);
 
@@ -50,9 +48,12 @@ function createGraph($jsonFileName){
     return $jsonCmpGraph;
 }
 
+//get pd-pair data from database && convert to json
+$data = getAllPairData($conn);
+$jsonData = toJSON($data);
+
 //create the compatiblity graph
-$fileName = 'jsonFile.json';
-$graph = createGraph($fileName);
+$graph = createGraph($jsonData);
 
 //make it downloadable on the website
 header('Content-disposition: attachment; filename=cmpGraph.json');
