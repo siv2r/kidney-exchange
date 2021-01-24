@@ -2,6 +2,7 @@
 
 require_once("../templates/db-connect.php");
 require_once("./jsonFunctions.php");
+require_once("../include/matchFunctions.inc.php");
 
 
 //get pd-pair data from database

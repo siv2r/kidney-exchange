@@ -47,10 +47,10 @@ body{
       if ($_GET['error'] == "notSameHosp") {
         echo "<p id='failed'>This pair does not belong to your hospital</p>";
       }
-      elseif ($_GET['error'] == "invalidPairId") {
+      else if ($_GET['error'] == "invalidPairId") {
         echo "<p id='failed'>Please enter a valid pair id</p>";
       }
-      elseif ($_GET['error'] == "noPairIdExists") {
+      else if ($_GET['error'] == "noPairIdExists") {
         echo "<p id='failed'>No such pair id exists</p>";
       }
     }

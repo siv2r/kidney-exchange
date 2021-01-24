@@ -2,6 +2,7 @@
 require_once('../include/functions.inc.php');
 require_once('../templates/db-connect.php');
 require_once('./jsonFunctions.php');
+require_once("../include/matchFunctions.inc.php");
 
 function createGraph($jsonData){
     // convert the json to php array
