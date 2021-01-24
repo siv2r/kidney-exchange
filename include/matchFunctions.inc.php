@@ -240,7 +240,16 @@ function findPairScore($inputPair, $matchedPair) {
 }
 
 function calcScore($donor, $patient){
-  return 1;
+  $donorHla = explode(", ", $donor['dHla']);
+  $patientHla = explode(", ", $patient['pHla']);
+
+  // only A, B, DR, Dw should be used for scoring
+  $donorHla = filterHLA($donorHla);
+  $patientHla = filterHLA($patientHla);
+
+  $score = array_intersect($donorHla, $patientHla);
+
+  return $score;
 }
 
 function isMatch($donor, $patient){
@@ -252,12 +261,13 @@ function isMatch($donor, $patient){
   elseif (isUApresent($donor, $patient)) {
     return false;
   }
-  
+
   return true;
 }
 
 function combinedPairScore($score1, $score2){
-  return 10;
+  $combined = $score1 + $score2;
+  return $combined;
 }
 
 // helper func for sorting matches
@@ -286,9 +296,9 @@ function getMatches($conn, $pair_id) {
     if(isMatch($givenPair, $currentPair) && isMatch($currentPair, $givenPair)) {
       $currentMatch['pairData'] = $currentPair;
       //find the score
-      $currentMatch['dScore'] = calcScore($givenPair, $currentPair);
-      $currentMatch['pScore'] = calcScore($currentPair, $givenPair);
-      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']);
+      $currentMatch['dScore'] = calcScore($givenPair, $currentPair) . '6';
+      $currentMatch['pScore'] = calcScore($currentPair, $givenPair) . '6';
+      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']) . '12';
     }
 
     array_push($matches, $currentMatch);
