@@ -247,7 +247,8 @@ function calcScore($donor, $patient){
   $donorHla = filterHLA($donorHla);
   $patientHla = filterHLA($patientHla);
 
-  $score = array_intersect($donorHla, $patientHla);
+  $commonHla = array_intersect($donorHla, $patientHla);
+  $score = sizeof($commonHla);
 
   return $score;
 }
@@ -278,8 +279,6 @@ function cmp($a, $b) {
   return ($a['totalScore'] > $b['totalScore']) ? -1 : 1;
 }
 
-  
-
 function getMatches($conn, $pair_id) {
   $givenPair = getPairDataById($conn, $pair_id);
   $allPair = getAllPairData($conn);
@@ -291,20 +290,23 @@ function getMatches($conn, $pair_id) {
     if ($currentPair['pairId'] == $givenPair['pairId']) {
       continue;
     }
-    $currentMatch = array();
+    
     // check match
     if(isMatch($givenPair, $currentPair) && isMatch($currentPair, $givenPair)) {
+      $currentMatch = array();
+
       $currentMatch['pairData'] = $currentPair;
       //find the score
-      $currentMatch['dScore'] = calcScore($givenPair, $currentPair) . '6';
-      $currentMatch['pScore'] = calcScore($currentPair, $givenPair) . '6';
-      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']) . '12';
+      $currentMatch['dScore'] = calcScore($givenPair, $currentPair);
+      $currentMatch['pScore'] = calcScore($currentPair, $givenPair);
+      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']) . '/12';
+      $currentMatch['dScore'] = $currentMatch['dScore'] . '/6';
+      $currentMatch['pScore'] = $currentMatch['pScore'] . '/6';
+
+      array_push($matches, $currentMatch);
     }
-
-    array_push($matches, $currentMatch);
   }
-
-  usort($matches, "cmp");
+  usort($matches, "cmp"); //sort the matches in descending order
 
   return $matches;
 }

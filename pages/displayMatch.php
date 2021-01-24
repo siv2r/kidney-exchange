@@ -76,7 +76,7 @@
           <td><?php echo $givenPairData['pSex'] ?></td>
           <td><?php echo $givenPairData['pBGrp'] ?></td>
           <td><?php echo $givenPairData['pHla'] ?></td>
-          <td rowspan="2"><?php echo $row['totalScore'] ?></td>
+          <td rowspan="2"><?php echo $row['pScore'] ?></td>
         </tr>
         
         <!-- D2 row -->
@@ -102,7 +102,7 @@
           <td><?php echo $row['pairData']['pSex'] ?></td>
           <td><?php echo $row['pairData']['pBGrp'] ?></td>
           <td><?php echo $row['pairData']['pHla'] ?></td>
-          <td rowspan="2"><?php echo $row['totalScore'] ?></td>
+          <td rowspan="2"><?php echo $row['dScore'] ?></td>
         </tr>
         
         <!-- D1 row -->
