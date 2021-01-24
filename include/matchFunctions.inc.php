@@ -3,18 +3,56 @@
 function getPairDataById ($conn, $pair_id) {
 
   $query = 
-  "SELECT patients.blood_group AS patientBloodGroup, 
-  donors.blood_group AS donorBloodGroup, 
-  patients.name AS patientName, 
-  donors.name AS donorName, 
-  patients.dob AS patientDOB, 
-  donors.dob AS donorDOB, 
-  patients.sex AS patientSex, 
-  donors.sex AS donorSex, 
-  patients.ua_antigens AS patientUA, 
-  patients.hla_antigens AS patientHLA, 
-  donors.hla_antigens AS donorHLA, 
-  pd_pairs.pair_id AS pairId
+  "SELECT pd_pairs.pair_id AS pairId,
+  pd_pairs.patient_id AS pId,
+  pd_pairs.donor_id AS dId,
+  pd_pairs.hosp_id AS hospId,
+  pd_pairs.status AS pairStatus,
+  patients.name AS pName,
+  patients.sex AS pSex,
+  patients.dob AS pDob,
+  patients.height AS pHeight,
+  patients.weight AS pWeight,
+  patients.blood_group AS pBGrp,
+  patients.address AS pAddress,
+  patients.contact_number AS pMobile,
+  patients.email AS pEmail,
+  patients.hla_antigens AS pHla,
+  patients.ua_antigens AS pUA,
+  patients.basic_disease AS pBasicDisease,
+  patients.gr_biopsy AS pGrbiopsy,
+  patients.comorb AS pComorb,
+  patients.hiv AS pHiv,
+  patients.hep_b AS pHepb,
+  patients.hep_c AS pHepc,
+  patients.prev_transp AS pPrevTransp,
+  patients.dialysis AS pDialysis,
+  patients.dd_program AS pDDProgram,
+  patients.prime_nephro AS pNephro,
+  patients.prov_clearance AS pProvClearance,
+  patients.pre_transp_surgery AS pPreSurgery,
+  patients.created_at AS pCreatedAt,
+  patients.updated_at AS pUpdatedAt,
+  donors.name AS dName,
+  donors.sex AS dSex,
+  donors.dob AS dDob,
+  donors.height AS dHeight,
+  donors.weight AS dWeight,
+  donors.blood_group AS dBGrp,
+  donors.relation AS dRelation,
+  donors.address AS dAddress,
+  donors.contact_number AS dMobile,
+  donors.email AS dEmail,
+  donors.hla_antigens AS dHla,
+  donors.comorb AS pComorb,
+  donors.hiv AS dHiv,
+  donors.hep_b AS dHepb,
+  donors.hep_c AS dHepc,
+  donors.alcohol AS dAlcohol,
+  donors.smoking AS dSmoking,
+  donors.prov_clearance AS dProvClearance,
+  donors.created_at AS dCreatedAt,
+  donors.updated_at AS dUpdatedAt
   FROM ((pd_pairs 
   INNER JOIN patients ON pd_pairs.patient_id = patients.id) 
   INNER JOIN donors ON pd_pairs.donor_id = donors.id)
@@ -26,11 +64,76 @@ function getPairDataById ($conn, $pair_id) {
     echo "givenPairId database query error" . mysqli_error($conn);
     exit();
   }
-
   $pairData = mysqli_fetch_assoc($result);
 
   return $pairData;
+}
 
+function getAllPairData($conn) {
+  //naming convension for JSON dump
+  $allPairData = 
+  "SELECT pd_pairs.pair_id AS pairId,
+  pd_pairs.patient_id AS pId,
+  pd_pairs.donor_id AS dId,
+  pd_pairs.hosp_id AS hospId,
+  pd_pairs.status AS pairStatus,
+  patients.name AS pName,
+  patients.sex AS pSex,
+  patients.dob AS pDob,
+  patients.height AS pHeight,
+  patients.weight AS pWeight,
+  patients.blood_group AS pBGrp,
+  patients.address AS pAddress,
+  patients.contact_number AS pMobile,
+  patients.email AS pEmail,
+  patients.hla_antigens AS pHla,
+  patients.ua_antigens AS pUA,
+  patients.basic_disease AS pBasicDisease,
+  patients.gr_biopsy AS pGrbiopsy,
+  patients.comorb AS pComorb,
+  patients.hiv AS pHiv,
+  patients.hep_b AS pHepb,
+  patients.hep_c AS pHepc,
+  patients.prev_transp AS pPrevTransp,
+  patients.dialysis AS pDialysis,
+  patients.dd_program AS pDDProgram,
+  patients.prime_nephro AS pNephro,
+  patients.prov_clearance AS pProvClearance,
+  patients.pre_transp_surgery AS pPreSurgery,
+  patients.created_at AS pCreatedAt,
+  patients.updated_at AS pUpdatedAt,
+  donors.name AS dName,
+  donors.sex AS dSex,
+  donors.dob AS dDob,
+  donors.height AS dHeight,
+  donors.weight AS dWeight,
+  donors.blood_group AS dBGrp,
+  donors.relation AS dRelation,
+  donors.address AS dAddress,
+  donors.contact_number AS dMobile,
+  donors.email AS dEmail,
+  donors.hla_antigens AS dHla,
+  donors.comorb AS pComorb,
+  donors.hiv AS dHiv,
+  donors.hep_b AS dHepb,
+  donors.hep_c AS dHepc,
+  donors.alcohol AS dAlcohol,
+  donors.smoking AS dSmoking,
+  donors.prov_clearance AS dProvClearance,
+  donors.created_at AS dCreatedAt,
+  donors.updated_at AS dUpdatedAt
+  FROM ((pd_pairs 
+  INNER JOIN patients ON pd_pairs.patient_id = patients.id) 
+  INNER JOIN donors ON pd_pairs.donor_id = donors.id)";
+
+  $queryResult = mysqli_query($conn, $allPairData);
+  if(!$queryResult) {
+    echo "Database joining query error ". mysqli_error($conn);
+    exit();
+  }
+  $pairDataArray = mysqli_fetch_all($queryResult, MYSQLI_ASSOC);
+
+  return $pairDataArray;
 }
 
 // return allowed blood group as array
@@ -64,35 +167,27 @@ function getAllowedPatientBgrp ($donorBgrp) {
   return $allowedPatientBgrp;
 }
 
-// return allowed donor blood group as array
-function getAllowedDonorBgrp ($patientBgrp) {
-  $allowedDonorBgrp = []; //result array
+function isValidBloodDonate($donor, $patient) {
+  $allowedPatientBgrp = getAllowedPatientBgrp($donor['dBGrp']);
+  $currentPatientBGrp = $patient['pBGrp'];
+  if (in_array($currentPatientBGrp, $allowedPatientBgrp)) {
+    return true;
+  } 
 
-  //remove Rh factor i.e, A +ve -> A
-  $patientBgrpNoRh = explode(' ', $patientBgrp)[0];
+  return false;
+}
 
-  //patient's own blood grp is allowed (both +ve and -ve)
-  //don't forget sapce in ' +ve'
-  array_push($allowedDonorBgrp, $patientBgrpNoRh . ' +ve'); 
-  array_push($allowedDonorBgrp, $patientBgrpNoRh . ' -ve');
+function isUApresent($donor, $patient) {
+  $donorHla = explode(", ", $donor['dHla']);
+  $patientUa = explode(", ", $patient['pUA']);
+  $result = array_intersect($donorHla, $patientUa);
 
-  // A or B can recieve blood from O
-  if($patientBgrpNoRh == 'A' || $patientBgrpNoRh == 'B') {
-    array_push($allowedDonorBgrp, 'O +ve');
-    array_push($allowedDonorBgrp, 'O -ve');
+  // donor has patient's unacceptable antigen
+  if (!empty($result)) { 
+    return true;
   }
 
-  // AB can recieve blood from O, A, B
-  else if($patientBgrpNoRh == 'AB') {
-    array_push($allowedDonorBgrp, 'O +ve');
-    array_push($allowedDonorBgrp, 'O -ve');
-    array_push($allowedDonorBgrp, 'A +ve');
-    array_push($allowedDonorBgrp, 'A -ve');
-    array_push($allowedDonorBgrp, 'B +ve');
-    array_push($allowedDonorBgrp, 'B -ve');
-  }
-
-  return $allowedDonorBgrp;
+  return false;
 }
 
 function filterHLA($givenHLA) {
@@ -144,109 +239,74 @@ function findPairScore($inputPair, $matchedPair) {
   return $pairScore;
 }
 
-function getMatches ($conn, $pair_id) {
+function calcScore($donor, $patient){
+  $donorHla = explode(", ", $donor['dHla']);
+  $patientHla = explode(", ", $patient['pHla']);
 
-  // get the data of given pair
-  $inputPair = getPairDataById($conn, $pair_id);
+  // only A, B, DR, Dw should be used for scoring
+  $donorHla = filterHLA($donorHla);
+  $patientHla = filterHLA($patientHla);
 
-  $allowedPatientBgrp = getAllowedPatientBgrp($inputPair['donorBloodGroup']);
-  $allowedDonorBgrp = getAllowedDonorBgrp($inputPair['patientBloodGroup']);
+  $commonHla = array_intersect($donorHla, $patientHla);
+  $score = sizeof($commonHla);
 
-  // covert to comma separated strings for sql query
-  // is of form-----A +ve', 'A -ve', 'O +ve', 'O -ve -----final open and close quotes is given in the sql query
-  $allowedPatientBgrpStr = implode("', '", $allowedPatientBgrp);
-  $allowedDonorBgrpStr   = implode("', '", $allowedDonorBgrp);
+  return $score;
+}
 
-  // gives records with matching blood group
-  $possibleMatchQuery = 
-  "SELECT patients.blood_group AS patientBloodGroup, 
-  donors.blood_group AS donorBloodGroup, 
-  patients.name AS patientName, 
-  donors.name AS donorName, 
-  patients.dob AS patientDOB, 
-  donors.dob AS donorDOB, 
-  patients.sex AS patientSex, 
-  donors.sex AS donorSex, 
-  patients.ua_antigens AS patientUA, 
-  patients.hla_antigens AS patientHLA, 
-  donors.hla_antigens AS donorHLA, 
-  pd_pairs.pair_id AS pairId
-  FROM ((pd_pairs 
-  INNER JOIN patients ON pd_pairs.patient_id = patients.id) 
-  INNER JOIN donors ON pd_pairs.donor_id = donors.id)
-  WHERE patients.blood_group IN ('$allowedPatientBgrpStr') 
-  AND donors.blood_group IN ('$allowedDonorBgrpStr')";
-
-  $queryResult = mysqli_query($conn, $possibleMatchQuery);
-  if(!$queryResult) {
-    echo "Database possibleMatchQuery error ". mysqli_error($conn);
-    exit();
+function isMatch($donor, $patient){
+  // Can donor donate blood to patient?
+  if (!isValidBloodDonate($donor, $patient)) {
+    return false;
+  }
+  // prescence of unacceptable antigen
+  elseif (isUApresent($donor, $patient)) {
+    return false;
   }
 
-  $matchedPairArray = mysqli_fetch_all($queryResult, MYSQLI_ASSOC);
-  $matchResults = array();
+  return true;
+}
 
-  foreach ($matchedPairArray as $key => $matchedPair) {
+function combinedPairScore($score1, $score2){
+  $combined = $score1 + $score2;
+  return $combined;
+}
 
-    //delete the record containing the same pairId
-    if ($matchedPair['pairId'] == $inputPair['pairId']) {
-      unset($matchedPairArray[$key]);
-      continue;
-    }
+// helper func for sorting matches
+function cmp($a, $b) {
+  if ($a['totalScore'] == $b['totalScore']) {
+    return 0;
+  }
+  return ($a['totalScore'] > $b['totalScore']) ? -1 : 1;
+}
 
-    // (P_inp, D_inp)     ---> patient and donor of input pair i.e, $inputPair 
-    // (P_match, D_match) ---> patient and donor of a possible match i.e, $matchedPair
+function getMatches($conn, $pair_id) {
+  $givenPair = getPairDataById($conn, $pair_id);
+  $allPair = getAllPairData($conn);
+  $allPairLen = sizeof($allPair);
+  $matches = array();
 
-    // check unacceptable antigens for P_inp & D_match
-    $inputPatientUA = explode(", ", $inputPair['patientUA']);
-    $matchedDonorHLA = explode(", ", $matchedPair['donorHLA']); 
-    if (array_intersect($inputPatientUA, $matchedDonorHLA)) {
-      unset($matchedPairArray[$key]);
+  for ($i=0; $i < $allPairLen; $i++) { 
+    $currentPair = $allPair[$i];  
+    if ($currentPair['pairId'] == $givenPair['pairId']) {
       continue;
     }
     
-    // check unacceptable antigens for P_match & D_inp
-    $matchedPatientUA = explode(", ", $matchedPair['patientUA']);
-    $inputDonorHLA = explode(", ", $inputPair['donorHLA']);
-    if (array_intersect($inputDonorHLA, $matchedPatientUA)) {
-      unset($matchedPairArray[$key]);
-      continue;
+    // check match
+    if(isMatch($givenPair, $currentPair) && isMatch($currentPair, $givenPair)) {
+      $currentMatch = array();
+
+      $currentMatch['pairData'] = $currentPair;
+      //find the score
+      $currentMatch['dScore'] = calcScore($givenPair, $currentPair);
+      $currentMatch['pScore'] = calcScore($currentPair, $givenPair);
+      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']) . '/12';
+      $currentMatch['dScore'] = $currentMatch['dScore'] . '/6';
+      $currentMatch['pScore'] = $currentMatch['pScore'] . '/6';
+
+      array_push($matches, $currentMatch);
     }
-
-    // Now both blood matches and DSA not present
-    // finding the pair score of input pair and matched pair
-    $pairScore = findPairScore($inputPair, $matchedPair);
-
-
-    $validPair = 
-    array(
-      "pairId" => $matchedPair['pairId'], 
-      "patientSex" => $matchedPair['patientSex'], 
-      "donorSex" => $matchedPair['donorSex'],
-      "patientDOB" => $matchedPair['patientDOB'],
-      "donorDOB" => $matchedPair['donorDOB'],
-      "patientBloodGroup" => $matchedPair['patientBloodGroup'],
-      "donorBloodGroup" => $matchedPair['donorBloodGroup'],
-      "patientHLA" => $matchedPair['patientHLA'],
-      "donorHLA" => $matchedPair['donorHLA'],
-      "pairScore" => $pairScore 
-      //pairScore[0] -> P_inp&D_match
-      //pariScore[1] -> P_match&D_inp
-      //pariScore[2] -> (P_inp&D_match) + (P_match&D_inp)
-    );
-
-    array_push($matchResults, $validPair);
   }
+  usort($matches, "cmp"); //sort the matches in descending order
 
-  // sort all the valid pair in descending order
-  function cmp($a, $b) {
-    if ($a['pairScore'][2] == $b['pairScore'][2]) {
-      return 0;
-    }
-    return ($a['pairScore'][2] > $b['pairScore'][2]) ? -1 : 1;
-  }
-
-  usort($matchResults, "cmp");
-
-  return $matchResults;
+  return $matches;
 }

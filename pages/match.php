@@ -15,8 +15,6 @@ body{
 .search{
   margin-top: 20%;
 }
-
-
 /* -------------------Styling the error messages----------------- */
 
 #failed{
@@ -39,7 +37,7 @@ body{
 
 <div class="wrapper">
 
-  <form method="post" action="../pages/findMatch.php" class="search">
+  <form method="post" action="../pages/displayMatch.php" class="search">
     <input type="text" name="id" id="id" placeholder="Enter the pair id..">
     <input type="submit" id="searchBtn" class="button" name='submit' value="Find Match">
   </form>
@@ -49,10 +47,10 @@ body{
       if ($_GET['error'] == "notSameHosp") {
         echo "<p id='failed'>This pair does not belong to your hospital</p>";
       }
-      elseif ($_GET['error'] == "invalidPairId") {
+      else if ($_GET['error'] == "invalidPairId") {
         echo "<p id='failed'>Please enter a valid pair id</p>";
       }
-      elseif ($_GET['error'] == "noPairIdExists") {
+      else if ($_GET['error'] == "noPairIdExists") {
         echo "<p id='failed'>No such pair id exists</p>";
       }
     }
