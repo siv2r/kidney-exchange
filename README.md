@@ -1,6 +1,8 @@
 # Kidney Exchange Program
 
-A website for kidney exchange program.
+This project's primary focus is to provide a platform to facilitate automized inter-hospital kidney transplants.
+This platform allows interested hospitals to register with us. The doctors from the registered hospitals can create their account and add their patients' (having kidney problems) medical details to this platform.
+After a doctor completes this process, this platform provides two main features. The first feature is an option to view only the essential details of a patient required for a kidney transplant. Second, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
 
 ## How to run the server
 
