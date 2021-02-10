@@ -15,7 +15,17 @@ This platform allows interested hospitals to register. The doctors from the regi
 
 After a doctor completes this process, this platform provides two main features. The first feature is an option to view only the essential details of a patient required for a kidney transplant. Second, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
 
-## How to run the server
+## Setting up this project 
+
+### Method 1 (Manual setup)
+This method is recommended if you are working on the backend of this project.
+
+Explained in this [document](https://www.notion.so/Project-setup-Public-1a647ed8515c485f99f38e717acfa61b)
+
+### Method 2 (Through Docker)
+This method will be sufficient if you are working only on the frontend of this project. 
+
+How to run the server (Optional)
 
 1. Install Docker
 2. Run `docker-compose up` inside the project root folder
