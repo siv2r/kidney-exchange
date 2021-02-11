@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $status = "";
 $statusMsg = "";
@@ -27,7 +28,6 @@ if(isset($_POST['h_name'])){
 	//connecting to database
   include("../templates/db-connect.php");
 
-  session_start();
   $_SESSION['form'] = 'hospital-form';
   
   //check if this hospital record is present in the database
