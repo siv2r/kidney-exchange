@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $status = '';
 $statusMsg = '';
 
@@ -266,9 +267,7 @@ if(!empty($_POST['r_fname'])){
   $patientQuery = "UPDATE patients SET `name`=$r_name, sex=$r_sex, dob=$r_dob, height=$r_height, `weight`=$r_weight, blood_group=$r_btype, `address`=$r_address, contact_number=$r_cno, email=$r_email, hla_antigens=$r_hla, ua_antigens=$r_ua, basic_disease=$r_basicd, gr_biopsy=$r_gr, comorb=$r_comorb, hiv=$r_hiv, hep_b=$r_hepb, hep_c=$r_hepc, prev_transp=$r_prev_transp, dialysis=$r_dialysis, dd_program=$r_ddp, prime_nephro=$r_nephro, hospital=$r_dcenter, prov_clearance=$r_prov_clear, pre_transp_surgery=$r_pre_transp WHERE id=$r_id";
 
   $donorQuery = "UPDATE donors SET `name`=$d_name, sex=$d_sex, dob=$d_dob, height=$d_height, `weight`=$d_weight, blood_group=$d_btype, relation=$d_rel, `address`=$d_address, contact_number=$d_cno, email=$d_email, hla_antigens=$d_hla, comorb=$d_comorb, hiv=$d_hiv, hep_b=$d_hepb, hep_c=$d_hepc, alcohol=$d_alcohol, smoking=$d_smoking, prov_clearance=$d_prov_clear WHERE id=$d_id";
-  
-  session_start();
-  
+
   $_SESSION['form'] = 'edit';
 
   foreach ($fileQuery as $queryVal) {

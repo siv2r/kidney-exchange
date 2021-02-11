@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 function random_strings($length_of_string){
 
@@ -343,8 +344,6 @@ if(!empty($_POST['r_fname'])){
 
   $sql5 = "INSERT INTO pd_pairs (pair_id, patient_id, donor_id, hosp_id, `status`) VALUES ($pair_id ,$r_id, $d_id, $r_dcenter, 'Active')";
 
-  session_start();
-  
   $_SESSION['form'] = 'pd-form';
 
 	if(!mysqli_query($conn, $sql1)){

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("../templates/db-connect.php");
 require_once("../include/functions.inc.php");
 
@@ -27,7 +27,6 @@ if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
     exit();
   }
 
-  session_start();
   $_SESSION['form'] = 'delete';
   $_SESSION['del_r_id'] = $patient_id;
   $_SESSION['del_d_id'] = $donor_id;
