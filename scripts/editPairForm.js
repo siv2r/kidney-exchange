@@ -461,31 +461,31 @@ $(document).ready(function () {
         //file validation
         r_img: {
           extension: "png,jpg,jpeg",
-          fileSize: 2
+          fileSize: 1
         },
         d_img: {
           extension: "png,jpg,jpeg",
-          fileSize: 2
+          fileSize: 1
         },
         "r_b-report": {
           extension: "pdf",
-          fileSize: 2
+          fileSize: 1
         },
         "r_hla-report": {
           extension: "pdf",
-          fileSize: 2
+          fileSize: 1
         },
         "r_ua-report": {
           extension: "pdf",
-          fileSize: 2
+          fileSize: 1
         },
         "d_b-report": {
           extension: "pdf",
-          fileSize: 2
+          fileSize: 1
         },
         "d_hla-report": {
           extension: "pdf",
-          fileSize: 2
+          fileSize: 1
         }
       },
 
