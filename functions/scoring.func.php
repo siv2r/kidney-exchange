@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Undocumented function
+ *
+ * @param array $inputPair
+ * @param [type] $matchedPair
+ * @return void
+ */
 function findPairScore($inputPair, $matchedPair) {
 
   //Pair score is calculated only for A, B, DR anitgens. Antigens C, DQ, DP are ignored
@@ -35,9 +41,17 @@ function findPairScore($inputPair, $matchedPair) {
   return $pairScore;
 }
 
-function calcScore($donor, $patient) {
-  $donorHla = explode(", ", $donor['dHla']);
-  $patientHla = explode(", ", $patient['pHla']);
+/**
+ * Calculate weight for the edge from $pair1's donor to $pair2's patient
+ * in the compatibility graph
+ *
+ * @param array $pair1 contains patient donor data of donating pair
+ * @param array $pair2 contains patient donor data of accepting pair
+ * @return integer score for the edge
+ */
+function calcScore($pair1, $pair2) {
+  $donorHla = explode(", ", $pair1['dHla']);
+  $patientHla = explode(", ", $pair2['pHla']);
 
   // only A, B, DR, Dw should be used for scoring
   $donorHla = filterHLA($donorHla);
@@ -49,6 +63,13 @@ function calcScore($donor, $patient) {
   return $score;
 }
 
+/**
+ * Undocumented function
+ *
+ * @param [type] $score1
+ * @param [type] $score2
+ * @return void
+ */
 function combinedPairScore($score1, $score2) {
   $combined = $score1 + $score2;
   return $combined;

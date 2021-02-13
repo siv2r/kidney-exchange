@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Convertes data from the database to a certain JSON format
+ *
+ * @param [type] $allPairData
+ * @return void
+ */
 function toJSON($allPairData) {
   //store final result
   $res = array();
@@ -21,6 +27,12 @@ function toJSON($allPairData) {
 
 }
 
+/**
+ * Creates the compatibility graph for all the data in database
+ *
+ * @param json $jsonData contains all the data from database in json format
+ * @return json compatibility graph
+ */
 function createGraph($jsonData) {
   // convert the json to php array
   $dataArray = json_decode($jsonData, true);

@@ -136,7 +136,7 @@ function getAllPairData($conn) {
   return $pairDataArray;
 }
 
-// return allowed blood group as array
+
 function getAllowedPatientBgrp($donorBgrp) {
   $allowedPatientBgrp = []; //result array
 
