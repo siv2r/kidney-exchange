@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once("../templates/db-connect.php");
-require_once("../include/functions.inc.php");
+require_once "../templates/db-connect.php";
+require_once "../include/functions.inc.php";
 
-if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
+if (isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
   $pair_id = $_GET['pair_id'];
   $patient_id = $pair_id . '-p';
   $donor_id = $pair_id . '-d';
@@ -12,17 +12,17 @@ if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
   $patient_id = "'$patient_id'";
   $donor_id = "'$donor_id'";
 
-  if(!deletePatientById($conn, $patient_id)) {
+  if (!deletePatientById($conn, $patient_id)) {
     // header("location: ../pages/message.php?error=deletePatient");
     exit();
   }
 
-  if(!deleteDonorById($conn, $donor_id)) {
+  if (!deleteDonorById($conn, $donor_id)) {
     // header("location: ../pages/message.php?error=deleteDonor");
     exit();
   }
 
-  if(!deletePairById($conn, $pair_id)) {
+  if (!deletePairById($conn, $pair_id)) {
     // header("location: ../pages/message.php?error=deleteDonor");
     exit();
   }
@@ -34,6 +34,5 @@ if(isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {
   $_SESSION['msg'] = "The following pair is successfully deleted!";
 
   header("location: ../pages/message.php");
-
 
 }

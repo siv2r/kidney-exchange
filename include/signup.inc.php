@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (isset($_POST['uname'])) {
 
@@ -9,8 +9,8 @@ if (isset($_POST['uname'])) {
   $pswd = $_POST['pswd'];
   $re_pswd = $_POST['re_pswd'];
 
-  require_once("../templates/db-connect.php");
-  require_once("functions.inc.php");
+  require_once "../templates/db-connect.php";
+  require_once "functions.inc.php";
 
   if (emptyInputSignup($uname, $email, $hosp_id, $pswd, $re_pswd) !== false) {
     header("location: ../pages/signup.php?error=emptyInputSignup");
@@ -49,9 +49,6 @@ if (isset($_POST['uname'])) {
 
   createUser($conn, $uname, $email, $hosp_id, $pswd);
 
-}
-
-else {
+} else {
   header("location: ../pages/signup.php");
 }
-

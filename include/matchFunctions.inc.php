@@ -1,9 +1,9 @@
-<?php 
+<?php
 
-function getPairDataById ($conn, $pair_id) {
+function getPairDataById($conn, $pair_id) {
 
-  $query = 
-  "SELECT pd_pairs.pair_id AS pairId,
+  $query =
+    "SELECT pd_pairs.pair_id AS pairId,
   pd_pairs.patient_id AS pId,
   pd_pairs.donor_id AS dId,
   pd_pairs.hosp_id AS hospId,
@@ -53,14 +53,14 @@ function getPairDataById ($conn, $pair_id) {
   donors.prov_clearance AS dProvClearance,
   donors.created_at AS dCreatedAt,
   donors.updated_at AS dUpdatedAt
-  FROM ((pd_pairs 
-  INNER JOIN patients ON pd_pairs.patient_id = patients.id) 
+  FROM ((pd_pairs
+  INNER JOIN patients ON pd_pairs.patient_id = patients.id)
   INNER JOIN donors ON pd_pairs.donor_id = donors.id)
   WHERE pd_pairs.pair_id = '$pair_id'
   LIMIT 1";
 
   $result = mysqli_query($conn, $query);
-  if(!$result) {
+  if (!$result) {
     echo "givenPairId database query error" . mysqli_error($conn);
     exit();
   }
@@ -71,8 +71,8 @@ function getPairDataById ($conn, $pair_id) {
 
 function getAllPairData($conn) {
   //naming convension for JSON dump
-  $allPairData = 
-  "SELECT pd_pairs.pair_id AS pairId,
+  $allPairData =
+    "SELECT pd_pairs.pair_id AS pairId,
   pd_pairs.patient_id AS pId,
   pd_pairs.donor_id AS dId,
   pd_pairs.hosp_id AS hospId,
@@ -122,13 +122,13 @@ function getAllPairData($conn) {
   donors.prov_clearance AS dProvClearance,
   donors.created_at AS dCreatedAt,
   donors.updated_at AS dUpdatedAt
-  FROM ((pd_pairs 
-  INNER JOIN patients ON pd_pairs.patient_id = patients.id) 
+  FROM ((pd_pairs
+  INNER JOIN patients ON pd_pairs.patient_id = patients.id)
   INNER JOIN donors ON pd_pairs.donor_id = donors.id)";
 
   $queryResult = mysqli_query($conn, $allPairData);
-  if(!$queryResult) {
-    echo "Database joining query error ". mysqli_error($conn);
+  if (!$queryResult) {
+    echo "Database joining query error " . mysqli_error($conn);
     exit();
   }
   $pairDataArray = mysqli_fetch_all($queryResult, MYSQLI_ASSOC);
@@ -137,7 +137,7 @@ function getAllPairData($conn) {
 }
 
 // return allowed blood group as array
-function getAllowedPatientBgrp ($donorBgrp) {
+function getAllowedPatientBgrp($donorBgrp) {
   $allowedPatientBgrp = []; //result array
 
   //remove Rh factor i.e, A +ve -> A
@@ -145,17 +145,17 @@ function getAllowedPatientBgrp ($donorBgrp) {
 
   //donor's own blood grp is allowed (both +ve and -ve)
   //don't forget sapce in ' +ve'
-  array_push($allowedPatientBgrp, $donorBgrpNoRh . ' +ve'); 
+  array_push($allowedPatientBgrp, $donorBgrpNoRh . ' +ve');
   array_push($allowedPatientBgrp, $donorBgrpNoRh . ' -ve');
 
   // A or B can donate to AB
-  if($donorBgrpNoRh == 'A' || $donorBgrpNoRh == 'B') {
+  if ($donorBgrpNoRh == 'A' || $donorBgrpNoRh == 'B') {
     array_push($allowedPatientBgrp, 'AB +ve');
     array_push($allowedPatientBgrp, 'AB -ve');
   }
 
   // O can donate to A, B, AB
-  else if($donorBgrpNoRh == 'O') {
+  else if ($donorBgrpNoRh == 'O') {
     array_push($allowedPatientBgrp, 'AB +ve');
     array_push($allowedPatientBgrp, 'AB -ve');
     array_push($allowedPatientBgrp, 'A +ve');
@@ -167,12 +167,12 @@ function getAllowedPatientBgrp ($donorBgrp) {
   return $allowedPatientBgrp;
 }
 
-function isValidBloodDonate($donor, $patient) {
+function isBgrpMatch($donor, $patient) {
   $allowedPatientBgrp = getAllowedPatientBgrp($donor['dBGrp']);
   $currentPatientBGrp = $patient['pBGrp'];
   if (in_array($currentPatientBGrp, $allowedPatientBgrp)) {
     return true;
-  } 
+  }
 
   return false;
 }
@@ -183,7 +183,7 @@ function isUApresent($donor, $patient) {
   $result = array_intersect($donorHla, $patientUa);
 
   // donor has patient's unacceptable antigen
-  if (!empty($result)) { 
+  if (!empty($result)) {
     return true;
   }
 
@@ -195,7 +195,7 @@ function filterHLA($givenHLA) {
   $filteredHLA = array();
 
   foreach ($givenHLA as $key => $value) {
-    if(preg_match($pattern, $value)) {
+    if (preg_match($pattern, $value)) {
       array_push($filteredHLA, $value);
     }
   }
@@ -203,59 +203,9 @@ function filterHLA($givenHLA) {
   return $filteredHLA;
 }
 
-
-function findPairScore($inputPair, $matchedPair) {
-
-  //Pair score is calculated only for A, B, DR anitgens. Antigens C, DQ, DP are ignored
-
-  //1. Finding pair score : (P_inp & D_match)
-  $inputPatientHLA = explode(", ", $inputPair['patientHLA']);
-  $matchedDonorHLA = explode(", ", $matchedPair['donorHLA']);
-  //allow only A, B, DR and Dw
-  $inputPatientHLA = filterHLA($inputPatientHLA);
-  $matchedDonorHLA = filterHLA($matchedDonorHLA);
-  //calculate pair score for (P_inp & D_match)
-  $score1 = array_intersect($inputPatientHLA, $matchedDonorHLA);
-  $score1 = sizeof($score1);
-
-  //2. Finding pair score for P_match & D_inp
-  $inputDonorHLA = explode(", ", $inputPair['donorHLA']);
-  $matchedPatientHLA = explode(", ", $matchedPair['patientHLA']);
-  //allow only A, B, DR and Dw
-  $inputDonorHLA = filterHLA($inputDonorHLA);
-  $matchedPatientHLA = filterHLA($matchedPatientHLA);
-  // calculate pair score for P_match & D_inp
-  $score2 = array_intersect($inputDonorHLA, $matchedPatientHLA);
-  $score2 = sizeof($score2);
-
-  $finalScore = $score1+$score2;
-
-  //make the scores as fraction
-  $score1 = $score1 . '/6';
-  $score2 = $score2 . '/6';
-  $finalScore = $finalScore . '/6';
-
-  $pairScore = array($score1, $score2, $finalScore);
-  return $pairScore;
-}
-
-function calcScore($donor, $patient){
-  $donorHla = explode(", ", $donor['dHla']);
-  $patientHla = explode(", ", $patient['pHla']);
-
-  // only A, B, DR, Dw should be used for scoring
-  $donorHla = filterHLA($donorHla);
-  $patientHla = filterHLA($patientHla);
-
-  $commonHla = array_intersect($donorHla, $patientHla);
-  $score = sizeof($commonHla);
-
-  return $score;
-}
-
-function isMatch($donor, $patient){
+function isMatch($donor, $patient) {
   // Can donor donate blood to patient?
-  if (!isValidBloodDonate($donor, $patient)) {
+  if (!isBgrpMatch($donor, $patient)) {
     return false;
   }
   // prescence of unacceptable antigen
@@ -264,11 +214,6 @@ function isMatch($donor, $patient){
   }
 
   return true;
-}
-
-function combinedPairScore($score1, $score2){
-  $combined = $score1 + $score2;
-  return $combined;
 }
 
 // helper func for sorting matches
@@ -285,14 +230,14 @@ function getMatches($conn, $pair_id) {
   $allPairLen = sizeof($allPair);
   $matches = array();
 
-  for ($i=0; $i < $allPairLen; $i++) { 
-    $currentPair = $allPair[$i];  
+  for ($i = 0; $i < $allPairLen; $i++) {
+    $currentPair = $allPair[$i];
     if ($currentPair['pairId'] == $givenPair['pairId']) {
       continue;
     }
-    
+
     // check match
-    if(isMatch($givenPair, $currentPair) && isMatch($currentPair, $givenPair)) {
+    if (isMatch($givenPair, $currentPair) && isMatch($currentPair, $givenPair)) {
       $currentMatch = array();
 
       $currentMatch['pairData'] = $currentPair;
