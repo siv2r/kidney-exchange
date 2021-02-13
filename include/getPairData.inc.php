@@ -2,21 +2,21 @@
 
 // this will be included in editPairForm.php
 
-require_once("../templates/db-connect.php");
-require_once("../include/functions.inc.php");
+require_once "../templates/db-connect.php";
+require_once "../include/functions.inc.php";
 
 $pData = getPatientById($conn, $patient_id);
 $dData = getDonorById($conn, $donor_id);
 
-if(!$pData) {
+if (!$pData) {
   echo "ERROR: fetching patient data";
 }
 
-if(!$dData) {
+if (!$dData) {
   echo "ERROR: fetching donor data";
 }
 
-//set available comorb values 
+//set available comorb values
 $ComorbValues = array("None", "Type1 DM", "Type2 DM", "Hypertension", "Coronary artery disease", "Chronic liver disease", "Chronic obstructive pulmonary disease", "Cancer", "Others");
 
 // get recipient form variables
@@ -27,8 +27,8 @@ $rHeight = $pData['height'];
 $rWeight = $pData['weight'];
 
 $rBMI = '';
-if(!empty($rHeight) && !empty($rWeight)) {
-  $rBMI = number_format(($rWeight*100*100)/($rHeight*$rHeight), 2);
+if (!empty($rHeight) && !empty($rWeight)) {
+  $rBMI = number_format(($rWeight * 100 * 100) / ($rHeight * $rHeight), 2);
 }
 
 $rBloodGroup = $pData['blood_group'];
@@ -36,7 +36,7 @@ $rBloodGroup = $pData['blood_group'];
 $rAddressArray = explode(", ", $pData['address']);
 //set null for other fields if it was partially filled
 while (sizeof($rAddressArray) < 6) {
-  array_push($rAddressArray, ''); 
+  array_push($rAddressArray, '');
 }
 //combine 1st and 2nd element since, addr1 and addr2 can have ', ' in them and we need exactly 6 field values
 while (sizeof($rAddressArray) > 6) {
@@ -57,8 +57,10 @@ $rComorbOthersArray = array(); //since user might have entered many comma separa
 $rComorbArray = explode(", ", $pData['comorb']);
 
 foreach ($rComorbArray as $key => $value) {
-  if(in_array($value, $ComorbValues)) 
+  if (in_array($value, $ComorbValues)) {
     continue;
+  }
+
   array_push($rComorbOthersArray, $value);
   unset($rComorbArray[$key]); //delete the comorb others element
   $rComorbOthersCheck = 1;
@@ -74,12 +76,12 @@ $rHepB = $pData['hep_b'];
 $rHepC = $pData['hep_c'];
 
 $rPrevTransp = explode(", ", $pData['prev_transp']);
-while(sizeof($rPrevTransp) < 2) {
+while (sizeof($rPrevTransp) < 2) {
   array_push($rPrevTransp, '');
 }
 
 $rDialysis = explode(", ", $pData['dialysis']);
-while(sizeof($rDialysis) < 3) {
+while (sizeof($rDialysis) < 3) {
   array_push($rDialysis, '');
 }
 
@@ -105,8 +107,8 @@ $dHeight = $dData['height'];
 $dWeight = $dData['weight'];
 
 $dBMI = '';
-if(!empty($dHeight) && !empty($dWeight)) {
-  $dBMI = number_format(($dWeight*100*100)/($dHeight*$dHeight), 2);
+if (!empty($dHeight) && !empty($dWeight)) {
+  $dBMI = number_format(($dWeight * 100 * 100) / ($dHeight * $dHeight), 2);
 }
 
 $dBloodGroup = $dData['blood_group'];
@@ -114,7 +116,7 @@ $dRelation = $dData['relation'];
 $dAddressArray = explode(", ", $dData['address']);
 //set null for other fields if it was partially filled
 while (sizeof($dAddressArray) < 6) {
-  array_push($dAddressArray, ''); 
+  array_push($dAddressArray, '');
 }
 //combine 1st and 2nd element since, addr1 and addr2 can have ', ' in them and we need exactly 6 field values
 while (sizeof($dAddressArray) > 6) {
@@ -132,8 +134,10 @@ $dComorbOthersArray = array(); //since user might have entered many comma separa
 $dComorbArray = explode(", ", $dData['comorb']);
 
 foreach ($dComorbArray as $key => $value) {
-  if(in_array($value, $ComorbValues)) 
+  if (in_array($value, $ComorbValues)) {
     continue;
+  }
+
   array_push($dComorbOthersArray, $value);
   unset($dComorbArray[$key]); //delete the comorb others element
   $dComorbOthersCheck = 1;
@@ -163,5 +167,5 @@ $relationValues = array(
   "Paternal grandmother",
   "Paternal grandfather",
   "Maternal grandmother",
-  "Maternal grandfather"
+  "Maternal grandfather",
 );

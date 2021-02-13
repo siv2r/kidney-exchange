@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 //set HLA default values
-$HlaA = array (
+$HlaA = array(
   "Null",
   "A1",
   "A2",
@@ -30,10 +30,10 @@ $HlaA = array (
   "A68(28)",
   "A69(28)",
   "A74(19)",
-  "A80"
+  "A80",
 );
 
-$HlaB = array (
+$HlaB = array(
   "Null",
   "B5",
   "B7",
@@ -86,10 +86,10 @@ $HlaB = array (
   "B63(15)",
   "B64(14)",
   "B65(14)",
-  "B67"
+  "B67",
 );
 
-$HlaDR = array (
+$HlaDR = array(
   "Null",
   "DR1",
   "DR103",
@@ -114,10 +114,10 @@ $HlaDR = array (
   "DR18(3)",
   "DR51",
   "DR52",
-  "DR53"
+  "DR53",
 );
 
-$HlaC = array (
+$HlaC = array(
   "None",
   "Cw1",
   "Cw2",
@@ -128,10 +128,10 @@ $HlaC = array (
   "Cw7",
   "Cw8",
   "Cw9(w3)",
-  "Cw10(w3)"
+  "Cw10(w3)",
 );
 
-$HlaD = array (
+$HlaD = array(
   // "None", remove it since D is appended to DR
   "Dw1",
   "Dw2",
@@ -158,10 +158,10 @@ $HlaD = array (
   "Dw23",
   "Dw24",
   "Dw25",
-  "Dw26"
+  "Dw26",
 );
 
-$HlaDQ = array (
+$HlaDQ = array(
   "None",
   "DQ1",
   "DQ2",
@@ -171,17 +171,17 @@ $HlaDQ = array (
   "DQ6(1)",
   "DQ7(3)",
   "DQ8(3)",
-  "DQ9(3)"
+  "DQ9(3)",
 );
 
-$HlaDP = array (
+$HlaDP = array(
   "None",
   "DPw1",
   "DPw2",
   "DPw3",
   "DPw4",
   "DPw5",
-  "DPw6"
+  "DPw6",
 );
 
 // HlaD is appended to HlaDR

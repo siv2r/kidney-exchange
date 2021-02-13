@@ -3,8 +3,7 @@
 function emptyInputSignup($uname, $email, $hosp_id, $pswd, $re_pswd) {
   if (empty($uname) || empty($email) || empty($hosp_id) || empty($pswd) || empty($re_pswd)) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -12,8 +11,7 @@ function emptyInputSignup($uname, $email, $hosp_id, $pswd, $re_pswd) {
 function invalidUname($uname) {
   if (!preg_match("/^[a-zA-z0-9_]+$/", $uname)) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -21,8 +19,7 @@ function invalidUname($uname) {
 function invalidHospId($hosp_id) {
   if (!filter_var($hosp_id, FILTER_VALIDATE_INT)) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -30,8 +27,7 @@ function invalidHospId($hosp_id) {
 function invalidEmail($email) {
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -39,8 +35,7 @@ function invalidEmail($email) {
 function noPswdMatch($pswd, $re_pswd) {
   if ($pswd !== $re_pswd) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -50,7 +45,7 @@ function UnameExists($conn, $uname, $email) {
 
   // using prepared statements method to prevent sql injections by the user
   $stmt = mysqli_stmt_init($conn);
-  if(!mysqli_stmt_prepare($stmt, $query)) {
+  if (!mysqli_stmt_prepare($stmt, $query)) {
     header("location: ../pages/signup.php?error=userstmtfailed");
     exit();
   }
@@ -61,8 +56,7 @@ function UnameExists($conn, $uname, $email) {
 
   if ($row = mysqli_fetch_assoc($result)) {
     return $row;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -72,7 +66,7 @@ function getHospitalById($conn, $hosp_id) {
 
   // using prepared statements method to prevent sql injections by the user
   $stmt = mysqli_stmt_init($conn);
-  if(!mysqli_stmt_prepare($stmt, $query)) {
+  if (!mysqli_stmt_prepare($stmt, $query)) {
     header("location: ../pages/signup.php?error=hospstmtfailed");
     exit();
   }
@@ -83,8 +77,7 @@ function getHospitalById($conn, $hosp_id) {
 
   if ($row = mysqli_fetch_assoc($result)) {
     return $row;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -97,7 +90,7 @@ function createUser($conn, $uname, $email, $hosp_id, $pswd) {
 
   // using prepared statements method to prevent sql injections by the user
   $stmt = mysqli_stmt_init($conn);
-  if(!mysqli_stmt_prepare($stmt, $query)) {
+  if (!mysqli_stmt_prepare($stmt, $query)) {
     header("location: ../pages/signup.php?error=userstmtfailed");
     exit();
   }
@@ -119,7 +112,7 @@ function createAdmin($conn, $uname, $email, $hosp_id, $pswd) {
 
   // using prepared statements method to prevent sql injections by the user
   $stmt = mysqli_stmt_init($conn);
-  if(!mysqli_stmt_prepare($stmt, $query)) {
+  if (!mysqli_stmt_prepare($stmt, $query)) {
     header("location: ../pages/signup.php?error=adminstmtfailed");
     exit();
   }
@@ -136,8 +129,7 @@ function createAdmin($conn, $uname, $email, $hosp_id, $pswd) {
 function emptyInputLogin($uid, $pswd) {
   if (empty($uid) || empty($pswd)) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
@@ -146,7 +138,7 @@ function loginUser($conn, $uid, $pswd) {
   // the row from the database is assigned to $userExists as an associative array
   $userExists = UnameExists($conn, $uid, $uid);
 
-  if(!$userExists) {
+  if (!$userExists) {
     header("location: ../pages/login.php?error=invalidUsername");
     exit();
   }
@@ -154,12 +146,10 @@ function loginUser($conn, $uid, $pswd) {
   $pswdHashed = $userExists['password'];
   $checkPswd = password_verify($pswd, $pswdHashed);
 
-  if($checkPswd === false) {
+  if ($checkPswd === false) {
     header("location: ../pages/login.php?error=invalidPassword");
     exit();
-  }
-
-  else if ($checkPswd === true) {
+  } else if ($checkPswd === true) {
     session_start();
 
     $_SESSION['userId'] = $userExists['username'];
@@ -167,8 +157,8 @@ function loginUser($conn, $uid, $pswd) {
     $_SESSION['hospId'] = $userExists['hosp_id'];
     $_SESSION['userEmail'] = $userExists['email'];
 
-    if($userExists['hosp_id'] !== 0) { // get the hospital data if the user is not an Admin
-      
+    if ($userExists['hosp_id'] !== 0) { // get the hospital data if the user is not an Admin
+
       //this contains hospital data as an associative array
       $_SESSION['userHospital'] = getHospitalById($conn, $userExists['hosp_id']);
     }
@@ -180,16 +170,14 @@ function loginUser($conn, $uid, $pswd) {
 
 }
 
-function getHospitals($conn) {     //returns all hospitals in database as associative array
+function getHospitals($conn) { //returns all hospitals in database as associative array
   $query = "SELECT * FROM hospitals;";
   $result = mysqli_query($conn, $query);
 
-  if(mysqli_num_rows($result) > 0) {
+  if (mysqli_num_rows($result) > 0) {
     $hosp_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $hosp_array;
-  }
-
-  else {
+  } else {
     return false;
   }
 }
@@ -198,12 +186,12 @@ function deletePatientById($conn, $patient_id) {
   $query1 = "DELETE FROM patients WHERE id=$patient_id;";
   $query2 = "DELETE FROM patient_files WHERE id=$patient_id;";
 
-  if(!mysqli_query($conn, $query1)) {
+  if (!mysqli_query($conn, $query1)) {
     echo 'patients delete query error' . mysqli_error($conn);
     return false;
   }
 
-  if(!mysqli_query($conn, $query2)) {
+  if (!mysqli_query($conn, $query2)) {
     echo 'patient_files delete query error' . mysqli_error($conn);
     return false;
   }
@@ -215,12 +203,12 @@ function deleteDonorById($conn, $donor_id) {
   $query1 = "DELETE FROM donors WHERE id=$donor_id;";
   $query2 = "DELETE FROM donor_files WHERE id=$donor_id;";
 
-  if(!mysqli_query($conn, $query1)) {
+  if (!mysqli_query($conn, $query1)) {
     echo 'donors delete query error' . mysqli_error($conn);
     return false;
   }
 
-  if(!mysqli_query($conn, $query2)) {
+  if (!mysqli_query($conn, $query2)) {
     echo 'donor_files delete query error' . mysqli_error($conn);
     return false;
   }
@@ -231,7 +219,7 @@ function deleteDonorById($conn, $donor_id) {
 function deletePairById($conn, $pair_id) {
   $query = "DELETE FROM pd_pairs WHERE pair_id=$pair_id;";
 
-  if(!mysqli_query($conn, $query)) {
+  if (!mysqli_query($conn, $query)) {
     echo 'pd_pairs delete query error' . mysqli_error($conn);
     return false;
   }
@@ -342,7 +330,7 @@ function getPairById($conn, $pair_id) {
   }
 }
 
-function getPatients($conn) {     //returns all patients in database as associative array
+function getPatients($conn) { //returns all patients in database as associative array
   $query = "SELECT * FROM patients ORDER BY id;";
   $result = mysqli_query($conn, $query);
 
@@ -354,7 +342,7 @@ function getPatients($conn) {     //returns all patients in database as associat
   }
 }
 
-function getDonors($conn) {     //returns all patients in database as associative array
+function getDonors($conn) { //returns all patients in database as associative array
   $query = "SELECT * FROM donors ORDER BY id;";
   $result = mysqli_query($conn, $query);
 
@@ -368,8 +356,8 @@ function getDonors($conn) {     //returns all patients in database as associativ
 
 function bmiVal($height, $weight) {
   $res = '';
-  if(!empty($height) && !empty($weight)) {
-    $res = number_format(($weight*100*100)/($height*$height), 2);
+  if (!empty($height) && !empty($weight)) {
+    $res = number_format(($weight * 100 * 100) / ($height * $height), 2);
   }
   return $res;
 }
@@ -397,4 +385,3 @@ function isValidPairId($pair_id) {
 
   return true;
 }
-
