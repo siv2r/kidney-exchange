@@ -23,7 +23,7 @@ mysqli_free_result($result);
   </style>
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../templates/navBar.php") ?>
   </div>
 
   <div class="wrapper">
