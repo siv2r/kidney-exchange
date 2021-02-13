@@ -39,7 +39,7 @@ body{
 
 .grid-item {
   padding: 20px;
-  font-size: 30px;
+  font-size: 25px;
   text-align: left;
   font-family: "Open Sans"
 }
@@ -73,7 +73,7 @@ body{
         <input type="submit" class="button searchBtn" name="submit" value="Download">
       </form>
     </div>
-    <div class="grid-item">Data upload (Json)</div>
+    <div class="grid-item">Data upload (Yet to be implemented...)</div>
     <div class="grid-item">
       <form method="post" action="#" class="search">
         <input type="file" class="custom-file-input" name="json" id="json">
