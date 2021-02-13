@@ -41,7 +41,7 @@ $dArray = getDonors($conn);
   </style>
 
   <div class="nav-container">
-    <?php include("../templates/nav-bar.php") ?>
+    <?php include("../templates/navBar.php") ?>
   </div>
 
   <h2 class="heading">Patients</h2>

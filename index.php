@@ -25,7 +25,7 @@
 
   <!-- <div class="header-img"> -->
     <div class="nav-container">
-      <?php include("templates/nav-bar-indexpg.php") ?>
+      <?php include("templates/navBar.php") ?>
     </div>
   <!-- </div> -->
 

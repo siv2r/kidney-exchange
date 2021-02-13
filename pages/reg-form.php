@@ -50,7 +50,7 @@
 
   <div class="header-img">
     <div class="nav-container">
-      <?php include("../templates/nav-bar.php") ?>
+      <?php include("../templates/navBar.php") ?>
     </div>
     <h2 id="pd-heading">Registration form</h2>
   </div>

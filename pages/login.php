@@ -86,7 +86,7 @@ form a{
 <?php include("../templates/header.php"); ?>
 
 	<div class="nav-container">
-      <?php include("../templates/nav-bar.php") ?>
+      <?php include("../templates/navBar.php") ?>
   </div>
 
 	<form action="../include/login.inc.php" method="POST">
