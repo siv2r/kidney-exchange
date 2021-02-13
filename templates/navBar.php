@@ -121,7 +121,7 @@ if (!isset($_SESSION)) {
       echo   '<li><a href="#">Register</a>';
       echo     '<ul>';
       echo       '<li><a href="/kidney-exchange/pages/reg-form.php">Patient</a></li>';
-      if (isset($_SESSION['userId']) && $_SESSION['userType'] === "Admin") {
+      if ($_SESSION['userType'] === "Admin") {
         echo       '<li><a href="/kidney-exchange/pages/register_hospital.php">Hospital</a></li>';
       }
       echo     '</ul>';
@@ -136,7 +136,9 @@ if (!isset($_SESSION)) {
       echo   '</li>';
       // echo '</ul>';
       // echo '<ul>';
-      echo   '<li><a href="#">Profile</a></li>';
+      if ($_SESSION['userType'] === "Admin") {
+        echo   '<li><a href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
+      }
       echo   '<li><a href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
       // echo '</ul>';
     } else {
