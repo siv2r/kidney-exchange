@@ -1,5 +1,5 @@
 <?php
-
+// TODO: move this function to a different file
 function getPairDataById($conn, $pair_id) {
 
   $query =
@@ -69,6 +69,7 @@ function getPairDataById($conn, $pair_id) {
   return $pairData;
 }
 
+// TODO: move this function to a different file
 function getAllPairData($conn) {
   //naming convension for JSON dump
   $allPairData =
@@ -136,7 +137,13 @@ function getAllPairData($conn) {
   return $pairDataArray;
 }
 
-
+/**
+ * Finds the blood groups to which the donor can donate
+ *
+ * @param string $donorBgrp - Blood group of donor
+ * @return array $allowedPatientBgrp - possible blood groups to which the donor 
+ *                                     can donate his/her blood.
+ */
 function getAllowedPatientBgrp($donorBgrp) {
   $allowedPatientBgrp = []; //result array
 
@@ -167,9 +174,16 @@ function getAllowedPatientBgrp($donorBgrp) {
   return $allowedPatientBgrp;
 }
 
-function isBgrpMatch($donor, $patient) {
-  $allowedPatientBgrp = getAllowedPatientBgrp($donor['dBGrp']);
-  $currentPatientBGrp = $patient['pBGrp'];
+/**
+ * Checks if blood donation possible form donor of pair1 to patient of pair2
+ *
+ * @param array $pair1 - blood donating pd pair
+ * @param array $pair2 - blood recieving pd pair
+ * @return boolean ,true - donation possible, false - donation not possible
+ */
+function isBgrpMatch($pair1, $pair2) {
+  $allowedPatientBgrp = getAllowedPatientBgrp($pair1['dBGrp']);
+  $currentPatientBGrp = $pair2['pBGrp'];
   if (in_array($currentPatientBGrp, $allowedPatientBgrp)) {
     return true;
   }
@@ -177,9 +191,23 @@ function isBgrpMatch($donor, $patient) {
   return false;
 }
 
-function isUApresent($donor, $patient) {
-  $donorHla = explode(", ", $donor['dHla']);
-  $patientUa = explode(", ", $patient['pUA']);
+/**
+ * Checks if pair1's donor has any HLA anitgens that cannot be accepted by 
+ * pair2's patient. (i.e. prescence of unacceptable antigens in donor)
+ * 
+ * Ex:
+ * HLA of pair1's donor - A1, A2, B35, B2, DR2, DR51
+ * UA of pair2's donor - B3, DR2
+ * 
+ * return false since, donor has HLA that patient cannot accept (i.e. DR2)
+ *
+ * @param array $pair1 - kidney donating pair
+ * @param array $pair2 - kidney accepting pair
+ * @return boolean 
+ */
+function isUApresent($pair1, $pair2) {
+  $donorHla = explode(", ", $pair1['dHla']);
+  $patientUa = explode(", ", $pair2['pUA']);
   $result = array_intersect($donorHla, $patientUa);
 
   // donor has patient's unacceptable antigen
@@ -190,6 +218,12 @@ function isUApresent($donor, $patient) {
   return false;
 }
 
+/**
+ * Undocumented function
+ *
+ * @param [type] $givenHLA
+ * @return void
+ */
 function filterHLA($givenHLA) {
   $pattern = "/(A|B|DR|Dw)/"; //allowed hla values
   $filteredHLA = array();
@@ -203,6 +237,13 @@ function filterHLA($givenHLA) {
   return $filteredHLA;
 }
 
+/**
+ * Undocumented function
+ *
+ * @param [type] $donor
+ * @param [type] $patient
+ * @return boolean
+ */
 function isMatch($donor, $patient) {
   // Can donor donate blood to patient?
   if (!isBgrpMatch($donor, $patient)) {
@@ -216,7 +257,13 @@ function isMatch($donor, $patient) {
   return true;
 }
 
-// helper func for sorting matches
+/**
+ * Undocumented function
+ *
+ * @param [type] $a
+ * @param [type] $b
+ * @return void
+ */
 function cmp($a, $b) {
   if ($a['totalScore'] == $b['totalScore']) {
     return 0;
@@ -224,6 +271,13 @@ function cmp($a, $b) {
   return ($a['totalScore'] > $b['totalScore']) ? -1 : 1;
 }
 
+/**
+ * Undocumented function
+ *
+ * @param [type] $conn
+ * @param [type] $pair_id
+ * @return void
+ */
 function getMatches($conn, $pair_id) {
   $givenPair = getPairDataById($conn, $pair_id);
   $allPair = getAllPairData($conn);
