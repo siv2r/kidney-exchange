@@ -46,6 +46,8 @@ if (isset($_POST['submit'])) {
     exit();
   }
 
+  $hData = getHospitalById($conn, $pData['hospital']);
+
   //calculate BMI and Date
   $pBMI = bmiVal($pData['height'], $pData['weight']);
   $pCreated = formatDate($pData['created_at']);
@@ -240,7 +242,7 @@ if (isset($_POST['submit'])) {
         </tr>
         <tr>
           <th>Hospital</th>
-          <td><?php echo $pData['hospital']; ?></td>
+          <td><?php echo $hData['name']; ?></td>
         </tr>
         <tr>
           <th>Provisional Clearance</th>
