@@ -221,25 +221,6 @@ function isUApresent($pair1, $pair2) {
 /**
  * Undocumented function
  *
- * @param [type] $givenHLA
- * @return void
- */
-function filterHLA($givenHLA) {
-  $pattern = "/(A|B|DR|Dw)/"; //allowed hla values
-  $filteredHLA = array();
-
-  foreach ($givenHLA as $key => $value) {
-    if (preg_match($pattern, $value)) {
-      array_push($filteredHLA, $value);
-    }
-  }
-
-  return $filteredHLA;
-}
-
-/**
- * Undocumented function
- *
  * @param [type] $donor
  * @param [type] $patient
  * @return boolean
@@ -298,9 +279,9 @@ function getMatches($conn, $pair_id) {
       //find the score
       $currentMatch['dScore'] = calcScore($givenPair, $currentPair);
       $currentMatch['pScore'] = calcScore($currentPair, $givenPair);
-      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']) . '/12';
-      $currentMatch['dScore'] = $currentMatch['dScore'] . '/6';
-      $currentMatch['pScore'] = $currentMatch['pScore'] . '/6';
+      $currentMatch['totalScore'] = combinedPairScore($currentMatch['dScore'], $currentMatch['pScore']);
+      $currentMatch['dScore'] = $currentMatch['dScore'];
+      $currentMatch['pScore'] = $currentMatch['pScore'];
 
       array_push($matches, $currentMatch);
     }
