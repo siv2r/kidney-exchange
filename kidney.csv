@@ -1,0 +1,80 @@
+Total Patients,Altruistic Donors,Maximum cycle size,Maximum chain size,Transplants,Constraint
+50,0,3,2,24,Maximize the number of effective pairwise exchange
+50,0,3,2,24,Maximize the number of effective pairwise exchange
+50,0,4,3,26,Maximize the total number of transplants
+50,0,3,3,22,Maximize the total weight
+50,0,2,3,16,Maximize the number of pairwise exchange
+50,0,2,4,10,Maximize the number of effective pairwise exchange
+50,0,3,2,12,Maximize the total number of transplants
+50,0,4,3,14,Maximize the total weight
+50,0,3,3,10,Maximize the number of pairwise exchange
+75,8,2,3,20,Maximize the number of effective pairwise exchange
+75,8,3,2,35,Maximize the number of effective pairwise exchange
+75,8,4,3,61,Maximize the total number of transplants
+75,8,3,3,50,Maximize the total weight
+75,8,2,3,26,Maximize the number of pairwise exchange
+75,8,3,2,44,Maximize the number of pairwise exchange
+80,0,4,3,38,Maximize the number of effective pairwise exchange
+80,0,4,3,38,Maximize the total number of transplants
+80,0,3,3,37,Maximize the total weight
+80,0,2,3,32,Maximize the number of pairwise exchange
+80,0,2,4,32,Maximize the number of effective pairwise exchange
+80,0,3,2,43,Maximize the total number of transplants
+80,0,4,3,44,Maximize the total weight
+80,0,3,3,32,Maximize the number of pairwise exchange
+100,67,3,2,115,Maximize the number of effective pairwise exchange
+100,67,3,2,115,Maximize the number of effective pairwise exchange
+100,67,3,2,148,Maximize the number of pairwise exchange
+100,67,3,2,114,Maximize the number of effective pairwise exchange
+100,67,3,2,145,Maximize the number of pairwise exchange
+100,11,3,3,76,Maximize the total number of transplants
+50,0,3,0,18,Maximize the number of effective pairwise exchange
+50,0,3,0,18,Maximize the total weight
+50,0,3,0,18,Maximize the number of effective pairwise exchange
+50,0,3,0,18,Maximize the total weight
+50,0,3,1,18,Maximize the number of effective pairwise exchange
+50,0,3,1,18,Maximize the number of effective pairwise exchange
+50,0,2,0,14,Maximize the number of effective pairwise exchange
+50,0,2,0,14,Maximize the total weight
+4,0,2,0,0,Maximize the number of effective pairwise exchange
+4,0,2,0,0,Maximize the number of effective pairwise exchange
+4,0,2,0,0,Maximize the total weight
+4,0,2,0,0,Maximize the total weight
+4,0,2,0,0,Maximize the number of effective pairwise exchange
+4,0,2,0,0,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the number of effective pairwise exchange
+4,0,2,0,4,Maximize the total weight
+4,0,2,0,4,Maximize the total weight
+4,0,2,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the total weight
+4,0,3,0,0,Maximize the total number of transplants
+4,0,3,0,0,Maximize the total number of transplants
+4,0,3,0,0,Maximize the total number of transplants
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,0,Maximize the total number of transplants
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange
+50,0,3,0,18,Maximize the number of effective pairwise exchange
+50,0,3,0,18,Maximize the number of effective pairwise exchange
+4,0,3,0,4,Maximize the number of effective pairwise exchange

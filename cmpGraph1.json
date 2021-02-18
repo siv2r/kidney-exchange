@@ -1,0 +1,60 @@
+{
+    "data": {
+        "10011-5bHmK": {
+            "sources": [
+                "10011-5bHmK"
+            ],
+            "dAge": 41,
+            "matches": [
+                {
+                    "recipient": "10011-LPiEt",
+                    "score": 3
+                },
+                {
+                    "recipient": "10012-Uiv2W",
+                    "score": 2
+                }
+            ]
+        },
+        "10011-LPiEt": {
+            "sources": [
+                "10011-LPiEt"
+            ],
+            "dAge": 41,
+            "matches": [
+                {
+                    "recipient": "10011-5bHmK",
+                    "score": 1
+                },
+                {
+                    "recipient": "10012-rtQF3",
+                    "score": 3
+                }
+            ]
+        },
+        "10012-rtQF3": {
+            "sources": [
+                "10012-rtQF3"
+            ],
+            "dAge": 41,
+            "matches": [
+                {
+                    "recipient": "10012-Uiv2W",
+                    "score": 3
+                }
+            ]
+        },
+        "10012-Uiv2W": {
+            "sources": [
+                "10012-Uiv2W"
+            ],
+            "dAge": 41,
+            "matches": [
+                {
+                    "recipient": "10012-rtQF3",
+                    "score": 4
+                }
+            ]
+        }
+    }
+}
