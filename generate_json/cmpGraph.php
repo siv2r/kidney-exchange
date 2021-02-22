@@ -9,7 +9,7 @@ require_once "../functions/scoring.func.php";
 $data = getAllPairData($conn);
 $jsonData = toJSON($data);
 
-//create the compatiblity graph
+//create the compatiblity graph (also json)
 $graph = createGraph($jsonData);
 
 //make it downloadable on the website
