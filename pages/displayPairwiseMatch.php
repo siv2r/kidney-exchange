@@ -126,6 +126,6 @@
     </table>
   <?php endforeach;?>
 
-  <!-- <script src="../scripts/fixRowspanHover.js"></script> -->
+  <!-- <script src="../js/fixRowspanHover.js"></script> -->
 
 <?php include_once "../include/footer.inc.php";?>

@@ -1,15 +1,15 @@
-<?php 
+<?php
 
 session_start();
 
 $status = '';
 $statusMsg = '';
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
   //connection to database and custom functions
-  include("../templates/db-connect.php");
-  include("../include/functions.inc.php");
+  include "../templates/db-connect.php";
+  include "../include/functions.inc.php";
 
   $pair_id = $_POST['id'];
 
@@ -30,8 +30,8 @@ if(isset($_POST['submit'])) {
   if ($_SESSION['userType'] === "Transplant coordinator" && $_SESSION['hospId'] != $checkHospid[0]) {
     header("location: ../pages/dataSearch.php?error=notSameHosp");
     exit();
-  } 
-  
+  }
+
   $patient_id = $pair_id . '-p';
   $donor_id = $pair_id . '-d';
 
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])) {
   $dData = getDonorById($conn, $donor_id);
   $dFiles = getDonorFilesById($conn, $donor_id);
 
-  if($pData == false || $dData == false || $pFiles == false || $dFiles == false) {
+  if ($pData == false || $dData == false || $pFiles == false || $dFiles == false) {
     echo "Database fetch error" . '<br>';
     exit();
   }
@@ -54,9 +54,7 @@ if(isset($_POST['submit'])) {
   $dBMI = bmiVal($dData['height'], $dData['weight']);
   $dCreated = formatDate($dData['created_at']);
   $dUpdated = formatDate($dData['updated_at']);
-}
-
-else {
+} else {
   header("location: ../pages/dataSearch.php");
 }
 
@@ -71,7 +69,7 @@ else {
     background-color: whitesmoke;
     background-repeat: no-repeat;
     background-size: cover;
-  } 
+  }
 
   .nav-container{
     position: static;
@@ -134,10 +132,10 @@ else {
 </style>
 
 
-<?php include("../templates/header.php") ?>
+<?php include "../templates/header.php";?>
 
   <div class="nav-container">
-    <?php include("../templates/navBar.php") ?>
+    <?php include "../templates/navBar.php";?>
   </div>
 
   <div class="wrapper">
@@ -150,214 +148,214 @@ else {
       <table>
         <tr>
           <th>Id</th>
-          <td><?php echo $pData['id'] ?></td>
+          <td><?php echo $pData['id']; ?></td>
         </tr>
         <tr>
           <th>Name</th>
-          <td><?php echo $pData['name'] ?></td>
+          <td><?php echo $pData['name']; ?></td>
         </tr>
         <tr>
           <th>Sex</th>
-          <td><?php echo $pData['sex'] ?></td>
+          <td><?php echo $pData['sex']; ?></td>
         </tr>
         <tr>
           <th>Date of Birth</th>
-          <td><?php echo $pData['dob'] ?></td>
+          <td><?php echo $pData['dob']; ?></td>
         </tr>
         <tr>
           <th>Height</th>
-          <td><?php echo $pData['height'] ?></td>
+          <td><?php echo $pData['height']; ?></td>
         </tr>
         <tr>
           <th>Weight</th>
-          <td><?php echo $pData['weight'] ?></td>
+          <td><?php echo $pData['weight']; ?></td>
         </tr>
         <tr>
           <th>BMI</th>
-          <td><?php echo $pBMI ?></td>
+          <td><?php echo $pBMI; ?></td>
         </tr>
         <tr>
           <th>Blood Group</th>
-          <td><?php echo $pData['blood_group'] ?></td>
+          <td><?php echo $pData['blood_group']; ?></td>
         </tr>
         <tr>
           <th>Address</th>
-          <td><?php echo $pData['address'] ?></td>
+          <td><?php echo $pData['address']; ?></td>
         </tr>
         <tr>
           <th>Contact No</th>
-          <td><?php echo $pData['contact_number'] ?></td>
+          <td><?php echo $pData['contact_number']; ?></td>
         </tr>
         <tr>
           <th>Email</th>
-          <td><?php echo $pData['email'] ?></td>
+          <td><?php echo $pData['email']; ?></td>
         </tr>
         <tr>
           <th>HLA Antigens</th>
-          <td><?php echo $pData['hla_antigens'] ?></td>
+          <td><?php echo $pData['hla_antigens']; ?></td>
         </tr>
         <tr>
           <th>Unacceptable Antigens</th>
-          <td><?php echo $pData['ua_antigens'] ?></td>
+          <td><?php echo $pData['ua_antigens']; ?></td>
         </tr>
         <tr>
           <th>Basic Disease</th>
-          <td><?php echo $pData['basic_disease'] ?></td>
+          <td><?php echo $pData['basic_disease']; ?></td>
         </tr>
         <tr>
           <th>Genetic/Renal Biopsy</th>
-          <td><?php echo $pData['gr_biopsy'] ?></td>
+          <td><?php echo $pData['gr_biopsy']; ?></td>
         </tr>
         <tr>
           <th>Comorbid Condt</th>
-          <td><?php echo $pData['comorb'] ?></td>
+          <td><?php echo $pData['comorb']; ?></td>
         </tr>
         <tr>
           <th>HIV</th>
-          <td><?php echo $pData['hiv'] ?></td>
+          <td><?php echo $pData['hiv']; ?></td>
         </tr>
         <tr>
           <th>Hepatitis B</th>
-          <td><?php echo $pData['hep_b'] ?></td>
+          <td><?php echo $pData['hep_b']; ?></td>
         </tr>
         <tr>
           <th>Hepatitis C</th>
-          <td><?php echo $pData['hep_c'] ?></td>
+          <td><?php echo $pData['hep_c']; ?></td>
         </tr>
         <tr>
           <th>Previous Transplant</th>
-          <td><?php echo $pData['prev_transp'] ?></td>
+          <td><?php echo $pData['prev_transp']; ?></td>
         </tr>
         <tr>
           <th>Dialysis</th>
-          <td><?php echo $pData['dialysis'] ?></td>
+          <td><?php echo $pData['dialysis']; ?></td>
         </tr>
         <tr>
           <th>Deceased Donor Program</th>
-          <td><?php echo $pData['dd_program'] ?></td>
+          <td><?php echo $pData['dd_program']; ?></td>
         </tr>
         <tr>
           <th>Primary Nephrologist</th>
-          <td><?php echo $pData['prime_nephro'] ?></td>
+          <td><?php echo $pData['prime_nephro']; ?></td>
         </tr>
         <tr>
           <th>Hospital</th>
-          <td><?php echo $pData['hospital'] ?></td>
+          <td><?php echo $pData['hospital']; ?></td>
         </tr>
         <tr>
           <th>Provisional Clearance</th>
-          <td><?php echo $pData['prov_clearance'] ?></td>
+          <td><?php echo $pData['prov_clearance']; ?></td>
         </tr>
         <tr>
           <th>Pre Transplant Surgery</th>
-          <td><?php echo $pData['pre_transp_surgery'] ?></td>
+          <td><?php echo $pData['pre_transp_surgery']; ?></td>
         </tr>
         <tr>
           <th>Created at</th>
-          <td><?php echo $pCreated ?></td>
+          <td><?php echo $pCreated; ?></td>
         </tr>
         <tr>
           <th>Updated at</th>
-          <td><?php echo $pUpdated ?></td>
+          <td><?php echo $pUpdated; ?></td>
         </tr>
       </table>
     </div>
-    
+
     <div class="donor">
       <h2 class="heading">Donor data</h2>
       <img src="data:image/jpeg;base64,<?php echo base64_encode($dFiles['profile_pic']); ?>" width="183px" height="183px">
       <table>
         <tr>
           <th>Id</th>
-          <td><?php echo $dData['id'] ?></td>
+          <td><?php echo $dData['id']; ?></td>
         </tr>
         <tr>
           <th>Name</th>
-          <td><?php echo $dData['name'] ?></td>
+          <td><?php echo $dData['name']; ?></td>
         </tr>
         <tr>
           <th>Sex</th>
-          <td><?php echo $dData['sex'] ?></td>
+          <td><?php echo $dData['sex']; ?></td>
         </tr>
         <tr>
           <th>Date of Birth</th>
-          <td><?php echo $dData['dob'] ?></td>
+          <td><?php echo $dData['dob']; ?></td>
         </tr>
         <tr>
           <th>Height</th>
-          <td><?php echo $dData['height'] ?></td>
+          <td><?php echo $dData['height']; ?></td>
         </tr>
         <tr>
           <th>Weight</th>
-          <td><?php echo $dData['weight'] ?></td>
+          <td><?php echo $dData['weight']; ?></td>
         </tr>
         <tr>
           <th>BMI</th>
-          <td><?php echo $dBMI ?></td>
+          <td><?php echo $dBMI; ?></td>
         </tr>
         <tr>
           <th>Blood Group</th>
-          <td><?php echo $dData['blood_group'] ?></td>
+          <td><?php echo $dData['blood_group']; ?></td>
         </tr>
         <tr>
           <th>Relation to patient</th>
-          <td><?php echo $dData['relation'] ?></td>
+          <td><?php echo $dData['relation']; ?></td>
         </tr>
         <tr>
           <th>Address</th>
-          <td><?php echo $dData['address'] ?></td>
+          <td><?php echo $dData['address']; ?></td>
         </tr>
         <tr>
           <th>Contact No</th>
-          <td><?php echo $dData['contact_number'] ?></td>
+          <td><?php echo $dData['contact_number']; ?></td>
         </tr>
         <tr>
           <th>Email</th>
-          <td><?php echo $dData['email'] ?></td>
+          <td><?php echo $dData['email']; ?></td>
         </tr>
         <tr>
           <th>HLA Antigens</th>
-          <td><?php echo $dData['hla_antigens'] ?></td>
+          <td><?php echo $dData['hla_antigens']; ?></td>
         </tr>
         <tr>
           <th>Comorbid Condt</th>
-          <td><?php echo $dData['comorb'] ?></td>
+          <td><?php echo $dData['comorb']; ?></td>
         </tr>
         <tr>
           <th>HIV</th>
-          <td><?php echo $dData['hiv'] ?></td>
+          <td><?php echo $dData['hiv']; ?></td>
         </tr>
         <tr>
           <th>Hepatitis B</th>
-          <td><?php echo $dData['hep_b'] ?></td>
+          <td><?php echo $dData['hep_b']; ?></td>
         </tr>
         <tr>
           <th>Hepatitis C</th>
-          <td><?php echo $dData['hep_c'] ?></td>
+          <td><?php echo $dData['hep_c']; ?></td>
         </tr>
         <tr>
           <th>Alcohol</th>
-          <td><?php echo $dData['alcohol'] ?></td>
+          <td><?php echo $dData['alcohol']; ?></td>
         </tr>
         <tr>
           <th>Smoking</th>
-          <td><?php echo $dData['smoking'] ?></td>
+          <td><?php echo $dData['smoking']; ?></td>
         </tr>
         <tr>
           <th>Provisional Clearance</th>
-          <td><?php echo $dData['prov_clearance'] ?></td>
+          <td><?php echo $dData['prov_clearance']; ?></td>
         </tr>
         <tr>
           <th>Created at</th>
-          <td><?php echo $dCreated ?></td>
+          <td><?php echo $dCreated; ?></td>
         </tr>
         <tr>
           <th>Updated at</th>
-          <td><?php echo $dUpdated ?></td>
+          <td><?php echo $dUpdated; ?></td>
         </tr>
       </table>
     </div>
   </div>
-  <script src="../scripts/pairData.js"></script>       
+  <script src="../js/pairData.js"></script>
 </body>
 </html>

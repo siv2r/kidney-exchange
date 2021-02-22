@@ -79,7 +79,7 @@ button {
   width: 30%;
   font-size: 20px;
   justify-content: center;
-} 
+}
 
 button:hover {
 	opacity: 0.8;
@@ -108,7 +108,7 @@ button:hover {
 
 .has-error{
   border: 1px solid #c51244;
-  background-color: #fff0f4; 
+  background-color: #fff0f4;
 }
 
 .help-block{
@@ -125,21 +125,21 @@ label.required{
 
 </style>
 
-<?php include("../templates/header.php"); ?>
+<?php include "../templates/header.php";?>
 
   <div class="header-img">
     <div class="nav-container">
-      <?php include("../templates/navBar.php") ?>
+      <?php include "../templates/navBar.php";?>
     </div>
     <h2 id="hosp-heading">Hospital form</h2>
   </div>
 
   <div class="wrapper">
     <form action="../include/getHosp.inc.php" method="POST" id="hospForm">
-    
+
       <fieldset>
         <legend>Hospital Information</legend>
-      
+
         <div class='input-field'>
           <div class="label-box">
             <label>Name</label>
@@ -149,7 +149,7 @@ label.required{
             <input type="text" name="h_name" value="" class="single requiredField">
           </div >
         </div>
-        
+
         <div class='input-field addr'>
           <div class="label-box">
             <label>Address  </label>
@@ -160,11 +160,11 @@ label.required{
             <input type="text" name="h_addr2" value="" placeholder="e.g Address line 2" class="requiredField single">
             <input type="text" name="h_city" value="" placeholder="e.g Chennai" class="requiredField double">
             <input type="text" name="h_state" value="" placeholder="e.g TamilNadu" class="requiredField double">
-            <input type="number" name="h_pincode" value="" placeholder="e.g 600001" class="requiredField double"> 
-            <input type="text"  name="h_country" value="" placeholder="e.g India" class="requiredField double"> 
+            <input type="number" name="h_pincode" value="" placeholder="e.g 600001" class="requiredField double">
+            <input type="text"  name="h_country" value="" placeholder="e.g India" class="requiredField double">
           </div>
         </div>
-      
+
         <div class="input-field">
           <div class="label-box">
             <label for="type" id="type">Type</label>
@@ -179,7 +179,7 @@ label.required{
             </select>
           </div>
         </div>
-        
+
         <div class="input-field">
           <div class="label-box">
             <label>License Information</label>
@@ -189,12 +189,12 @@ label.required{
             <input type="text" name="h_license" class="requiredField single">
           </div>
         </div>
-      
+
       </fieldset>
-    
+
       <fieldset>
         <legend>Nephrologist Information</legend>
-      
+
         <div class='input-field'>
           <div class="label-box">
             <label>Name</label>
@@ -205,7 +205,7 @@ label.required{
             <input type="text" name="nephro_lname" value="" class="double requiredField">
           </div >
         </div>
-      
+
         <div class="input-field">
           <div class="label-box">
             <label>ID</label>
@@ -216,10 +216,10 @@ label.required{
           </div>
         </div>
       </fieldset>
-    
+
       <fieldset>
         <legend>Surgeon Information</legend>
-      
+
         <div class='input-field'>
           <div class="label-box">
             <label>Name</label>
@@ -230,7 +230,7 @@ label.required{
             <input type="text" name="surg_lname" value="" class="double requiredField">
           </div >
         </div>
-        
+
         <div class="input-field">
           <div class="label-box">
             <label>ID</label>
@@ -239,17 +239,17 @@ label.required{
           <div class="input-box">
             <input type="text" name="surg_id" value="" class="single requiredField">
           </div>
-        </div> 
+        </div>
       </fieldset>
-    
+
       <div class="input-field">
         <button type="button" name="submitBtn" value="submitBtn" id="submitBtn">Submit</button>
       </div>
-    
+
     <form>
   </div>
 
-  <script src="../scripts/validateHosp.js"></script>
+  <script src="../js/validateHosp.js"></script>
 </body>
 
 </html>

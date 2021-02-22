@@ -15,7 +15,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
-  <script src="../scripts/editPairForm.js"></script>
+  <script src="../js/editPairForm.js"></script>
 </head>
 
 <style>
@@ -53,7 +53,7 @@ if (isset($_GET['pair_id'])) {
   $patient_id = $_GET['pair_id'] . '-p';
   $donor_id = $_GET['pair_id'] . '-d';
 
-  require_once("../include/getPairData.inc.php"); //creates and assigns values for the variables
+  require_once "../include/getPairData.inc.php"; //creates and assigns values for the variables
 } else {
   header("location: ../pages/dataOverview.php");
 }
@@ -64,7 +64,7 @@ if (isset($_GET['pair_id'])) {
 
   <div class="header-img">
     <div class="nav-container">
-      <?php include("../templates/navBar.php") ?>
+      <?php include "../templates/navBar.php";?>
     </div>
     <h2 id="pd-heading">Edit pd pair form</h2>
   </div>
@@ -110,11 +110,20 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='male' name='r_sex' value="Male" <?php if ($rSex == 'Male') echo "checked"; ?>>
+              <input type="radio" id='male' name='r_sex' value="Male" <?php if ($rSex == 'Male') {
+  echo "checked";
+}
+?>>
               <label for="male">Male</label>
-              <input type="radio" id='female' name='r_sex' value="Female" <?php if ($rSex == 'Female') echo "checked"; ?>>
+              <input type="radio" id='female' name='r_sex' value="Female" <?php if ($rSex == 'Female') {
+  echo "checked";
+}
+?>>
               <label for="female">Female</label>
-              <input type="radio" id='Other' name='r_sex' value="Other" <?php if ($rSex == 'Other') echo "checked"; ?>>
+              <input type="radio" id='Other' name='r_sex' value="Other" <?php if ($rSex == 'Other') {
+  echo "checked";
+}
+?>>
               <label for="Other">Other</label>
             </div>
           </div>
@@ -166,14 +175,38 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="r_b-type" name="r_b-type" class="requiredField single">
                 <option value="" disabled selected>Choose</option>
-                <option value="O +ve" <?php if ($rBloodGroup == "O +ve") echo "selected"; ?>>O +ve</option>
-                <option value="O -ve" <?php if ($rBloodGroup == "O -ve") echo "selected"; ?>>O -ve</option>
-                <option value="A +ve" <?php if ($rBloodGroup == "A +ve") echo "selected"; ?>>A +ve</option>
-                <option value="A -ve" <?php if ($rBloodGroup == "A -ve") echo "selected"; ?>>A -ve</option>
-                <option value="B +ve" <?php if ($rBloodGroup == "B +ve") echo "selected"; ?>>B +ve</option>
-                <option value="B -ve" <?php if ($rBloodGroup == "B -ve") echo "selected"; ?>>B -ve</option>
-                <option value="AB +ve" <?php if ($rBloodGroup == "AB +ve") echo "selected"; ?>>AB +ve</option>
-                <option value="AB -ve" <?php if ($rBloodGroup == "AB -ve") echo "selected"; ?>>AB -ve</option>
+                <option value="O +ve" <?php if ($rBloodGroup == "O +ve") {
+  echo "selected";
+}
+?>>O +ve</option>
+                <option value="O -ve" <?php if ($rBloodGroup == "O -ve") {
+  echo "selected";
+}
+?>>O -ve</option>
+                <option value="A +ve" <?php if ($rBloodGroup == "A +ve") {
+  echo "selected";
+}
+?>>A +ve</option>
+                <option value="A -ve" <?php if ($rBloodGroup == "A -ve") {
+  echo "selected";
+}
+?>>A -ve</option>
+                <option value="B +ve" <?php if ($rBloodGroup == "B +ve") {
+  echo "selected";
+}
+?>>B +ve</option>
+                <option value="B -ve" <?php if ($rBloodGroup == "B -ve") {
+  echo "selected";
+}
+?>>B -ve</option>
+                <option value="AB +ve" <?php if ($rBloodGroup == "AB +ve") {
+  echo "selected";
+}
+?>>AB +ve</option>
+                <option value="AB -ve" <?php if ($rBloodGroup == "AB -ve") {
+  echo "selected";
+}
+?>>AB -ve</option>
               </select>
             </div>
           </div>
@@ -236,7 +269,7 @@ if (isset($_GET['pair_id'])) {
 
           <legend>Medical Information</legend>
 
-          <?php include("../templates/edit_rHla.php") ?>
+          <?php include "../templates/edit_rHla.php";?>
 
           <div class='input-field'>
             <div class="label-box">
@@ -264,9 +297,12 @@ if (isset($_GET['pair_id'])) {
             </div>
             <div class="input-box">
               <select class="beautify requiredField single" id="comorb" name="r_comorb[]" multiple>
-                <?php foreach ($ComorbValues as $val) : ?>
-                  <option value="<?php echo $val; ?>" <?php if (in_array($val, $rComorbArray)) echo "selected"; ?>><?php echo $val; ?></option>
-                <?php endforeach; ?>
+                <?php foreach ($ComorbValues as $val): ?>
+                  <option value="<?php echo $val; ?>" <?php if (in_array($val, $rComorbArray)) {
+  echo "selected";
+}
+?>><?php echo $val; ?></option>
+                <?php endforeach;?>
               </select>
             </div>
           </div>
@@ -290,9 +326,15 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='hiv-p' name='r_hiv' value="Positive" <?php if ($rHiv == "Positive") echo "checked"; ?>>
+              <input type="radio" id='hiv-p' name='r_hiv' value="Positive" <?php if ($rHiv == "Positive") {
+  echo "checked";
+}
+?>>
               <label for="hiv-p">Positive</label>
-              <input type="radio" id='hiv-n' name='r_hiv' value="Negative" <?php if ($rHiv == "Negative") echo "checked"; ?>>
+              <input type="radio" id='hiv-n' name='r_hiv' value="Negative" <?php if ($rHiv == "Negative") {
+  echo "checked";
+}
+?>>
               <label for="hiv-n">Negative</label>
             </div>
           </div>
@@ -303,9 +345,15 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='r_hepBP' name='r_hepB' value="Positive" <?php if ($rHepB == "Positive") echo "checked"; ?>>
+              <input type="radio" id='r_hepBP' name='r_hepB' value="Positive" <?php if ($rHepB == "Positive") {
+  echo "checked";
+}
+?>>
               <label for="r_hepBP">Positive</label>
-              <input type="radio" id='r_hepBN' name='r_hepB' value="Negative" <?php if ($rHepB == "Negative") echo "checked"; ?>>
+              <input type="radio" id='r_hepBN' name='r_hepB' value="Negative" <?php if ($rHepB == "Negative") {
+  echo "checked";
+}
+?>>
               <label for="r_hepBN">Negative</label>
             </div>
           </div>
@@ -316,9 +364,15 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='r_hepCP' name='r_hepC' value="Positive" <?php if ($rHepC == "Positive") echo "checked"; ?>>
+              <input type="radio" id='r_hepCP' name='r_hepC' value="Positive" <?php if ($rHepC == "Positive") {
+  echo "checked";
+}
+?>>
               <label for="r_hepCP">Positive</label>
-              <input type="radio" id='r_hepCN' name='r_hepC' value="Negative" <?php if ($rHepC == "Negative") echo "checked"; ?>>
+              <input type="radio" id='r_hepCN' name='r_hepC' value="Negative" <?php if ($rHepC == "Negative") {
+  echo "checked";
+}
+?>>
               <label for="r_hepCN">Negative</label>
             </div>
           </div>
@@ -331,8 +385,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="prev-transp" name="r_prev-transp" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($rPrevTransp[0] == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($rPrevTransp[0] == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($rPrevTransp[0] == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($rPrevTransp[0] == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -355,9 +415,18 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="mode-of-dialysis" name="r_mod" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Hemodialysis" <?php if ($rDialysis[0] == "Hemodialysis") echo "selected"; ?>>Hemodialysis</option>
-                <option value="Peritoneal dialysis" <?php if ($rDialysis[0] == "Peritoneal dialysis") echo "selected"; ?>>Peritoneal dialysis</option>
-                <option value="No dialysis" <?php if ($rDialysis[0] == "No dialysis") echo "selected"; ?>>No dialysis</option>
+                <option value="Hemodialysis" <?php if ($rDialysis[0] == "Hemodialysis") {
+  echo "selected";
+}
+?>>Hemodialysis</option>
+                <option value="Peritoneal dialysis" <?php if ($rDialysis[0] == "Peritoneal dialysis") {
+  echo "selected";
+}
+?>>Peritoneal dialysis</option>
+                <option value="No dialysis" <?php if ($rDialysis[0] == "No dialysis") {
+  echo "selected";
+}
+?>>No dialysis</option>
               </select>
             </div>
           </div>
@@ -380,10 +449,22 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select name="r_vs-access" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="AV fistula" <?php if ($rDialysis[2] == "AV fistula") echo "selected"; ?>>AV fistula</option>
-                <option value="AV graft" <?php if ($rDialysis[2] == "AV graft") echo "selected"; ?>>AV graft</option>
-                <option value="Tunelled catheter" <?php if ($rDialysis[2] == "Tunelled catheter") echo "selected"; ?>>Tunelled catheter</option>
-                <option value="Temporary catheter" <?php if ($rDialysis[2] == "Temporary catheter") echo "selected"; ?>>Temporary catheter</option>
+                <option value="AV fistula" <?php if ($rDialysis[2] == "AV fistula") {
+  echo "selected";
+}
+?>>AV fistula</option>
+                <option value="AV graft" <?php if ($rDialysis[2] == "AV graft") {
+  echo "selected";
+}
+?>>AV graft</option>
+                <option value="Tunelled catheter" <?php if ($rDialysis[2] == "Tunelled catheter") {
+  echo "selected";
+}
+?>>Tunelled catheter</option>
+                <option value="Temporary catheter" <?php if ($rDialysis[2] == "Temporary catheter") {
+  echo "selected";
+}
+?>>Temporary catheter</option>
               </select>
             </div>
           </div>
@@ -396,8 +477,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="ddp" name="r_ddp" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($rDDP[0] == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($rDDP[0] == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($rDDP[0] == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($rDDP[0] == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -424,9 +511,9 @@ if (isset($_GET['pair_id'])) {
 
           <!-- <div class='input-field'>
             <div class="label-box">
-              <label for="dialysis-center">Dialysis center or Hospital  </label> 
+              <label for="dialysis-center">Dialysis center or Hospital  </label>
               <label class="required">* </label>
-            </div> 
+            </div>
             <div class="input-box">
               <input type="text" id="dialysis-center" name="r_d-center" value="" class="requiredField single">
             </div>
@@ -441,30 +528,30 @@ if (isset($_GET['pair_id'])) {
               <select name="r_d-center" class="requiredField single">
                 <?php
 
-                // require_once("../templates/db-connect.php");
-                // require_once("../include/functions.inc.php");
+// require_once("../templates/db-connect.php");
+// require_once("../include/functions.inc.php");
 
-                if ($_SESSION['userType'] === "Transplant coordinator") {
-                  $val = $_SESSION['userHospital']['id'];
-                  $name = $_SESSION['userHospital']['name'];
-                  echo "<option value='$val' selected >$name</option>"; //to store name or value?
-                } else if ($_SESSION['userType'] === "Admin") {
-                  if ($hosp_array = getHospitals($conn)) {
-                    foreach ($hosp_array as $key => $value) {
-                      $optionVal = $value['id'];
-                      $optionName = $value['name'];
-                      if ($optionVal == $rHosp) {
-                        echo "<option value='$optionVal' selected>$optionName</option>";
-                      } else {
-                        echo "<option value='$optionVal'>$optionName</option>";
-                      }
-                    }
-                  } else {
-                    echo "Error in getting hospitals from the database";
-                  }
-                }
+if ($_SESSION['userType'] === "Transplant coordinator") {
+  $val = $_SESSION['userHospital']['id'];
+  $name = $_SESSION['userHospital']['name'];
+  echo "<option value='$val' selected >$name</option>"; //to store name or value?
+} else if ($_SESSION['userType'] === "Admin") {
+  if ($hosp_array = getHospitals($conn)) {
+    foreach ($hosp_array as $key => $value) {
+      $optionVal = $value['id'];
+      $optionName = $value['name'];
+      if ($optionVal == $rHosp) {
+        echo "<option value='$optionVal' selected>$optionName</option>";
+      } else {
+        echo "<option value='$optionVal'>$optionName</option>";
+      }
+    }
+  } else {
+    echo "Error in getting hospitals from the database";
+  }
+}
 
-                ?>
+?>
               </select>
             </div>
           </div>
@@ -477,8 +564,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="prov-clear" name="r_prov-clear" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($rProvClear == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($rProvClear == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($rProvClear == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($rProvClear == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -491,8 +584,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="pre-transp" name="r_pre-transp" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($rPreTranspSurg[0] == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($rPreTranspSurg[0] == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($rPreTranspSurg[0] == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($rPreTranspSurg[0] == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -546,11 +645,20 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='male' name='d_sex' value="Male" <?php if ($dSex == 'Male') echo "checked"; ?>>
+              <input type="radio" id='male' name='d_sex' value="Male" <?php if ($dSex == 'Male') {
+  echo "checked";
+}
+?>>
               <label for="male">Male</label>
-              <input type="radio" id='Female' name='d_sex' value="Female" <?php if ($dSex == 'Female') echo "checked"; ?>>
+              <input type="radio" id='Female' name='d_sex' value="Female" <?php if ($dSex == 'Female') {
+  echo "checked";
+}
+?>>
               <label for="female">Female</label>
-              <input type="radio" id='other' name='d_sex' value="Other" <?php if ($dSex == 'Other') echo "checked"; ?>>
+              <input type="radio" id='other' name='d_sex' value="Other" <?php if ($dSex == 'Other') {
+  echo "checked";
+}
+?>>
               <label for="other">Other</label>
             </div>
           </div>
@@ -602,14 +710,38 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="d_b-type" name="d_b-type" class="requiredField single">
                 <option value="" disabled selected>Choose</option>
-                <option value="O +ve" <?php if ($dBloodGroup == "O +ve") echo "selected"; ?>>O +ve</option>
-                <option value="O -ve" <?php if ($dBloodGroup == "O -ve") echo "selected"; ?>>O -ve</option>
-                <option value="A +ve" <?php if ($dBloodGroup == "A +ve") echo "selected"; ?>>A +ve</option>
-                <option value="A -ve" <?php if ($dBloodGroup == "A -ve") echo "selected"; ?>>A -ve</option>
-                <option value="B +ve" <?php if ($dBloodGroup == "B +ve") echo "selected"; ?>>B +ve</option>
-                <option value="B -ve" <?php if ($dBloodGroup == "B -ve") echo "selected"; ?>>B -ve</option>
-                <option value="AB +ve" <?php if ($dBloodGroup == "AB +ve") echo "selected"; ?>>AB +ve</option>
-                <option value="AB -ve" <?php if ($dBloodGroup == "AB -ve") echo "selected"; ?>>AB -ve</option>
+                <option value="O +ve" <?php if ($dBloodGroup == "O +ve") {
+  echo "selected";
+}
+?>>O +ve</option>
+                <option value="O -ve" <?php if ($dBloodGroup == "O -ve") {
+  echo "selected";
+}
+?>>O -ve</option>
+                <option value="A +ve" <?php if ($dBloodGroup == "A +ve") {
+  echo "selected";
+}
+?>>A +ve</option>
+                <option value="A -ve" <?php if ($dBloodGroup == "A -ve") {
+  echo "selected";
+}
+?>>A -ve</option>
+                <option value="B +ve" <?php if ($dBloodGroup == "B +ve") {
+  echo "selected";
+}
+?>>B +ve</option>
+                <option value="B -ve" <?php if ($dBloodGroup == "B -ve") {
+  echo "selected";
+}
+?>>B -ve</option>
+                <option value="AB +ve" <?php if ($dBloodGroup == "AB +ve") {
+  echo "selected";
+}
+?>>AB +ve</option>
+                <option value="AB -ve" <?php if ($dBloodGroup == "AB -ve") {
+  echo "selected";
+}
+?>>AB -ve</option>
               </select>
             </div>
           </div>
@@ -633,14 +765,14 @@ if (isset($_GET['pair_id'])) {
               <select id="d_rel-donor" name="d_rel" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
                 <?php
-                foreach ($relationValues as $value) {
-                  if ($value == $dRelation) {
-                    echo "<option value='$value' selected>$value</option>";
-                  } else {
-                    echo "<option value='$value'>$value</option>";
-                  }
-                }
-                ?>
+foreach ($relationValues as $value) {
+  if ($value == $dRelation) {
+    echo "<option value='$value' selected>$value</option>";
+  } else {
+    echo "<option value='$value'>$value</option>";
+  }
+}
+?>
               </select>
             </div>
           </div>
@@ -693,7 +825,7 @@ if (isset($_GET['pair_id'])) {
 
           <legend>Medical Information</legend>
 
-          <?php include("../templates/edit_dHla.php") ?>
+          <?php include "../templates/edit_dHla.php";?>
 
           <div class='input-field'>
             <div class="label-box">
@@ -702,9 +834,12 @@ if (isset($_GET['pair_id'])) {
             </div>
             <div class="input-box">
               <select class="beautify requiredField single" id="comorb2" name="d_comorb[]" multiple>
-                <?php foreach ($ComorbValues as $val) : ?>
-                  <option value="<?php echo $val; ?>" <?php if (in_array($val, $dComorbArray)) echo "selected"; ?>><?php echo $val; ?></option>
-                <?php endforeach; ?>
+                <?php foreach ($ComorbValues as $val): ?>
+                  <option value="<?php echo $val; ?>" <?php if (in_array($val, $dComorbArray)) {
+  echo "selected";
+}
+?>><?php echo $val; ?></option>
+                <?php endforeach;?>
               </select>
             </div>
           </div>
@@ -728,9 +863,15 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='d_hiv-p' name='d_hiv' value="Positive" <?php if ($dHiv == "Positive") echo "checked"; ?>>
+              <input type="radio" id='d_hiv-p' name='d_hiv' value="Positive" <?php if ($dHiv == "Positive") {
+  echo "checked";
+}
+?>>
               <label for="d_hiv-p">Positive</label>
-              <input type="radio" id='d_hiv-n' name='d_hiv' value="Negative" <?php if ($dHiv == "Negative") echo "checked"; ?>>
+              <input type="radio" id='d_hiv-n' name='d_hiv' value="Negative" <?php if ($dHiv == "Negative") {
+  echo "checked";
+}
+?>>
               <label for="d_hiv-n">Negative</label>
             </div>
           </div>
@@ -741,9 +882,15 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='d_hepBP' name='d_hepB' value="Positive" <?php if ($dHepB == "Positive") echo "checked"; ?>>
+              <input type="radio" id='d_hepBP' name='d_hepB' value="Positive" <?php if ($dHepB == "Positive") {
+  echo "checked";
+}
+?>>
               <label for="d_hepBP">Positive</label>
-              <input type="radio" id='d_hepBN' name='d_hepB' value="Negative" <?php if ($dHepB == "Negative") echo "checked"; ?>>
+              <input type="radio" id='d_hepBN' name='d_hepB' value="Negative" <?php if ($dHepB == "Negative") {
+  echo "checked";
+}
+?>>
               <label for="d_hepBN">Negative</label>
             </div>
           </div>
@@ -754,9 +901,15 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="radio" id='d_hepCP' name='d_hepC' value="Positive" <?php if ($dHepC == "Positive") echo "checked"; ?>>
+              <input type="radio" id='d_hepCP' name='d_hepC' value="Positive" <?php if ($dHepC == "Positive") {
+  echo "checked";
+}
+?>>
               <laCel for="d_hepCP">Positive</laCel>
-              <input type="radio" id='d_hepCN' name='d_hepC' value="Negative" <?php if ($dHepC == "Negative") echo "checked"; ?>>
+              <input type="radio" id='d_hepCN' name='d_hepC' value="Negative" <?php if ($dHepC == "Negative") {
+  echo "checked";
+}
+?>>
               <label for="d_hepCN">Negative</label>
             </div>
           </div>
@@ -769,8 +922,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="d_alcohol" name="d_alcohol" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($dAlcohol == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($dAlcohol == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($dAlcohol == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($dAlcohol == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -783,8 +942,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="d_smoking" name="d_smoking" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($dSmoking == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($dSmoking == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($dSmoking == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($dSmoking == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -797,8 +962,14 @@ if (isset($_GET['pair_id'])) {
             <div class="input-box">
               <select id="d_prov-clear" name="d_prov-clear" class="requiredField single">
                 <option value="" selected disabled>Choose</option>
-                <option value="Yes" <?php if ($dProvClear == "Yes") echo "selected"; ?>>Yes</option>
-                <option value="No" <?php if ($dProvClear == "No") echo "selected"; ?>>No</option>
+                <option value="Yes" <?php if ($dProvClear == "Yes") {
+  echo "selected";
+}
+?>>Yes</option>
+                <option value="No" <?php if ($dProvClear == "No") {
+  echo "selected";
+}
+?>>No</option>
               </select>
             </div>
           </div>
@@ -815,4 +986,4 @@ if (isset($_GET['pair_id'])) {
   </div>
 
   <?php
-  require_once("../include/footer.inc.php");
+require_once "../include/footer.inc.php";
