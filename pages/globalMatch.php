@@ -80,8 +80,7 @@ select {
 </div>
 
 <div class="wrapper">
-
-  <form method="post" action="/kidney-exchange/generate_json/jsonDump.php" class="search">
+  <form method="post" action="/kidney-exchange/include/findGlobalMatch.inc.php" class="search">
     <div class="grid-container">
       <div class="grid-item">Maximum cycle size</div>
       <div class="grid-item">
@@ -117,20 +116,6 @@ select {
       </div>
     </div>
   </form>
-
-  <?php
-
-if (isset($_GET['error'])) {
-  if ($_GET['error'] == "notSameHosp") {
-    echo "<p id='failed'>This pair does not belong to your hospital</p>";
-  } elseif ($_GET['error'] == "invalidPairId") {
-    echo "<p id='failed'>Please enter a valid pair id</p>";
-  } elseif ($_GET['error'] == "noPairIdExists") {
-    echo "<p id='failed'>No such pair id exists</p>";
-  }
-}
-?>
-
 </div>
 
 <?php include_once "../include/footer.inc.php";?>
