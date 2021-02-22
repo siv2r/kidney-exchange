@@ -1,2 +1,4 @@
 ignore
 .vscode
+.venv
+__pycache__
