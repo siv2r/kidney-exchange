@@ -129,7 +129,7 @@ if (isset($_SESSION['userId'])) {
   echo '<li><a href="#">Match</a>';
   echo '<ul>';
   echo '<li><a href="/kidney-exchange/pages/pairwiseMatch.php">Pairwise</a></li>';
-  echo '<li><a href="/kidney-exchange/pages/pairwiseMatch.php">Global</a></li>';
+  echo '<li><a href="/kidney-exchange/pages/globalMatch.php">Global</a></li>';
   echo '</ul>';
   echo '</li>';
   echo '<li><a href="#">Data</a>';
