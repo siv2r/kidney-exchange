@@ -1,4 +1,8 @@
 ignore
 .vscode
 .venv
-__pycache__
+global_match/__pycache__
+global_match/*.json
+global_match/*.csv
+# provide a better fix below
+global_match/2021* 
