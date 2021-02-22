@@ -12,10 +12,13 @@ if (isset($_POST['submit'])) {
   //create the compatiblity graph (also json)
   $graph = createGraph($jsonData);
 
-  //write to a file
+  //write to a file inside global_match folder
+  //TODO: try to supply json data to pipeline.py without creating a file
   $fptr = fopen('graph.json', 'w');
   fwrite($fptr, $graph);
-  fclose($fp);
+  fclose($fptr);
+
+  //now generate graph usning pipline.py
 
 } else {
   header("location: ../pages/globalMatch.php");
