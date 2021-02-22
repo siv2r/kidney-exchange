@@ -116,38 +116,43 @@ if (!isset($_SESSION)) {
     <!-- <li><a href="#">About</a></li>
     <li><a href="#">Contact</a></li> -->
     <?php
-    if (isset($_SESSION['userId'])) {
-      // echo '<ul>';
-      echo   '<li><a href="#">Register</a>';
-      echo     '<ul>';
-      echo       '<li><a href="/kidney-exchange/pages/reg-form.php">Patient</a></li>';
-      if ($_SESSION['userType'] === "Admin") {
-        echo       '<li><a href="/kidney-exchange/pages/register_hospital.php">Hospital</a></li>';
-      }
-      echo     '</ul>';
-      echo   '</li>';
-      echo   '<li><a href="/kidney-exchange/pages/match.php">Match</a></li>';
-      echo   '<li><a href="#">Data</a>';
-      echo     '<ul>';
-      echo       '<li><a href="/kidney-exchange/pages/dataOverview.php">Overview</a></li>';
-      echo       '<li><a href="/kidney-exchange/pages/dataSummary.php">Summary</a></li>';
-      echo       '<li><a href="/kidney-exchange/pages/dataSearch.php">Search</a></li>';
-      echo     '</ul>';
-      echo   '</li>';
-      // echo '</ul>';
-      // echo '<ul>';
-      if ($_SESSION['userType'] === "Admin") {
-        echo   '<li><a href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
-      }
-      echo   '<li><a href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
-      // echo '</ul>';
-    } else {
-      // echo '<ul>';
-      echo   '<li><a href="/kidney-exchange/pages/login.php">Login</a></li>';
-      echo   '<li><a href="/kidney-exchange/pages/signup.php">Sign Up</a></li>';
-      // echo '</ul>';
-    }
-    ?>
+if (isset($_SESSION['userId'])) {
+  // echo '<ul>';
+  echo '<li><a href="#">Register</a>';
+  echo '<ul>';
+  echo '<li><a href="/kidney-exchange/pages/reg-form.php">Patient</a></li>';
+  if ($_SESSION['userType'] === "Admin") {
+    echo '<li><a href="/kidney-exchange/pages/register_hospital.php">Hospital</a></li>';
+  }
+  echo '</ul>';
+  echo '</li>';
+  echo '<li><a href="#">Match</a>';
+  echo '<ul>';
+  echo '<li><a href="/kidney-exchange/pages/pairwiseMatch.php">Pairwise</a></li>';
+  echo '<li><a href="/kidney-exchange/pages/globalMatch.php">Global</a></li>';
+  echo '</ul>';
+  echo '</li>';
+  echo '<li><a href="#">Data</a>';
+  echo '<ul>';
+  echo '<li><a href="/kidney-exchange/pages/dataOverview.php">Overview</a></li>';
+  echo '<li><a href="/kidney-exchange/pages/dataSummary.php">Summary</a></li>';
+  echo '<li><a href="/kidney-exchange/pages/dataSearch.php">Search</a></li>';
+  echo '</ul>';
+  echo '</li>';
+  // echo '</ul>';
+  // echo '<ul>';
+  if ($_SESSION['userType'] === "Admin") {
+    echo '<li><a href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
+  }
+  echo '<li><a href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
+  // echo '</ul>';
+} else {
+  // echo '<ul>';
+  echo '<li><a href="/kidney-exchange/pages/login.php">Login</a></li>';
+  echo '<li><a href="/kidney-exchange/pages/signup.php">Sign Up</a></li>';
+  // echo '</ul>';
+}
+?>
   </ul>
   <div class="burger">
     <div class="line1"></div>

@@ -1,4 +1,4 @@
-<?php require_once "../include/findMatch.inc.php";?>
+<?php require_once "../include/findPairwiseMatch.inc.php";?>
 
 <style>
 /* --------------------Background--------------------------- */
