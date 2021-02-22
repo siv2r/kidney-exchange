@@ -19,6 +19,11 @@ if (isset($_POST['submit'])) {
   fclose($fptr);
 
   //now generate graph usning pipline.py
+  $command = escapeshellcmd('python3 pipeline.py -f ./cmpGraph.json');
+  $output = shell_exec($command);
+  echo $output;
+
+  // redirect to the page where the results are displayed
 
 } else {
   header("location: ../pages/globalMatch.php");
