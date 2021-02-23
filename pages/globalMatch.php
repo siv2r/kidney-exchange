@@ -80,7 +80,7 @@ select {
 </div>
 
 <div class="wrapper">
-  <form method="post" action="/kidney-exchange/include/findGlobalMatch.inc.php" class="search">
+  <form method="post" action="/kidney-exchange/global_match/findGlobalMatch.php" class="search">
     <div class="grid-container">
       <div class="grid-item">Maximum cycle size</div>
       <div class="grid-item">
