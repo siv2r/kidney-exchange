@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
   //write to a file inside global_match folder
   //TODO: try to supply json data to pipeline.py without creating a file
-  $fptr = fopen('graph.json', 'w');
+  $fptr = fopen('graph.json', 'w') or die('unable to create graph.json file :(');
   fwrite($fptr, $graph);
   fclose($fptr);
 
