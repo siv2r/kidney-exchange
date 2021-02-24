@@ -1,0 +1,6 @@
+1. Import in python looks in certain directories for the specified module (in sys.path). Virtual environment just adds the .venv/libs/python3.8 to these directories
+
+2. `source venv .venv` cannot be executed through scripts 
+
+3. `chmod 0744 global_match` (allows findGlobalMatch.php to write a JSON file but this is not recommended due to security issues)
+

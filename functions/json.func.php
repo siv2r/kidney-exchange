@@ -3,7 +3,7 @@
 /**
  * Convertes data from the database to a certain JSON format
  *
- * @param [type] $allPairData
+ * @param array $allPairData
  * @return void
  */
 function toJSON($allPairData) {
@@ -78,4 +78,20 @@ function createGraph($jsonData) {
   return $jsonCmpGraph;
 }
 
+/**
+ * Creates a .json file in the server
+ *
+ * @param json $data - the json data which must to stored in the file
+ * @param string $name - name of the required file
+ * @return void
+ */
+function writeJSONfile($data, $name) {
+  $fptr = fopen("$name", "w") or die("unable to create graph.json file :(");
+  $check = fwrite($fptr, $data);
+  if ($check === false) {
+    echo "Unable to write json file";
+    exit();
+  }
+  fclose($fptr);
+}
 
