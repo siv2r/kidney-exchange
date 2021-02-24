@@ -15,10 +15,9 @@ if (isset($_POST['submit'])) {
   writeJSONfile($graph, 'graph.json');
 
   $global_match = findGlobalSoln();
-  var_dump($global_match);
 
   // redirect to the page where the results are displayed
-  // header("location: ../pages/displayGlobalMatch.php");
+  header("location: ../pages/displayGlobalMatch.php");
 
 } else {
   header("location: ../pages/globalMatch.php");
