@@ -23,10 +23,11 @@ if (isset($_POST['submit'])) {
   // now generate graph usning pipline.py
   // $command = escapeshellcmd('python3 pipeline.py -f ./graph.json 2>&1');
   // echo $command;
-  $output = shell_exec('python3 pipeline.py -f ./graph.json 2>&1');
-  echo $output;
+  $output = shell_exec('../.venv/bin/python3 pipeline.py -f ./graph.json 2>&1');
+  // echo $output;
 
   // redirect to the page where the results are displayed
+  header("location: ../pages/displayGlobalMatch.php");
 
 } else {
   header("location: ../pages/globalMatch.php");
