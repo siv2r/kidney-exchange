@@ -6,3 +6,4 @@ global_match/*.json
 global_match/*.csv
 # provide a better fix below
 global_match/2021* 
+global_match/result
