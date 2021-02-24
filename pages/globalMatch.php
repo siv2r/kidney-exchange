@@ -87,10 +87,10 @@ select {
         <select name="max-cycle" class="small-select" id="">
           <option value="2">2</option>
           <option value="3">3</option>
-          <option value="4">4</option>
+          <option disabled value="4">4</option>
         </select>
       </div>
-      <div class="grid-item">Altruistic chain length </div>
+      <!-- <div class="grid-item">Altruistic chain length </div>
       <div class="grid-item">
         <select name="max-chain" class="small-select" id="">
           <option value="0">0</option>
@@ -98,17 +98,13 @@ select {
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
-      </div>
+      </div> -->
       <div class="grid-item">Optimality criteria</div>
       <div class="grid-item">
-        <select name="constraint" class="very-large-select" id="">
-          <option value="0">maximise the number of effective pairwise exchanges</option>
-          <option value="0">maximise the number of pairwise exchanges</option>
-          <option value="0">maximise the total number of transplants</option>
-          <option value="0">maximise the total number of backarcs</option>
-          <option value="0">maximise the total weight</option>
-          <option value="0">minmise the number of 3-way exchanges</option>
-          <option value="0">max transplants in 2-ways plus unused altruists</option>
+        <select name="optimality" class="very-large-select" id="">
+          <option value="1">maximise the number of effective pairwise exchanges</option>
+          <option value="2">maximise the total number of transplants</option>
+          <option value="4">maximise the total weight</option>
         </select>
       </div>
       <div class="grid-item doubleSpan center">

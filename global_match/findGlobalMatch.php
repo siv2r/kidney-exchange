@@ -14,7 +14,9 @@ if (isset($_POST['submit'])) {
   //TODO: try to supply json data to pipeline.py without creating a file
   writeJSONfile($graph, 'graph.json');
 
-  $global_match = findGlobalSoln();
+  $maxCycle = $_POST['max-cycle'];
+  $optimality = $_POST['optimality'];
+  $global_match = findGlobalSoln($maxCycle, $optimality);
 
   // redirect to the page where the results are displayed
   header("location: ../pages/displayGlobalMatch.php");
