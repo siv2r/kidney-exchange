@@ -12,16 +12,18 @@ if (isset($_POST['submit'])) {
   //create the compatiblity graph (also json)
   $graph = createGraph($jsonData);
 
-  // //write to a file inside global_match folder
-  // //TODO: try to supply json data to pipeline.py without creating a file
-  // $fptr = fopen('graph.json', 'w') or die('unable to create graph.json file :(');
-  // fwrite($fptr, $graph);
-  // fclose($fptr);
+  //write to a file inside global_match folder
+  //TODO: try to supply json data to pipeline.py without creating a file
+  $fptr = fopen('graph.json', 'w') or die('unable to create graph.json file :(');
+  fwrite($fptr, $graph);
+  fclose($fptr);
 
-  //now generate graph usning pipline.py
-  // $command = escapeshellcmd('python3 pipeline.py -f ./cmpGraph1.json 2>&1');
+  echo 'graph.json created!!!';
+
+  // now generate graph usning pipline.py
+  // $command = escapeshellcmd('python3 pipeline.py -f ./graph.json 2>&1');
   // echo $command;
-  $output = shell_exec('python3 pipeline.py -f ./cmpGraph1.json 2>&1');
+  $output = shell_exec('python3 pipeline.py -f ./graph.json 2>&1');
   echo $output;
 
   // redirect to the page where the results are displayed
