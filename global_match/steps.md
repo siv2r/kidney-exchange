@@ -1,0 +1,5 @@
+## Steps to create virtual enviroment (for python)
+- `python3 -m venv .venv` (this must be present in root directory of the project)
+- `source .venv/bin/activate` (to activate virtual environment)
+- `pip3 install -r global_match/requirements.txt` (run this from root directory)
+- `deactivate` (to deactivate virtual environment)
