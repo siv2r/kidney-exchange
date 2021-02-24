@@ -30,14 +30,22 @@ def fillexcel(patients,altruistic_donors,max_cycle_length,max_chain_length,trans
     writer.writerow([patients,altruistic_donors,max_cycle_length,max_chain_length,transplants,Constraint])
 
 def pipeline(file_name, option,max_cycle_length,max_chain_length,ilp):
-  x = datetime.datetime.now()
+  # x = datetime.datetime.now()
+  x = 'result'
   path = os.getcwd()+'/'
   dirName = path + str(x)
-  if not os.path.exists(dirName):
-      os.mkdir(dirName)
-  else:    
-      print("Directory " , dirName ,  " already exists")
-      sys.exit(-1)
+  # if not os.path.exists(dirName):
+  #     os.mkdir(dirName)
+  # else:    
+  #     print("Directory " , dirName ,  " already exists")
+  #     sys.exit(-1)
+
+  # delete the directory if exists
+  if os.path.exists(dirName):
+    shutil.rmtree(dirName)
+
+  # create an empty directory
+  os.mkdir(dirName)
 
   destination = dirName
   shutil.copy(file_name, destination)
