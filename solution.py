@@ -2,11 +2,8 @@ from prettytable import PrettyTable
 from precomputation import CyclePrecomputation
 import networkx as nx
 import matplotlib.pyplot as plt
-
-
-
-
-
+import netgraph
+from networkx.drawing.nx_agraph import graphviz_layout
 def run_results(solution_values, cycles, altruistic, edges, cycleswt):
 	transplants = 0
 	altruistic_involved = 0
@@ -119,14 +116,48 @@ def print_graph(solution_values,cycles,names,altruistic_donors,dirname):
 			for j in range(0,len(cycles[i])-1):
 				edge = (cycles[i][j],cycles[i][j+1])
 				G.add_edge(*edge)
+	print("G.nodes",list(G.nodes))
+	print("G.edges",list(G.edges))
+	# pos = nx.spring_layout(G)
+	import matplotlib
+	pos=graphviz_layout(G)
+	nx.draw_networkx_nodes(G, pos,node_color = 'lightgreen', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o', 
+                                                                       fillstyle='top'))
+	nx.draw_networkx_nodes(G, pos,node_color = 'lightpink', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o', 
+                                                                       fillstyle='bottom'))
+	
 
+	pos_higher = {}
+	y_off = 0.2  # offset on the y axis
+	for k, v in pos.items():
+		pos_higher[k] = (v[0], v[1]-y_off)
 
-	pos = nx.spring_layout(G)
-	nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'),node_color = values, node_size = 300)
-	nx.draw_networkx_labels(G, pos)
-	nx.draw_networkx_edges(G, pos, edgelist=G.edges())
+	# nx.draw_networkx_labels(G, pos_higher,font_size=8, font_weight='bold',horizontalalignment = 'left',verticalalignment = 'top')
+	labels = {e: str(e) for e in G.edges}
+	nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_size=6,font_weight='bold',alpha = 1)
+	
+	nx.draw_networkx_edges(G, pos, edgelist=G.edges(),connectionstyle= 'arc3,rad=0.2', arrowsize=20)
+
+	# karate_agr = nx.nx_agraph.to_agraph(G)
+
+	# karate_agr.node_attr['style'] = 'filled'
+	# karate_agr.node_attr['shape'] = 'circle'
+	# karate_agr.node_attr['gradientangle'] = 90
+
+	# for i in karate_agr.nodes():
+	# 	n = karate_agr.get_node(i)
+	# 	n.attr['fillcolor'] = 'pink;0.5:blue'
+
+	# karate_agr.draw('karate.png',prog='dot')
+	# netgraph.draw(G, node_color='w', edge_color='k', edge_width=2.0, node_labels={str(ii) : str(ii) for ii in range(1,5)})
+	# plot_instance = netgraph.InteractiveGraph(G)
+	# plt.show()
 	# plt.savefig("image.png")
-	plt.savefig("{}/output.png".format(dirname)) # save as png
+	# ax = plt.gca()
+	# ax.collections[0].set_edgecolor('black')
+	# r : red (can also use #FF0000) | b : black (can also use #000000) | ...
+
+	plt.savefig("{}/graph.png".format(dirname)) # save as png
 	plt.show() # display
 
 

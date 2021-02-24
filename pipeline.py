@@ -33,12 +33,12 @@ def fillexcel(patients,altruistic_donors,max_cycle_length,max_chain_length,trans
 def pipeline(file_name, option,max_cycle_length,max_chain_length,ilp):
   x = datetime.datetime.now()
   path = os.getcwd()+'/'
-  dirName = path + str(x)
+  dirName = 'result'
   if not os.path.exists(dirName):
       os.mkdir(dirName)
   else:    
       print("Directory " , dirName ,  " already exists")
-      sys.exit(-1)
+      
 
   destination = dirName
   shutil.copy(file_name, destination)
