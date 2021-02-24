@@ -1,7 +1,7 @@
 ignore
 .vscode
 .venv
-global_match/__pycache__
-global_match/*.json
-global_match/*.csv
-global_match/result
+__pycache__
+*.json
+*.csv
+result
