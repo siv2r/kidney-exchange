@@ -31,3 +31,7 @@ How to run the server (Optional)
 2. Run `docker-compose up` inside the project root folder
 
 Done! Now you should be able to access the project at **0.0.0.0:8080** or **localhost:8080**. And you should just refresh the page to see your changes.
+
+## Contributing Guidlines
+
+Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md) while contributing to this project.
