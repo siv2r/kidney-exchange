@@ -5,3 +5,4 @@ __pycache__
 *.json
 *.csv
 result
+learnings.txt
