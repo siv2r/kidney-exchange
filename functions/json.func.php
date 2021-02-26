@@ -93,5 +93,6 @@ function writeJSONfile($data, $name) {
     exit();
   }
   fclose($fptr);
+  chmod($name, 0755);
 }
 
