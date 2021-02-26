@@ -131,8 +131,8 @@ def optimize_weight(cycles,vertices,weight,dirname,ilp):
                     types=["C"] * len(names))
 
 
-	# constraints = []
-	# constraint_names =[]
+	constraints = []
+	constraint_names =[]
 	for v in vertices:
 		constraint = []
 		i = 0
