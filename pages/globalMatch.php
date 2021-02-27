@@ -102,8 +102,8 @@ select {
       <div class="grid-item">Optimality criteria</div>
       <div class="grid-item">
         <select name="optimality" class="very-large-select" id="">
-          <option value="1">maximise the number of effective pairwise exchanges</option>
-          <option value="2">maximise the total number of transplants</option>
+          <!-- <option value="1">maximise the number of effective pairwise exchanges</option> -->
+          <option value="1">maximise the total number of transplants</option>
           <option value="4">maximise the total weight</option>
         </select>
       </div>
