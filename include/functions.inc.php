@@ -126,6 +126,7 @@ function createAdmin($conn, $uname, $email, $hosp_id, $pswd) {
   exit();
 }
 
+<<<<<<< HEAD
 function emptyInputLogin($uid, $pswd) {
   if (empty($uid) || empty($pswd)) {
     return true;
@@ -171,6 +172,9 @@ function loginUser($conn, $uid, $pswd) {
 }
 
 function getHospitals($conn) { //returns all hospitals in database as associative array
+=======
+function getHospitals($conn) {     //returns all hospitals in database as associative array
+>>>>>>> 7b03d44a58a02c8674e9bf06d098f3ec0aa6598a
   $query = "SELECT * FROM hospitals;";
   $result = mysqli_query($conn, $query);
 

@@ -1,0 +1,66 @@
+<?php include("../../../partials/header.php"); ?>
+
+<link rel="stylesheet" href="../css/searchBar.css">
+<link rel="stylesheet" href="../css/button-style.css">
+
+<style>
+
+/* -----------------------Background Images----------------------- */
+body{
+  background-image: url("https://wallpapercave.com/wp/wp2088513.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+
+.search{
+  margin-top: 20%;
+}
+
+/* -------------------Styling the error messages----------------- */
+
+#failed{
+  color: #c51244;
+  font-size: 28px;
+  text-align: center;
+  margin: 15px auto;
+}
+
+#success{
+  color: #32cd32;
+  font-size: 28px;
+  text-align: center;
+}
+</style>
+
+<div class="nav-container">
+<<<<<<< HEAD:pages/dataSearch.php
+  <?php include("../templates/navBar.php") ?>
+=======
+  <?php include("../../../partials/subpagesNavBar.php") ?>
+>>>>>>> 7b03d44a58a02c8674e9bf06d098f3ec0aa6598a:pages/data/search/search.php
+</div>
+
+<div class="wrapper">
+
+  <form method="post" action="displayData.php" class="search">
+    <input type="text" name="id" id="id" placeholder="Search the pair id..">
+    <input type="submit" id="searchBtn" class="button" name="submit" value="Search Pair">
+  </form>
+
+  <?php 
+    if(isset($_GET['error'])) {
+      if ($_GET['error'] == "notSameHosp") {
+        echo "<p id='failed'>This pair does not belong to your hospital</p>";
+      }
+      elseif ($_GET['error'] == "invalidPairId") {
+        echo "<p id='failed'>Please enter a valid pair id</p>";
+      }
+      elseif ($_GET['error'] == "noPairIdExists") {
+        echo "<p id='failed'>No such pair id exists</p>";
+      }
+    }
+  ?>
+
+</div>
+
+<?php include_once("../../../partials/footer.php"); ?>
