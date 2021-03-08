@@ -116,9 +116,9 @@ if (!isset($_SESSION)) {
     <!-- <li><a href="#">About</a></li>
     <li><a href="#">Contact</a></li> -->
     <?php
-if (isset($_SESSION['userId'])) {
+    if (isset($_SESSION['userId'])) {
   // echo '<ul>';
-  echo '<li><a href="#">Register</a>';
+  echo '<li><a href="/kidney-exchange/reg-form.php">Register</a>';
   echo '<ul>';
   echo '<li><a href="/kidney-exchange/pages/reg-form.php">Patient</a></li>';
   if ($_SESSION['userType'] === "Admin") {
@@ -126,13 +126,13 @@ if (isset($_SESSION['userId'])) {
   }
   echo '</ul>';
   echo '</li>';
-  echo '<li><a href="#">Match</a>';
+  echo '<li><a href="/kidney-exchange/globalMatch.php">Match</a>';
   echo '<ul>';
   echo '<li><a href="/kidney-exchange/pages/pairwiseMatch.php">Pairwise</a></li>';
   echo '<li><a href="/kidney-exchange/pages/globalMatch.php">Global</a></li>';
   echo '</ul>';
   echo '</li>';
-  echo '<li><a href="#">Data</a>';
+  echo '<li><a href="/kidney-exchange/pairData.php">Data</a>';
   echo '<ul>';
   echo '<li><a href="/kidney-exchange/pages/dataOverview.php">Overview</a></li>';
   echo '<li><a href="/kidney-exchange/pages/dataSummary.php">Summary</a></li>';
