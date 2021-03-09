@@ -35,4 +35,4 @@ Done! Now you should be able to access the project at **0.0.0.0:8080** or **loca
 ## Contributing Guidlines
 
 - Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md) while contributing to this project.
-- Slack group: [Join here](https://join.slack.com/t/kidney-exchange/shared_invite/zt-n54e89o7-yB5E6eZl7q3DAvLFdUAwgA).
+- Slack group: [Join here](https://join.slack.com/t/kidney-exchange/shared_invite/zt-n54e89o7-yB5E6eZl7q3DAvLFdUAwgA) (*Note:* This group was started recently so, please be patient).
