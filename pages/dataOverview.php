@@ -2,7 +2,7 @@
 
 include("../templates/db-connect.php");
 
-$sql = "SELECT * FROM pd_pairs ORDER BY pair_id";
+$sql = "SELECT pd_pairs.*, hospitals.name as hosp_name FROM pd_pairs  LEFT JOIN hospitals on pd_pairs.hosp_id = hospitals.id ORDER BY pair_id";
 $result = mysqli_query($conn, $sql);
 $result_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
