@@ -253,6 +253,10 @@ $(document).ready(function () {
       return this.optional(element) || /^[A-Za-z]+$/.test(value);
     }, "Letters only please");
 
+    $.validator.addMethod( "lettersandspace", function( value, element ) {
+      return this.optional( element ) || /^[A-Za-z\s]+$/.test( value );
+    }, "Letters and space only please" );
+
     $.validator.addMethod("nowhitespace", function (value, element) {
       return this.optional(element) || /^\S+$/.test(value);
     }, "Please do not enter any whitespaces");
@@ -385,14 +389,15 @@ $(document).ready(function () {
           // startsCapital: true
         },
         d_addr1: {
-          supernumeric: true
+          //supernumeric: true
         },
         d_addr2: {
           supernumeric: true
         },
         d_city: {
-          nowhitespace: true,
-          lettersonly: true,
+          lettersandspace:true
+          //nowhitespace: true,
+          //lettersonly: true,
           // startsCapital: true
         },
         d_state: {
