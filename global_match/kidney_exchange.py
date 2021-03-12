@@ -150,7 +150,7 @@ def optimize_weight(cycles, vertices, weight, dirname, ilp):
         )
 
     constraints = []
-    constraint_names =[]
+    constraint_names = []
     for v in vertices:
         constraint = []
         i = 0
