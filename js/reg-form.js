@@ -238,7 +238,7 @@ $(document).ready(function(){
 
     // Custom validation methods
     $.validator.addMethod( "supernumeric", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z0-9_,-.' ]+$/.test( value );
+      return this.optional( element ) || /^[A-Za-z0-9_,-.' /s ]+$/.test( value );
     }, "alphanumeric, comma, undersocre, dots, hyphen only please" );
 
     $.validator.addMethod( "alphanumeric", function( value, element ) {
@@ -248,10 +248,6 @@ $(document).ready(function(){
     $.validator.addMethod( "lettersonly", function( value, element ) {
       return this.optional( element ) || /^[A-Za-z]+$/.test( value );
     }, "Letters only please" );
-
-    $.validator.addMethod( "lettersandspace", function( value, element ) {
-      return this.optional( element ) || /^[A-Za-z\s]+$/.test( value );
-    }, "Letters and space only please" );
 
     $.validator.addMethod( "nowhitespace", function( value, element ) {
       return this.optional( element ) || /^\S+$/i.test( value );
@@ -367,7 +363,7 @@ $(document).ready(function(){
           supernumeric: true
         },
         r_city: {
-          lettersandspace:true
+          supernumeric:true
           //nowhitespace: true,
           //lettersonly: true,
           // startsCapital: true
@@ -387,14 +383,15 @@ $(document).ready(function(){
           // startsCapital: true
         },
         d_addr1: {
-          supernumeric: true
+          //supernumeric: true
         },
         d_addr2: {
           supernumeric: true
         },
         d_city: {
-          nowhitespace: true,
-          lettersonly: true,
+          supernumeric:true
+          //nowhitespace: true,
+          //lettersonly: true,
           // startsCapital: true
         },
         d_state: {
