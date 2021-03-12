@@ -360,14 +360,15 @@ $(document).ready(function () {
 
         //address validations
         r_addr1: {
-          supernumeric: true
+          //supernumeric: true
         },
         r_addr2: {
           supernumeric: true
         },
         r_city: {
-          nowhitespace: true,
-          lettersonly: true,
+          supernumeric:true
+          //nowhitespace: true,
+          //lettersonly: true,
           // startsCapital: true
         },
         r_state: {
@@ -385,14 +386,15 @@ $(document).ready(function () {
           // startsCapital: true
         },
         d_addr1: {
-          supernumeric: true
+          //supernumeric: true
         },
         d_addr2: {
           supernumeric: true
         },
         d_city: {
-          nowhitespace: true,
-          lettersonly: true,
+          supernumeric:true
+          //nowhitespace: true,
+          //lettersonly: true,
           // startsCapital: true
         },
         d_state: {
