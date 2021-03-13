@@ -1,9 +1,10 @@
 import json
 
-""" page to read json file (pair id and """
+''' page to read json file (pair id and '''
 
 
 class DataConvert:
+
     def __init__(self, file_name):
         self.file = file_name
 
@@ -18,7 +19,7 @@ class DataConvert:
         with open(file_name) as json_file:
             data = json.load(json_file)
 
-            for key, value in data["data"].items():
+            for key, value in data['data'].items():
                 if "altruistic" in value:
                     altruistic.append((key))
                     if "matches" in value:

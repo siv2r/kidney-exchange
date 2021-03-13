@@ -2,6 +2,12 @@ from prettytable import PrettyTable
 from precomputation import CyclePrecomputation
 import networkx as nx
 import matplotlib.pyplot as plt
+import netgraph
+from networkx.drawing.nx_agraph import graphviz_layout
+from jsonConversion import DataConvert
+import hvplot.networkx as hvnx
+import holoviews as hv
+from hvnx_test import hover_graph
 
 
 def run_results(solution_values, cycles, altruistic, edges, cycleswt):
@@ -20,40 +26,32 @@ def run_results(solution_values, cycles, altruistic, edges, cycleswt):
         if solution_values[i] != 0:
             transplants = transplants + len(cycles[i])
 
-            if cycles[i][0] == cycles[i][-1]:
+            if(cycles[i][0] == cycles[i][-1]):
                 transplants = transplants - 1
                 paired_transplants = paired_transplants + len(cycles[i]) - 1
 
-                if len(cycles[i]) == 3:
+                if(len(cycles[i]) == 3):
                     two_ways = two_ways + 1
                     effective_pairwise = effective_pairwise + 1
 
-                elif len(cycles[i]) == 4:
+                elif(len(cycles[i]) == 4):
                     three_ways = three_ways + 1
-                    effective_pairwise = effective_pairwise + len(cycles[i]) - 1
+                    effective_pairwise = effective_pairwise + \
+                        len(cycles[i]) - 1
 
-                    three_ways_embedded = (
-                        three_ways_embedded
-                        + precomputation.calculate_backarc(cycles[i], edges)
-                    )
+                    three_ways_embedded = three_ways_embedded + \
+                        precomputation.calculate_backarc(cycles[i], edges)
                 else:
-                    effective_pairwise = effective_pairwise + len(cycles[i]) - 1
+                    effective_pairwise = effective_pairwise + \
+                        len(cycles[i]) - 1
 
             else:
                 altruistic_involved = altruistic_involved + 1
 
             weight = weight + cycleswt[tuple(cycles[i])]
 
-    return (
-        transplants + len(altruistic) - altruistic_involved,
-        paired_transplants,
-        len(altruistic) - altruistic_involved,
-        two_ways,
-        three_ways,
-        three_ways_embedded,
-        effective_pairwise,
-        weight,
-    )
+    return transplants + len(altruistic) - altruistic_involved, paired_transplants, len(altruistic) - \
+        altruistic_involved, two_ways, three_ways, three_ways_embedded, effective_pairwise, weight
 
 
 def cyclesAndChains(cycles, solution_values):
@@ -65,15 +63,15 @@ def cyclesAndChains(cycles, solution_values):
     for i in range(0, len(solution_values)):
         if solution_values[i] != 0:
 
-            if cycles[i][0] == cycles[i][-1]:
-                if len(cycles[i]) == 3:
+            if(cycles[i][0] == cycles[i][-1]):
+                if(len(cycles[i]) == 3):
                     length2_cycles.append(cycles[i])
-                if len(cycles[i]) == 4:
+                if(len(cycles[i]) == 4):
                     length3_cycles.append(cycles[i])
             else:
-                if len(cycles[i]) == 2:
+                if(len(cycles[i]) == 2):
                     length1_chain.append(cycles[i])
-                if len(cycles[i]) == 3:
+                if(len(cycles[i]) == 3):
                     length2_chain.append(cycles[i])
 
     return length2_cycles, length3_cycles, length1_chain, length2_chain
@@ -86,15 +84,15 @@ def poolDescription(all_cycles):
     long_chain_count = 0
 
     for cycle in all_cycles:
-        if cycle[0] == cycle[-1]:
-            if len(cycle) == 3:
+        if(cycle[0] == cycle[-1]):
+            if(len(cycle) == 3):
                 length2_count = length2_count + 1
 
-            if len(cycle) == 4:
+            if(len(cycle) == 4):
                 length3_count = length3_count + 1
 
         else:
-            if len(cycle) == 2:
+            if(len(cycle) == 2):
                 short_chain_count = short_chain_count + 1
 
             else:
@@ -103,12 +101,18 @@ def poolDescription(all_cycles):
     return length2_count, length3_count, short_chain_count, long_chain_count
 
 
-def print_graph(solution_values, cycles, names, altruistic_donors, dirname):
+def print_graph(
+        solution_values,
+        cycles,
+        names,
+        altruistic_donors,
+        dirname,
+        weight):
     for i in range(0, len(solution_values)):
         if solution_values[i] != 0:
             print(cycles[i])
 
-    values = []
+    # values =[]
 
     G = nx.DiGraph()
     G.add_nodes_from(names)
@@ -117,37 +121,139 @@ def print_graph(solution_values, cycles, names, altruistic_donors, dirname):
     G.add_nodes_from(altruistic_donors)
     altruists = [0.5] * len(altruistic_donors)
 
-    values = paired + altruists
+    # values = paired + altruists
 
     for i in range(0, len(solution_values)):
         if solution_values[i] != 0:
             for j in range(0, len(cycles[i]) - 1):
                 edge = (cycles[i][j], cycles[i][j + 1])
                 G.add_edge(*edge)
+    print("G.nodes", list(G.nodes))
+    # print("G.edges",list(G.edges))
+    # pos = nx.spring_layout(G)
+    # import matplotlib
+    # # print('\nthesearethecycles\n', cycles)
+    # #### filter 2 cycles from cycles
+    # rest = []
+    # two_cycle_nodes_top = {}
+    # two_cycle_nodes_bottom = {}
+    # top_edges = []
+    # bottom_edges = []
+    # colour1 = 'lightgreen'
+    # colour2 = 'lightpink'
+    # # print('SOLUTIONS --------- ',solution_values )
+    # for i, cycle in enumerate(cycles):
 
-    pos = nx.spring_layout(G)
-    nx.draw_networkx_nodes(
-        G, pos, cmap=plt.get_cmap("jet"), node_color=values, node_size=300
-    )
-    nx.draw_networkx_labels(G, pos)
-    nx.draw_networkx_edges(G, pos, edgelist=G.edges())
-    # plt.savefig("image.png")
-    plt.savefig("{}/output.png".format(dirname))  # save as png
-    plt.show()  # display
+    # 	if len(cycle) == 3 and solution_values[i] == 1:
+    # 		two_cycle_nodes_top[cycle[0]] = colour1
+    # 		two_cycle_nodes_bottom[cycle[0]] = colour2
+    # 		two_cycle_nodes_top[cycle[1]] = colour2
+    # 		two_cycle_nodes_bottom[cycle[1]] = colour1
+    # 		top_edges.append((cycle[0], cycle[1]))
+    # 		bottom_edges.append((cycle[1], cycle[0]))
+
+    # pos = graphviz_layout(G)
+    # ### drawing two cycle nodes
+    # top_nodes, top_colours = two_cycle_nodes_top.keys(), two_cycle_nodes_top.values()
+    # bottom_nodes, bottom_colours = two_cycle_nodes_bottom.keys(), two_cycle_nodes_bottom.values()
+    # rest = [n for n in G.nodes() if n not in top_nodes]
+    # nodes = nx.draw_networkx_nodes(G, pos, nodelist=top_nodes, node_color=top_colours, node_size=600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+    # 																fillstyle='top'), label = 'P')
+    # nx.draw_networkx_nodes(G, pos, nodelist = bottom_nodes,node_color = bottom_colours, node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+    # fillstyle = 'bottom'), label = 'D')
+
+    # ### drawing remaining nodes
+    # nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightgreen', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+    #                                                                    fillstyle='top'))
+    # nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightpink', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+    #                                              						fillstyle='bottom'))
+    # print()
+    # keys = G.nodes()
+    hover_graph(G, cycles, solution_values, weight)
+    # attrs = {k: {'name': k, 'blood_group': 'A+'} for k in keys}
+    # print(attrs)
+    # # attrs = {0: {'attr1': 20, 'attr2': 'nothing'}, 1: {'attr2': 3}, 2: {'attr1': 42}, 3: {'attr3': 'hello'}, 4: {'attr1': 54, 'attr3': '33'}}
+    # nx.set_node_attributes(G, attrs)
+    # pos_higher, pos_lower = {}, {}
+    # ### calculating offset
+    # if len(top_edges) != 0:
+    # 	a, b = top_edges[0]
+    # 	y_off = 0.3 * abs(pos[a][0] - pos[b][0])
+    # 	# print('y_off', y_off)
+    # else:
+    # 	y_off = 20
+
+    # for k, v in pos.items():
+    # 	pos_higher[k] = (v[0], v[1] + y_off)
+    # for k, v in pos.items():
+    # 	pos_lower[k] = (v[0], v[1] - y_off)
+
+    # w_top = {e: str(weight[e]) for e in weight if (e in top_edges and e in G.edges()) }
+    # w_bottom = {e: str(weight[e]) for e in weight if (e in bottom_edges and e in G.edges())}
+    # w_rest = {e: str(weight[e]) for e in weight if (e in G.edges() and e not in top_edges and e not in bottom_edges)}
+    # # print("WTOP   ", w_top)
+    # nx.draw_networkx_labels(G, pos, font_size=8, font_weight='bold')  #horizontalalignment = 'left',verticalalignment = 'top')
+    # nx.draw_networkx_edges(G, pos, edgelist=G.edges(), connectionstyle='arc3,rad=0.2', arrowsize=20)
+    # nx.draw_networkx_edge_labels(G, pos_higher, edge_labels=w_top, label_pos=0.5, verticalalignment='top')
+    # nx.draw_networkx_edge_labels(G, pos_lower, edge_labels=w_bottom, label_pos=0.5, verticalalignment='bottom')
+    # nx.draw_networkx_edge_labels(G, pos, edge_labels=w_rest, label_pos=0.5)
+    # # labels = {e: str(e) for e in G.edges}
+
+    # fig, ax = plt.subplots()
+    # # pos = nx.spring_layout(G)
+    # # nodes = nx.draw_networkx_nodes(G, pos=pos, ax=ax)
+    # # nx.draw_networkx_edges(G, pos=pos, ax=ax)
+
+    # annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
+    # 					bbox=dict(boxstyle="round", fc="w"),
+    # 					arrowprops=dict(arrowstyle="->"))
+    # annot.set_visible(False)
+
+    # idx_to_node_dict = {}
+    # for idx, node in enumerate(G.nodes):
+    # 	idx_to_node_dict[idx] = node
+
+    # def update_annot(ind):
+    # 	node_idx = ind["ind"][0]
+    # 	node = idx_to_node_dict[node_idx]
+    # 	xy = pos[node]
+    # 	annot.xy = xy
+    # 	node_attr = {'node': node}
+    # 	node_attr.update(G.nodes[node])
+    # 	text = '\n'.join(f'{k}: {v}' for k, v in node_attr.items())
+    # 	annot.set_text(text)
+
+    # def hover(event):
+    # 	vis = annot.get_visible()
+    # 	if event.inaxes == ax:
+    # 		cont, ind = nodes.contains(event)
+    # 		if cont:
+    # 			update_annot(ind)
+    # 			annot.set_visible(True)
+    # 			fig.canvas.draw_idle()
+    # 		else:
+    # 			if vis:
+    # 				annot.set_visible(False)
+    # 				fig.canvas.draw_idle()
+
+    # fig.canvas.mpl_connect("motion_notify_event", hover)
+
+    # # plt.savefig("{}/graph.png".format(dirname)) # save as png
+    # plt.show() # display
 
 
 def print_solution(
-    run_no,
-    constraint,
-    max_length,
-    solution_values,
-    cycles,
-    altruists,
-    edges,
-    cycleswt,
-    names,
-    dirname,
-):
+        run_no,
+        constraint,
+        max_length,
+        solution_values,
+        cycles,
+        altruists,
+        edges,
+        cycleswt,
+        names,
+        dirname,
+        weight_dict):
 
     file_name = dirname + "/" + "solution"
     f = open(file_name, "w")
@@ -165,16 +271,8 @@ def print_solution(
 
     print("RUN RESULTS")
     f.write("RUN RESULTS" + "\n")
-    (
-        transplants_plus_unused_al,
-        paired_transplants,
-        unused_altruistic,
-        two_ways,
-        three_ways,
-        three_ways_embedded,
-        effective_pairwise,
-        weight,
-    ) = run_results(solution_values, cycles, altruists, edges, cycleswt)
+    transplants_plus_unused_al, paired_transplants, unused_altruistic, two_ways, three_ways, three_ways_embedded, effective_pairwise, weight = run_results(
+        solution_values, cycles, altruists, edges, cycleswt)
     x = PrettyTable()
     x.field_names = [
         "Run number",
@@ -185,21 +283,16 @@ def print_solution(
         "3-ways ",
         "3-ways with embedded",
         "Effective Pairwise",
-        "Weight",
-    ]
-    x.add_row(
-        [
-            run_no,
-            transplants_plus_unused_al,
-            paired_transplants,
-            unused_altruistic,
-            two_ways,
-            three_ways,
-            three_ways_embedded,
-            effective_pairwise,
-            weight,
-        ]
-    )
+        "Weight"]
+    x.add_row([run_no,
+               transplants_plus_unused_al,
+               paired_transplants,
+               unused_altruistic,
+               two_ways,
+               three_ways,
+               three_ways_embedded,
+               effective_pairwise,
+               weight])
     print(x)
     f.write(str(x))
 
@@ -209,8 +302,7 @@ def print_solution(
     print("CYCLES AND CHAINS")
     f.write("CYCLES AND CHAINS" + "\n")
     length2_cycles, length3_cycles, length1_chain, length2_chain = cyclesAndChains(
-        cycles, solution_values
-    )
+        cycles, solution_values)
     x = PrettyTable()
     x.field_names = ["Type", "Cycles/Chains"]
     x.add_row(["Cycles of length 2", length2_cycles])
@@ -220,15 +312,14 @@ def print_solution(
     x.align = "l"
     print(x)
     f.write(str(x))
-
+    # print("cycles_weight is",cycleswt )
     print()
     f.write("\n")
 
     print("DESCRIPTION OF POOL")
     f.write("CYCLES AND CHAINS" + "\n")
     length2_count, length3_count, short_chain_count, long_chain_count = poolDescription(
-        cycles
-    )
+        cycles)
     x = PrettyTable()
     x.field_names = [
         "Patients",
@@ -238,20 +329,15 @@ def print_solution(
         "2-cycles",
         "3-cycles",
         "Short chains",
-        "Long chains",
-    ]
-    x.add_row(
-        [
-            len(names),
-            len(names),
-            len(altruists),
-            len(names) + len(altruists),
-            length2_count,
-            length3_count,
-            short_chain_count,
-            long_chain_count,
-        ]
-    )
+        "Long chains"]
+    x.add_row([len(names),
+               len(names),
+               len(altruists),
+               len(names) + len(altruists),
+               length2_count,
+               length3_count,
+               short_chain_count,
+               long_chain_count])
     print(x)
     f.write(str(x))
 
@@ -259,6 +345,13 @@ def print_solution(
     f.write("\n")
 
     print("SOLUTION")
-    print_graph(solution_values, cycles, names, altruists, dirname)
+    print_graph(
+        solution_values,
+        cycles,
+        names,
+        altruists,
+        dirname,
+        weight_dict)
+    # print('=== weight ===', weight_dict)
     f.close()
     return transplants_plus_unused_al
