@@ -1,9 +1,11 @@
-# Kidney Exchange Program
+# Kidney Exchange Program ![logo](https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png)
 
 
 ## What is living donor kidney exchange problem?
 
 Let's say a person wants to donate his/her kidney to a loved one but cannot do so because they have some medical incompatibility. This problem can be solved by curating similar patients and swapping the kidney within themselves. This problem is called the living donor kidney exchange problem, and in most places of India, doctors solve it manually. 
+
+![illustration](https://www.med.unc.edu/surgery/files/2018/09/kidney-chain-illustration.png)
 
 ## Aim
 
