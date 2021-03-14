@@ -269,7 +269,7 @@
             </div>
           </div>
 
-          <label id="serology">Serology stautus for viral disease </label>
+          <label id="serology">Serology status for viral disease </label>
 
           <div class='input-field'>
             <div class="label-box">
@@ -432,20 +432,20 @@ require_once "../templates/db-connect.php";
 require_once "../include/functions.inc.php";
 
 if ($_SESSION['userType'] === "Transplant coordinator") {
-  $val = $_SESSION['userHospital']['id'];
-  $name = $_SESSION['userHospital']['name'];
-  echo "<option value='$val' selected >$name</option>";
+    $val = $_SESSION['userHospital']['id'];
+    $name = $_SESSION['userHospital']['name'];
+    echo "<option value='$val' selected >$name</option>";
 } else if ($_SESSION['userType'] === "Admin") {
-  if ($hosp_array = getHospitals($conn)) {
-    echo "<option value='' selected disabled>Choose</option>";
-    foreach ($hosp_array as $key => $value) {
-      $optionVal = $value['id'];
-      $optionName = $value['name'];
-      echo "<option value='$optionVal'>$optionName</option>";
+    if ($hosp_array = getHospitals($conn)) {
+        echo "<option value='' selected disabled>Choose</option>";
+        foreach ($hosp_array as $key => $value) {
+            $optionVal = $value['id'];
+            $optionName = $value['name'];
+            echo "<option value='$optionVal'>$optionName</option>";
+        }
+    } else {
+        echo "Error in getting hospitals from the database";
     }
-  } else {
-    echo "Error in getting hospitals from the database";
-  }
 }
 
 ?>
@@ -710,7 +710,7 @@ if ($_SESSION['userType'] === "Transplant coordinator") {
               </div>
           </div>
 
-          <label id="serology">Serology stautus for viral disease </label>
+          <label id="serology">Serology status for viral disease </label>
 
           <div class='input-field'>
             <div class="label-box">
