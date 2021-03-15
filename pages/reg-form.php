@@ -269,7 +269,7 @@
             </div>
           </div>
 
-          <label id="serology">Serology stautus for viral disease </label>
+          <label id="serology">Serology status for viral disease </label>
 
           <div class='input-field'>
             <div class="label-box">
@@ -710,7 +710,7 @@ if ($_SESSION['userType'] === "Transplant coordinator") {
               </div>
           </div>
 
-          <label id="serology">Serology stautus for viral disease </label>
+          <label id="serology">Serology status for viral disease </label>
 
           <div class='input-field'>
             <div class="label-box">
