@@ -39,3 +39,17 @@ Done! Now you should be able to access the project at **0.0.0.0:8080** or **loca
 - Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md) while contributing to this project.
 - Slack group: [Join here](https://join.slack.com/t/kidney-exchange/shared_invite/zt-n54e89o7-yB5E6eZl7q3DAvLFdUAwgA) (*Note:* This group was started recently so, please be patient).
 - [How to create a pull request?](https://github.com/siv2r/kidney-exchange/blob/master/CreatePR.md)
+
+## Contributors
+This project is possible due to these amazing people✨✨
+
+<table>
+	<tr>
+		<td>
+			<a href="https://github.com/siv2r/kidney-exchange/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=siv2r/kidney-exchange" />
+</a>
+		</td>
+	</tr>
+</table>
+
