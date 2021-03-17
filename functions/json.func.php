@@ -12,7 +12,9 @@ function toJSON($allPairData) {
   $res['data'] = array();
 
   foreach ($allPairData as $index => $pair) {
-    array_push($res['data'], $pair);
+    $pairId = $pair['pairId'];
+    unset($pair['pairId']);
+    $res['data'][$pairId] = $pair;
   }
 
   $jsonVal = json_encode($res, JSON_PRETTY_PRINT);
