@@ -1,6 +1,4 @@
-import hvplot.networkx as hvnx
 import networkx as nx
-import holoviews as hv
 import matplotlib.pyplot as plt
 from networkx.drawing.nx_agraph import graphviz_layout
 import matplotlib.pyplot as plt
@@ -175,6 +173,11 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         
     ### setting annotation text
     def update_annot(ind, nodelist):
+        '''
+        updates annotation for a section of nodes
+        ind : dict ->  contains node index (corresponding to nodelist) according to position of mouse
+        nodelist : list -> list of nodes belonging to the group of node being currently pointed two (separate lists for two cycle nodes and other nodes)
+        '''
         node_idx = ind["ind"][0]
         node = list(nodelist)[node_idx]
         xy = pos[node]
@@ -186,9 +189,11 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         donor_string = 'Donor: {} , {}, {}'.format(all_details["dName"], all_details["dBgrp"], all_details["dAge"])
         text = '\n'.join([patient_string,donor_string])
         annot.set_text(text)
-
-    ### setting visibility of annotation depending on position of mous
+        
     def hover(event):
+        ''' 
+        setting visibility of annotation depending on position of mouse 
+        '''
         vis = annot.get_visible()
         if event.inaxes == ax:
             if nodes1 is not None:
