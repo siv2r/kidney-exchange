@@ -26,7 +26,7 @@ class CyclePrecomputation:
 
         for i in range(len(lst)):
             m = lst[i]
-            remlst = lst[:i] + lst[i + 1:]
+            remlst = lst[:i] + lst[i + 1 :]
 
             for p in self.permutations2(remlst):
                 l.append([m] + p)
@@ -41,7 +41,7 @@ class CyclePrecomputation:
         l = []
         for i in range(0, len(lst)):
             m = lst[i]
-            remLst = lst[i + 1:]
+            remLst = lst[i + 1 :]
             for p in self.combinations2(remLst, n - 1):
                 l.append([m] + p)
         return l
@@ -108,12 +108,8 @@ class CyclePrecomputation:
         return cycleswt
 
     def findCyclesAndChains(
-            self,
-            names,
-            max_cycle_length,
-            max_chain_length,
-            altruists,
-            edges):
+        self, names, max_cycle_length, max_chain_length, altruists, edges
+    ):
         self.find_cycles(names, max_cycle_length)
         self.find_chains(names, max_chain_length, altruists)
         cycles = self.find_cycles_in_graph(edges)
@@ -123,14 +119,14 @@ class CyclePrecomputation:
     def check_backarc(self, cycle, edges):
         for i in range(0, len(cycle) - 1):
             edge = [cycle[i + 1], cycle[i]]
-            if(edge in edges):
+            if edge in edges:
                 return True
 
         return False
 
     def calculate_backarc(self, cycle, edges):
         ans = 0
-        if(len(cycle) == 3):
+        if len(cycle) == 3:
             return 1
         for i in range(0, len(cycle) - 1):
             edge = [cycle[i + 1], cycle[i]]

@@ -6,19 +6,21 @@ import networkx as nx
 import matplotlib
 import json
 
+
 def read_details(pd_details):
     with open(pd_details) as f:
         data = json.load(f)
     return data
 
+
 def hover_graph(G, cycles, solution_values, weight, pd_details):
-    '''
+    """
     G : networkx graph object with all nodes, but only solution edges
     cycles : list -> all possible cycles in G
     solution : list -> 1 if corresponding cycle is chosen for final solution else 0
     weight : dict -> keys: edges, values: edgeweights
     pd_details : string -> path to JSON file (dump) with patient donor details
-     '''
+    """
     # attrs = {}
     # for node in G.nodes:
     #     attrs[node] = {'Blood Group': 'A+', 'Pincode': 600001, 'Age': 33}
@@ -32,13 +34,13 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     two_cycle_nodes_bottom = {}
     top_edges = []
     bottom_edges = []
-    colour1 = 'orange'
-    colour2 = 'purple'
+    colour1 = "orange"
+    colour2 = "purple"
     for i, cycle in enumerate(cycles):
 
         if len(cycle) == 3 and solution_values[i] == 1:
-            ### selects chosen 2 cycles and colours the top and bottom halves of the two nodes in an opposite 
-            ### manner to signify corresponding PD pairs 
+            ### selects chosen 2 cycles and colours the top and bottom halves of the two nodes in an opposite
+            ### manner to signify corresponding PD pairs
             two_cycle_nodes_top[cycle[0]] = colour1
             two_cycle_nodes_bottom[cycle[0]] = colour2
             two_cycle_nodes_top[cycle[1]] = colour2
@@ -49,65 +51,63 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     pos = graphviz_layout(G)
     # drawing two cycle nodes
     top_nodes, top_colours = two_cycle_nodes_top.keys(), two_cycle_nodes_top.values()
-    bottom_nodes, bottom_colours = two_cycle_nodes_bottom.keys(
-    ), two_cycle_nodes_bottom.values()
+    bottom_nodes, bottom_colours = (
+        two_cycle_nodes_bottom.keys(),
+        two_cycle_nodes_bottom.values(),
+    )
     # nodes other than those part of two cycles, including ones that are not part of any solution cycle
     rest = [n for n in G.nodes() if n not in top_nodes]
-    ''' nodes1 : top half of two cycle nodes
+    """ nodes1 : top half of two cycle nodes
         nodes2 : bottom half of two cycle nodes
         nodes3 : top half of remaining nodes
         nodes4 : bottom half of remaining nodes
-    '''
+    """
     nodes1 = nx.draw_networkx_nodes(
         G,
         pos,
         nodelist=top_nodes,
         node_color=top_colours,
         node_size=600,
-        node_shape=matplotlib.markers.MarkerStyle(
-            marker='o',
-            fillstyle='top'),
-        label='P')
-    
+        node_shape=matplotlib.markers.MarkerStyle(marker="o", fillstyle="top"),
+        label="P",
+    )
+
     nodes2 = nx.draw_networkx_nodes(
         G,
         pos,
         nodelist=bottom_nodes,
         node_color=bottom_colours,
         node_size=600,
-        node_shape=matplotlib.markers.MarkerStyle(
-            marker='o',
-            fillstyle='bottom'),
-        label='D')
+        node_shape=matplotlib.markers.MarkerStyle(marker="o", fillstyle="bottom"),
+        label="D",
+    )
 
     # drawing remaining nodes
     nodes3 = nx.draw_networkx_nodes(
         G,
         pos,
         nodelist=rest,
-        label='P',
+        label="P",
         node_color=colour1,
         node_size=600,
-        node_shape=matplotlib.markers.MarkerStyle(
-            marker='o',
-            fillstyle='top'))
+        node_shape=matplotlib.markers.MarkerStyle(marker="o", fillstyle="top"),
+    )
     nodes4 = nx.draw_networkx_nodes(
         G,
         pos,
         nodelist=rest,
         node_color=colour2,
         node_size=600,
-        node_shape=matplotlib.markers.MarkerStyle(
-            marker='o',
-            fillstyle='bottom'))
-    ''' 
+        node_shape=matplotlib.markers.MarkerStyle(marker="o", fillstyle="bottom"),
+    )
+    """ 
     Networkx by default draws straight arcs and places edge labels on the middle of those arcs.
     However, we draw curved arcs but edge labels still remain at their default position (midpoint of NodeA and NodeB) {inside the cycle}
     Thus we need to offset this by supplying new positions. To maintain consistency across all scales of X and Y axis, 
     and positions of nodes we take the offset as 0.3 times difference between x-coordinates of the two nodes between which 
     the edge is drawn. Different offsets are required for top edge and bottom edge of two cycles. For three cycles, the default 
     placement causes no issue.
-     '''
+     """
     pos_higher, pos_lower = {}, {}
     # calculating offset
     if len(top_edges) != 0:
@@ -120,80 +120,74 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         pos_higher[k] = (v[0], v[1] + y_off)
     for k, v in pos.items():
         pos_lower[k] = (v[0], v[1] - y_off)
-    '''
+    """
     w_top : edge weights of top edges of two cycles
     w_bottom : edge weights of bottom edges of two cycles
     w_rest : edge weights of remaining edges which can be placed in their default location
-    '''
-    w_top = {
-        e: str(
-            weight[e]) for e in weight if (
-            e in top_edges and e in G.edges())}
+    """
+    w_top = {e: str(weight[e]) for e in weight if (e in top_edges and e in G.edges())}
     w_bottom = {
-        e: str(
-            weight[e]) for e in weight if (
-            e in bottom_edges and e in G.edges())}
+        e: str(weight[e]) for e in weight if (e in bottom_edges and e in G.edges())
+    }
     w_rest = {
-        e: str(
-            weight[e]) for e in weight if (
-            e in G.edges() and e not in top_edges and e not in bottom_edges)}
+        e: str(weight[e])
+        for e in weight
+        if (e in G.edges() and e not in top_edges and e not in bottom_edges)
+    }
     ### Drawing edge labels
     nx.draw_networkx_edges(
-        G,
-        pos,
-        edgelist=G.edges(),
-        connectionstyle='arc3,rad=0.2',
-        arrowsize=20)
+        G, pos, edgelist=G.edges(), connectionstyle="arc3,rad=0.2", arrowsize=20
+    )
     nx.draw_networkx_edge_labels(
-        G,
-        pos_higher,
-        edge_labels=w_top,
-        label_pos=0.5,
-        verticalalignment='top')
+        G, pos_higher, edge_labels=w_top, label_pos=0.5, verticalalignment="top"
+    )
     nx.draw_networkx_edge_labels(
-        G,
-        pos_lower,
-        edge_labels=w_bottom,
-        label_pos=0.5,
-        verticalalignment='bottom')
+        G, pos_lower, edge_labels=w_bottom, label_pos=0.5, verticalalignment="bottom"
+    )
     nx.draw_networkx_edge_labels(G, pos, edge_labels=w_rest, label_pos=0.5)
 
     # =================== HOVERING =========================
     ### setting annotation style
     annot = ax.annotate(
-        "", xy=(
-            0, 0), xytext=(
-            20, 20), textcoords="offset points", bbox=dict(
-                boxstyle="round", fc="w"), arrowprops=dict(
-                    arrowstyle="->"))
+        "",
+        xy=(0, 0),
+        xytext=(20, 20),
+        textcoords="offset points",
+        bbox=dict(boxstyle="round", fc="w"),
+        arrowprops=dict(arrowstyle="->"),
+    )
     annot.set_visible(False)
     idx_to_node_dict = {}
     for idx, node in enumerate(G.nodes):
         idx_to_node_dict[idx] = node
-        
+
     ### setting annotation text
     def update_annot(ind, nodelist):
-        '''
+        """
         updates annotation for a section of nodes
         ind : dict ->  contains node index (corresponding to nodelist) according to position of mouse
         nodelist : list -> list of nodes belonging to the group of node being currently pointed two (separate lists for two cycle nodes and other nodes)
-        '''
+        """
         node_idx = ind["ind"][0]
         node = list(nodelist)[node_idx]
         xy = pos[node]
         annot.xy = xy
-        node_attr = {'ID': node}
+        node_attr = {"ID": node}
         node_attr.update(G.nodes[node])
         all_details = data[node]
-        patient_string = 'Patient: {} , {}, {}'.format(all_details["pName"], all_details["pBgrp"], all_details["pAge"])
-        donor_string = 'Donor: {} , {}, {}'.format(all_details["dName"], all_details["dBgrp"], all_details["dAge"])
-        text = '\n'.join([patient_string,donor_string])
+        patient_string = "Patient: {} , {}, {}".format(
+            all_details["pName"], all_details["pBgrp"], all_details["pAge"]
+        )
+        donor_string = "Donor: {} , {}, {}".format(
+            all_details["dName"], all_details["dBgrp"], all_details["dAge"]
+        )
+        text = "\n".join([patient_string, donor_string])
         annot.set_text(text)
-        
+
     def hover(event):
-        ''' 
-        setting visibility of annotation depending on position of mouse 
-        '''
+        """
+        setting visibility of annotation depending on position of mouse
+        """
         vis = annot.get_visible()
         if event.inaxes == ax:
             if nodes1 is not None:
@@ -206,7 +200,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
                 cont4, ind4 = nodes4.contains(event)
             else:
                 cont3, cont4 = False, False
-        
+
             if cont1:
                 update_annot(ind1, top_nodes)
                 annot.set_visible(True)
