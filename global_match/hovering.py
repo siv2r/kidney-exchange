@@ -107,7 +107,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     and positions of nodes we take the offset as 0.3 times difference between x-coordinates of the two nodes between which 
     the edge is drawn. Different offsets are required for top edge and bottom edge of two cycles. For three cycles, the default 
     placement causes no issue.
-     """
+    """
     pos_higher, pos_lower = {}, {}
     # calculating offset
     if len(top_edges) != 0:
@@ -176,10 +176,10 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         node_attr.update(G.nodes[node])
         all_details = data[node]
         patient_string = "Patient: {} , {}, {}".format(
-            all_details["pName"], all_details["pBgrp"], all_details["pAge"]
+            "ramesh", all_details["pBgrp"], all_details["pAge"]
         )
         donor_string = "Donor: {} , {}, {}".format(
-            all_details["dName"], all_details["dBgrp"], all_details["dAge"]
+            "suresh", all_details["dBgrp"], all_details["dAge"]
         )
         text = "\n".join([patient_string, donor_string])
         annot.set_text(text)
