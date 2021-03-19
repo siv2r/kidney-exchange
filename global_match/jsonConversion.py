@@ -10,10 +10,10 @@ class DataConvert:
     def convert_altruistic(self):
         # file_name is dummy argument to be removed
         file_name = self.file
-        names =[]
-        edges =[]
-        weight ={}
-        altruistic =[]
+        names = []
+        edges = []
+        weight = {}
+        altruistic = []
 
         with open(file_name) as json_file:
             data = json.load(json_file)
