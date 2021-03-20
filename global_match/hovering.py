@@ -1,17 +1,65 @@
-import hvplot.networkx as hvnx
-import networkx as nx
-import holoviews as hv
-import matplotlib.pyplot as plt
-from networkx.drawing.nx_agraph import graphviz_layout
-import matplotlib.pyplot as plt
-import networkx as nx
-import matplotlib
 import json
+import networkx as nx
+from networkx.drawing.nx_agraph import graphviz_layout
+import matplotlib
+import matplotlib.pyplot as plt
+import networkx as nx
+
 
 def read_details(pd_details):
     with open(pd_details) as f:
         data = json.load(f)
     return data
+
+def update_annot(ind, nodelist, pos, data, annot, G):
+        node_idx = ind["ind"][0]
+        node = list(nodelist)[node_idx]
+        xy = pos[node]
+        annot.xy = xy
+        node_attr = {'ID': node}
+        node_attr.update(G.nodes[node])
+        all_details = data[node]
+        patient_string = 'Patient: {} , {}, {}'.format("Ramesh", all_details["pBgrp"], all_details["pAge"])
+        donor_string = 'Donor: {} , {}, {}'.format("arun", all_details["dBgrp"], all_details["dAge"])
+        text = '\n'.join([patient_string,donor_string])
+        annot.set_text(text)
+        return
+
+def hover(event, annot, nodes1, nodes2, nodes3, nodes4, top_nodes, rest, pos, data, fig, ax, G):
+        vis = annot.get_visible()
+        if event.inaxes == ax:
+            if nodes1 is not None:
+                cont1, ind1 = nodes1.contains(event)
+                cont2, ind2 = nodes2.contains(event)
+            else:
+                cont1, cont2 = False, False
+            if nodes3 is not None:
+                cont3, ind3 = nodes3.contains(event)
+                cont4, ind4 = nodes4.contains(event)
+            else:
+                cont3, cont4 = False, False
+        
+            if cont1:
+                update_annot(ind1, top_nodes, pos, data, annot, G)
+                annot.set_visible(True)
+                fig.canvas.draw_idle()
+            elif cont2:
+                update_annot(ind2, top_nodes, pos, data, annot, G)
+                annot.set_visible(True)
+                fig.canvas.draw_idle()
+            elif cont3:
+                update_annot(ind3, rest, pos, data, annot, G)
+                annot.set_visible(True)
+                fig.canvas.draw_idle()
+            elif cont4:
+                update_annot(ind4, rest, pos, data, annot, G)
+                annot.set_visible(True)
+                fig.canvas.draw_idle()
+
+            else:
+                if vis:
+                    annot.set_visible(False)
+                    fig.canvas.draw_idle()
 
 def hover_graph(G, cycles, solution_values, weight, pd_details):
     '''
@@ -20,12 +68,8 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     solution : list -> 1 if corresponding cycle is chosen for final solution else 0
     weight : dict -> keys: edges, values: edgeweights
     pd_details : string -> path to JSON file (dump) with patient donor details
-     '''
-    # attrs = {}
-    # for node in G.nodes:
-    #     attrs[node] = {'Blood Group': 'A+', 'Pincode': 600001, 'Age': 33}
-    # nx.set_node_attributes(G, attrs)
-
+    '''
+    
     fig, ax = plt.subplots()
     pos = graphviz_layout(G)
     data = read_details(pd_details)
@@ -109,7 +153,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     and positions of nodes we take the offset as 0.3 times difference between x-coordinates of the two nodes between which 
     the edge is drawn. Different offsets are required for top edge and bottom edge of two cycles. For three cycles, the default 
     placement causes no issue.
-     '''
+    '''
     pos_higher, pos_lower = {}, {}
     # calculating offset
     if len(top_edges) != 0:
@@ -173,57 +217,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     for idx, node in enumerate(G.nodes):
         idx_to_node_dict[idx] = node
         
-    ### setting annotation text
-    def update_annot(ind, nodelist):
-        node_idx = ind["ind"][0]
-        node = list(nodelist)[node_idx]
-        xy = pos[node]
-        annot.xy = xy
-        node_attr = {'ID': node}
-        node_attr.update(G.nodes[node])
-        all_details = data[node]
-        patient_string = 'Patient: {} , {}, {}'.format(all_details["pName"], all_details["pBgrp"], all_details["pAge"])
-        donor_string = 'Donor: {} , {}, {}'.format(all_details["dName"], all_details["dBgrp"], all_details["dAge"])
-        text = '\n'.join([patient_string,donor_string])
-        annot.set_text(text)
-
-    ### setting visibility of annotation depending on position of mous
-    def hover(event):
-        vis = annot.get_visible()
-        if event.inaxes == ax:
-            if nodes1 is not None:
-                cont1, ind1 = nodes1.contains(event)
-                cont2, ind2 = nodes2.contains(event)
-            else:
-                cont1, cont2 = False, False
-            if nodes3 is not None:
-                cont3, ind3 = nodes3.contains(event)
-                cont4, ind4 = nodes4.contains(event)
-            else:
-                cont3, cont4 = False, False
-        
-            if cont1:
-                update_annot(ind1, top_nodes)
-                annot.set_visible(True)
-                fig.canvas.draw_idle()
-            elif cont2:
-                update_annot(ind2, top_nodes)
-                annot.set_visible(True)
-                fig.canvas.draw_idle()
-            elif cont3:
-                update_annot(ind3, rest)
-                annot.set_visible(True)
-                fig.canvas.draw_idle()
-            elif cont4:
-                update_annot(ind4, rest)
-                annot.set_visible(True)
-                fig.canvas.draw_idle()
-
-            else:
-                if vis:
-                    annot.set_visible(False)
-                    fig.canvas.draw_idle()
-
-    fig.canvas.mpl_connect("motion_notify_event", hover)
+    fig.canvas.mpl_connect("motion_notify_event", lambda event: hover(event, annot, nodes1, nodes2, nodes3, nodes4, top_nodes, rest, pos, data, fig, ax, G))
 
     plt.show()
+    plt.savefig("./result/output.svg", format="svg")

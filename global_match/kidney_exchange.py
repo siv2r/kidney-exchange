@@ -1,7 +1,3 @@
-import datetime
-from precomputation import CyclePrecomputation
-from cplex.exceptions import CplexSolverError
-import cplex
 #!/usr/bin/python
 # ---------------------------------------------------------------------------
 # File: vertex_cover.py
@@ -15,13 +11,12 @@ import cplex
 # disclosure restricted by GSA ADP Schedule Contract with
 # IBM Corp.
 # ---------------------------------------------------------------------------
-"""Input is a graph.
-
-"""
-# from __future__ import print_function
-
+import datetime
+from precomputation import CyclePrecomputation
+from cplex.exceptions import CplexSolverError
+import cplex
 import sys
-sys.path.insert(1, '/home/shan/kidney_exchange')
+# sys.path.insert(1, '/home/shan/kidney_exchange')
 
 
 def optimize_length(cycles, vertices, dirname, coef=[], ilp=True):
@@ -57,8 +52,8 @@ def optimize_length(cycles, vertices, dirname, coef=[], ilp=True):
                            ub=[1] * len(names),
                            types=["C"] * len(names))
 
-    constraints = []
-    constraint_names = []
+    # constraints = []
+    # constraint_names = []
     for v in vertices:
         constraint = []
         constraint_names = []
@@ -135,7 +130,7 @@ def optimize_weight(cycles, vertices, weight, dirname, ilp):
                            ub=[1] * len(names),
                            types=["C"] * len(names))
 
-    constraints = []
+    # constraints = []
     constraint_names = []
     for v in vertices:
         constraint = []
@@ -221,12 +216,12 @@ def maximize_total_weight(cycles, vertices, cycle_wt, dirname, ilp):
 # 		optimize_weight(cycles,names,cycleswt,ma,option)
 
 
-if __name__ == "__main__":
-    names = ['0', '1', '2', '3']
-    edges = [['0', '1'], ['1', '0'], ['0', '3'], ['3', '2'], ['2', '0']]
-    all_cycles = find_cycles(names, 3, 3)
-    print(all_cycles)
-    cycles = find_cycles_in_graph(all_cycles, edges)
-    print("******************************************************************************************************")
-    print(cycles)
-    # optimize(cycles,names)
+# if __name__ == "__main__":
+#     names = ['0', '1', '2', '3']
+#     edges = [['0', '1'], ['1', '0'], ['0', '3'], ['3', '2'], ['2', '0']]
+#     all_cycles = find_cycles(names, 3, 3)
+#     print(all_cycles)
+#     cycles = find_cycles_in_graph(all_cycles, edges)
+#     print("******************************************************************************************************")
+#     print(cycles)
+#     # optimize(cycles,names)

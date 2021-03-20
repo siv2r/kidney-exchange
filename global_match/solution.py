@@ -2,7 +2,7 @@ from prettytable import PrettyTable
 from precomputation import CyclePrecomputation
 import networkx as nx
 import matplotlib.pyplot as plt
-import netgraph
+import matplotlib
 from networkx.drawing.nx_agraph import graphviz_layout
 from jsonConversion import DataConvert
 from hovering import hover_graph
@@ -20,7 +20,7 @@ def run_results(solution_values, cycles, altruistic, edges, cycleswt):
 
     precomputation = CyclePrecomputation()
 
-    for i in range(0, len(solution_values)):
+    for i in range(len(solution_values)):
         if solution_values[i] != 0:
             transplants = transplants + len(cycles[i])
 
@@ -84,10 +84,10 @@ def poolDescription(all_cycles):
     for cycle in all_cycles:
         if(cycle[0] == cycle[-1]):
             if(len(cycle) == 3):
-                length2_count = length2_count + 1
+                length2_count += 1
 
             if(len(cycle) == 4):
-                length3_count = length3_count + 1
+                length3_count += 1
 
         else:
             if(len(cycle) == 2):
@@ -107,7 +107,7 @@ def print_graph(
         dirname,
         weight,
         pd_details):
-    for i in range(0, len(solution_values)):
+    for i in range(len(solution_values)):
         if solution_values[i] != 0:
             print(cycles[i])
 
@@ -119,126 +119,76 @@ def print_graph(
 
     G.add_nodes_from(altruistic_donors)
     altruists = [0.5] * len(altruistic_donors)
+    values = paired + altruists
 
-    # values = paired + altruists
-
-    for i in range(0, len(solution_values)):
+    for i in range(len(solution_values)):
         if solution_values[i] != 0:
-            for j in range(0, len(cycles[i]) - 1):
+            for j in range(len(cycles[i]) - 1):
                 edge = (cycles[i][j], cycles[i][j + 1])
                 G.add_edge(*edge)
-    print("G.nodes", list(G.nodes))
-    # print("G.edges",list(G.edges))
-    # pos = nx.spring_layout(G)
-    # import matplotlib
-    # # print('\nthesearethecycles\n', cycles)
-    # #### filter 2 cycles from cycles
-    # rest = []
-    # two_cycle_nodes_top = {}
-    # two_cycle_nodes_bottom = {}
-    # top_edges = []
-    # bottom_edges = []
-    # colour1 = 'lightgreen'
-    # colour2 = 'lightpink'
-    # # print('SOLUTIONS --------- ',solution_values )
-    # for i, cycle in enumerate(cycles):
 
-    # 	if len(cycle) == 3 and solution_values[i] == 1:
-    # 		two_cycle_nodes_top[cycle[0]] = colour1
-    # 		two_cycle_nodes_bottom[cycle[0]] = colour2
-    # 		two_cycle_nodes_top[cycle[1]] = colour2
-    # 		two_cycle_nodes_bottom[cycle[1]] = colour1
-    # 		top_edges.append((cycle[0], cycle[1]))
-    # 		bottom_edges.append((cycle[1], cycle[0]))
+    rest = []
+    two_cycle_nodes_top = {}
+    two_cycle_nodes_bottom = {}
+    top_edges = []
+    bottom_edges = []
+    colour1 = 'lightgreen'
+    colour2 = 'lightpink'
+    for i, cycle in enumerate(cycles):
 
-    # pos = graphviz_layout(G)
-    # ### drawing two cycle nodes
-    # top_nodes, top_colours = two_cycle_nodes_top.keys(), two_cycle_nodes_top.values()
-    # bottom_nodes, bottom_colours = two_cycle_nodes_bottom.keys(), two_cycle_nodes_bottom.values()
-    # rest = [n for n in G.nodes() if n not in top_nodes]
-    # nodes = nx.draw_networkx_nodes(G, pos, nodelist=top_nodes, node_color=top_colours, node_size=600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
-    # 																fillstyle='top'), label = 'P')
-    # nx.draw_networkx_nodes(G, pos, nodelist = bottom_nodes,node_color = bottom_colours, node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
-        # fillstyle = 'bottom'), label = 'D')
+        if len(cycle) == 3 and solution_values[i] == 1:
+            two_cycle_nodes_top[cycle[0]] = colour1
+            two_cycle_nodes_bottom[cycle[0]] = colour2
+            two_cycle_nodes_top[cycle[1]] = colour2
+            two_cycle_nodes_bottom[cycle[1]] = colour1
+            top_edges.append((cycle[0], cycle[1]))
+            bottom_edges.append((cycle[1], cycle[0]))
 
-    # ### drawing remaining nodes
-    # nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightgreen', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
-        #                                                                    fillstyle='top'))
-    # nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightpink', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
-        #                                              						fillstyle='bottom'))
-    # print()
-    # keys = G.nodes()
-    hover_graph(G, cycles, solution_values, weight, pd_details)
-    # attrs = {k: {'name': k, 'blood_group': 'A+'} for k in keys}
-    # print(attrs)
-    # # attrs = {0: {'attr1': 20, 'attr2': 'nothing'}, 1: {'attr2': 3}, 2: {'attr1': 42}, 3: {'attr3': 'hello'}, 4: {'attr1': 54, 'attr3': '33'}}
-    # nx.set_node_attributes(G, attrs)
-    # pos_higher, pos_lower = {}, {}
-    # ### calculating offset
-    # if len(top_edges) != 0:
-    # 	a, b = top_edges[0]
-    # 	y_off = 0.3 * abs(pos[a][0] - pos[b][0])
-    # 	# print('y_off', y_off)
-    # else:
-    # 	y_off = 20
+    pos = graphviz_layout(G)
+    ### drawing two cycle nodes
+    top_nodes, top_colours = two_cycle_nodes_top.keys(), two_cycle_nodes_top.values()
+    bottom_nodes, bottom_colours = two_cycle_nodes_bottom.keys(), two_cycle_nodes_bottom.values()
+    rest = [n for n in G.nodes() if n not in top_nodes]
+    nodes = nx.draw_networkx_nodes(G, pos, nodelist=top_nodes, node_color=top_colours, node_size=600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+        fillstyle='top'), label = 'P')
+    nx.draw_networkx_nodes(G, pos, nodelist = bottom_nodes,node_color = bottom_colours, node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+        fillstyle = 'bottom'), label = 'D')
 
-    # for k, v in pos.items():
-    # 	pos_higher[k] = (v[0], v[1] + y_off)
-    # for k, v in pos.items():
-    # 	pos_lower[k] = (v[0], v[1] - y_off)
+    ### drawing remaining nodes
+    nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightgreen', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+                                                                        fillstyle='top'))
+    nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightpink', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
+                                                                        fillstyle='bottom'))
+    print()
+    keys = G.nodes()
+    # hover_graph(G, cycles, solution_values, weight, pd_details)
+    attrs = {k: {'name': k, 'blood_group': 'A+'} for k in keys}
+    print(attrs)
+    # attrs = {0: {'attr1': 20, 'attr2': 'nothing'}, 1: {'attr2': 3}, 2: {'attr1': 42}, 3: {'attr3': 'hello'}, 4: {'attr1': 54, 'attr3': '33'}}
+    nx.set_node_attributes(G, attrs)
+    pos_higher, pos_lower = {}, {}
+    ### calculating offset
+    if len(top_edges) != 0:
+        a, b = top_edges[0]
+    	y_off = 0.3 * abs(pos[a][0] - pos[b][0])
+    else:
+        y_off = 20
 
-    # w_top = {e: str(weight[e]) for e in weight if (e in top_edges and e in G.edges()) }
-    # w_bottom = {e: str(weight[e]) for e in weight if (e in bottom_edges and e in G.edges())}
-    # w_rest = {e: str(weight[e]) for e in weight if (e in G.edges() and e not in top_edges and e not in bottom_edges)}
-    # # print("WTOP   ", w_top)
-    # nx.draw_networkx_labels(G, pos, font_size=8, font_weight='bold')  #horizontalalignment = 'left',verticalalignment = 'top')
-    # nx.draw_networkx_edges(G, pos, edgelist=G.edges(), connectionstyle='arc3,rad=0.2', arrowsize=20)
-    # nx.draw_networkx_edge_labels(G, pos_higher, edge_labels=w_top, label_pos=0.5, verticalalignment='top')
-    # nx.draw_networkx_edge_labels(G, pos_lower, edge_labels=w_bottom, label_pos=0.5, verticalalignment='bottom')
-    # nx.draw_networkx_edge_labels(G, pos, edge_labels=w_rest, label_pos=0.5)
-    # # labels = {e: str(e) for e in G.edges}
+    for k, v in pos.items():
+        pos_higher[k] = (v[0], v[1] + y_off)
+    for k, v in pos.items():
+        pos_lower[k] = (v[0], v[1] - y_off)
 
-    # fig, ax = plt.subplots()
-    # # pos = nx.spring_layout(G)
-    # # nodes = nx.draw_networkx_nodes(G, pos=pos, ax=ax)
-    # # nx.draw_networkx_edges(G, pos=pos, ax=ax)
-
-    # annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
-    # 					bbox=dict(boxstyle="round", fc="w"),
-    # 					arrowprops=dict(arrowstyle="->"))
-    # annot.set_visible(False)
-
-    # idx_to_node_dict = {}
-    # for idx, node in enumerate(G.nodes):
-    # 	idx_to_node_dict[idx] = node
-
-    # def update_annot(ind):
-    # 	node_idx = ind["ind"][0]
-    # 	node = idx_to_node_dict[node_idx]
-    # 	xy = pos[node]
-    # 	annot.xy = xy
-    # 	node_attr = {'node': node}
-    # 	node_attr.update(G.nodes[node])
-    # 	text = '\n'.join(f'{k}: {v}' for k, v in node_attr.items())
-    # 	annot.set_text(text)
-
-    # def hover(event):
-    # 	vis = annot.get_visible()
-    # 	if event.inaxes == ax:
-    # 		cont, ind = nodes.contains(event)
-    # 		if cont:
-    # 			update_annot(ind)
-    # 			annot.set_visible(True)
-    # 			fig.canvas.draw_idle()
-    # 		else:
-    # 			if vis:
-    # 				annot.set_visible(False)
-    # 				fig.canvas.draw_idle()
-
-    # fig.canvas.mpl_connect("motion_notify_event", hover)
-
-    # # plt.savefig("{}/graph.png".format(dirname)) # save as png
-    # plt.show() # display
+    w_top = {e: str(weight[e]) for e in weight if (e in top_edges and e in G.edges()) }
+    w_bottom = {e: str(weight[e]) for e in weight if (e in bottom_edges and e in G.edges())}
+    w_rest = {e: str(weight[e]) for e in weight if (e in G.edges() and e not in top_edges and e not in bottom_edges)}
+    nx.draw_networkx_labels(G, pos, font_size=8, font_weight='bold')  #horizontalalignment = 'left',verticalalignment = 'top')
+    nx.draw_networkx_edges(G, pos, edgelist=G.edges(), connectionstyle='arc3,rad=0.2', arrowsize=20)
+    nx.draw_networkx_edge_labels(G, pos_higher, edge_labels=w_top, label_pos=0.5, verticalalignment='top')
+    nx.draw_networkx_edge_labels(G, pos_lower, edge_labels=w_bottom, label_pos=0.5, verticalalignment='bottom')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=w_rest, label_pos=0.5)
+    plt.savefig("{}/graph.png".format(dirname)) # save as png
+    plt.show() # display
 
 
 
@@ -286,14 +236,14 @@ def print_solution(
         "Effective Pairwise",
         "Weight"]
     x.add_row([run_no,
-               transplants_plus_unused_al,
-               paired_transplants,
-               unused_altruistic,
-               two_ways,
-               three_ways,
-               three_ways_embedded,
-               effective_pairwise,
-               weight])
+                transplants_plus_unused_al,
+                paired_transplants,
+                unused_altruistic,
+                two_ways,
+                three_ways,
+                three_ways_embedded,
+                effective_pairwise,
+                weight])
     print(x)
     f.write(str(x))
 
@@ -332,13 +282,13 @@ def print_solution(
         "Short chains",
         "Long chains"]
     x.add_row([len(names),
-               len(names),
-               len(altruists),
-               len(names) + len(altruists),
-               length2_count,
-               length3_count,
-               short_chain_count,
-               long_chain_count])
+                len(names),
+                len(altruists),
+                len(names) + len(altruists),
+                length2_count,
+                length3_count,
+                short_chain_count,
+                long_chain_count])
     print(x)
     f.write(str(x))
 
