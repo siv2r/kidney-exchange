@@ -2,8 +2,8 @@
 <!--Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.-->
 <!--write these changes as bullet points-->
 
-Addresses # (issue)<!--Add issue no. which your PR fixes partially -->
-
+Fixes # (issue)<!-- Fixes # (issue)  - use this if your pull request solves the issue completely-->
+Addresses # (issue)<!-- Addresses # (issue)  - use this if your pull request solves only a part of the issue-->
 ## Type of change
 
 <!---Please delete options that are not relevant.-->
