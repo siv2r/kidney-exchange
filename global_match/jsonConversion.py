@@ -1,14 +1,16 @@
 import json
 
-""" page to read json file (pair id and """
+''' script to read compatibility graph json file and get pair-id, edges 
+(which pair can donate to which pair) and altruistic donors
+ '''
 
 
 class DataConvert:
+
     def __init__(self, file_name):
         self.file = file_name
 
     def convert_altruistic(self):
-        # file_name is dummy argument to be removed
         file_name = self.file
         names = []
         edges = []
@@ -18,7 +20,7 @@ class DataConvert:
         with open(file_name) as json_file:
             data = json.load(json_file)
 
-            for key, value in data["data"].items():
+            for key, value in data['data'].items():
                 if "altruistic" in value:
                     altruistic.append((key))
                     if "matches" in value:
@@ -44,18 +46,3 @@ class DataConvert:
 
         return names, edges, weight, altruistic
 
-    # def convert(self,file_name=None):
-    #   # file_name is dummy argument to be removed
-    #   with open(self.file) as json_file:
-    #     data = json.load(json_file)
-
-    #     for p in data['data'].values():
-    #       a1 = p['sources'][0]
-    #       names.append(str(a1))
-    #       #print(a1)
-    #       if "matches" in p:
-    #         for matches in p["matches"]:
-    #           edge=[str(a1),str(matches["recipient"])]
-    #           edges.append(edge)
-    #           print (a1,"                          ",matches["recipient"])
-    #           weight[tuple(edge)] = matches["score"]
