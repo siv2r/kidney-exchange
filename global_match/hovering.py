@@ -114,7 +114,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
             marker='o',
             fillstyle='top'),
         label='P')
-    
+
     nodes2 = nx.draw_networkx_nodes(
         G,
         pos,
@@ -156,12 +156,12 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     '''
     pos_higher, pos_lower = {}, {}
     # calculating offset
-    if len(top_edges) != 0:
-        a, b = top_edges[0]
-        y_off = 0.3 * abs(pos[a][0] - pos[b][0])
-    else:
+    if not top_edges:
         y_off = 20
 
+    else:
+        a, b = top_edges[0]
+        y_off = 0.3 * abs(pos[a][0] - pos[b][0])
     for k, v in pos.items():
         pos_higher[k] = (v[0], v[1] + y_off)
     for k, v in pos.items():
@@ -213,10 +213,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
                 boxstyle="round", fc="w"), arrowprops=dict(
                     arrowstyle="->"))
     annot.set_visible(False)
-    idx_to_node_dict = {}
-    for idx, node in enumerate(G.nodes):
-        idx_to_node_dict[idx] = node
-        
+    idx_to_node_dict = {idx: node for idx, node in enumerate(G.nodes)}
     fig.canvas.mpl_connect("motion_notify_event", lambda event: hover(event, annot, nodes1, nodes2, nodes3, nodes4, top_nodes, rest, pos, data, fig, ax, G))
 
     plt.show()

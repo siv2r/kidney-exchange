@@ -22,31 +22,30 @@ def run_results(solution_values, cycles, altruistic, edges, cycleswt):
 
     for i in range(len(solution_values)):
         if solution_values[i] != 0:
-            transplants = transplants + len(cycles[i])
+            transplants += len(cycles[i])
 
-            if(cycles[i][0] == cycles[i][-1]):
-                transplants = transplants - 1
+            if (cycles[i][0] == cycles[i][-1]):
+                transplants -= 1
                 paired_transplants = paired_transplants + len(cycles[i]) - 1
 
-                if(len(cycles[i]) == 3):
-                    two_ways = two_ways + 1
-                    effective_pairwise = effective_pairwise + 1
+                if (len(cycles[i]) == 3):
+                    two_ways += 1
+                    effective_pairwise += 1
 
-                elif(len(cycles[i]) == 4):
-                    three_ways = three_ways + 1
+                elif len(cycles[i]) == 4:
+                    three_ways += 1
                     effective_pairwise = effective_pairwise + \
                         len(cycles[i]) - 1
 
-                    three_ways_embedded = three_ways_embedded + \
-                        precomputation.calculate_backarc(cycles[i], edges)
+                    three_ways_embedded += precomputation.calculate_backarc(cycles[i], edges)
                 else:
                     effective_pairwise = effective_pairwise + \
                         len(cycles[i]) - 1
 
             else:
-                altruistic_involved = altruistic_involved + 1
+                altruistic_involved += 1
 
-            weight = weight + cycleswt[tuple(cycles[i])]
+            weight += cycleswt[tuple(cycles[i])]
 
     return transplants + len(altruistic) - altruistic_involved, paired_transplants, len(altruistic) - \
         altruistic_involved, two_ways, three_ways, three_ways_embedded, effective_pairwise, weight
@@ -58,7 +57,7 @@ def cyclesAndChains(cycles, solution_values):
     length1_chain = []
     length2_chain = []
 
-    for i in range(0, len(solution_values)):
+    for i in range(len(solution_values)):
         if solution_values[i] != 0:
 
             if(cycles[i][0] == cycles[i][-1]):
@@ -82,7 +81,7 @@ def poolDescription(all_cycles):
     long_chain_count = 0
 
     for cycle in all_cycles:
-        if(cycle[0] == cycle[-1]):
+        if (cycle[0] == cycle[-1]):
             if(len(cycle) == 3):
                 length2_count += 1
 
@@ -90,11 +89,11 @@ def poolDescription(all_cycles):
                 length3_count += 1
 
         else:
-            if(len(cycle) == 2):
-                short_chain_count = short_chain_count + 1
+            if (len(cycle) == 2):
+                short_chain_count += 1
 
             else:
-                long_chain_count = long_chain_count + 1
+                long_chain_count += 1
 
     return length2_count, length3_count, short_chain_count, long_chain_count
 
@@ -111,15 +110,8 @@ def print_graph(
         if solution_values[i] != 0:
             print(cycles[i])
 
-    # values =[]
-
     G = nx.DiGraph()
     G.add_nodes_from(names)
-    paired = [1] * len(names)
-
-    G.add_nodes_from(altruistic_donors)
-    altruists = [0.5] * len(altruistic_donors)
-    values = paired + altruists
 
     for i in range(len(solution_values)):
         if solution_values[i] != 0:
@@ -159,20 +151,15 @@ def print_graph(
                                                                         fillstyle='top'))
     nx.draw_networkx_nodes(G, pos, nodelist = rest, node_color = 'lightpink', node_size = 600, node_shape=matplotlib.markers.MarkerStyle(marker='o',
                                                                         fillstyle='bottom'))
-    print()
-    keys = G.nodes()
     # hover_graph(G, cycles, solution_values, weight, pd_details)
-    attrs = {k: {'name': k, 'blood_group': 'A+'} for k in keys}
-    print(attrs)
-    # attrs = {0: {'attr1': 20, 'attr2': 'nothing'}, 1: {'attr2': 3}, 2: {'attr1': 42}, 3: {'attr3': 'hello'}, 4: {'attr1': 54, 'attr3': '33'}}
-    nx.set_node_attributes(G, attrs)
     pos_higher, pos_lower = {}, {}
     ### calculating offset
-    if len(top_edges) != 0:
-        a, b = top_edges[0]
-    	y_off = 0.3 * abs(pos[a][0] - pos[b][0])
-    else:
+    if not top_edges:
         y_off = 20
+
+    else:
+        a, b = top_edges[0]
+        y_off = 0.3 * abs(pos[a][0] - pos[b][0])
 
     for k, v in pos.items():
         pos_higher[k] = (v[0], v[1] + y_off)
@@ -207,103 +194,99 @@ def print_solution(
         pd_details):
 
     file_name = dirname + "/" + "solution"
-    f = open(file_name, "w")
+    with open(file_name, "w") as f:
+        print("RUN DESCRIPTION")
+        f.write("RUN DESCRIPTION" + "\n")
+        x = PrettyTable()
+        x.field_names = ["Run number", "Constraint", "Max Length"]
+        x.add_row([run_no, constraint, max_length])
+        print(x)
+        f.write(str(x))
 
-    print("RUN DESCRIPTION")
-    f.write("RUN DESCRIPTION" + "\n")
-    x = PrettyTable()
-    x.field_names = ["Run number", "Constraint", "Max Length"]
-    x.add_row([run_no, constraint, max_length])
-    print(x)
-    f.write(str(x))
+        print()
+        f.write("\n")
 
-    print()
-    f.write("\n")
+        print("RUN RESULTS")
+        f.write("RUN RESULTS" + "\n")
+        transplants_plus_unused_al, paired_transplants, unused_altruistic, two_ways, three_ways, three_ways_embedded, effective_pairwise, weight = run_results(
+            solution_values, cycles, altruists, edges, cycleswt)
+        x = PrettyTable()
+        x.field_names = [
+            "Run number",
+            "Transplants(including unused altruistic)",
+            "Paired Transplants",
+            "nused altruistic Donors ",
+            "2-ways",
+            "3-ways ",
+            "3-ways with embedded",
+            "Effective Pairwise",
+            "Weight"]
+        x.add_row([run_no,
+                    transplants_plus_unused_al,
+                    paired_transplants,
+                    unused_altruistic,
+                    two_ways,
+                    three_ways,
+                    three_ways_embedded,
+                    effective_pairwise,
+                    weight])
+        print(x)
+        f.write(str(x))
 
-    print("RUN RESULTS")
-    f.write("RUN RESULTS" + "\n")
-    transplants_plus_unused_al, paired_transplants, unused_altruistic, two_ways, three_ways, three_ways_embedded, effective_pairwise, weight = run_results(
-        solution_values, cycles, altruists, edges, cycleswt)
-    x = PrettyTable()
-    x.field_names = [
-        "Run number",
-        "Transplants(including unused altruistic)",
-        "Paired Transplants",
-        "nused altruistic Donors ",
-        "2-ways",
-        "3-ways ",
-        "3-ways with embedded",
-        "Effective Pairwise",
-        "Weight"]
-    x.add_row([run_no,
-                transplants_plus_unused_al,
-                paired_transplants,
-                unused_altruistic,
-                two_ways,
-                three_ways,
-                three_ways_embedded,
-                effective_pairwise,
-                weight])
-    print(x)
-    f.write(str(x))
+        print()
+        f.write("\n")
 
-    print()
-    f.write("\n")
+        print("CYCLES AND CHAINS")
+        f.write("CYCLES AND CHAINS" + "\n")
+        length2_cycles, length3_cycles, length1_chain, length2_chain = cyclesAndChains(
+            cycles, solution_values)
+        x = PrettyTable()
+        x.field_names = ["Type", "Cycles/Chains"]
+        x.add_row(["Cycles of length 2", length2_cycles])
+        x.add_row(["Cycles of length 3", length3_cycles])
+        x.add_row(["Chains of length 1", length1_chain])
+        x.add_row(["Chains of length 2", length2_chain])
+        x.align = "l"
+        print(x)
+        f.write(str(x))
+        print()
+        f.write("\n")
 
-    print("CYCLES AND CHAINS")
-    f.write("CYCLES AND CHAINS" + "\n")
-    length2_cycles, length3_cycles, length1_chain, length2_chain = cyclesAndChains(
-        cycles, solution_values)
-    x = PrettyTable()
-    x.field_names = ["Type", "Cycles/Chains"]
-    x.add_row(["Cycles of length 2", length2_cycles])
-    x.add_row(["Cycles of length 3", length3_cycles])
-    x.add_row(["Chains of length 1", length1_chain])
-    x.add_row(["Chains of length 2", length2_chain])
-    x.align = "l"
-    print(x)
-    f.write(str(x))
-    # print("cycles_weight is",cycleswt )
-    print()
-    f.write("\n")
+        print("DESCRIPTION OF POOL")
+        f.write("CYCLES AND CHAINS" + "\n")
+        length2_count, length3_count, short_chain_count, long_chain_count = poolDescription(
+            cycles)
+        x = PrettyTable()
+        x.field_names = [
+            "Patients",
+            "Paired donors",
+            "Altruistic donors",
+            "Vertices",
+            "2-cycles",
+            "3-cycles",
+            "Short chains",
+            "Long chains"]
+        x.add_row([len(names),
+                    len(names),
+                    len(altruists),
+                    len(names) + len(altruists),
+                    length2_count,
+                    length3_count,
+                    short_chain_count,
+                    long_chain_count])
+        print(x)
+        f.write(str(x))
 
-    print("DESCRIPTION OF POOL")
-    f.write("CYCLES AND CHAINS" + "\n")
-    length2_count, length3_count, short_chain_count, long_chain_count = poolDescription(
-        cycles)
-    x = PrettyTable()
-    x.field_names = [
-        "Patients",
-        "Paired donors",
-        "Altruistic donors",
-        "Vertices",
-        "2-cycles",
-        "3-cycles",
-        "Short chains",
-        "Long chains"]
-    x.add_row([len(names),
-                len(names),
-                len(altruists),
-                len(names) + len(altruists),
-                length2_count,
-                length3_count,
-                short_chain_count,
-                long_chain_count])
-    print(x)
-    f.write(str(x))
+        print()
+        f.write("\n")
 
-    print()
-    f.write("\n")
-
-    print("SOLUTION")
-    print_graph(
-        solution_values,
-        cycles,
-        names,
-        altruists,
-        dirname,
-        weight_dict,
-        pd_details)
-    # print('=== weight ===', weight_dict)
-    f.close()
+        print("SOLUTION")
+        print_graph(
+            solution_values,
+            cycles,
+            names,
+            altruists,
+            dirname,
+            weight_dict,
+            pd_details)
     return transplants_plus_unused_al
