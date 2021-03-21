@@ -120,7 +120,6 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         nodelist=bottom_nodes,
         node_color=bottom_colours,
         node_size=600,
-
         node_shape=matplotlib.markers.MarkerStyle(
             marker='o',
             fillstyle='bottom'),
