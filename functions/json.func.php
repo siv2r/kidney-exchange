@@ -45,33 +45,60 @@ function createGraph($jsonData) {
   $cmpGraph = array();
   $cmpGraph['data'] = array();
 
-  for ($i = 0; $i < $dataLen; $i++) {
-    $pairId = $pairData[$i]['pairId'];
-    $pairIdContents = array();
+  // for ($i = 0; $i < $dataLen; $i++) {
+  //   $pairId = $pairData[$i]['pairId'];
+  //   $pairIdContents = array();
+
+  //   //add pairId's data required for matching
+  //   $pairIdContents['sources'] = array($pairData[$i]['pairId']);
+  //   $pairIdContents['dAge'] = toAge($pairData[$i]['dDob']);
+
+  //   //find the matches
+  //   $pairIdContents['matches'] = array();
+  //   for ($j = 0; $j < $dataLen; $j++) {
+  //     if ($j === $i) {
+  //       continue;
+  //     }
+
+  //     if (isMatch($pairData[$i], $pairData[$j])) {
+  //       $matchContents = array();
+  //       $matchContents['recipient'] = $pairData[$j]['pairId'];
+  //       $matchContents['score'] = calcScore($pairData[$i], $pairData[$j]);
+
+  //       //push the match contents
+  //       array_push($pairIdContents['matches'], $matchContents);
+  //     }
+  //   }
+
+  //   //add current pair result to the final output
+  //   $cmpGraph['data'][$pairId] = $pairIdContents;
+  // }
+  foreach ($pairData as $donatePairId => $donatePairValue) {
+    $donatePairCmpGrphValue = array();
 
     //add pairId's data required for matching
-    $pairIdContents['sources'] = array($pairData[$i]['pairId']);
-    $pairIdContents['dAge'] = toAge($pairData[$i]['dDob']);
+    $donatePairCmpGrphValue['sources'] = array($donatePairId);
+    $donatePairCmpGrphValue['dAge'] = toAge($donatePairValue['dDob']);
 
     //find the matches
-    $pairIdContents['matches'] = array();
-    for ($j = 0; $j < $dataLen; $j++) {
-      if ($j === $i) {
+    $donatePairCmpGrphValue['matches'] = array();
+    foreach ($pairData as $acceptPairId => $acceptPairValue) {
+      if ($acceptPairId === $donatePairId) {
         continue;
       }
 
-      if (isMatch($pairData[$i], $pairData[$j])) {
+      if (isMatch($donatePairValue, $acceptPairValue)) {
         $matchContents = array();
-        $matchContents['recipient'] = $pairData[$j]['pairId'];
-        $matchContents['score'] = calcScore($pairData[$i], $pairData[$j]);
+        $matchContents['recipient'] = $acceptPairId;
+        $matchContents['score'] = calcScore($donatePairValue, $acceptPairValue);
 
         //push the match contents
-        array_push($pairIdContents['matches'], $matchContents);
+        array_push($donatePairCmpGrphValue['matches'], $matchContents);
       }
     }
 
     //add current pair result to the final output
-    $cmpGraph['data'][$pairId] = $pairIdContents;
+    $cmpGraph['data'][$donatePairId] = $donatePairCmpGrphValue;
   }
 
   //convert the result to json

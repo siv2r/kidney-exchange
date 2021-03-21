@@ -14,7 +14,7 @@
     <?php include "../templates/navBar.php";?>
   </div>
 
-  <img src="/kidney-exchange/global_match/result/output.png" alt="Solution Image">
+  <img src="/kidney-exchange/global_match/result/graph.png" alt="Solution Image">
   <!-- <img src="/kidney-exchange/global_match/result/solution" alt="Global Match"> -->
 
 

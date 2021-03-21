@@ -47,14 +47,17 @@ def fillexcel(
                          Constraint])
 
 
-def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_details):
-    x = datetime.datetime.now()
-    path = os.getcwd() + '/'
-    dirName = 'result'
-    if not os.path.exists(dirName):
-        os.mkdir(dirName)
-    else:
-        print("Directory ", dirName, " already exists")
+def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_details): 
+    x = "result"
+    path = os.getcwd() + "/"
+    dirName = path + str(x)
+
+    # delete the directory if exists
+    if os.path.exists(dirName):
+        shutil.rmtree(dirName)
+
+    # create an empty directory
+    os.mkdir(dirName)
 
     destination = dirName
     shutil.copy(file_name, destination)
