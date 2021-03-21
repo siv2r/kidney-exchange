@@ -1,12 +1,11 @@
 import json
 
-''' script to read compatibility graph json file and get pair-id, edges 
+""" script to read compatibility graph json file and get pair-id, edges 
 (which pair can donate to which pair) and altruistic donors
- '''
+ """
 
 
 class DataConvert:
-
     def __init__(self, file_name):
         self.file = file_name
 
@@ -20,7 +19,7 @@ class DataConvert:
         with open(file_name) as json_file:
             data = json.load(json_file)
 
-            for key, value in data['data'].items():
+            for key, value in data["data"].items():
                 if "altruistic" in value:
                     altruistic.append((key))
                     if "matches" in value:
@@ -45,4 +44,3 @@ class DataConvert:
                     weight[tuple(edge)] = 0
 
         return names, edges, weight, altruistic
-
