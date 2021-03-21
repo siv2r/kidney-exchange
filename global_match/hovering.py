@@ -1,10 +1,10 @@
+
 import json
 import networkx as nx
 from networkx.drawing.nx_agraph import graphviz_layout
 import matplotlib
 import matplotlib.pyplot as plt
 import networkx as nx
-
 
 def read_details(pd_details):
     with open(pd_details) as f:
@@ -69,7 +69,6 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     weight : dict -> keys: edges, values: edgeweights
     pd_details : string -> path to JSON file (dump) with patient donor details
     '''
-    
     fig, ax = plt.subplots()
     pos = graphviz_layout(G)
     data = read_details(pd_details)
@@ -121,11 +120,12 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         nodelist=bottom_nodes,
         node_color=bottom_colours,
         node_size=600,
+
         node_shape=matplotlib.markers.MarkerStyle(
             marker='o',
             fillstyle='bottom'),
         label='D')
-
+        
     # drawing remaining nodes
     nodes3 = nx.draw_networkx_nodes(
         G,
@@ -162,6 +162,7 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
     else:
         a, b = top_edges[0]
         y_off = 0.3 * abs(pos[a][0] - pos[b][0])
+
     for k, v in pos.items():
         pos_higher[k] = (v[0], v[1] + y_off)
     for k, v in pos.items():
@@ -202,19 +203,8 @@ def hover_graph(G, cycles, solution_values, weight, pd_details):
         edge_labels=w_bottom,
         label_pos=0.5,
         verticalalignment='bottom')
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=w_rest, label_pos=0.5)
 
-    # =================== HOVERING =========================
-    ### setting annotation style
-    annot = ax.annotate(
-        "", xy=(
-            0, 0), xytext=(
-            20, 20), textcoords="offset points", bbox=dict(
-                boxstyle="round", fc="w"), arrowprops=dict(
-                    arrowstyle="->"))
-    annot.set_visible(False)
-    idx_to_node_dict = {idx: node for idx, node in enumerate(G.nodes)}
-    fig.canvas.mpl_connect("motion_notify_event", lambda event: hover(event, annot, nodes1, nodes2, nodes3, nodes4, top_nodes, rest, pos, data, fig, ax, G))
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=w_rest, label_pos=0.5)
 
     plt.show()
     plt.savefig("./result/output.svg", format="svg")

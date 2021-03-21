@@ -1,4 +1,3 @@
-
 import csv
 import os
 import time
@@ -14,7 +13,6 @@ import copy
 import sys
 import shutil
 import sys
-sys.path.insert(1, '/home/shan/kidney_exchange')
 
 names = []
 edges = []
@@ -48,6 +46,7 @@ def fillexcel(
 
 
 def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_details):
+
     x = datetime.datetime.now()
     path = os.getcwd() + '/'
     dirName = 'result'
@@ -55,7 +54,7 @@ def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_deta
         os.mkdir(dirName)
     else:
         print("Directory ", dirName, " already exists")
-
+        
     destination = dirName
     shutil.copy(file_name, destination)
     graph = dirName + '/' + "graph"
@@ -107,6 +106,7 @@ def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_deta
             dirName,
             weight_dict,
             pd_details)
+        
         fillexcel(
             len(names),
             len(altruistic_donors),
@@ -138,6 +138,7 @@ def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_deta
             dirName,
             weight,
             pd_details)
+
         fillexcel(
             len(names),
             len(altruistic_donors),
@@ -158,7 +159,7 @@ def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_deta
         cyclesAndChains = precomputation.findCyclesAndChains(
             names, max_cycle_length, max_chain_length, altruistic_donors, edges)
         end = time.time()
-        print('---------------------- WEIGHT ------------- ', weight)
+        
         cycleandchain_wt = precomputation.findwt(cyclesAndChains, weight)
         solution_values = maximize_total_weight(
             cyclesAndChains,
@@ -180,6 +181,7 @@ def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_deta
             dirName,
             weight,
             pd_details)
+
         fillexcel(
             len(names),
             len(altruistic_donors),
@@ -213,6 +215,7 @@ def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_deta
             dirName,
             weight,
             pd_details)
+        
         fillexcel(
             len(names),
             len(altruistic_donors),
@@ -262,6 +265,7 @@ if __name__ == "__main__":
         help='Patient donor details json',
         default='./enterdata.json')
     my_parser.add_argument(
+
         '-i',
         '--ilp',
         action='store',

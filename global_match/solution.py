@@ -1,8 +1,8 @@
 from prettytable import PrettyTable
 from precomputation import CyclePrecomputation
 import networkx as nx
-import matplotlib.pyplot as plt
 import matplotlib
+import matplotlib.pyplot as plt
 from networkx.drawing.nx_agraph import graphviz_layout
 from jsonConversion import DataConvert
 from hovering import hover_graph
@@ -99,6 +99,7 @@ def poolDescription(all_cycles):
 
 
 def print_graph(
+
         solution_values,
         cycles,
         names,
