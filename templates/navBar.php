@@ -108,8 +108,9 @@ if (!isset($_SESSION)) {
 </style>
 
 <nav>
-  <div class="logo">
-    <p>Kidney Exchange</p>
+  <div class="logo" style="padding:0px;">
+    <img src="./images/logo3.png" width="100px" hight="100px" style="float:left;">
+    <p style="float:left;margin-top:30px;margin-left:20px;">Kidney Exchange</p>
   </div>
   <ul class="nav-links">
     <li><a href="/kidney-exchange/index.php">Home</a></li>
