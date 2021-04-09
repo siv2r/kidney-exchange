@@ -69,6 +69,16 @@ img.avatar {
   color: #32cd32;
   font-size: 28px;
 }
+/* for show password */
+#showpass
+{
+  width:12vw;
+  color:#fff;
+}
+#showpass input
+{
+  width:auto;
+}
 
 </style>
 
@@ -129,35 +139,14 @@ img.avatar {
       <input type="number" name="hosp_id" placeholder="Hospital ID" class="requiredField">
       <input type="password" name="pswd" placeholder="Password" id="pswd" class="requiredField">
       <input type="password" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
-      <div style="width:12vw;color:#fff;">
-                <input type="checkbox" id="box" onclick="box1()" style="width:auto;">
+      <div id="showpass">
+                <input type="checkbox" id="box" onclick="box1()">
                 <span id="notice">show password</span>
             </div>
       <button type="submit" name="submit" value="submit" id="submitBtn">Sign Up</button>
     </div>
       	
   </form>
-  
-<?php include("../include/footer.inc.php") ?>
 
-<script>
-function box1()
-{
-  
-  var password=document.getElementById("pswd");
-  var password2=document.getElementById("pswd2");
-  var x=document.getElementById("box").checked;
-  if(x==true)
-  {
-    password.type="text";
-    password2.type="text";
-    
-  }
-  else
-  {
-    password.type="password";
-    password2.type="password";
-    
-  }
-}
-</script>
+<script src="../js/showpassword.js"></script>  
+<?php include("../include/footer.inc.php") ?>
