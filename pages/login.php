@@ -118,7 +118,11 @@ form a{
 
 			<div class="form-elements">
 				<input type="text" name="uid" placeholder="Username/Email">
-				<input type="password" name="pswd" placeholder="Password">
+				<input type="password" name="pswd" id="pswd" placeholder="Password">
+        <div style="width:12vw;color:#fff;">
+                <input type="checkbox" id="box" onclick="box1()" style="width:auto;">
+                <span id="notice">show password</span>
+            </div>
 				<button type="submit" name="submit" value="submit">Login</button>
       </div>
 
@@ -128,5 +132,24 @@ form a{
 			
 	</form>
 
-
 <?php include("../include/footer.inc.php") ?>
+
+
+<script>
+function box1()
+{
+ 
+  var password=document.getElementById("pswd");
+  var x=document.getElementById("box").checked;
+  if(x==true)
+  {
+    password.type="text";
+  }
+  else
+  {
+    password.type="password";
+    
+  }
+}
+</script>
+
