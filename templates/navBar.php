@@ -26,9 +26,22 @@ if (!isset($_SESSION)) {
     text-transform: uppercase;
     color: #fff;
     letter-spacing: 4px;
-    padding: 26px;
+    /* padding: 26px; */
     font-size: 24px;
     font-weight: 600;
+    padding: 0px;
+  }
+
+  .brand_logo
+  {
+    float:left;
+  }
+
+  .brand_title
+  {
+    float:left;
+    margin-top:30px;
+    margin-left:20px;
   }
 
   .nav-links {
@@ -109,7 +122,8 @@ if (!isset($_SESSION)) {
 
 <nav>
   <div class="logo">
-    <p>Kidney Exchange</p>
+    <img src="/kidney-exchange/images/logo3.png" class="brand_logo" width="100px" hight="100px">
+    <p class="brand_title">Kidney Exchange</p>
   </div>
   <ul class="nav-links">
     <li><a href="/kidney-exchange/index.php">Home</a></li>
