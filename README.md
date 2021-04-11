@@ -1,9 +1,7 @@
 <img alt="PHP" src="https://img.shields.io/badge/php-%23777BB4.svg?&style=for-the-badge&logo=php&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
-# Kidney Exchange Program 
-![logo](https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png)
+# Kidney Exchange Program <img alt="Brand Logo " src="https://github.com/siv2r/kidney-exchange/blob/master/images/logo3.png?raw=true" width="100" height="40">
 
-## Brand Logo
-![Brand Logo](images/logo3.png)
+![logo](https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png)
 
 ## What is a living donor kidney exchange problem?
 
