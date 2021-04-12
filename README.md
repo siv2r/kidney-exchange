@@ -1,12 +1,13 @@
 <img alt="PHP" src="https://img.shields.io/badge/php-%23777BB4.svg?&style=for-the-badge&logo=php&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
-# Kidney Exchange Program ![logo](https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png)
+# Kidney Exchange Program <img alt="Brand Logo " src="https://github.com/siv2r/kidney-exchange/blob/master/images/logo3.png?raw=true" width="100" height="40">
 
+![logo](https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png)
 
-## What is living donor kidney exchange problem?
+## What is a living donor kidney exchange problem?
 
 Let's say a person wants to donate his/her kidney to a loved one but cannot do so because they have some medical incompatibility. This problem can be solved by curating similar patients and swapping the kidney within themselves. This problem is called the living donor kidney exchange problem, and in most places of India, doctors solve it manually. 
 
-![illustration](https://www.med.unc.edu/surgery/files/2018/09/kidney-chain-illustration.png)
+![illustration](images/kidney_chain.png)
 
 ## Aim
 
@@ -14,7 +15,7 @@ This project aims to automate a part of this process. This project's primary foc
 
 ## Features
 
-This platform allows interested hospitals to register. The doctors from the registered hospitals can create their account and add their patients' (having kidney problems) medical details to this platform.
+This platform allows interested hospitals to register. The doctors from the registered hospitals can create their accounts and add their patients' (having kidney problems) medical details to this platform.
 
 After a doctor completes this process, this platform provides two main features. The first feature is an option to view only the essential details of a patient required for a kidney transplant. Second, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
 
