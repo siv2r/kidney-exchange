@@ -129,9 +129,9 @@ form a{
 				<input type="text" name="uid" placeholder="Username/Email">
 				<input type="password" name="pswd" id="pswd" placeholder="Password">
         <div id="showpass">
-                <input type="checkbox" id="box" onclick="box1()">
-                <span id="notice">show password</span>
-            </div>
+            <input type="checkbox" id="box" onclick="box1()">
+            <span id="notice">show password</span>
+        </div>
 				<button type="submit" name="submit" value="submit">Login</button>
       </div>
 

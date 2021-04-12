@@ -140,13 +140,13 @@ img.avatar {
       <input type="password" name="pswd" placeholder="Password" id="pswd" class="requiredField">
       <input type="password" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
       <div id="showpass">
-                <input type="checkbox" id="box" onclick="box1()">
-                <span id="notice">show password</span>
-            </div>
+          <input type="checkbox" id="box" onclick="box1()">
+          <span id="notice">show password</span>
+      </div>
       <button type="submit" name="submit" value="submit" id="submitBtn">Sign Up</button>
     </div>
       	
   </form>
 
-<script src="../js/showpassword.js"></script>  
+  <script src="../js/showpassword.js"></script>  
 <?php include("../include/footer.inc.php") ?>
