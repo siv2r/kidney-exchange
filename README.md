@@ -5,7 +5,7 @@
 
 ## What is a living donor kidney exchange problem?
 
-Let's say a person wants to donate his/her kidney to a loved one but cannot do so because they have some medical incompatibility. This problem can be solved by curating similar patients and swapping the kidney within themselves. This problem is called the living donor kidney exchange problem, and in most places of India, doctors solve it manually. 
+Let's say a person wants to donate his/her kidney to a loved one but cannot do so because they have some medical incompatibility. This problem can be solved by curating similar patients and swapping the kidney within themselves. This problem is called the living donor kidney exchange problem. Only one donated kidney is needed to replace the two failed kidneys, which makes living-donor kidney transplant an alternative to deceased-donor kidney transplant.In India, this is often done manually and there's a need to automate the process.
 
 ![illustration](images/kidney_chain.png)
 
@@ -17,7 +17,9 @@ This project aims to automate a part of this process. This project's primary foc
 
 This platform allows interested hospitals to register. The doctors from the registered hospitals can create their accounts and add their patients' (having kidney problems) medical details to this platform.
 
-After a doctor completes this process, this platform provides two main features. The first feature is an option to view only the essential details of a patient required for a kidney transplant. Second, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
+After a doctor completes this process, this platform provides two main features.
+1) The first feature is an option to view only the essential details of a patient required for a kidney transplant.
+2) Secondly, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
 
 ## Setting up this project 
 
