@@ -80,7 +80,16 @@ form a{
   color: #32cd32;
   font-size: 28px;
 }
-
+/* for show password */
+#showpass
+{
+  width:12vw;
+  color:#fff;
+}
+#showpass input
+{
+  width:auto;
+}
 </style>
 
 <?php include("../templates/header.php"); ?>
@@ -118,7 +127,11 @@ form a{
 
 			<div class="form-elements">
 				<input type="text" name="uid" placeholder="Username/Email">
-				<input type="password" name="pswd" placeholder="Password">
+				<input type="password" name="pswd" id="pswd" placeholder="Password">
+        <div id="showpass">
+            <input type="checkbox" id="box" onclick="box1()">
+            <span id="notice">show password</span>
+        </div>
 				<button type="submit" name="submit" value="submit">Login</button>
       </div>
 
@@ -127,6 +140,8 @@ form a{
 
 			
 	</form>
-
-
+  <script src="../js/showpassword.js"></script>  
 <?php include("../include/footer.inc.php") ?>
+
+
+
