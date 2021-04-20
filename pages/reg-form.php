@@ -107,7 +107,7 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="date" id="r_dob" name="r_dob" value="" class="requiredField single">
+              <input type="date" id="r_dob" name="r_dob" value="" class="requiredField single" min="1951-01-01">
             </div>
           </div>
 
@@ -544,7 +544,7 @@ if ($_SESSION['userType'] === "Transplant coordinator") {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="date" id="d_dob" name="d_dob" value="" class="requiredField single">
+              <input type="date" id="d_dob" name="d_dob" value="" class="requiredField single" min="1951-01-01">
             </div>
           </div>
 
