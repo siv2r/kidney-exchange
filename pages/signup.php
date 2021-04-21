@@ -4,7 +4,7 @@ body{
   background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 
 form {
   background: rgb(0, 0, 0, 0.5);
@@ -84,10 +84,10 @@ img.avatar {
 }
 </style>
 
-<?php include("../templates/header.php"); ?>
+<?php include "../templates/header.php";?>
 
 	<div class="nav-container">
-      <?php include("../templates/navBar.php") ?>
+      <?php include "../templates/navBar.php"?>
   </div>
 
   <div class="container col-lg-5 mt-0 co-sm-11">
@@ -99,41 +99,32 @@ img.avatar {
 
     <div class="form-elements">
         <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
-        <?php 
-          if(isset($_GET["error"])) {
-            if ($_GET["error"] == "emptyInputSignup") {
-              echo "<p id='failed'>Please fill all the fields</p>";
-            }
-            else if ($_GET["error"] == "invalidUname") {
-              echo "<p id='failed'>Username must contain letters, numbers and underscores only</p>";
-            }
-            else if ($_GET["error"] == "invalidHospId") {
-              echo "<p id='failed'>Invalid hospital id</p>";
-            }
-            else if ($_GET["error"] == "invalidEmail") {
-              echo "<p id='failed'>Invalid email id</p>";
-            }
-            else if ($_GET["error"] == "noPswdMatch") {
-              echo "<p id='failed'>The passwords do not match</p>";
-            }
-            else if ($_GET["error"] == "unameExists") {
-              echo "<p id='failed'>This username is already taken</p>";
-            }
-            else if ($_GET["error"] == "noHospIdExists") {
-              echo "<p id='failed'>Your hospital is not registered with us</p>";
-            }
-            else if ($_GET["error"] == "hospstmtfailed") {
-              echo "<p id='failed'>Something went wrong while checking hospital id</p>";
-            }
-            else if ($_GET["error"] == "userstmtfailed") {
-              echo "<p id='failed'>Something went wrong while creating user</p>";
-            }
-            else if ($_GET["error"] == "none") {
-              echo "<p id='success'>Registration successful!!!</p>";
-            }
-          
-          }
-        ?>
+        <?php
+if (isset($_GET["error"])) {
+ if ($_GET["error"] == "emptyInputSignup") {
+  echo "<p id='failed'>Please fill all the fields</p>";
+ } else if ($_GET["error"] == "invalidUname") {
+  echo "<p id='failed'>Username must contain letters, numbers and underscores only</p>";
+ } else if ($_GET["error"] == "invalidHospId") {
+  echo "<p id='failed'>Invalid hospital id</p>";
+ } else if ($_GET["error"] == "invalidEmail") {
+  echo "<p id='failed'>Invalid email id</p>";
+ } else if ($_GET["error"] == "noPswdMatch") {
+  echo "<p id='failed'>The passwords do not match</p>";
+ } else if ($_GET["error"] == "unameExists") {
+  echo "<p id='failed'>This username is already taken</p>";
+ } else if ($_GET["error"] == "noHospIdExists") {
+  echo "<p id='failed'>Your hospital is not registered with us</p>";
+ } else if ($_GET["error"] == "hospstmtfailed") {
+  echo "<p id='failed'>Something went wrong while checking hospital id</p>";
+ } else if ($_GET["error"] == "userstmtfailed") {
+  echo "<p id='failed'>Something went wrong while creating user</p>";
+ } else if ($_GET["error"] == "none") {
+  echo "<p id='success'>Registration successful!!!</p>";
+ }
+
+}
+?>
     </div>
 
     <div class="form-elements">
@@ -148,9 +139,9 @@ img.avatar {
       </div>
       <button type="submit" name="submit" value="submit" id="submitBtn">Sign Up</button>
     </div>
-      	
+
   </form>
   <div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  <script src="../js/showpassword.js"></script>  
-<?php include("../include/footer.inc.php") ?>
+  <script src="../js/showpassword.js"></script>
+<?php include "../include/footer.inc.php"?>

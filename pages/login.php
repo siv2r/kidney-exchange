@@ -9,7 +9,7 @@ body{
   background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 
 form {
   background: rgb(0, 0, 0, 0.5);
@@ -96,10 +96,10 @@ form a{
 
 </style>
 
-<?php include("../templates/header.php"); ?>
+<?php include "../templates/header.php";?>
 
 	<div class="nav-container">
-      <?php include("../templates/navBar.php") ?>
+      <?php include "../templates/navBar.php"?>
   </div>
 
 <div class="container col-lg-5 mt-0 co-sm-11">
@@ -115,19 +115,17 @@ form a{
 
 <div class="form-elements">
     <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
-    <?php 
-      if(isset($_GET["error"])) {
-        if ($_GET["error"] == "emptyInputLogin") {
-          echo "<p id='failed'>Please fill all the fields</p>";
-        }
-        else if ($_GET["error"] == "invalidUsername") {
-          echo "<p id='failed'>Invalid username/email</p>";
-        }
-        else if ($_GET["error"] == "invalidPassword") {
-          echo "<p id='failed'>Invalid password</p>";
-        }            
-      }
-    ?>
+    <?php
+if (isset($_GET["error"])) {
+ if ($_GET["error"] == "emptyInputLogin") {
+  echo "<p id='failed'>Please fill all the fields</p>";
+ } else if ($_GET["error"] == "invalidUsername") {
+  echo "<p id='failed'>Invalid username/email</p>";
+ } else if ($_GET["error"] == "invalidPassword") {
+  echo "<p id='failed'>Invalid password</p>";
+ }
+}
+?>
 </div>
 
 <div class="form-elements">
@@ -147,8 +145,8 @@ form a{
 </form>
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  <script src="../js/showpassword.js"></script>  
-<?php include("../include/footer.inc.php") ?>
+  <script src="../js/showpassword.js"></script>
+<?php include "../include/footer.inc.php"?>
 
 
 

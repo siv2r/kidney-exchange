@@ -7,18 +7,18 @@
   body{
     /* background-image: url("https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg?cs=srgb&dl=pexels-negative-space-48604.jpg&fm=jpg"); */
     background-image: url("https://images.pexels.com/photos/3882464/pexels-photo-3882464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" );
-    background-size: cover; 
-       
+    background-size: cover;
+
   }
 
   .content{
     text-align: center;
     color: white;
-    font-size: 1rem;  
+    font-size: 1rem;
   }
 
   .content h1{
-    text-align:center;    
+    text-align:center;
   }
 
   /* .header-img{
@@ -66,7 +66,7 @@
     The doctors from the registered hospitals can create their account and add their patients' (having kidney problems) medical details to this platform.
     After a doctor completes this process, this platform provides two main features: <br><br>
     1) An option to view only the essential details of a patient required for a kidney transplant. <br>
-    2) For a given patient, all suitable matches ranked from worst to best from all the registered hospitals are displayed.<br> 
+    2) For a given patient, all suitable matches ranked from worst to best from all the registered hospitals are displayed.<br>
   </p>
 </div>
 </div>
