@@ -85,6 +85,7 @@ form a{
 {
   width:12vw;
   color:#fff;
+  font-size: 20px;
 }
 #showpass input
 {
