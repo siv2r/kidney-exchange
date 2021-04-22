@@ -74,6 +74,7 @@ img.avatar {
 {
   width:12vw;
   color:#fff;
+  font-size: 20px;
 }
 #showpass input
 {
