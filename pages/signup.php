@@ -74,11 +74,13 @@ img.avatar {
 {
   width:12vw;
   color:#fff;
-  font-size: 20px;
+  font-size: 22px;
+  font-family: Arial;
 }
 #showpass input
 {
-  width:auto;
+  width: 20px;
+  height: 20px;
 }
 
 </style>
