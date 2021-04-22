@@ -57,7 +57,7 @@
     </div>
   <!-- </div> -->
 
-<div class="container">
+<div class="container mt-5 py-3">
 <div class="content">
   <h1> <b><u>Project Overview</u></b></h1><br>
   <p> Due to some medical incompatibility many people cannot donate their kidney to their loved ones.

@@ -94,28 +94,35 @@ if (!isset($_SESSION)) {
     margin: 5px;
   }
 
-  @media screen and (max-width: 768px) {
-    body {
-      overflow-x: hidden;
+  @media screen and (max-width: 992px) {
+    .nav-links
+    {
+       display: flex;
+      font-size: 10px;
+      padding-left:1px !important;
     }
-    .nav-links {
-      position: absolute;
-      right: 0px;
-      top: 7.25vh;
-      height: 92vh;
-      background-color: rgb(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
-    .nav-links li {
-      text-align: center;
-    }
-    .nav-links li:hover ul {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
+    .nav-links li a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 3px;
+    padding: 0px;
+    transition: all ease 0.5s;
+    width:17vw;
+  }
+
+.brand_title
+{
+  font-size:1rem;
+  margin-top:3px;
+    margin-left:15px;
+}
+.logo
+{
+  width:35vw;
+}
+
   }
 
 </style>
