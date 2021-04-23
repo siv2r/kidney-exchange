@@ -2,16 +2,16 @@
 /**
  * Undocumented function
  *
- * @param [type] $givenArray
- * @param string $filter
- * @return array $filteredValues
+ * @param  [type] $givenArray
+ * @param  string $filter
+ * @return array  $filteredValues
  */
-function filterArray($givenArray, $filter = "/(A|B|DR|Dw)/") {
-  $filteredValues = array();
+function filterArray( $givenArray, $filter = "/(A|B|DR|Dw)/" ) {
+  $filteredValues = [];
 
-  foreach ($givenArray as $key => $value) {
-    if (preg_match($filter, $value)) {
-      array_push($filteredValues, $value);
+  foreach ( $givenArray as $key => $value ) {
+    if ( preg_match( $filter, $value ) ) {
+      array_push( $filteredValues, $value );
     }
   }
 
@@ -21,24 +21,24 @@ function filterArray($givenArray, $filter = "/(A|B|DR|Dw)/") {
 /**
  * returns score according mismatch of DR Hla of pair1's donor with pair2's patient
  *
- * @param array $pair1 - donating pair (so, donor of this pair will be taken)
- * @param array $pair2 - recieving pair (so, patient of this pair will be taken)
+ * @param  array   $pair1 - donating pair (so, donor of this pair will be taken)
+ * @param  array   $pair2 - recieving pair (so, patient of this pair will be taken)
  * @return integer - score wrt to mismatch of DR
  */
-function DRmismatch($pair1, $pair2) {
-  $donorHla = explode(", ", $pair1['dHla']);
-  $patientHla = explode(", ", $pair2['pHla']);
+function DRmismatch( $pair1, $pair2 ) {
+  $donorHla   = explode( ", ", $pair1['dHla'] );
+  $patientHla = explode( ", ", $pair2['pHla'] );
   // consider only DR
-  $donorHla = filterArray($donorHla, "/(DR)/");
-  $patientHla = filterArray($patientHla, "/(DR)/");
+  $donorHla   = filterArray( $donorHla, "/(DR)/" );
+  $patientHla = filterArray( $patientHla, "/(DR)/" );
 
-  $commonDRs = array_intersect($donorHla, $patientHla);
-  $mismatch = 2 - sizeof($commonDRs);
+  $commonDRs = array_intersect( $donorHla, $patientHla );
+  $mismatch  = 2 - sizeof( $commonDRs );
 
-  //score according to mismatch
-  if ($mismatch === 0) {
+//score according to mismatch
+  if ( $mismatch === 0 ) {
     return 2;
-  } elseif ($mismatch === 1) {
+  } elseif ( $mismatch === 1 ) {
     return 1;
   } else {
     return 0;
@@ -48,23 +48,23 @@ function DRmismatch($pair1, $pair2) {
 /**
  * returns score according match of A, B, DR, Dw  Hla of pair1's donor with pair2's patient
  *
- * @param array $pair1 - donating pair (so, donor of this pair will be taken)
- * @param array $pair2 - recieving pair (so, patient of this pair will be taken)
+ * @param  array   $pair1 - donating pair (so, donor of this pair will be taken)
+ * @param  array   $pair2 - recieving pair (so, patient of this pair will be taken)
  * @return integer - score wrt to matching of all 6 HLA's
  */
-function zeroHlaMismatch($pair1, $pair2) {
+function zeroHlaMismatch( $pair1, $pair2 ) {
   // TODO: Should we consider only A, B, DR, Dw? or All the HLA
-  $donorHla = explode(", ", $pair1['dHla']);
-  $patientHla = explode(", ", $pair2['pHla']);
+  $donorHla   = explode( ", ", $pair1['dHla'] );
+  $patientHla = explode( ", ", $pair2['pHla'] );
   // consider only DR, Dw, A, B
-  $donorHla = filterArray($donorHla);
-  $patientHla = filterArray($patientHla);
+  $donorHla   = filterArray( $donorHla );
+  $patientHla = filterArray( $patientHla );
 
-  $commonHLAs = array_intersect($donorHla, $patientHla);
-  $match = sizeof($commonHLAs);
+  $commonHLAs = array_intersect( $donorHla, $patientHla );
+  $match      = sizeof( $commonHLAs );
 
-  //score according to mismatch
-  if ($match === 6) {
+//score according to mismatch
+  if ( $match === 6 ) {
     return 6;
   } else {
     return 0;
@@ -80,56 +80,59 @@ function highPRA() {
   return 0;
 }
 
-function travelDist($pair1, $pair2) {
+function travelDist( $pair1, $pair2 ) {
 //TODO: Currently, using pincode but this will change. Then how to measure distance??
-  $donorAddress = explode(", ", $pair1['dAddress']);
-  $patientAddress = explode(", ", $pair2['pAddress']);
+  $donorAddress   = explode( ", ", $pair1['dAddress'] );
+  $patientAddress = explode( ", ", $pair2['pAddress'] );
   //filter out the pincode
-  $donorLocation = filterArray($donorAddress, "/^[1-9]{1}[0-9]{5}$/");
-  $patientLocation = filterArray($patientAddress, "/^[1-9]{1}[0-9]{5}$/");
-  if (sizeof($donorLocation) !== sizeof($patientLocation)) {
+  $donorLocation   = filterArray( $donorAddress, "/^[1-9]{1}[0-9]{5}$/" );
+  $patientLocation = filterArray( $patientAddress, "/^[1-9]{1}[0-9]{5}$/" );
+
+  if ( sizeof( $donorLocation ) !== sizeof( $patientLocation ) ) {
     echo "Invalid donor or patient loaction after filter :(";
     exit();
-  } 
-  if ($donorLocation[0] === $patientLocation[0]) {
+  }
+
+  if ( $donorLocation[0] === $patientLocation[0] ) {
     return 3;
   } else {
     return 0;
   }
 }
 
-function pediatricPatient($pair1) {
+function pediatricPatient( $pair1 ) {
   $patientDob = $pair1['pDob'];
-  $patientAge = toAge($patientDob);
+  $patientAge = toAge( $patientDob );
 
-  if ($patientAge <= 5) {
+  if ( $patientAge <= 5 ) {
     return 4;
-  } else if ($patientAge <= 17) {
+  } else
+  if ( $patientAge <= 17 ) {
     return 2;
   }
 
   return 0;
 }
 
-function patientOnceDonor($pair1) {
+function patientOnceDonor( $pair1 ) {
 //TODO: Information unavailable in the database
   return 0;
 }
 
 function negCrossMatch() {
 //TODO: Information unavialbe in the database
- return 0;
+  return 0;
 }
 
-function ageDiffDonors($pair1, $pair2) {
+function ageDiffDonors( $pair1, $pair2 ) {
   $donor1Dob = $pair1['dDob'];
-  $donor1Age = toAge($donor1Dob);
+  $donor1Age = toAge( $donor1Dob );
   $donor2Dob = $pair2['dDob'];
-  $donor2Age = toAge($donor2Dob);
+  $donor2Age = toAge( $donor2Dob );
 
-  $ageDiff = abs($donor1Age - $donor2Age);
+  $ageDiff = abs( $donor1Age - $donor2Age );
 
-  if ($ageDiff <= 20) {
+  if ( $ageDiff <= 20 ) {
     return 3;
   }
 
@@ -140,22 +143,22 @@ function ageDiffDonors($pair1, $pair2) {
  * Calculates score for the edge from $pair1's donor to $pair2's patient
  * in the compatibility graph
  *
- * @param array $pair1 contains patient donor data of donating pair
- * @param array $pair2 contains patient donor data of accepting pair
+ * @param  array   $pair1 contains patient donor data of donating pair
+ * @param  array   $pair2 contains patient donor data of accepting pair
  * @return integer score weight of the edge
  */
-function calcScore($pair1, $pair2) {
+function calcScore( $pair1, $pair2 ) {
   $score = 0;
 
   //add scores due to diff parameters
-  $score += DRmismatch($pair1, $pair2);
-  $score += zeroHlaMismatch($pair1, $pair2);
+  $score += DRmismatch( $pair1, $pair2 );
+  $score += zeroHlaMismatch( $pair1, $pair2 );
   $score += highPRA();
-  $score += travelDist($pair1, $pair2);
-  $score += pediatricPatient($pair1);
-  $score += patientOnceDonor($pair1);
+  $score += travelDist( $pair1, $pair2 );
+  $score += pediatricPatient( $pair1 );
+  $score += patientOnceDonor( $pair1 );
   $score += negCrossMatch();
-  $score += ageDiffDonors($pair1, $pair2);
+  $score += ageDiffDonors( $pair1, $pair2 );
 
   return $score;
 }
@@ -167,11 +170,12 @@ function calcScore($pair1, $pair2) {
  *     2->1 is 30
  *     then, 1<->2 is 50
  *
- * @param integer $score1 weight of the edge from donor1 to patient2
- * @param integer $score2 weight of the edge form donor2 to patient1
+ * @param  integer   $score1 weight of the edge from donor1 to patient2
+ * @param  integer   $score2 weight of the edge form donor2 to patient1
  * @return integer
  */
-function combinedPairScore($score1, $score2) {
+function combinedPairScore( $score1, $score2 ) {
   $combined = $score1 + $score2;
+
   return $combined;
 }
