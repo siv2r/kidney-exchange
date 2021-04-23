@@ -6,14 +6,14 @@ require_once "../include/matchFunctions.inc.php";
 require_once "../functions/scoring.func.php";
 
 //get pd-pair data from database && convert to json
-$data = getAllPairData($conn);
-$jsonData = toJSON($data);
+$data     = getAllPairData( $conn );
+$jsonData = toJSON( $data );
 
 //create the compatiblity graph (also json)
-$graph = createGraph($jsonData);
+$graph = createGraph( $jsonData );
 
 //make it downloadable on the website
-header('Content-disposition: attachment; filename=cmpGraph.json');
-header('Content-type: application/json');
+header( 'Content-disposition: attachment; filename=cmpGraph.json' );
+header( 'Content-type: application/json' );
 
-echo ($graph);
+echo ( $graph );
