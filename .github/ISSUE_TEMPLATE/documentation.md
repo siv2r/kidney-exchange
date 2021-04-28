@@ -1,7 +1,7 @@
 ---
 name: Documentation
 about: Report the issue related to Documentation
-title: ''
+title: Documentation Error
 labels: ''
 assignees: ''
 
