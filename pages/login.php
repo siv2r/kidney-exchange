@@ -54,7 +54,7 @@ img.avatar {
 }
 
 form a{
-  margin: 10%;
+  margin:5px;
   font-size: 20px;
   color: white;
   text-decoration: underline;
