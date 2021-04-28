@@ -27,7 +27,16 @@
     min-height: 480px;
   } */
 
-
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  .content p
+  {
+    font-size:1.2rem;
+  }
+  .content h1 {
+    font-size:2.5rem;
+  }
+}
 </style>
 
 <?php include "templates/header.php"?>
