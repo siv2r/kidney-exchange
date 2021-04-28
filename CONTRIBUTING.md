@@ -14,6 +14,7 @@
 ## How do I start contributing to this project?
 1. The easiest way is to contribute is through documentation. For example, there is no documentation for *Development workflow*, *FAQs*
 2. To get more ideas on which type of documentation will be useful for this project. You can refer to the documentations of projects like [p5.js](https://github.com/processing/p5.js), [sympy](https://github.com/sympy/sympy)
+3. You can ask ANY question regarding contribution in the discord grp created by the Girlscript team.
 
 ## Code contribution
 - Black is used to format all the python codes.
