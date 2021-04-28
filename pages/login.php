@@ -80,7 +80,7 @@ form a{
 /* for show password */
 #showpass
 {
-  width:20vw;
+  width:15vw;
   color:#fff;
   font-size: 22px;
   font-family: Arial;
@@ -124,9 +124,11 @@ form a{
               if ( $_GET["error"] == "emptyInputLogin" ) {
                 echo "<p id='failed'>Please fill all the fields</p>";
               } else
+
               if ( $_GET["error"] == "invalidUsername" ) {
                 echo "<p id='failed'>Invalid username/email</p>";
               } else
+
               if ( $_GET["error"] == "invalidPassword" ) {
                 echo "<p id='failed'>Invalid password</p>";
               }
