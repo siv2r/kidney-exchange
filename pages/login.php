@@ -1,19 +1,22 @@
 <?php
 
-  //some php code for verifying the user
+//some php code for verifying the user
 
-;?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+?>
+
 <style>
 body{
   background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-}
+} 
 
 form {
   background: rgb(0, 0, 0, 0.5);
+  width: 40%;
   margin: auto;
+  margin-top: 100px;
+  padding: 20px;
 }
 
 input{
@@ -80,7 +83,7 @@ form a{
 /* for show password */
 #showpass
 {
-  width:15vw;
+  width:12vw;
   color:#fff;
   font-size: 22px;
   font-family: Arial;
@@ -90,23 +93,15 @@ form a{
   width:20px;
   height:20px;
 }
-/* On screens that are 992px or less, set the background color to blue */
-@media screen and (max-width: 992px) {
- #showpass
-  {
-    width:52vw;
-  }
-}
 </style>
 
-<?php include "../templates/header.php";?>
+<?php include("../templates/header.php"); ?>
 
 	<div class="nav-container">
-      <?php include "../templates/navBar.php";?>
+      <?php include("../templates/navBar.php") ?>
   </div>
 
-<div class="container col-lg-5 col-sm-11 px-0">
-	<form action="../include/login.inc.php" class="py-5" method="POST">
+	<form action="../include/login.inc.php" method="POST">
 
 			<!-- <div class="imgcontainer">
 					<img src="../images/avatar.jpg" alt="Avatar" class="avatar">
@@ -118,22 +113,18 @@ form a{
 
 			<div class="form-elements">
           <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
-          <?php
-
-            if ( isset( $_GET["error"] ) ) {
-              if ( $_GET["error"] == "emptyInputLogin" ) {
+          <?php 
+            if(isset($_GET["error"])) {
+              if ($_GET["error"] == "emptyInputLogin") {
                 echo "<p id='failed'>Please fill all the fields</p>";
-              } else
-
-              if ( $_GET["error"] == "invalidUsername" ) {
-                echo "<p id='failed'>Invalid username/email</p>";
-              } else
-
-              if ( $_GET["error"] == "invalidPassword" ) {
-                echo "<p id='failed'>Invalid password</p>";
               }
+              else if ($_GET["error"] == "invalidUsername") {
+                echo "<p id='failed'>Invalid username/email</p>";
+              }
+              else if ($_GET["error"] == "invalidPassword") {
+                echo "<p id='failed'>Invalid password</p>";
+              }            
             }
-
           ?>
 			</div>
 
@@ -150,12 +141,10 @@ form a{
       <a href="#">Forgot Password?</a>
 
 
-
+			
 	</form>
-</div>
-  <script src="../js/showpassword.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<?php include "../include/footer.inc.php";?>
+  <script src="../js/showpassword.js"></script>  
+<?php include("../include/footer.inc.php") ?>
 
 
 
