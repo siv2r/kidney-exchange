@@ -93,7 +93,7 @@ img.avatar {
   </div>
 
   <div class="container col-lg-4 co-sm-11 px-0">
-	<form action="../include/signup.inc.php" class="py-5 px-3" method="POST" id=signupForm>
+	<form action="../include/signup.inc.php" class="py-5 px-4" method="POST" id=signupForm>
 
     <div class="form-elements">
       <h3>SIGN UP</h3>
