@@ -28,6 +28,8 @@ This method is recommended if you are working on the backend of this project.
 
 Explained in this [document](https://www.notion.so/Project-setup-Public-1a647ed8515c485f99f38e717acfa61b)
 
+Detailed Step by step [Video](https://drive.google.com/file/d/11n6k2obh5k-06-gYq8GWAo0Rw4aY9G7w/view)
+
 ### Method 2 (Through Docker)
 This method will be sufficient if you are working only on the frontend of this project. 
 
