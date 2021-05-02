@@ -3,102 +3,95 @@ if (!isset($_SESSION)) {
   session_start();
 }
 ?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <style>
   * {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
   }
-
-  nav {
-    background-color: rgb(0, 0, 0, 0.2);
-    font-family: "Open Sans";
-    line-height: 1em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 7vh;
-  }
-
-
-  .logo {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-    letter-spacing: 4px;
-    /* padding: 26px; */
-    font-size: 24px;
-    font-weight: 600;
-    padding: 0px;
-  }
-
+  
   .brand_logo
   {
-    float:left;
+    height:15vh;
+    width:15vw;
   }
-
-  .brand_title
+  .navbar-toggler
   {
-    float:left;
-    margin-top:30px;
-    margin-left:20px;
+    background:#fff;
+    padding: .8rem 1.5rem;
   }
-
-  .nav-links {
-    display: flex;
-    font-size: 18px;
+.space {
+  width: 30vw;
+  height:5vh;
+  visibility: hidden;
+}
+.navbar-brand
+{
+  color: #fff;
+  font-weight:600;
+  font-size:1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}  
+.navbar-brand:hover
+{
+  color: red;
+}
+.dropdown-menu
+{
+  background:none;
+  outline: none;
+}
+.nav-item .nav-link , .dropdown-item
+{
+  color:#fff;
+  font-weight:400;
+  background:none;
+  padding:10px;
+  text-transform: uppercase;
+  font-size:1.1rem;
+  letter-spacing: 2px;
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  .space {
+    display:none;
   }
-
-  .nav-links li {
-    list-style: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
+  .navbar-brand
+  {
     color: #fff;
+    font-weight:600;
+    font-size:2rem;
+    text-transform: uppercase;
     letter-spacing: 3px;
-    padding: 26px;
-    transition: all ease 0.5s;
   }
-
-  .nav-links li ul {
-    display: none;
-    position: absolute;
-    border-radius: 0px 0px 4px 4px;
-    background-color: rgb(0, 0, 0, 0.2);
+  .brand_logo
+  {
+    height:17vh;
+    width:22vw;
+  }  
+  .nav-item .nav-link , .dropdown-item
+  {
+    font-size:1.5rem;
   }
-
-  .nav-links li:hover ul {
-    display: block;
+  .dropdown-menu
+  {
+    margin-left:5vw;
   }
-
-  .nav-links li ul li {
-    display: block;
-    width: 180px;
-  }
-
-  .nav-links li a:hover {
-    background-color: #a28089;
-  }
-
-  
-    
-
+}
 </style>
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <img src="/kidney-exchange/images/logo3.png" class="brand_logo" width="100px" hight="100px">
+    <img src="/kidney-exchange/images/logo3.png" class="brand_logo">
     <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
+    <div class="space"></div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="/kidney-exchange/">Home</a>
         </li>
         <?php
           if (isset($_SESSION['userId'])) {
@@ -139,9 +132,9 @@ if (!isset($_SESSION)) {
                 </li>';
             
                 if ($_SESSION['userType'] === "Admin") {
-                  echo '<li><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
+                  echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
                 } 
-                echo '<li><a class="nav-link" href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
+                echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
                }
           else {
             echo '<li class="nav-item">
@@ -159,4 +152,3 @@ if (!isset($_SESSION)) {
   </div>
 </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
