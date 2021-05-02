@@ -46,7 +46,4 @@
   <!-- </div> -->
 
 
-
-
-</body>
-</html>
+  <?php include("include/footer.inc.php") ?>
