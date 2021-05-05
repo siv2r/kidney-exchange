@@ -12,8 +12,8 @@ if (!isset($_SESSION)) {
   
   .brand_logo
   {
-    height:15vh;
-    width:15vw;
+    height:12vh;
+    width:8vw;
   }
   .navbar-toggler
   {
@@ -60,15 +60,16 @@ if (!isset($_SESSION)) {
   .navbar-brand
   {
     color: #fff;
-    font-weight:600;
-    font-size:2rem;
+    font-weight:500;
+    font-size:1.5rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing:1px;
+    margin:0px;
   }
   .brand_logo
   {
-    height:17vh;
-    width:22vw;
+    height:10vh;
+    width:15vw;
   }  
   .nav-item .nav-link , .dropdown-item
   {
@@ -78,10 +79,14 @@ if (!isset($_SESSION)) {
   {
     margin-left:5vw;
   }
+  .navbar-toggler {
+    background: #fff;
+    padding: .6rem .8rem;
+}
 }
 </style>
 <nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
+  <div class="container px-0">
     <img src="/kidney-exchange/images/logo3.png" class="brand_logo">
     <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
