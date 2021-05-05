@@ -1,15 +1,9 @@
 <?php 
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "siv2r";
+$password = "sivaram535";
 $dbname = "kidney_exchange";
-
-// $servername = "localhost";
-// $username = "siv2r";
-// $password = "sivaram535";
-// $dbname = "kidney_exchange";
-
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
