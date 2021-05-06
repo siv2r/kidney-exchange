@@ -68,7 +68,7 @@
 
  10.  Go to your forked Repo in Github, there you will see a notification for Compare and Pull Request like this:-
 
-  ![](../images/github-comparepr.png) 
+  ![](../images/github-comparepr.png) <br>
   Click this and create your First Pull Request.
 
 
