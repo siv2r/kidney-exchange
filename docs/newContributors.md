@@ -32,15 +32,15 @@
 
 
   
-  - Copy the link of the forked Repo.
-  
-  - Go to the desired location in the terminal, where you want to place the project.
-  
-  - Run command ``git clone link_of_forked_repo``.
-  
-  - Run Command ``cd kidney-exchange ``.
-  
-  - Open the folder with your favorite text editor command.
+      - Copy the link of the forked Repo.
+      
+      - Go to the desired location in the terminal, where you want to place the project.
+      
+      - Run command ``git clone link_of_forked_repo``.
+      
+      - Run Command ``cd kidney-exchange ``.
+      
+      - Open the folder with your favorite text editor command.
 
 
 
@@ -58,11 +58,11 @@
  9.  When you are done with the changes Run the following Commands:-
 
   
-  - ``git add .``
-  
-  - `` git commit -m"any_message_related_to_what_u_hv_done"``
-  
-  - ``git push origin branch_name``
+      - ``git add .``
+      
+      - `` git commit -m"any_message_related_to_what_u_hv_done"``
+      
+      - ``git push origin branch_name``
 
 
 
