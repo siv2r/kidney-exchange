@@ -6,7 +6,7 @@
 
 
  1.  Firstly, Join our [Discord](https://discord.com/invite/d7j63WZV82) Server, Introduce yourself there, Interact with Others as 
-> **Open Source is more about Collaboration.** 
+      > **Open Source is more about Collaboration.** 
 
     
 
