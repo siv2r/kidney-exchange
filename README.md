@@ -40,11 +40,14 @@ How to run the server (Optional)
 
 Done! Now you should be able to access the project at **0.0.0.0:8080** or **localhost:8080**. And you should just refresh the page to see your changes.
 
-## Contributing Guidlines
+## Contributing Guidelines
 
 - Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md) while contributing to this project.
-- Slack group: [Join here](https://join.slack.com/t/kidney-exchange/shared_invite/zt-n54e89o7-yB5E6eZl7q3DAvLFdUAwgA) (*Note:* This group was started recently so, please be patient).
 - [How to create a pull request?](https://github.com/siv2r/kidney-exchange/blob/master/CreatePR.md)
+
+## Get in Touch
+
+Questions or Suggestions? Please feel free to join the [Discord Group](https://discord.com/invite/d7j63WZV82)!
 
 ## Contributors
 This project is possible due to these amazing people✨✨
