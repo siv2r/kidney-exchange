@@ -1,5 +1,9 @@
 (Thanks for sending a pull request! Please make sure you click the link above to view the contribution guidelines, then fill out the blanks below.)
 
+ Uncomment any one the lines below as per your pull request
+Fixes # (issue)  - use this if your pull request solves the issue completely
+Addresses # (issue)  - use this if your pull request solves only a part of the issue
+
 What does this implement/fix? Explain your changes.
 …
 
