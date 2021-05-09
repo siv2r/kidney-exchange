@@ -9,7 +9,11 @@ if (!isset($_SESSION)) {
     padding: 0%;
     box-sizing: border-box;
   }
-  
+  .navbar
+  {
+    background-color: rgb(0, 0, 0, 0.2);
+    font-family: "Open Sans";
+  }
   .brand_logo
   {
     height:12vh;
@@ -20,37 +24,37 @@ if (!isset($_SESSION)) {
     background:#fff;
     padding: .8rem 1.5rem;
   }
-.space {
-  width: 30vw;
-  height:5vh;
-  visibility: hidden;
-}
+  .space 
+  {
+    width: 30vw;
+    height:5vh;
+    visibility: hidden;
+  }
 .navbar-brand
-{
-  color: #fff;
-  font-weight:600;
-  font-size:1.6rem;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}  
+  {
+    color: #fff;
+    font-weight:600;
+    font-size:1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }  
 .navbar-brand:hover
 {
   color: red;
-}
-.dropdown-menu
-{
-  background:none;
-  outline: none;
 }
 .nav-item .nav-link , .dropdown-item
 {
   color:#fff;
   font-weight:400;
   background:none;
-  padding:10px;
+  padding:10px 20px;
   text-transform: uppercase;
   font-size:1.1rem;
   letter-spacing: 2px;
+}
+.nav-item .nav-link:hover , .dropdown-item:hover
+{
+  background-color: #a28089;
 }
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
@@ -73,8 +77,9 @@ if (!isset($_SESSION)) {
   }  
   .nav-item .nav-link , .dropdown-item
   {
-    font-size:1.5rem;
+    font-size:2rem;
   }
+
   .dropdown-menu
   {
     margin-left:5vw;
