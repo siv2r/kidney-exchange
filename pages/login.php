@@ -1,5 +1,3 @@
-<!-- for bootstrap css -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 <style>
 body{
   background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
@@ -21,7 +19,7 @@ input{
 	font-size: 150%;
 }
 
-button {
+.form-elements button {
   /* background-color: #b30d4b; */
   background-color: #ad0c4d;
   color: white;
@@ -34,7 +32,7 @@ button {
   outline: none;
 }
 
-button:hover {
+.form-elements button:hover {
   opacity: 0.8;
 }
 
@@ -142,8 +140,6 @@ form a{
 	</form>
   </div>
   <script src="../js/showpassword.js"></script>
-  <!-- for bootstrap js -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>  
-<?php include("../include/footer.inc.php") ?>
+  <?php include("../include/footer.inc.php") ?>
 
 

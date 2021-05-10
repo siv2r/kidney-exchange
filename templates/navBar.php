@@ -9,168 +9,156 @@ if (!isset($_SESSION)) {
     padding: 0%;
     box-sizing: border-box;
   }
-
-  nav {
+  .navbar
+  {
     background-color: rgb(0, 0, 0, 0.2);
     font-family: "Open Sans";
-    line-height: 1em;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 7vh;
   }
-
-
-  .logo {
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-    letter-spacing: 4px;
-    /* padding: 26px; */
-    font-size: 24px;
-    font-weight: 600;
-    padding: 0px;
-  }
-
   .brand_logo
   {
-    float:left;
+    height:12vh;
+    width:8vw;
   }
-
-  .brand_title
+  .navbar-toggler
   {
-    float:left;
-    margin-top:30px;
-    margin-left:20px;
+    background:#fff;
+    padding: .8rem 1.5rem;
   }
-
-  .nav-links {
-    display: flex;
-    font-size: 18px;
+  .space 
+  {
+    width: 30vw;
+    height:5vh;
+    visibility: hidden;
   }
-
-  .nav-links li {
-    list-style: none;
-  }
-
-  .nav-links li a {
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
+.navbar-brand
+  {
     color: #fff;
+    font-weight:600;
+    font-size:1.6rem;
+    text-transform: uppercase;
     letter-spacing: 3px;
-    padding: 26px;
-    transition: all ease 0.5s;
-  }
-
-  .nav-links li ul {
-    display: none;
-    position: absolute;
-    border-radius: 0px 0px 4px 4px;
-    background-color: rgb(0, 0, 0, 0.2);
-  }
-
-  .nav-links li:hover ul {
-    display: block;
-  }
-
-  .nav-links li ul li {
-    display: block;
-    width: 180px;
-  }
-
-  .nav-links li a:hover {
-    background-color: #a28089;
-  }
-
-  .burger {
-    display: none;
-  }
-
-  .burger div{
-    height: 3px;
-    width: 25px;
-    background-color: #fff;
-    margin: 5px;
-  }
-
-  @media screen and (max-width: 768px) {
-    body {
-      overflow-x: hidden;
-    }
-    .nav-links {
-      position: absolute;
-      right: 0px;
-      top: 7.25vh;
-      height: 92vh;
-      background-color: rgb(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
-    .nav-links li {
-      text-align: center;
-    }
-    .nav-links li:hover ul {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-    }
-  }
-
-</style>
-
-<nav>
-  <div class="logo">
-    <img src="/kidney-exchange/images/logo3.png" class="brand_logo" width="100px" hight="100px">
-    <p class="brand_title">Kidney Exchange</p>
-  </div>
-  <ul class="nav-links">
-    <li><a href="/kidney-exchange/index.php">Home</a></li>
-    <!-- <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li> -->
-    <?php
-if (isset($_SESSION['userId'])) {
-  // echo '<ul>';
-  echo '<li><a href="#">Register</a>';
-  echo '<ul>';
-  echo '<li><a href="/kidney-exchange/pages/reg-form.php">Patient</a></li>';
-  if ($_SESSION['userType'] === "Admin") {
-    echo '<li><a href="/kidney-exchange/pages/register_hospital.php">Hospital</a></li>';
-  }
-  echo '</ul>';
-  echo '</li>';
-  echo '<li><a href="#">Match</a>';
-  echo '<ul>';
-  echo '<li><a href="/kidney-exchange/pages/pairwiseMatch.php">Pairwise</a></li>';
-  echo '<li><a href="/kidney-exchange/pages/globalMatch.php">Global</a></li>';
-  echo '</ul>';
-  echo '</li>';
-  echo '<li><a href="#">Data</a>';
-  echo '<ul>';
-  echo '<li><a href="/kidney-exchange/pages/dataOverview.php">Overview</a></li>';
-  echo '<li><a href="/kidney-exchange/pages/dataSummary.php">Summary</a></li>';
-  echo '<li><a href="/kidney-exchange/pages/dataSearch.php">Search</a></li>';
-  echo '</ul>';
-  echo '</li>';
-  // echo '</ul>';
-  // echo '<ul>';
-  if ($_SESSION['userType'] === "Admin") {
-    echo '<li><a href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
-  }
-  echo '<li><a href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
-  // echo '</ul>';
-} else {
-  // echo '<ul>';
-  echo '<li><a href="/kidney-exchange/pages/login.php">Login</a></li>';
-  echo '<li><a href="/kidney-exchange/pages/signup.php">Sign Up</a></li>';
-  // echo '</ul>';
+  }  
+.navbar-brand:hover
+{
+  color: red;
 }
-?>
-  </ul>
-  <div class="burger">
-    <div class="line1"></div>
-    <div class="line2"></div>
-    <div class="line3"></div>
+.nav-item .nav-link , .dropdown-item
+{
+  color:#fff;
+  font-weight:400;
+  background:none;
+  padding:10px 20px;
+  text-transform: uppercase;
+  font-size:1.1rem;
+  letter-spacing: 2px;
+}
+.nav-item .nav-link:hover , .dropdown-item:hover
+{
+  background-color: #a28089;
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  .space {
+    display:none;
+  }
+  .navbar-brand
+  {
+    color: #fff;
+    font-weight:500;
+    font-size:1.5rem;
+    text-transform: uppercase;
+    letter-spacing:1px;
+    margin:0px;
+  }
+  .brand_logo
+  {
+    height:10vh;
+    width:15vw;
+  }  
+  .nav-item .nav-link , .dropdown-item
+  {
+    font-size:2rem;
+  }
+
+  .dropdown-menu
+  {
+    margin-left:5vw;
+  }
+  .navbar-toggler {
+    background: #fff;
+    padding: .6rem .8rem;
+}
+}
+</style>
+<nav class="navbar navbar-expand-lg">
+  <div class="container px-0">
+    <img src="/kidney-exchange/images/logo3.png" class="brand_logo">
+    <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="space"></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/kidney-exchange/">Home</a>
+        </li>
+        <?php
+          if (isset($_SESSION['userId'])) {
+            echo '<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Register
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/kidney-exchange/pages/reg-form.php">Patient</a></li>';
+              if ($_SESSION['userType'] === "Admin") {
+                echo '<li><a class="dropdown-item" href="/kidney-exchange/pages/register_hospital.php">Hospital</a></li>';
+              } 
+            echo '</ul>
+                  </li>';
+
+              
+            echo '<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  MATCH
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/kidney-exchange/pages/pairwiseMatch.php">PAIRWISE</a></li>
+                  <li><a class="dropdown-item" href="/kidney-exchange/pages/globalMatch.php">gLOBAL</a></li>
+                  </ul>
+                    </li>';
+
+             
+            echo '<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              DATA
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/kidney-exchange/pages/dataOverview.php">Overview</a></li>
+            <li><a class="dropdown-item" href="/kidney-exchange/pages/dataSummary.php">Summary</a></li>
+            <li><a class="dropdown-item" href="/kidney-exchange/pages/dataSearch.php">Search</a></li>
+      
+              </ul>
+                </li>';
+            
+                if ($_SESSION['userType'] === "Admin") {
+                  echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
+                } 
+                echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
+               }
+          else {
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="/kidney-exchange/pages/login.php">Login</a>
+                  </li>';
+            echo '<li class="nav-item">
+                  <a class="nav-link" href="/kidney-exchange/pages/signup.php">Sign Up</a>
+                  </li>';
+
+          }
+        ?>
+      </ul>
+      
+    </div>
   </div>
 </nav>
+
