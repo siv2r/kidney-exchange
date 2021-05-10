@@ -40,7 +40,7 @@ How to run the server (Optional)
 
 Done! Now you should be able to access the project at **0.0.0.0:8080** or **localhost:8080**. And you should just refresh the page to see your changes.
 
-## Contributing Guidelines
+## Documentation
 
 - Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md) while contributing to this project.
 - [How to create a pull request?](https://github.com/siv2r/kidney-exchange/blob/master/CreatePR.md)
