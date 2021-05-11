@@ -1,17 +1,24 @@
 (Thanks for sending a feature request! Please make sure you click the link above to view the contribution guidelines, then fill out the blanks below.)
 
-### How will it solve the current issue ? Explain your idea .
------
- (Present a concise description of the problem to be addressed by this feature request. 
- Please be clear what parts of the problem are considered to be in-scope and out-of-scope.)
+name: FEATURE REQUEST TEMPLATE
 
- Fixes # (issue)  - use this if your pull request solves the issue completely
- Addresses # (issue)  - use this if your pull request solves only a part of the issue
+about: Make a request about a feature you want to add 
 
-### Can you suggest a Solution ?
+title: ''
+
+labels:''
+
+assignees: ''
+
+### Can you please describe the problem to be solved?
+
+ Present a concise description of the problem to be addressed by this feature request. 
+ Please be clear what parts of the problem are considered to be in-scope and out-of-scope.
+
+### Can you give some suggestions?
 -----
  Give a concise description of your preferred solution. 
- 
+   
  Things to address can include:
 -Details of the technical implementation
 -Tradeoffs made in design decisions
