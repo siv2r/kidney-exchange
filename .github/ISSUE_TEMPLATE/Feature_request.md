@@ -11,5 +11,7 @@
 <!--Details of the technical implementation-->
 <!--Tradeoffs made in design decisions-->
 <!--Caveats and considerations for the future-->
-<!--If there are multiple solutions, please present each one separately.-->
-<!--Save comparisons for the very end.-->
+
+If there are multiple solutions, please present each one separately.
+
+Save comparisons for the very end.
