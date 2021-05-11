@@ -52,7 +52,6 @@ if (!isset($_SESSION)) {
   font-size:1.1rem;
   letter-spacing: 2px;
 }
-
 .nav-item .nav-link:hover , .dropdown-item:hover
 {
   background-color: #a28089;
