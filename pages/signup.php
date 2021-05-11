@@ -90,7 +90,7 @@ img.avatar {
       <?php include("../templates/navBar.php") ?>
   </div>
 
-  <div class="container col-lg-4 co-sm-11 px-0">
+  <div class="container col-lg-4 co-sm-11 px-1">
 	<form action="../include/signup.inc.php" class="py-5 px-4" method="POST" id=signupForm>
 
     <div class="form-elements">
@@ -136,12 +136,12 @@ img.avatar {
         ?>
     </div>
 
-    <div class="form-elements">
-      <input type="text" name="uname" placeholder="Username" class="requiredField">
-      <input type="text" name="email" placeholder="Email" class="requiredField">
-      <input type="number" name="hosp_id" placeholder="Hospital ID" class="requiredField">
-      <input type="password" name="pswd" placeholder="Password" id="pswd" class="requiredField">
-      <input type="password" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
+    <div class="form-elements px-1">
+      <input type="text" class="my-2" name="uname" placeholder="Username" class="requiredField">
+      <input type="text" class="my-2" name="email" placeholder="Email" class="requiredField">
+      <input type="number" class="my-2" name="hosp_id" placeholder="Hospital ID" class="requiredField">
+      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField">
+      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
       <div id="showpass">
           <input type="checkbox" id="box" onclick="box1()">
           <span id="notice">show password</span>
