@@ -1,5 +1,6 @@
 <img alt="PHP" src="https://img.shields.io/badge/php-%23777BB4.svg?&style=for-the-badge&logo=php&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/> <img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
-# Kidney Exchange Program <img alt="Brand Logo " src="https://github.com/siv2r/kidney-exchange/blob/master/images/logo3.png?raw=true" width="100" height="40">
+
+<h1><img  align="right;" alt="Brand Logo " src="https://github.com/siv2r/kidney-exchange/blob/master/images/logo3.png?raw=true" width="40" height="40">Kidney Exchange Program</h1>
 
 ![logo](https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png)
 
@@ -42,12 +43,15 @@ Done! Now you should be able to access the project at **0.0.0.0:8080** or **loca
 
 ## Documentation
 
-- Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md) while contributing to this project.
-- [How to create a pull request?](https://github.com/siv2r/kidney-exchange/blob/master/CreatePR.md)
+- Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/docs/CONTRIBUTING.md) while contributing to this project.
+- [How to create a pull request?](https://github.com/siv2r/kidney-exchange/blob/master/docs/CreatePR.md)
 
 ## Get in Touch
 
 Suggestions or Queries ? Please feel free to join the [Discord Group](https://discord.com/invite/d7j63WZV82) !
+
+## License
+Distributed under the GNU General Public License v3.0 License. See [LICENSE](https://github.com/siv2r/kidney-exchange/blob/master/LICENSE) for more information.
 
 ## Contributors
 This project is possible due to these amazing people✨✨
@@ -61,4 +65,3 @@ This project is possible due to these amazing people✨✨
 		</td>
 	</tr>
 </table>
-
