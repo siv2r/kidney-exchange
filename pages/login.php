@@ -71,7 +71,7 @@ form a{
 /* for show password */
 #showpass
 {
-  width:15vw;
+  width:14vw;
   color:#fff;
   font-size: 22px;
   font-family: Arial;
@@ -95,14 +95,14 @@ form a{
 	<div class="nav-container">
       <?php include("../templates/navBar.php") ?>
   </div>
-<div class="container col-lg-4 co-sm-11 px-0">
+<div class="container col-lg-4 co-sm-11 px-1">
 	<form action="../include/login.inc.php" class="py-5 px-3" method="POST">
 
 			<!-- <div class="imgcontainer">
 					<img src="../images/avatar.jpg" alt="Avatar" class="avatar">
 			</div> -->
 
-			<div class="form-elements">
+			<div class="form-elements pt-2 pb-4">
 				<h3>LOGIN</h3>
 			</div>
 
@@ -124,8 +124,8 @@ form a{
 			</div>
 
 			<div class="form-elements">
-				<input type="text" name="uid" placeholder="Username/Email">
-				<input type="password" name="pswd" id="pswd" placeholder="Password">
+				<input type="text" class="my-2" name="uid" placeholder="Username/Email">
+				<input type="password" class="my-2" name="pswd" id="pswd" placeholder="Password">
         <div id="showpass">
             <input type="checkbox" id="box" onclick="box1()">
             <span id="notice">show password</span>
