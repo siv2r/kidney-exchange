@@ -1,0 +1,22 @@
+# Configuration for welcome - https://github.com/behaviorbot/welcome
+
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+ Hi Welcome to **kidney-exchange**!💖, Thanks for opening your first issue here🌸 Be sure to follow the issue template✨You can Start working on the issue , Don't wait for it to be assigned 🌸.
+
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Hi Welcome to **kidney-exchange**!💖, Thanks for opening this pull request🌸 Please check out our [contributing guidelines](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md)✨.
+
+
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
+
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >
+  Congrats 🎉 on merging your first pull request. Congratulations on merging your first contribution to **kidney-exchange**✨
+
+# It is recommended to include as many gifs and emojis as possible!
