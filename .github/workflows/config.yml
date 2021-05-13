@@ -10,7 +10,7 @@ newIssueWelcomeComment: >
 
 # Comment to be posted to on PRs from first time contributors in your repository
 newPRWelcomeComment: >
-  Hi Welcome to **kidney-exchange**!💖, Thanks for opening this pull request🌸 Please check out our [contributing guidelines[(https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md)✨.
+  Hi Welcome to **kidney-exchange**!💖, Thanks for opening this pull request🌸 Please check out our [contributing guidelines](https://github.com/siv2r/kidney-exchange/blob/master/CONTRIBUTING.md)✨.
 
 
 # Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
