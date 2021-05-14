@@ -16,19 +16,20 @@ mysqli_free_result($result);
   <link rel="stylesheet" href="../css/table-style.css">
 
   <style>
-    /* put the table in the center of the page */
-    table {
-      margin-top: 16%; 
+   
+    
+    table .button
+    {
+      padding:10px 15px;
     }
+      
   </style>
 
-  <div class="nav-container">
+  
     <?php include("../templates/navBar.php") ?>
-  </div>
-
-  <div class="wrapper">
-    
-    <table>
+  
+  <div class="container-fluid mt-5 py-5 px-0 idtable">
+   <table>
       <tr>
         <th>Pair ID</th>
         <th>Patient ID</th>

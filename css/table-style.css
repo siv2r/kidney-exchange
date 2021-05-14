@@ -15,7 +15,7 @@ th {
   color: #E2B842;
   font-size: 1.5em;
   font-weight: 600;
-  padding: 0.5em 1em;
+  padding: 0.6em .2em;
   text-align: center;
 }
 
@@ -23,7 +23,7 @@ td {
   color: #fff;
   font-weight: 400;
   font-size: 1.35em;
-  padding: 0.65em 1em;
+  padding: 0.6em .2em;
   text-align: center;
 }
 
