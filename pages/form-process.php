@@ -226,61 +226,6 @@ if(!empty($_POST['r_fname'])){
 
   // ---------------------------------------------------------------------------------------------------
 
-  // $a[] = $r_name; 
-  // $a[] =  $r_sex;
-  // $a[] =   $r_dob ;
-  // $a[] =   $r_height;
-  // $a[] =   $r_weight;
-  // $a[] =   $r_btype; 
-  // $a[] = $r_id;
-  // $a[] =   $r_address;
-  // $a[] =   $r_cno;
-  // $a[] =   $r_email;
-
-  // $a[] =   $r_basicd;
-  // $a[] =   $r_gr;
-  // $a[] =   $r_comorb;
-  // $a[] =   $r_hiv;
-  // $a[] =   $r_hepb;
-  // $a[] =   $r_hepc;
-  // $a[] =   $r_prev_transp;
-  // $a[] =   $r_dialysis;
-  // $a[] =   $r_ddp;
-  // $a[] =   $r_nephro;
-  // $a[] =   $r_dcenter;
-  // $a[] =   $r_prov_clear;
-  // $a[] =   $r_pre_transp;
-  // $a[] =   $r_hla;
-  // $a[] =   $r_ua;
-
-
-  // $b[] = $d_name; 
-  // $b[] =  $d_sex;
-  // $b[] =   $d_dob ;
-  // $b[] =   $d_height;
-  // $b[] =   $d_weight;
-  // $b[] =   $d_btype; 
-  // $b[] =   $d_rel; 
-  // $b[] = $d_id;
-  // $b[] =   $d_address;
-  // $b[] =   $d_cno;
-  // $b[] =   $d_email;
-
-  // $b[] =   $d_comorb;
-  // $b[] =   $d_hiv;
-  // $b[] =   $d_hepb;
-  // $b[] =   $d_hepc;
-  // $b[] =   $d_prov_clear;
-  // $b[] =   $d_hla;
-  // $b[] =   $d_alcohol;
-  // $b[] =   $d_smoking;
-
-  // print_r($_POST);
-  // echo '<br>';
-  // print_r($a);
-  // echo '<br>';
-  // print_r($b);
-
   // --------------------------------processing the image and report data-----------------------------------------------------
 
   // patient files
