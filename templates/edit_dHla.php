@@ -97,26 +97,6 @@
       </select>
     </div>
 
-    <!-- These are options are moved to DR -->
-    <!-- <div class="antigen">
-      <label for="d_hla_d"> D</label>
-      <select class="beautify single" id="d_hla_d" name="d_hla_d[]" multiple>
-        <?php
-        // foreach ($HlaD as $value) {
-        //   if($value == "None") {
-        //     echo "<option value=''>$value</option>";
-        //   }
-        //   else if (in_array($value, $dHlaArray)) {
-        //     echo "<option value='$value' selected>$value</option>";
-        //   } 
-        //   else {
-        //     echo "<option value='$value'>$value</option>";
-        //   }
-        // }
-        ?>
-      </select>
-    </div> -->
-
     <div class="antigen">
       <label for="d_hla_dq">DQ</label>
       <select class="beautify single" id="d_hla_dq" name="d_hla_dq[]" multiple>
