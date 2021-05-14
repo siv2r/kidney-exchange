@@ -16,13 +16,33 @@ mysqli_free_result($result);
   <link rel="stylesheet" href="../css/table-style.css">
 
   <style>
-   
+    
     
     table .button
     {
       padding:10px 15px;
     }
-      
+
+      /* On screens that are 992px or less, set the background color to blue */
+  @media screen and (max-width: 992px) {
+    .smallhide
+    {
+      display:none;
+    }
+    th,td
+    {
+      width:25vw !important;
+    }
+    th
+    {
+      font-size:17px;
+    }
+    td
+    {
+      font-size:16px;
+      color:#fff !important;
+    }
+  }
   </style>
 
   
@@ -35,9 +55,9 @@ mysqli_free_result($result);
         <th>Patient ID</th>
         <th>Donor ID</th>
         <th>Hosp ID</th>
-        <th>Status</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th class="smallhide">Status</th>
+        <th class="smallhide">Edit</th>
+        <th class="smallhide">Delete</th>
       </tr>
 
       <?php foreach ($result_array as $row) : ?>
@@ -51,13 +71,13 @@ mysqli_free_result($result);
           <td><?php echo $row['patient_id'] ?></td>
           <td><?php echo $row['donor_id'] ?></td>
           <td><?php echo $row['hosp_id'] ?></td>
-          <td>
+          <td class="smallhide">
             <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
-          <td>
+          <td class="smallhide">
             <a class="button info confirmEdit" href="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
           </td>
-          <td>
+          <td class="smallhide">
             <a class="button danger confirmDelete" href="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
           </td>
         </tr>
