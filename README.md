@@ -42,7 +42,7 @@ How to run the server (Optional)
 Done! Now you should be able to access the project at **0.0.0.0:8080** or **localhost:8080**. And you should just refresh the page to see your changes.
 
 ## Documentation
-
+- **New Contributors** follow this [guide](./docs/newContributors.md) to create **your first Pull Request**.
 - Please follow the rules mention in the [contributor's document](./docs/CONTRIBUTING.md) while contributing to this project.
 - [How to create a pull request?](./docs/CreatePR.md)
 
