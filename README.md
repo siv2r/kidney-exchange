@@ -43,15 +43,15 @@ Done! Now you should be able to access the project at **0.0.0.0:8080** or **loca
 
 ## Documentation
 
-- Please follow the rules mention in the [contributor's document](../kidney-exchange/docs/CONTRIBUTING.md) while contributing to this project.
-- [How to create a pull request?](../kidney-exchange/docs/CreatePR.md)
+- Please follow the rules mention in the [contributor's document](./docs/CONTRIBUTING.md) while contributing to this project.
+- [How to create a pull request?](./docs/CreatePR.md)
 
 ## Get in Touch
 
 Suggestions or Queries ? Please feel free to join the [Discord Group](https://discord.com/invite/d7j63WZV82) !
 
 ## License
-Distributed under the GNU General Public License v3.0 License. See [LICENSE](../kidney-exchange/LICENSE) for more information.
+Distributed under the GNU General Public License v3.0 License. See [LICENSE](./LICENSE) for more information.
 
 ## Contributors
 This project is possible due to these amazing people✨✨
