@@ -2,7 +2,7 @@
 
 include("../templates/db-connect.php");
 
-$sql = "SELECT * FROM pd_pairs ORDER BY pair_id";
+$sql = "SELECT pd_pairs.*, hospitals.name as hosp_name FROM pd_pairs LEFT JOIN hospitals on pd_pairs.hosp_id = hospitals.id ORDER BY pair_id";
 $result = mysqli_query($conn, $sql);
 $result_array = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
@@ -34,7 +34,7 @@ mysqli_free_result($result);
         <th>Pair ID</th>
         <th>Patient ID</th>
         <th>Donor ID</th>
-        <th>Hosp ID</th>
+        <th>Hospital Name</th>
         <th>Status</th>
         <th>Edit</th>
         <th>Delete</th>
@@ -50,7 +50,7 @@ mysqli_free_result($result);
           <td><?php echo $row['pair_id'] ?></td>
           <td><?php echo $row['patient_id'] ?></td>
           <td><?php echo $row['donor_id'] ?></td>
-          <td><?php echo $row['hosp_id'] ?></td>
+          <td><?php echo $row['hosp_name'] ?></td>
           <td>
             <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
