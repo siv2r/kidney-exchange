@@ -43,8 +43,8 @@ Done! Now you should be able to access the project at **0.0.0.0:8080** or **loca
 
 ## Documentation
 
-- Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/blob/master/docs/CONTRIBUTING.md) while contributing to this project.
-- [How to create a pull request?](https://github.com/siv2r/kidney-exchange/blob/master/docs/CreatePR.md)
+- Please follow the rules mention in the [contributor's document](https://github.com/siv2r/kidney-exchange/docs/CONTRIBUTING.md) while contributing to this project.
+- [How to create a pull request?](https://github.com/siv2r/kidney-exchange/docs/CreatePR.md)
 
 ## Get in Touch
 
