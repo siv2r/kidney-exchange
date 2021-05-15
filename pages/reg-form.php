@@ -16,9 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../js/reg-form.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-</head>
-
-<style>
+  <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 * {
@@ -27,12 +25,6 @@
   box-sizing: border-box;
 }
 
-.wrapper{
-  width: 70%;
-  margin: auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
 
 .header-img{
   background-image: url(../images/darkBackground.jpg);
@@ -46,23 +38,24 @@
 
 <link rel="stylesheet" href="../css/form-style.css">
 
+</head>
+
+
 <body>
 
   <div class="header-img">
-    <div class="nav-container">
       <?php include "../templates/navBar.php";?>
-    </div>
-    <h2 id="pd-heading">Registration form</h2>
+    <h2 id="pd-heading" class="text-center mt-5 py-5">Registration form</h2>
   </div>
 
-  <div class="wrapper">
-    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data">
+  <div class="container col-lg-8 col-sm-12 registrationform px-0">
+    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data" class="px-0 text-center">
 
       <div class='tab'>
 
         <div class="input-field">
         <div class="heading-box">
-          <h3>Patient details</h3>
+          <h3 class="text-center">Patient details</h3>
         </div>
 
         <div class="pass-img-box">
@@ -74,7 +67,7 @@
        </div>
 
         <fieldset>
-          <legend>Personal Information</legend>
+          <legend class="text-center">Personal Information</legend>
 
           <div class='input-field'>
             <div class="label-box">
