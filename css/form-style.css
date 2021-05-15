@@ -81,7 +81,7 @@ input[type='radio']{      /*increase the size of radio buttons*/
 }
 
 .input-box .double{
-  width: 44%;
+  width: 37%;
 }
 
 /* --------------------------Adjusting address input fields------------------------*/
@@ -207,5 +207,10 @@ label.required{
   .label-box
   {
     text-align:left;
+  }
+  #btn-block{
+    text-align: center;
+    width: 65%;
+    margin-left: 0%;
   }
 }
