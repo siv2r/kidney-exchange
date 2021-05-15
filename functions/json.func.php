@@ -44,51 +44,6 @@ function createGraph( $jsonData ) {
   $cmpGraph         = [];
   $cmpGraph['data'] = [];
 
-// for ($i = 0; $i < $dataLen; $i++) {
-
-//   $pairId = $pairData[$i]['pairId'];
-
-//   $pairIdContents = array();
-
-//   //add pairId's data required for matching
-
-//   $pairIdContents['sources'] = array($pairData[$i]['pairId']);
-
-//   $pairIdContents['dAge'] = toAge($pairData[$i]['dDob']);
-
-//   //find the matches
-
-//   $pairIdContents['matches'] = array();
-
-//   for ($j = 0; $j < $dataLen; $j++) {
-
-//     if ($j === $i) {
-
-//       continue;
-
-//     }
-
-//     if (isMatch($pairData[$i], $pairData[$j])) {
-
-//       $matchContents = array();
-
-//       $matchContents['recipient'] = $pairData[$j]['pairId'];
-
-//       $matchContents['score'] = calcScore($pairData[$i], $pairData[$j]);
-
-//       //push the match contents
-
-//       array_push($pairIdContents['matches'], $matchContents);
-
-//     }
-
-//   }
-
-//   //add current pair result to the final output
-
-//   $cmpGraph['data'][$pairId] = $pairIdContents;
-
-// }
   foreach ( $pairData as $donatePairId => $donatePairValue ) {
     $donatePairCmpGrphValue = [];
 
