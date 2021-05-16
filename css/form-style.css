@@ -213,4 +213,16 @@ label.required{
     width: 65%;
     margin-left: 0%;
   }
+  .input-box .single
+  {
+    width:95%;
+  }
+  .pass-img-box input
+  {
+    width: 95%;
+  }
+  .selection .select2-selection
+  {
+    width:95%;
+  }
 }

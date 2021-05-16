@@ -49,7 +49,7 @@
   </div>
 
   <div class="container col-lg-8 col-sm-12 registrationform px-0">
-    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data" class="px-0 text-center">
+    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data" class="px-0">
 
       <div class='tab'>
 
@@ -67,7 +67,7 @@
        </div>
 
         <fieldset>
-          <legend class="text-center">Personal Information</legend>
+          <legend><h3 class="text-center">Personal Information</h3></legend>
 
           <div class='input-field'>
             <div class="label-box">
@@ -75,8 +75,8 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="text" name="r_fname" value="" class="double requiredField">
-              <input type="text" name="r_lname" value="" class="double requiredField">
+              <input type="text" name="r_fname" value="" class="single requiredField" placeholder="First Name">
+              <input type="text" name="r_lname" value="" class="single requiredField" placeholder="Last Name">
             </div >
           </div>
 
@@ -179,10 +179,10 @@
             <div class="input-box">
               <input type="text" id="r_addr1" name="r_addr1" value="" placeholder="e.g Address line 1" class="requiredField single">
               <input type="text" id="r_addr2" name="r_addr2" value="" placeholder="e.g Address line 2" class="requiredField single">
-              <input type="text" id="r_city" name="r_city" value="" placeholder="e.g Chennai" class="requiredField double">
-              <input type="text" id="r_state" name="r_state" value="" placeholder="e.g TamilNadu" class="requiredField double">
-              <input type="number" id="r_pincode" name="r_pincode" value="" placeholder="e.g 600001" class="requiredField double">
-              <input type="text" id="r_country" name="r_country" value="" placeholder="e.g India" class="requiredField double">
+              <input type="text" id="r_city" name="r_city" value="" placeholder="e.g Chennai" class="requiredField single">
+              <input type="text" id="r_state" name="r_state" value="" placeholder="e.g TamilNadu" class="requiredField single">
+              <input type="number" id="r_pincode" name="r_pincode" value="" placeholder="e.g 600001" class="requiredField single">
+              <input type="text" id="r_country" name="r_country" value="" placeholder="e.g India" class="requiredField single">
             </div>
           </div>
 
