@@ -72,13 +72,13 @@ mysqli_free_result($result);
           <td><?php echo $row['donor_id'] ?></td>
           <td><?php echo $row['hosp_id'] ?></td>
           <td class="smallhide">
-            <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
+            <a href="#" onclick="confirmationforStatus()" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
           <td class="smallhide">
-            <a class="button info confirmEdit" href="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
+            <a class="button info confirmEdit" onclick="confirmationforEdit()" href="#">Edit</a>
           </td>
           <td class="smallhide">
-            <a class="button danger confirmDelete" href="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
+            <a class="button danger confirmDelete" onclick="confirmationforDelete()" href="#">Delete</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -89,19 +89,6 @@ mysqli_free_result($result);
 
   <script>
   $( document ).ready(function() {
-
-    $('.confirmDelete').on('click', function () {
-      return confirm('Do you want to delete this record?');
-    });
-
-    $('.confirmEdit').on('click', function () {
-      return confirm('Do you want to edit this record?');
-    });
-
-    $('.confirmStatus').on('click', function () {
-      return confirm('Do you want to change the status of this record?');
-    });
-
     var statusArray = $('.checkDisable');
 
     statusArray.each(function(){
@@ -120,6 +107,61 @@ mysqli_free_result($result);
     
   </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function confirmationforEdit(){
+    swal({
+      title: "Are you sure?",
+      text: "You Want to Edit!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>";
+      } else {
+        
+      }
+    });
+    }
+    function confirmationforStatus(){
+    swal({
+      title: "Are you sure?",
+      text: "You Want to Change Status !!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>";
+      } else {
+        
+      }
+    });
+    }
+    function confirmationforDelete(){
+    swal({
+      title: "Are you sure?",
+      text: "You Want to Delete!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>";
+      } else {
+        
+      }
+    });
+    }
+  </script>
 </body>
 
 </html>
