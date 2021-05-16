@@ -72,7 +72,7 @@ mysqli_free_result($result);
           <td><?php echo $row['donor_id'] ?></td>
           <td><?php echo $row['hosp_id'] ?></td>
           <td class="smallhide">
-            <a href="#" onclick="confirmationforStatus()" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
+          <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
           <td class="smallhide">
             <a class="button info confirmEdit" onclick="confirmationforEdit()" href="#">Edit</a>
@@ -89,6 +89,10 @@ mysqli_free_result($result);
 
   <script>
   $( document ).ready(function() {
+    $('.confirmStatus').on('click', function () {
+      return confirm('Do you want to change the status of this record?');
+    });
+
     var statusArray = $('.checkDisable');
 
     statusArray.each(function(){
@@ -127,23 +131,7 @@ mysqli_free_result($result);
       }
     });
     }
-    function confirmationforStatus(){
-    swal({
-      title: "Are you sure?",
-      text: "You Want to Change Status !!",
-      icon: "warning",
-      buttons: true,
-      buttons: ['cancel','Yes'],
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        window.location = "../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>";
-      } else {
-        
-      }
-    });
-    }
+    
     function confirmationforDelete(){
     swal({
       title: "Are you sure?",
