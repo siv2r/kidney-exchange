@@ -72,16 +72,13 @@ mysqli_free_result($result);
           <td><?php echo $row['donor_id'] ?></td>
           <td><?php echo $row['hosp_id'] ?></td>
           <td class="smallhide">
-            <input type="hidden" value="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" id="statusinput">
-            <a href="#" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
+            <a href="#../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
           <td class="smallhide">
-          <input type="hidden" value="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>" id="editinput">
-            <a class="button info confirmEdit" href="#">Edit</a>
+            <a class="button info confirmEdit" href="#../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
           </td>
           <td class="smallhide">
-          <input type="hidden" value="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>" id="deleteinput">
-            <a class="button danger confirmDelete" href="#">Delete</a>
+            <a class="button danger confirmDelete" href="#../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -95,8 +92,8 @@ mysqli_free_result($result);
 
     $('.confirmDelete').on('click', function () {
       var href = $(this).attr('href');
-      var inputval = document.getElementById("deleteinput").value;
-      console.log(href,inputval)
+      href = href.substring(1);
+      console.log(href,typeof(href))
       swal({
       title: "Are you sure?",
       text: "You Want Delete!!",
@@ -107,7 +104,7 @@ mysqli_free_result($result);
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location = inputval;
+        window.location = href;
       } else {
         
       }
@@ -116,8 +113,8 @@ mysqli_free_result($result);
 
     $('.confirmEdit').on('click', function () {
       var href = $(this).attr('href');
-      var inputval = document.getElementById("editinput").value;
-      console.log(href,inputval)
+      href = href.substring(1);
+      console.log(href,typeof(href))
       swal({
       title: "Are you sure?",
       text: "You Want Edit!!",
@@ -128,7 +125,7 @@ mysqli_free_result($result);
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location = inputval;
+        window.location = href;
       } else {
         
       }
@@ -137,8 +134,8 @@ mysqli_free_result($result);
 
     $('.confirmStatus').on('click', function () {
       var href = $(this).attr('href');
-      var inputval = document.getElementById("statusinput").value;
-      console.log(href,inputval)
+      href = href.substring(1);
+      console.log(href,typeof(href))
       swal({
       title: "Are you sure?",
       text: "You Want Change Status!!",
@@ -149,7 +146,7 @@ mysqli_free_result($result);
     })
     .then((willDelete) => {
       if (willDelete) {
-        window.location = inputval;
+        window.location = href;
       } else {
         
       }
