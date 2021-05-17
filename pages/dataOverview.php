@@ -72,13 +72,16 @@ mysqli_free_result($result);
           <td><?php echo $row['donor_id'] ?></td>
           <td><?php echo $row['hosp_id'] ?></td>
           <td class="smallhide">
-            <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
+            <input type="hidden" value="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" id="statusinput">
+            <a href="#" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
           <td class="smallhide">
-            <a class="button info confirmEdit" href="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
+          <input type="hidden" value="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>" id="editinput">
+            <a class="button info confirmEdit" href="#">Edit</a>
           </td>
           <td class="smallhide">
-            <a class="button danger confirmDelete" href="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
+          <input type="hidden" value="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>" id="deleteinput">
+            <a class="button danger confirmDelete" href="#">Delete</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -86,20 +89,71 @@ mysqli_free_result($result);
 
     </table>
   </div>
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
   $( document ).ready(function() {
 
     $('.confirmDelete').on('click', function () {
-      return confirm('Do you want to delete this record?');
+      var href = $(this).attr('href');
+      var inputval = document.getElementById("deleteinput").value;
+      console.log(href,inputval)
+      swal({
+      title: "Are you sure?",
+      text: "You Want Delete!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = inputval;
+      } else {
+        
+      }
+    });
     });
 
     $('.confirmEdit').on('click', function () {
-      return confirm('Do you want to edit this record?');
+      var href = $(this).attr('href');
+      var inputval = document.getElementById("editinput").value;
+      console.log(href,inputval)
+      swal({
+      title: "Are you sure?",
+      text: "You Want Edit!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = inputval;
+      } else {
+        
+      }
+    });
     });
 
     $('.confirmStatus').on('click', function () {
-      return confirm('Do you want to change the status of this record?');
+      var href = $(this).attr('href');
+      var inputval = document.getElementById("statusinput").value;
+      console.log(href,inputval)
+      swal({
+      title: "Are you sure?",
+      text: "You Want Change Status!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = inputval;
+      } else {
+        
+      }
+    });
     });
 
     var statusArray = $('.checkDisable');
