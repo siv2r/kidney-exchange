@@ -93,9 +93,6 @@ button:hover {
 
 #hosp-heading{
   color: #fff;
-  position: absolute;
-  top: 45%;
-  left: 43%;
   letter-spacing: 2px;
   font-weight: 600;
   text-transform: uppercase;
@@ -120,16 +117,25 @@ label.required{
   color: red;
 }
 
+@media screen and (max-width: 992px) {
+  .label-box{
+  flex: 2.5 0 0;
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 22px;
+  line-height: 1.6em;
+}
+}
 </style>
 
 <?php include "../templates/header.php";?>
 
   <div class="header-img">
       <?php include "../templates/navBar.php";?>
-    <h2 id="hosp-heading">Hospital form</h2>
+    <h2 id="hosp-heading" class="text-center mt-5 pt-5">Hospital form</h2>
   </div>
 
-  <div class="container">
+  <div class="container col-lg-9 col-sm-12">
     <form action="../include/getHosp.inc.php" method="POST" id="hospForm">
 
       <fieldset>
