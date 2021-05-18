@@ -194,7 +194,7 @@ label.required{
       </fieldset>
 
       <fieldset>
-        <legend>Nephrologist Information</legend>
+        <legend class="text-center mt-5">Nephrologist Information</legend>
 
         <div class='input-field'>
           <div class="label-box">
@@ -219,7 +219,7 @@ label.required{
       </fieldset>
 
       <fieldset>
-        <legend>Surgeon Information</legend>
+        <legend class="text-center mt-5">Surgeon Information</legend>
 
         <div class='input-field'>
           <div class="label-box">
