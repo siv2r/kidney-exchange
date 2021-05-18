@@ -17,19 +17,14 @@ if (!isset($_SESSION)) {
   .brand_logo
   {
     height:12vh;
-    width:8vw;
+    width:6vw;
   }
   .navbar-toggler
   {
     background:#fff;
     padding: .8rem 1.5rem;
   }
-  .space 
-  {
-    width: 30vw;
-    height:5vh;
-    visibility: hidden;
-  }
+  
 .navbar-brand
   {
     color: #fff;
@@ -47,20 +42,22 @@ if (!isset($_SESSION)) {
   color:#fff;
   font-weight:400;
   background:none;
-  padding:10px 20px;
+  padding:20px 15px !important;
   text-transform: uppercase;
   font-size:1.1rem;
   letter-spacing: 2px;
 }
-.nav-item .nav-link:hover , .dropdown-item:hover
+.nav-item:hover , .dropdown-item:hover
 {
   background-color: #a28089;
 }
+.dropdown-menu
+{
+  background-color: #2d3358;
+}
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
-  .space {
-    display:none;
-  }
+
   .navbar-brand
   {
     color: #fff;
@@ -74,32 +71,29 @@ if (!isset($_SESSION)) {
   {
     height:10vh;
     width:15vw;
+    margin:0px !important;
   }  
   .nav-item .nav-link , .dropdown-item
   {
-    font-size:2rem;
-  }
-
-  .dropdown-menu
-  {
-    margin-left:5vw;
+    font-size:1rem;
+    padding: 10px 10px !important;
   }
   .navbar-toggler {
     background: #fff;
     padding: .6rem .8rem;
 }
+
 }
 </style>
-<nav class="navbar navbar-expand-lg">
-  <div class="container px-0">
-    <img src="/kidney-exchange/images/logo3.png" class="brand_logo">
+<nav class="navbar navbar-expand-lg py-0">
+  <div class="container-fluid px-2 py-0">
+    <img src="/kidney-exchange/images/logo3.png" class="brand_logo mx-2">
     <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
-    <div class="space"></div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/kidney-exchange/">Home</a>
         </li>
