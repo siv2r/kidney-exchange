@@ -12,9 +12,6 @@ body{
   background-size: cover;
 }
 
-.search{
-  margin-top: 20%;
-}
 /* -------------------Styling the error messages----------------- */
 
 #failed{
@@ -29,13 +26,17 @@ body{
   font-size: 28px;
   text-align: center;
 }
+#inputPairWiseId
+{
+  height:40vh;
+}
 </style>
 
 <div class="nav-container">
   <?php include "../templates/navBar.php";?>
 </div>
 
-<div class="wrapper">
+<div class="container" id="inputPairWiseId">
 
   <form method="post" action="../pages/displayPairwiseMatch.php" class="search">
     <input type="text" name="id" id="id" placeholder="Enter the pair id..">
@@ -56,5 +57,4 @@ if (isset($_GET['error'])) {
 ?>
 
 </div>
-
 <?php include_once "../include/footer.inc.php";?>
