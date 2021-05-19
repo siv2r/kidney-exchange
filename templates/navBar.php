@@ -138,7 +138,7 @@ if (!isset($_SESSION)) {
                 if ($_SESSION['userType'] === "Admin") {
                   echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
                 } 
-                echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
+                echo '<li class="nav-item"><a class="nav-link" onclick="confirmationLogout()" href="#">Logout</a></li>';
                }
           else {
             echo '<li class="nav-item">
@@ -155,4 +155,24 @@ if (!isset($_SESSION)) {
     </div>
   </div>
 </nav>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script>
+    function confirmationLogout(){
+    swal({
+      title: "Are you sure?",
+      text: "You Want to LogOut!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes, Log out'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "/kidney-exchange/include/logout.inc.php";
+      } else {
+        
+      }
+    });
+    }
+  </script>
