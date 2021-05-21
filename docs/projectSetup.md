@@ -3,6 +3,18 @@
 
 <h2 align="center">Here is the Complete Guide on how to do the project setup</h2>
 
+<h3>Docker Method(For Frontend Part)</h3>
+<br>
+
+  ## How to run the server (Optional)
+
+1. Install Docker
+
+2. Run ```docker-compose up``` inside the project root folder
+
+3. Now you should be able to access the project at 0.0.0.0:8080 or localhost:8080 and then you should 
+   just refresh the page to see your changes.
+
 <h3>Manual Setup Method(For Backend part)</h3>
 <br>
 
@@ -42,17 +54,6 @@
 
     7. Set limit for max allowed packet to 2 MB in your SQL database (Default value is 1 MB)
 
-<h3>Docker Method(For Frontend Part)</h3>
-<br>
-
-  ## How to run the server (Optional)
-
-1. Install Docker
-
-2. Run ```docker-compose up``` inside the project root folder
-
-3. Now you should be able to access the project at 0.0.0.0:8080 or localhost:8080 and then you should 
-   just refresh the page to see your changes.
 
 <h1 align="center"> Happy Coding 💻</h1>
      
