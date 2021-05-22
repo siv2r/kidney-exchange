@@ -45,6 +45,7 @@ Done! Now you should be able to access the project at **0.0.0.0:8080** or **loca
 - **New Contributors** follow this [guide](./docs/newContributors.md) to create **your first Pull Request**.
 - Please follow the rules mention in the [contributor's document](./docs/CONTRIBUTING.md) while contributing to this project.
 - [How to create a pull request?](./docs/CreatePR.md)
+- Have a look on this [Project Board](https://github.com/siv2r/kidney-exchange/projects/1) to check for To-do and In-Progress features.  
 
 ## Get in Touch
 
