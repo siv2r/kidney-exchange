@@ -23,10 +23,10 @@ After a doctor completes this process, this platform provides two main features.
 2) Secondly, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
 
 ## Documentation
-[guide](./docs/newContributors.md): **New Contributors** follow this to create **your first Pull Request**.
-[Contributing Guidelines](./docs/CONTRIBUTING.md): Please follow the rules mention here while contributing to this project.
-[Build documentation](./docs/build.md): Follow this to setup the project in your local machine.
-[Scoring Functions](https://github.com/siv2r/kidney-exchange/projects/1): Parameters used for find the match score.
+[First timers Guide](./docs/newContributors.md): **New Contributors** follow this to create **your first Pull Request**.  
+[Contributing Guidelines](./docs/CONTRIBUTING.md): Please follow the rules mention here while contributing to this project.  
+[Build documentation](./docs/build.md): Follow this to setup the project in your local machine.  
+[Scoring Functions](https://github.com/siv2r/kidney-exchange/projects/1): Parameters used for find the match score.  
 
 ## Get in Touch
 
