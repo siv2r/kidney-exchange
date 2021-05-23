@@ -22,30 +22,11 @@ After a doctor completes this process, this platform provides two main features.
 1) The first feature is an option to view only the essential details of a patient required for a kidney transplant.
 2) Secondly, for a given patient, all suitable matches from all the registered hospitals are displayed. These suitable matches are ranked from best to worst.
 
-## Setting up this project 
-
-### Method 1 (Manual setup)
-This method is recommended if you are working on the backend of this project.
-
-Explained in this [document](https://www.notion.so/Project-setup-Public-1a647ed8515c485f99f38e717acfa61b)
-
-Detailed Step by step [Video](https://drive.google.com/file/d/11n6k2obh5k-06-gYq8GWAo0Rw4aY9G7w/view)
-
-### Method 2 (Through Docker)
-This method will be sufficient if you are working only on the frontend of this project. 
-
-How to run the server (Optional)
-
-1. Install Docker
-2. Run `docker-compose up` inside the project root folder
-
-Done! Now you should be able to access the project at **0.0.0.0:8080** or **localhost:8080**. And you should just refresh the page to see your changes.
-
 ## Documentation
-- **New Contributors** follow this [guide](./docs/newContributors.md) to create **your first Pull Request**.
-- Please follow the rules mention in the [contributor's document](./docs/CONTRIBUTING.md) while contributing to this project.
-- [How to create a pull request?](./docs/CreatePR.md)
-- Have a look on this [Project Board](https://github.com/siv2r/kidney-exchange/projects/1) to check for To-do and In-Progress features.  
+[guide](./docs/newContributors.md): **New Contributors** follow this to create **your first Pull Request**.
+[Contributing Guidelines](./docs/CONTRIBUTING.md): Please follow the rules mention here while contributing to this project.
+[Build documentation](./docs/build.md): Follow this to setup the project in your local machine.
+[Scoring Functions](https://github.com/siv2r/kidney-exchange/projects/1): Parameters used for find the match score.
 
 ## Get in Touch
 
