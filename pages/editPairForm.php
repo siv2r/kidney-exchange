@@ -16,6 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../js/editPairForm.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 
 <style>
@@ -66,7 +67,7 @@ if (isset($_GET['pair_id'])) {
     <div class="nav-container">
       <?php include "../templates/navBar.php";?>
     </div>
-    <h2 id="pd-heading">Edit pd pair form</h2>
+    <h2 id="pd-heading" class="text-center mt-5">Edit pd pair form</h2>
   </div>
 
   <div class="wrapper">
