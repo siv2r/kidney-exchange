@@ -14,9 +14,6 @@ body{
 	box-sizing: border-box;
 	background-color: #ffff;
 	border: 3px solid #f1f1f1;
-	min-width: 300px;
-	margin: auto;
-	padding: 40px 50px;
 }
 
 .label-box{
@@ -68,7 +65,7 @@ legend{
   margin: 20px;
 } */
 
-button {
+#hospForm button {
 	background-color: darkgrey;
 	color: black;
 	padding: 10px 20px;
@@ -96,9 +93,6 @@ button:hover {
 
 #hosp-heading{
   color: #fff;
-  position: absolute;
-  top: 45%;
-  left: 43%;
   letter-spacing: 2px;
   font-weight: 600;
   text-transform: uppercase;
@@ -123,22 +117,29 @@ label.required{
   color: red;
 }
 
+@media screen and (max-width: 992px) {
+  .label-box{
+  flex: 2.5 0 0;
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 22px;
+  line-height: 1.6em;
+}
+}
 </style>
 
 <?php include "../templates/header.php";?>
 
   <div class="header-img">
-    <div class="nav-container">
       <?php include "../templates/navBar.php";?>
-    </div>
-    <h2 id="hosp-heading">Hospital form</h2>
+    <h2 id="hosp-heading" class="text-center mt-5 pt-5">Hospital form</h2>
   </div>
 
-  <div class="wrapper">
+  <div class="container col-lg-9 col-sm-12">
     <form action="../include/getHosp.inc.php" method="POST" id="hospForm">
 
       <fieldset>
-        <legend>Hospital Information</legend>
+        <legend class="text-center mt-5">Hospital Information</legend>
 
         <div class='input-field'>
           <div class="label-box">
@@ -193,7 +194,7 @@ label.required{
       </fieldset>
 
       <fieldset>
-        <legend>Nephrologist Information</legend>
+        <legend class="text-center mt-5">Nephrologist Information</legend>
 
         <div class='input-field'>
           <div class="label-box">
@@ -218,7 +219,7 @@ label.required{
       </fieldset>
 
       <fieldset>
-        <legend>Surgeon Information</legend>
+        <legend class="text-center mt-5">Surgeon Information</legend>
 
         <div class='input-field'>
           <div class="label-box">
@@ -243,14 +244,12 @@ label.required{
       </fieldset>
 
       <div class="input-field">
-        <button type="button" name="submitBtn" value="submitBtn" id="submitBtn">Submit</button>
+        <button type="button" name="submitBtn" value="submitBtn" id="submitBtn" class="mx-auto">Submit</button>
       </div>
 
     <form>
   </div>
 
   <script src="../js/validateHosp.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-</body>
-
-</html>
+  <?php 
+  require_once "../include/footer.inc.php";
