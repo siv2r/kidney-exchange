@@ -4,6 +4,7 @@
 <style>
     #footer {
         background-color: rgb(0, 0, 0, 0.2);
+        margin-top:10vh;
     }
 
     /* css for social media icons */
@@ -66,26 +67,25 @@
         border-color: black;
     }
 
+    .inline
+    {
+        display: inline-block !important;
+    }
+
     /* On screens that are 992px or less, set the background color to blue */
     @media screen and (max-width: 992px) {
        
     }
 </style>
-<div class="container-fluid mt-5 pt-3 pb-2 text-white" id="footer">
+<div class="container-fluid py-2 text-white" id="footer">
     <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-2 text-center">
-           
-        </div>
-        <div class="col-lg-4 mt-2">
-            <p class="text-center">Copyright &copy; Kidney Exchange 2021</p>
-        </div>
-        <div class="col-lg-3">
-            <div class="rounded-social-buttons mt-2">
-
-                <a class="social-button github" href="https://www.github.com" target="_blank"><i
-                        class="fab fa-github"></i></a>
-
+        
+        <div class="col-lg-4 mx-auto">
+            <p class="text-center inline">Copyright &copy; Kidney Exchange 2021</p>
+            <div class="rounded-social-buttons mt-2 inline">
+                <a class="social-button github" href="https://www.github.com" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </div>
