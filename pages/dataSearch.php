@@ -12,9 +12,6 @@ body{
   background-size: cover;
 }
 
-.search{
-  margin-top: 20%;
-}
 
 /* -------------------Styling the error messages----------------- */
 
@@ -36,7 +33,7 @@ body{
   <?php include "../templates/navBar.php";?>
 </div>
 
-<div class="wrapper">
+<div class="container col-lg-8 my-5 py-5">
 
   <form method="post" action="../pages/pairData.php" class="search">
     <input type="text" name="id" id="id" placeholder="Search the pair id..">
