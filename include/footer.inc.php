@@ -83,7 +83,7 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-2 text-center">
-            <img src="/kidney-exchange/images/logo3.png" id="brand_logo">
+           
         </div>
         <div class="col-lg-4 mt-2">
             <p class="text-center">Copyright &copy; Kidney Exchange 2021</p>
