@@ -6,11 +6,6 @@
         background-color: rgb(0, 0, 0, 0.2);
     }
 
-    #brand_logo {
-        width: 5vw;
-        height: 10vh;
-    }
-
     /* css for social media icons */
 
     .rounded-social-buttons {
@@ -73,17 +68,14 @@
 
     /* On screens that are 992px or less, set the background color to blue */
     @media screen and (max-width: 992px) {
-        #brand_logo {
-            width: 15vw;
-            height: 10vh;
-        }
+       
     }
 </style>
 <div class="container-fluid mt-5 pt-3 pb-2 text-white" id="footer">
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-2 text-center">
-            <img src="/kidney-exchange/images/logo3.png" id="brand_logo">
+           
         </div>
         <div class="col-lg-4 mt-2">
             <p class="text-center">Copyright &copy; Kidney Exchange 2021</p>

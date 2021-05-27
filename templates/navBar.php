@@ -14,11 +14,7 @@ if (!isset($_SESSION)) {
     background-color: rgb(0, 0, 0, 0.2);
     font-family: "Open Sans";
   }
-  .brand_logo
-  {
-    height:12vh;
-    width:6vw;
-  }
+  
   .navbar-toggler
   {
     background:#fff;
@@ -67,12 +63,7 @@ if (!isset($_SESSION)) {
     letter-spacing:1px;
     margin:0px;
   }
-  .brand_logo
-  {
-    height:10vh;
-    width:15vw;
-    margin:0px !important;
-  }  
+    
   .nav-item .nav-link , .dropdown-item
   {
     font-size:1rem;
@@ -86,8 +77,7 @@ if (!isset($_SESSION)) {
 }
 </style>
 <nav class="navbar navbar-expand-lg py-0">
-  <div class="container-fluid px-2 py-0">
-    <img src="/kidney-exchange/images/logo3.png" class="brand_logo mx-2">
+  <div class="container px-2 py-0">
     <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fa fa-bars" aria-hidden="true"></i>
