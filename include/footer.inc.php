@@ -4,7 +4,7 @@
 <style>
     #footer {
         background-color: rgb(0, 0, 0, 0.2);
-        margin-top:10vh;
+        margin-top:11vh;
     }
 
     /* css for social media icons */
@@ -77,7 +77,7 @@
        
     }
 </style>
-<div class="container-fluid py-2 text-white" id="footer">
+<div class="container-fluid py-1 text-white" id="footer">
     <div class="row">
         
         <div class="col-lg-4 mx-auto">
