@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  #graphimg
+  #graphimg img
   {
     height:66vh;
   }
