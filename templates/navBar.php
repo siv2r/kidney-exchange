@@ -14,11 +14,7 @@ if (!isset($_SESSION)) {
     background-color: rgb(0, 0, 0, 0.2);
     font-family: "Open Sans";
   }
-  .brand_logo
-  {
-    height:12vh;
-    width:6vw;
-  }
+  
   .navbar-toggler
   {
     background:#fff;
@@ -67,12 +63,7 @@ if (!isset($_SESSION)) {
     letter-spacing:1px;
     margin:0px;
   }
-  .brand_logo
-  {
-    height:10vh;
-    width:15vw;
-    margin:0px !important;
-  }  
+    
   .nav-item .nav-link , .dropdown-item
   {
     font-size:1rem;

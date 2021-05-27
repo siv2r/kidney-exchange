@@ -6,11 +6,6 @@
         background-color: rgb(0, 0, 0, 0.2);
     }
 
-    #brand_logo {
-        width: 5vw;
-        height: 10vh;
-    }
-
     /* css for social media icons */
 
     .rounded-social-buttons {
@@ -73,10 +68,7 @@
 
     /* On screens that are 992px or less, set the background color to blue */
     @media screen and (max-width: 992px) {
-        #brand_logo {
-            width: 15vw;
-            height: 10vh;
-        }
+       
     }
 </style>
 <div class="container-fluid mt-5 pt-3 pb-2 text-white" id="footer">
