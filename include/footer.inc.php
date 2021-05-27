@@ -74,7 +74,10 @@
 
     /* On screens that are 992px or less, set the background color to blue */
     @media screen and (max-width: 992px) {
-       
+        .inline
+        {
+        display:block !important;
+        }
     }
 </style>
 <div class="container-fluid py-1 text-white" id="footer">
