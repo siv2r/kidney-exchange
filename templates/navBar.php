@@ -13,6 +13,7 @@ if (!isset($_SESSION)) {
   {
     background-color: rgb(0, 0, 0, 0.2);
     font-family: "Open Sans";
+    padding:4px;
   }
   
   .navbar-toggler
@@ -73,10 +74,15 @@ if (!isset($_SESSION)) {
     background: #fff;
     padding: .6rem .8rem;
 }
-
+.navbar
+  {
+    background-color: rgb(0, 0, 0, 0.2);
+    font-family: "Open Sans";
+    padding:14px;
+  }
 }
 </style>
-<nav class="navbar navbar-expand-lg py-0">
+<nav class="navbar navbar-expand-lg">
   <div class="container px-2 py-0">
     <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
