@@ -28,7 +28,18 @@ body{
 }
 #inputPairWiseId
 {
-  height:40vh;
+  height:39vh;
+}
+@media screen and (max-width: 992px) {
+  #inputPairWiseId
+  {
+      margin-top:26vh;
+      align-item: center;
+  }
+  .search input[type="text"]
+  {
+    width:95%;
+  }
 }
 </style>
 
