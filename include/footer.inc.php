@@ -70,6 +70,7 @@
     .inline
     {
         display: inline-block !important;
+        padding:0px 5px;
     }
 
     /* On screens that are 992px or less, set the background color to blue */
