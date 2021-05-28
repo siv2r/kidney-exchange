@@ -71,7 +71,30 @@ select {
 .doubleSpan {
   grid-column-end: span 2;
 }
+@media screen and (max-width: 992px) {
+  .grid-container {
+  display:flex;
+  flex-direction: column;
+  padding:1px;
+  align-items: center;
 
+}
+  .grid-item {
+  padding:10px 0px 6px 6px;
+  font-size: 1.5rem;
+  text-align: left;
+  font-family: "Open Sans";
+  width:fit-content;
+}
+.very-large-select
+{
+  width:100%;
+}
+select
+{
+  font-size:15px;
+}
+}
 </style>
 
 <div class="nav-container">
