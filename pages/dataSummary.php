@@ -37,6 +37,17 @@ $dArray = getDonors($conn);
       font-size: 30px;
       margin: 50px auto 10px auto;
     }
+    @media screen and (max-width: 992px) {
+    .navbar , .content-table ,#footer
+    {
+      width: 235vw !important; 
+    }
+    .content-table td, .content-table th
+    {
+      padding:6px;
+    }
+    
+    }
 
   </style>
 
