@@ -200,7 +200,7 @@ label.required{
     display:flex;
     flex-direction: column;
   }
-  #r-pass-img
+  #r-pass-img , #d-pass-img
   {
     margin: auto !important;
   }
