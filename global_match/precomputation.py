@@ -9,17 +9,23 @@ class CyclePrecomputation:
 
     def __init__(self):
         all_cycles = []
-        cycles = []
+        cycles = [] 
 
     def permutations2(self, lst):
-        '''This will show in permutations, finding perumations of ',lst value'''
+        # print('in permutations, finding perumations of ',lst)
+  
+        """[A function to show permutation status]
+
+        Returns:
+            [Integer]: [returns 'lst' value]
+        """        
 
         if len(lst) == 0:
-            '''This will update that it is in the zero state'''
+            # print('in zero case')
             return []
 
         if len(lst) == 1:
-            '''Shows the value of len that is 1'''
+            # print('len==1')
             return [lst]
 
         l = []
@@ -31,10 +37,15 @@ class CyclePrecomputation:
             for p in self.permutations2(remlst):
                 l.append([m] + p)
 
-        '''Prints that the permuations are ', l value'''
+        # print('permuations are ', l)
         return l
 
     def combinations2(self, lst, n):
+        """[This function is used to get the combinations]
+
+        Returns:
+            [list]: [returns l]
+        """        
         if n == 0:
             return [[]]
 
@@ -47,6 +58,10 @@ class CyclePrecomputation:
         return l
 
     def find_cycles(self, Names, malength):
+
+        """[Function to find cycles]
+        """        
+
         temp = []
         for i in range(2, malength + 1):
             comb = self.combinations2(Names, i)
@@ -60,6 +75,9 @@ class CyclePrecomputation:
                     self.all_cycles.append(fin)
 
     def find_chains(self, Names, malength, altruists):
+
+        """[Function to find chains]
+        """        
         temp = []
         for node in altruists:
             for i in range(1, malength + 1):
@@ -72,26 +90,41 @@ class CyclePrecomputation:
                         self.all_cycles.append(fin)
 
     def check_cycle(self, cycle, edges):
-        '''Display the "edges" value'''
+
+        """[Function to check cycles]
+
+        Returns:
+            [Boolean]: [return False if edge not present in edges]
+        """        
+
+        # print(edges)
         for i in range(len(cycle) - 1):
             edge = [cycle[i], cycle[i + 1]]
 
             if edge not in edges:
-                '''Shows the message printing edge , edge value'''
+                # print("printing edge ", edge)
                 return False
 
         return True
 
     def find_cycles_in_graph(self, edges):
-        '''Display the "edges" value'''
+
+        """[Function to find cycles in graph]
+
+        Returns:
+            [Integer]: [description]
+        """        
+
+        # print(edges)
         for cycle in self.all_cycles:
-            '''Shows the message in find cycles , cycle value'''
+            # print("in find cycles ", cycle)
             if self.check_cycle(cycle, edges):
                 self.cycles.append(tuple(cycle))
-                '''Display tuple(cycle) value'''
+                # print(tuple(cycle))
         return self.cycles
 
     def findwt(self, cycles, weight):
+
         cycleswt = {}
         for cycle in cycles:
             wt = 0
@@ -105,11 +138,13 @@ class CyclePrecomputation:
     def findCyclesAndChains(
         self, names, max_cycle_length, max_chain_length, altruists, edges
     ):
+
         self.find_cycles(names, max_cycle_length)
         self.find_chains(names, max_chain_length, altruists)
         return self.find_cycles_in_graph(edges)
 
     def check_backarc(self, cycle, edges):
+
         for i in range(len(cycle) - 1):
             edge = [cycle[i + 1], cycle[i]]
             if edge in edges:
@@ -118,6 +153,7 @@ class CyclePrecomputation:
         return False
 
     def calculate_backarc(self, cycle, edges):
+
         ans = 0
         if len(cycle) == 3:
             return 1
