@@ -21,6 +21,18 @@ import sys
 
 
 def optimize_length(cycles, vertices, dirname, coef=[], ilp=True):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+        vertices ([type]): [description]
+        dirname ([type]): [description]
+        coef (list, optional): [description]. Defaults to [].
+        ilp (bool, optional): [description]. Defaults to True.
+
+    Returns:
+        [type]: [description]
+    """
     prob = cplex.Cplex()
     prob.set_problem_name("KIDNEY EXCHANGE")
     # Set problem type as LP or ILP
@@ -93,6 +105,18 @@ def optimize_length(cycles, vertices, dirname, coef=[], ilp=True):
 
 
 def optimize_weight(cycles, vertices, weight, dirname, ilp):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+        vertices ([type]): [description]
+        weight ([type]): [description]
+        dirname ([type]): [description]
+        ilp ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     # option is ilp option
     prob = cplex.Cplex()
     prob.set_problem_name("KIDNEY EXCHANGE")
@@ -150,10 +174,30 @@ def optimize_weight(cycles, vertices, weight, dirname, ilp):
 
 
 def removechains(cycles):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     return [cycle for cycle in cycles if cycle[0] == cycle[-1]]
 
 
 def maximize_pairwise_exchange(cycles, vertices, dirname, edges, ilp):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+        vertices ([type]): [description]
+        dirname ([type]): [description]
+        edges ([type]): [description]
+        ilp ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     coef = []
     precomputation = CyclePrecomputation()
 
@@ -171,12 +215,35 @@ def maximize_pairwise_exchange(cycles, vertices, dirname, edges, ilp):
 
 
 def maximize_total_transplants(cycles, vertices, dirname, ilp):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+        vertices ([type]): [description]
+        dirname ([type]): [description]
+        ilp ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     solution_values = optimize_length(cycles, vertices, dirname, coef=[], ilp=ilp)
     print(solution_values)
     return solution_values
 
 
 def maximize_total_weight(cycles, vertices, cycle_wt, dirname, ilp):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+        vertices ([type]): [description]
+        cycle_wt ([type]): [description]
+        dirname ([type]): [description]
+        ilp ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     solution_values = optimize_weight(cycles, vertices, cycle_wt, dirname, ilp)
     print(solution_values)
     return solution_values
