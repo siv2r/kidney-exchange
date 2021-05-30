@@ -12,13 +12,16 @@ class CyclePrecomputation:
         cycles = [] 
 
     def permutations2(self, lst):
-        # print('in permutations, finding perumations of ',lst)
-  
-        """[A function to show permutation status]
+        """[summary]
+
+        Args:
+            lst ([type]): [description]
 
         Returns:
-            [Integer]: [returns 'lst' value]
-        """        
+            [type]: [description]
+        """
+
+        # print('in permutations, finding perumations of ',lst)   
 
         if len(lst) == 0:
             # print('in zero case')
@@ -41,11 +44,16 @@ class CyclePrecomputation:
         return l
 
     def combinations2(self, lst, n):
-        """[This function is used to get the combinations]
+        """[summary]
+
+        Args:
+            lst ([type]): [description]
+            n ([type]): [description]
 
         Returns:
-            [list]: [returns l]
-        """        
+            [type]: [description]
+        """
+
         if n == 0:
             return [[]]
 
@@ -58,9 +66,12 @@ class CyclePrecomputation:
         return l
 
     def find_cycles(self, Names, malength):
+        """[summary]
 
-        """[Function to find cycles]
-        """        
+        Args:
+            Names ([type]): [description]
+            malength ([type]): [description]
+        """
 
         temp = []
         for i in range(2, malength + 1):
@@ -75,9 +86,14 @@ class CyclePrecomputation:
                     self.all_cycles.append(fin)
 
     def find_chains(self, Names, malength, altruists):
+        """[summary]
 
-        """[Function to find chains]
-        """        
+        Args:
+            Names ([type]): [description]
+            malength ([type]): [description]
+            altruists ([type]): [description]
+        """
+    
         temp = []
         for node in altruists:
             for i in range(1, malength + 1):
@@ -90,12 +106,15 @@ class CyclePrecomputation:
                         self.all_cycles.append(fin)
 
     def check_cycle(self, cycle, edges):
+        """[summary]
 
-        """[Function to check cycles]
+        Args:
+            cycle ([type]): [description]
+            edges ([type]): [description]
 
         Returns:
-            [Boolean]: [return False if edge not present in edges]
-        """        
+            [type]: [description]
+        """
 
         # print(edges)
         for i in range(len(cycle) - 1):
@@ -108,12 +127,14 @@ class CyclePrecomputation:
         return True
 
     def find_cycles_in_graph(self, edges):
+        """[summary]
 
-        """[Function to find cycles in graph]
+        Args:
+            edges ([type]): [description]
 
         Returns:
-            [Integer]: [description]
-        """        
+            [type]: [description]
+        """
 
         # print(edges)
         for cycle in self.all_cycles:
@@ -124,6 +145,15 @@ class CyclePrecomputation:
         return self.cycles
 
     def findwt(self, cycles, weight):
+        """[summary]
+
+        Args:
+            cycles ([type]): [description]
+            weight ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
 
         cycleswt = {}
         for cycle in cycles:
@@ -138,12 +168,33 @@ class CyclePrecomputation:
     def findCyclesAndChains(
         self, names, max_cycle_length, max_chain_length, altruists, edges
     ):
+        """[summary]
+
+        Args:
+            names ([type]): [description]
+            max_cycle_length ([type]): [description]
+            max_chain_length ([type]): [description]
+            altruists ([type]): [description]
+            edges ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
 
         self.find_cycles(names, max_cycle_length)
         self.find_chains(names, max_chain_length, altruists)
         return self.find_cycles_in_graph(edges)
 
     def check_backarc(self, cycle, edges):
+        """[summary]
+
+        Args:
+            cycle ([type]): [description]
+            edges ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
 
         for i in range(len(cycle) - 1):
             edge = [cycle[i + 1], cycle[i]]
@@ -153,6 +204,15 @@ class CyclePrecomputation:
         return False
 
     def calculate_backarc(self, cycle, edges):
+        """[summary]
+
+        Args:
+            cycle ([type]): [description]
+            edges ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
 
         ans = 0
         if len(cycle) == 3:
