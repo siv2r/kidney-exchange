@@ -171,7 +171,10 @@ $(document).ready(function(){
     }
 
   }
-
+  /**
+   * 
+   * @returns Boolean
+   */
   function next_tab(){
 
     let isValid = validate_form(); // check the validity of the current tab
@@ -203,7 +206,10 @@ $(document).ready(function(){
 
   //-----------------------------------------Form validation------------------------------------
 
-
+  /**
+   * 
+   * @returns string
+   */
 	function validate_form(){
 
     // Custom error messages
@@ -533,10 +539,4 @@ $(document).ready(function(){
 
     return form.valid();
 	}
-
-
-
-
-
-  
 });
