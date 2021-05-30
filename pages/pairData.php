@@ -357,5 +357,4 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
   <script src="../js/pairData.js"></script>
-</body>
-</html>
+  <?php include_once "../include/footer.inc.php";?>
