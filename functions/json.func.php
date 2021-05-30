@@ -31,7 +31,7 @@ function toJSON( $allPairData ) {
 /**
  * Creates the compatibility graph for all the data in database
  *
- * @param  string $jsonData     contains all the data from database in json format
+ * @param  json $jsonData     contains all the data from database in json format
  * @return json compatibility graph
  */
 function createGraph( $jsonData ) {
@@ -83,7 +83,7 @@ function createGraph( $jsonData ) {
 /**
  * Creates a .json file in the server
  *
- * @param  string   $data - the json data which must to stored in the file
+ * @param  json   $data - the json data which must to stored in the file
  * @param  string $name - name of the required file
  * @return void
  */
