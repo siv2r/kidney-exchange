@@ -35,6 +35,30 @@
     margin-top: 15px;
     font-weight: bolder;
   }
+
+  td,tr
+  {
+    font-size:1.5rem;
+  }
+  @media screen and (max-width: 992px) {
+    .navbar-brand
+    {
+      font-size:2rem !important;
+    }
+    #tableHeading
+    {
+      font-size:2rem;
+      margin:10vh auto;
+    }
+    .navbar , .content-table ,#footer , #tableHeading
+    {
+      width:195vw !important; 
+    }
+    #possible-match
+    {
+      margin-bottom: 13vh !important;;
+    }
+}
 </style>
 
 <?php include "../templates/header.php";?>
