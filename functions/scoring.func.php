@@ -1,7 +1,6 @@
 <?php
 /**
  * Undocumented function
- *
  * @param  [type] $givenArray
  * @param  string $filter
  * @return array  $filteredValues
@@ -14,13 +13,11 @@ function filterArray( $givenArray, $filter = "/(A|B|DR|Dw)/" ) {
       array_push( $filteredValues, $value );
     }
   }
-
   return $filteredValues;
 }
 
 /**
  * returns score according mismatch of DR Hla of pair1's donor with pair2's patient
- *
  * @param  array   $pair1 - donating pair (so, donor of this pair will be taken)
  * @param  array   $pair2 - recieving pair (so, patient of this pair will be taken)
  * @return integer - score wrt to mismatch of DR
@@ -47,7 +44,6 @@ function DRmismatch( $pair1, $pair2 ) {
 
 /**
  * returns score according match of A, B, DR, Dw  Hla of pair1's donor with pair2's patient
- *
  * @param  array   $pair1 - donating pair (so, donor of this pair will be taken)
  * @param  array   $pair2 - recieving pair (so, patient of this pair will be taken)
  * @return integer - score wrt to matching of all 6 HLA's
@@ -71,15 +67,15 @@ function zeroHlaMismatch( $pair1, $pair2 ) {
   }
 }
 
-/**
- * Not implemented yet
- *
- * @return integer
- */
 function highPRA() {
   return 0;
 }
-
+/**
+ * Undocumented function
+ * @param string $pair1
+ * @param string $pair2
+ * @return string
+ */
 function travelDist( $pair1, $pair2 ) {
 //TODO: Currently, using pincode but this will change. Then how to measure distance??
   $donorAddress   = explode( ", ", $pair1['dAddress'] );
@@ -99,7 +95,12 @@ function travelDist( $pair1, $pair2 ) {
     return 0;
   }
 }
-
+/**
+ * Undocumented function
+ *
+ * @param string $pair1
+ * @return integer
+ */
 function pediatricPatient( $pair1 ) {
   $patientDob = $pair1['pDob'];
   $patientAge = toAge( $patientDob );
@@ -113,7 +114,12 @@ function pediatricPatient( $pair1 ) {
 
   return 0;
 }
-
+/**
+ * Undocumented function
+ *
+ * @param string $pair1
+ * @return integer
+ */
 function patientOnceDonor( $pair1 ) {
 //TODO: Information unavailable in the database
   return 0;
