@@ -124,8 +124,8 @@ form a{
 			</div>
 
 			<div class="form-elements">
-				<input type="text" class="my-2" name="uid" placeholder="Username/Email">
-				<input type="password" class="my-2" name="pswd" id="pswd" placeholder="Password">
+				<input type="text" class="my-2" name="uid" placeholder="Username/Email"required>
+				<input type="password" class="my-2" name="pswd" id="pswd" placeholder="Password"required>
         <div id="showpass">
             <input type="checkbox" id="box" onclick="box1()">
             <span id="notice">show password</span>
