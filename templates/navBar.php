@@ -134,7 +134,17 @@ if (!isset($_SESSION)) {
                 if ($_SESSION['userType'] === "Admin") {
                   echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
                 } 
-                echo '<li class="nav-item"><a class="nav-link" onclick="confirmationLogout()" href="#">Logout</a></li>';
+                echo '
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  ';echo $_SESSION['userId'];
+                  echo '
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="confirmationLogout()" >Logout</a></li>
+                  </ul>
+                </li>';
+                
                }
           else {
             echo '<li class="nav-item">
