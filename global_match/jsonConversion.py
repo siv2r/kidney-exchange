@@ -7,9 +7,19 @@ import json
 
 class DataConvert:
     def __init__(self, file_name):
+        """[summary]
+
+        Args:
+            file_name ([type]): [description]
+        """
         self.file = file_name
 
     def convert_altruistic(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
         file_name = self.file
         names = []
         edges = []
