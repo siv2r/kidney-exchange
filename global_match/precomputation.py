@@ -9,7 +9,7 @@ class CyclePrecomputation:
 
     def __init__(self):
         all_cycles = []
-        cycles = [] 
+        cycles = []
 
     def permutations2(self, lst):
         """[summary]
@@ -21,7 +21,7 @@ class CyclePrecomputation:
             [type]: [description]
         """
 
-        # print('in permutations, finding perumations of ',lst)   
+        # print('in permutations, finding perumations of ',lst)
 
         if len(lst) == 0:
             # print('in zero case')
@@ -93,7 +93,7 @@ class CyclePrecomputation:
             malength ([type]): [description]
             altruists ([type]): [description]
         """
-    
+
         temp = []
         for node in altruists:
             for i in range(1, malength + 1):
