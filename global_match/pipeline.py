@@ -39,6 +39,16 @@ def fillexcel(
     transplants,
     Constraint,
 ):
+    """[summary]
+
+    Args:
+        patients ([type]): [description]
+        altruistic_donors ([type]): [description]
+        max_cycle_length ([type]): [description]
+        max_chain_length ([type]): [description]
+        transplants ([type]): [description]
+        Constraint ([type]): [description]
+    """
     with open("kidney.csv", "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(
@@ -54,6 +64,16 @@ def fillexcel(
 
 
 def pipeline(file_name, option, max_cycle_length, max_chain_length, ilp, pd_details):
+    """[summary]
+
+    Args:
+        file_name ([type]): [description]
+        option ([type]): [description]
+        max_cycle_length ([type]): [description]
+        max_chain_length ([type]): [description]
+        ilp ([type]): [description]
+        pd_details ([type]): [description]
+    """
     x = "result"
     path = os.getcwd() + "/"
     dirName = path + str(x)
