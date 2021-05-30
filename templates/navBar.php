@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
   }  
 .navbar-brand:hover
 {
-  color: red;
+  color: #fff;
 }
 .nav-item .nav-link , .dropdown-item
 {
