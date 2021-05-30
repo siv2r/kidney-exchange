@@ -9,6 +9,18 @@ from hovering import hover_graph
 
 
 def run_results(solution_values, cycles, altruistic, edges, cycleswt):
+    """[summary]
+
+    Args:
+        solution_values ([type]): [description]
+        cycles ([type]): [description]
+        altruistic ([type]): [description]
+        edges ([type]): [description]
+        cycleswt ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     transplants = 0
     altruistic_involved = 0
     paired_transplants = 0
@@ -60,6 +72,15 @@ def run_results(solution_values, cycles, altruistic, edges, cycleswt):
 
 
 def cyclesAndChains(cycles, solution_values):
+    """[summary]
+
+    Args:
+        cycles ([type]): [description]
+        solution_values ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     length2_cycles = []
     length3_cycles = []
     length1_chain = []
@@ -83,6 +104,14 @@ def cyclesAndChains(cycles, solution_values):
 
 
 def poolDescription(all_cycles):
+    """[summary]
+
+    Args:
+        all_cycles ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     length2_count = 0
     length3_count = 0
     short_chain_count = 0
@@ -109,6 +138,17 @@ def poolDescription(all_cycles):
 def print_graph(
     solution_values, cycles, names, altruistic_donors, dirname, weight, pd_details
 ):
+    """[summary]
+
+    Args:
+        solution_values ([type]): [description]
+        cycles ([type]): [description]
+        names ([type]): [description]
+        altruistic_donors ([type]): [description]
+        dirname ([type]): [description]
+        weight ([type]): [description]
+        pd_details ([type]): [description]
+    """
     for i in range(len(solution_values)):
         if solution_values[i] != 0:
             print(cycles[i])
@@ -238,6 +278,25 @@ def print_solution(
     weight_dict,
     pd_details,
 ):
+    """[summary]
+
+    Args:
+        run_no ([type]): [description]
+        constraint ([type]): [description]
+        max_length ([type]): [description]
+        solution_values ([type]): [description]
+        cycles ([type]): [description]
+        altruists ([type]): [description]
+        edges ([type]): [description]
+        cycleswt ([type]): [description]
+        names ([type]): [description]
+        dirname ([type]): [description]
+        weight_dict ([type]): [description]
+        pd_details ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
 
     file_name = dirname + "/" + "solution"
     with open(file_name, "w") as f:
