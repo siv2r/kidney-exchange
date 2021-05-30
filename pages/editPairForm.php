@@ -28,12 +28,7 @@
     box-sizing: border-box;
   }
 
-  .wrapper {
-    width: 70%;
-    margin: auto;
-    padding: 10px;
-    box-sizing: border-box;
-  }
+  
 
   .header-img {
     /* background-image: url("https://images.unsplash.com/photo-1502485019198-a625bd53ceb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");  */
@@ -43,6 +38,32 @@
     position: relative;
     min-height: 400px;
   }
+  #pd-heading
+  {
+    margin-top: 20vh !important;
+  }
+  @media screen and (max-width: 992px) {
+    #next-btn, #prev-btn
+  {
+    padding:14px 10px !important;
+    width:40% !important;
+  }
+  #reg-form
+  {
+    padding: 20px 10px !important;
+  }
+  
+  .label-box{
+  flex: 2.5 0 0;
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 22px;
+  line-height: 1.6em;
+}
+#d-pass-img{
+  margin:0 auto !important;
+}
+}
 </style>
 
 <link rel="stylesheet" href="../css/form-style.css">
@@ -70,7 +91,7 @@ if (isset($_GET['pair_id'])) {
     <h2 id="pd-heading" class="text-center mt-5">Edit pd pair form</h2>
   </div>
 
-  <div class="wrapper">
+  <div class="container col-lg-8 col-sm-12 registrationform px-0">
     <form action="../include/updatePair.inc.php" method="post" id="reg-form" enctype="multipart/form-data">
 
       <input type="text" name="r_id" value="<?php echo $patient_id; ?>" hidden>
@@ -80,7 +101,7 @@ if (isset($_GET['pair_id'])) {
 
         <div class="input-field">
           <div class="heading-box">
-            <h3>Patient details</h3>
+            <h3 class="text-center">Patient details</h3>
           </div>
 
           <div class="pass-img-box">
@@ -100,8 +121,8 @@ if (isset($_GET['pair_id'])) {
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="text" name="r_fname" value="<?php echo $rNameArray[0]; ?>" class="double requiredField">
-              <input type="text" name="r_lname" value="<?php echo $rNameArray[1]; ?>" class="double requiredField">
+              <input type="text" name="r_fname" value="<?php echo $rNameArray[0]; ?>" class="single requiredField">
+              <input type="text" name="r_lname" value="<?php echo $rNameArray[1]; ?>" class="single requiredField">
             </div>
           </div>
 
@@ -615,7 +636,7 @@ if ($_SESSION['userType'] === "Transplant coordinator") {
 
         <div class="input-field">
           <div class="heading-box">
-            <h3>Donor details</h3>
+            <h3 class="text-center">Donor details</h3>
           </div>
 
           <div class="pass-img-box">
