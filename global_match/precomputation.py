@@ -12,14 +12,14 @@ class CyclePrecomputation:
         cycles = []
 
     def permutations2(self, lst):
-        # print('in permutations, finding perumations of ',lst)
+        '''This will show in permutations, finding perumations of ',lst value'''
 
         if len(lst) == 0:
-            # print('in zero case')
+            '''This will update that it is in the zero state'''
             return []
 
         if len(lst) == 1:
-            # print('len==1')
+            '''Shows the value of len that is 1'''
             return [lst]
 
         l = []
@@ -31,7 +31,7 @@ class CyclePrecomputation:
             for p in self.permutations2(remlst):
                 l.append([m] + p)
 
-        # print('permuations are ', l)
+        '''Prints that the permuations are ', l value'''
         return l
 
     def combinations2(self, lst, n):
@@ -72,23 +72,23 @@ class CyclePrecomputation:
                         self.all_cycles.append(fin)
 
     def check_cycle(self, cycle, edges):
-        # print(edges)
+        '''Display the "edges" value'''
         for i in range(len(cycle) - 1):
             edge = [cycle[i], cycle[i + 1]]
 
             if edge not in edges:
-                # print("printing edge ", edge)
+                '''Shows the message printing edge , edge value'''
                 return False
 
         return True
 
     def find_cycles_in_graph(self, edges):
-        # print(edges)
+        '''Display the "edges" value'''
         for cycle in self.all_cycles:
-            # print("in find cycles ", cycle)
+            '''Shows the message in find cycles , cycle value'''
             if self.check_cycle(cycle, edges):
                 self.cycles.append(tuple(cycle))
-                # print(tuple(cycle))
+                '''Display tuple(cycle) value'''
         return self.cycles
 
     def findwt(self, cycles, weight):
