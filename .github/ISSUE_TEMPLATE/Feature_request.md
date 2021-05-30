@@ -1,3 +1,12 @@
+---
+name: FEATURE REQUEST
+about: suggest any feature you would like to add
+title: ''
+labels: feature
+assignees: ''
+
+---
+
 (Thanks for sending a feature request! Please make sure you click the link above to view the contribution guidelines, then fill out the blanks below.)
 
 ### Can you please describe the problem to be solved?
