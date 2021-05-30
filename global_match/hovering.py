@@ -7,12 +7,30 @@ import networkx as nx
 
 
 def read_details(pd_details):
+    """[summary]
+
+    Args:
+        pd_details ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     with open(pd_details) as f:
         data = json.load(f)
     return data
 
 
 def update_annot(ind, nodelist, pos, data, annot, G):
+    """[summary]
+
+    Args:
+        ind ([type]): [description]
+        nodelist ([type]): [description]
+        pos ([type]): [description]
+        data ([type]): [description]
+        annot ([type]): [description]
+        G ([type]): [description]
+    """
     node_idx = ind["ind"][0]
     node = list(nodelist)[node_idx]
     xy = pos[node]
@@ -34,6 +52,23 @@ def update_annot(ind, nodelist, pos, data, annot, G):
 def hover(
     event, annot, nodes1, nodes2, nodes3, nodes4, top_nodes, rest, pos, data, fig, ax, G
 ):
+    """[summary]
+
+    Args:
+        event ([type]): [description]
+        annot ([type]): [description]
+        nodes1 ([type]): [description]
+        nodes2 ([type]): [description]
+        nodes3 ([type]): [description]
+        nodes4 ([type]): [description]
+        top_nodes ([type]): [description]
+        rest ([type]): [description]
+        pos ([type]): [description]
+        data ([type]): [description]
+        fig ([type]): [description]
+        ax ([type]): [description]
+        G ([type]): [description]
+    """
     vis = annot.get_visible()
     if event.inaxes == ax:
         if nodes1 is not None:
