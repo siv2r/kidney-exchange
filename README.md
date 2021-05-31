@@ -30,7 +30,7 @@ After a doctor completes this process, this platform provides two main features.
 
 ## Get in Touch
 
-Suggestions or Queries ? Please feel free to join the [Discord Group](https://discord.com/invite/d7j63WZV82) !
+Suggestions or Queries ? Please feel free to join the [Discord Group](https://discord.gg/uH35zjW5cN) !
 
 ## License
 Distributed under the GNU General Public License v3.0 License. See [LICENSE](./LICENSE) for more information.
