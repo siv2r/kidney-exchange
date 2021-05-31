@@ -27,17 +27,17 @@ If You don't have Git already installed on your System ,You can follow this [Ins
 
 
    
- 3.  Project Maintainers and Mentors will guide you with the issue and incase of any problem you face, you can take help from the community in the discord server.
+ 5.  Project Maintainers and Mentors will guide you with the issue and incase of any problem you face, you can take help from the community in the discord server.
 
 
- 4.  So, Now you have an issue to work upon. So first you need is to fork Repo. "*Fork means producing a Personal Copy of Someone else's Project*". You can fork Repo This Way:-
+ 6.  So, Now you have an issue to work upon. So first you need is to fork Repo. "*Fork means producing a Personal Copy of Someone else's Project*". You can fork Repo This Way:-
 
 
 
   ![](../images/Fork.png)
 
 
- 5.  Clone the Repo you have forked:-
+ 7.  Clone the Repo you have forked:-
 
 
   
@@ -53,18 +53,18 @@ If You don't have Git already installed on your System ,You can follow this [Ins
 
 
 
- 6.  Set upstream to the Repo Using Command  `` git remote add upstream https://github.com/siv2r/kidney-exchange``.
+ 8.  Set upstream to the Repo Using Command  `` git remote add upstream https://github.com/siv2r/kidney-exchange``.
   
 
 
- 7.  Make a branch using the command  ``git checkout -b branch_name ``.
+ 9.  Make a branch using the command  ``git checkout -b branch_name ``.
 
 
 
- 8.  Now it is the time to make required changes in the project 🌸
+ 10.  Now it is the time to make required changes in the project 🌸
 
 
- 9.  When you are done with the changes, Run following Commands:-
+ 11.  When you are done with the changes, Run following Commands:-
 
   
       - ``git add .``
@@ -75,7 +75,7 @@ If You don't have Git already installed on your System ,You can follow this [Ins
 
 
 
- 10.  Go to your forked Repo in Github, there you will see a notification for Compare and Pull Request like this:-
+ 12.  Go to your forked Repo in Github, there you will see a notification for Compare and Pull Request like this:-
 ![](../images/github-comparepr.png) <br>
   Click this and create your First Pull Request.
 
