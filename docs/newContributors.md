@@ -17,7 +17,7 @@ If You don't have Git already installed on your System ,You can follow this [Ins
     
  2. You can look through the [good first issues](https://github.com/siv2r/kidney-exchange/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and select the one that you like to work on. If your interested issue is already assigned to someone, you can also collaborate to get it done.
    
- 3. If none of the issues matches your interest or things are a bit overwhelming, you can ask for guidance in the discord group.
+ 3. If none of the issues match your interest or things are a bit overwhelming, you can ask for guidance in the discord group.
    
  4.  So to start Contributing to our Project you can solve existing issues or if you have found any bugs or want to add a new feature to Project you can create New Issue, that's purely your choice.
 
