@@ -79,7 +79,13 @@ function zeroHlaMismatch( $pair1, $pair2 ) {
 function highPRA() {
   return 0;
 }
-
+/**
+ * Undocumented function
+ *
+ * @param  [type] $pair1
+ * @param  [type] $pair2
+ * @return string
+ */
 function travelDist( $pair1, $pair2 ) {
 //TODO: Currently, using pincode but this will change. Then how to measure distance??
   $donorAddress   = explode( ", ", $pair1['dAddress'] );
@@ -99,7 +105,12 @@ function travelDist( $pair1, $pair2 ) {
     return 0;
   }
 }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $pair1
+ * @return string
+ */
 function pediatricPatient( $pair1 ) {
   $patientDob = $pair1['pDob'];
   $patientAge = toAge( $patientDob );
