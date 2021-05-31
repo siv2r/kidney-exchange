@@ -137,11 +137,11 @@ img.avatar {
     </div>
 
     <div class="form-elements px-1">
-      <input type="text" class="my-2" name="uname" placeholder="Username" class="requiredField">
-      <input type="text" class="my-2" name="email" placeholder="Email" class="requiredField">
-      <input type="number" class="my-2" name="hosp_id" placeholder="Hospital ID" class="requiredField">
-      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField">
-      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
+      <input type="text" class="my-2" name="uname" placeholder="Username" class="requiredField" required>
+      <input type="text" class="my-2" name="email" placeholder="Email" class="requiredField" required>
+      <input type="number" class="my-2" name="hosp_id" placeholder="Hospital ID" class="requiredField" required>
+      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField" required>
+      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField" required>
       <div id="showpass">
           <input type="checkbox" id="box" onclick="box1()">
           <span id="notice">show password</span>
