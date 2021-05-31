@@ -81,7 +81,7 @@ If You don't have Git already installed on your System ,You can follow this [Ins
 
 
 
- 1.   Mentors will review your changes and will give feedback and if everything go well, your PR will get merged, Hurray  🎉🥳
+ 1.   Mentors will review your changes and will give feedback and if everything goes well, your PR will get merged, Hurray  🎉🥳
 
 
 
