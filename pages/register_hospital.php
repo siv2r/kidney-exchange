@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../css/form-style.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/backToTop.css">
 <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -254,20 +255,6 @@ label.required{
   </div>
 
   <script src="../js/validateHosp.js"></script>
-  <script>
-      var btn = $('#button');
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
-  } else {
-    btn.removeClass('show');
-  }
-});
-
-btn.on('click', function(e) {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
-});
-    </script>
+  <script src="../js/backToTop.js"></script>
   <?php 
   require_once "../include/footer.inc.php";
