@@ -113,12 +113,21 @@ function pediatricPatient( $pair1 ) {
 
   return 0;
 }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $pair1
+ * @return string
+ */
 function patientOnceDonor( $pair1 ) {
 //TODO: Information unavailable in the database
   return 0;
 }
-
+/**
+ * Undocumented function
+ *
+ * @return string
+ */
 function negCrossMatch() {
 //TODO: Information unavialbe in the database
   return 0;
