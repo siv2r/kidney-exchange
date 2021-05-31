@@ -12,6 +12,7 @@ $dArray = getDonors($conn);
   <link rel="stylesheet" href="../css/button-style.css">
   <link rel="stylesheet" href="../css/blueContentTable.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/backToTop.css">
   <style>
     /* --------------------Background--------------------------- */
 
@@ -48,61 +49,20 @@ $dArray = getDonors($conn);
     }
     
     }
-    html {
-  scroll-behavior: smooth;
-}
-a
-{
-  text-decoration: none;
-}
+    
+    /* overwriting some css of back to top */
 #button {
-  display: inline-block;
-  background-color: red;
   width: 42px;
   height: 42px;
-  text-align: center;
-  border-radius: 25px;
-  position: fixed;
   bottom: 10px;
   right: -20px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
 }
 #button::after {
-  content: "\f077";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
   font-size: 1.5em;
   line-height: 40px;
   color: #fff;
 }
-#button:hover {
-  cursor: pointer;
-  background-color: #333;
-}
-#button:active {
-  background-color: #555;
-}
-#button.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Styles for the content section */
-
-
-@media (min-width: 500px) {
-  
-  #button {
-    margin: 30px;
-  }
-}
   </style>
-
   <div class="nav-container">
     <?php include("../templates/navBar.php") ?>
   </div>
@@ -193,19 +153,5 @@ a
     <?php endforeach; ?>
 
   </table>
-  <script>
-      var btn = $('#button');
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
-  } else {
-    btn.removeClass('show');
-  }
-});
-
-btn.on('click', function(e) {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
-});
-    </script>
+  <script src="../js/backToTop.js"></script>
 <?php include_once("../include/footer.inc.php") ?>
