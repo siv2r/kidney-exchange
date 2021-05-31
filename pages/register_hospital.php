@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../css/form-style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
@@ -126,15 +127,16 @@ label.required{
   line-height: 1.6em;
 }
 }
-</style>
 
+</style>
 <?php include "../templates/header.php";?>
 
   <div class="header-img">
       <?php include "../templates/navBar.php";?>
     <h2 id="hosp-heading" class="text-center mt-5 pt-5">Hospital form</h2>
   </div>
-
+<!-- Back to top button -->
+<a id="button" style="text-decoration:none"></a>
   <div class="container col-lg-9 col-sm-12">
     <form action="../include/getHosp.inc.php" method="POST" id="hospForm">
 
@@ -251,5 +253,20 @@ label.required{
   </div>
 
   <script src="../js/validateHosp.js"></script>
+  <script>
+      var btn = $('#button');
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+    </script>
   <?php 
   require_once "../include/footer.inc.php";
