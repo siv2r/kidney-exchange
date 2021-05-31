@@ -1,4 +1,5 @@
 
+
 var btn = $('#button');
 $(window).scroll(function() {
 if ($(window).scrollTop() > 300) {
@@ -7,6 +8,7 @@ btn.addClass('show');
 btn.removeClass('show');
 }
 });
+
 
 btn.on('click', function(e) {
 e.preventDefault();
