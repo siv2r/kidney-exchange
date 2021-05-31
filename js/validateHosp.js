@@ -138,13 +138,8 @@ function validate_form(){
       }
 
     }
-
-    // messages: {
-
-    // }
-    
   });
-
+  
   $('.requiredField').each(function() {
     $(this).rules('add', {
       required: true,
