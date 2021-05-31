@@ -18,6 +18,7 @@
   <script src="../js/editPairForm.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/backToTop.css">
 </head>
 
 <style>
@@ -65,59 +66,7 @@
   margin:0 auto !important;
 }
 }
-html {
-  scroll-behavior: smooth;
-}
-a
-{
-  text-decoration: none;
-}
-#button {
-  display: inline-block;
-  background-color: red;
-  width: 52px;
-  height: 52px;
-  text-align: center;
-  border-radius: 25px;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  transition: background-color .3s, 
-    opacity .5s, visibility .5s;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 1000;
-}
-#button::after {
-  content: "\f077";
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 2em;
-  line-height: 50px;
-  color: #fff;
-}
-#button:hover {
-  cursor: pointer;
-  background-color: #333;
-}
-#button:active {
-  background-color: #555;
-}
-#button.show {
-  opacity: 1;
-  visibility: visible;
-}
 
-/* Styles for the content section */
-
-
-@media (min-width: 500px) {
-  
-  #button {
-    margin: 30px;
-  }
-}
 </style>
 
 <link rel="stylesheet" href="../css/form-style.css">
@@ -1062,20 +1011,7 @@ foreach ($relationValues as $value) {
 
     </form>
   </div>
-  <script>
-      var btn = $('#button');
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
-  } else {
-    btn.removeClass('show');
-  }
-});
-
-btn.on('click', function(e) {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
-});
-    </script>
+  
+<script src="../js/backToTop.js"></script>
   <?php
 require_once "../include/footer.inc.php";
