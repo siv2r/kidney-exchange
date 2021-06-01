@@ -95,13 +95,17 @@ select
   font-size:15px;
 }
 }
+#outer
+{
+  height:75vh;
+}
 </style>
 
 <div class="nav-container">
   <?php include "../templates/navBar.php";?>
 </div>
 
-<div class="container col-lg-8 mt-5 pt-5 mb-5 pb-4">
+<div class="container col-lg-8 mt-5 pt-5 mb-5 pb-4" id="outer">
   <form method="post" action="/kidney-exchange/global_match/findGlobalMatch.php" class="search">
     <div class="grid-container">
       <div class="grid-item">Maximum cycle size</div>
