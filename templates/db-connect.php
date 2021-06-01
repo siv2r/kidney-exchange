@@ -1,5 +1,5 @@
 <?php 
-//dummy PR
+
 $servername = "localhost";
 $username = "siv2r";
 $password = "sivaram535";
