@@ -27,13 +27,16 @@ body{
   font-size: 28px;
   text-align: center;
 }
+#outer{
+  height:75vh;
+}
 </style>
 
 <div class="nav-container">
   <?php include "../templates/navBar.php";?>
 </div>
 
-<div class="container col-lg-8 my-5 py-5">
+<div class="container col-lg-8 my-5 py-5" id="outer">
 
   <form method="post" action="../pages/pairData.php" class="search">
     <input type="text" name="id" id="id" placeholder="Search the pair id..">
