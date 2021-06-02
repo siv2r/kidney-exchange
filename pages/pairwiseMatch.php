@@ -28,7 +28,7 @@ body{
 }
 #inputPairWiseId
 {
-  height:39vh;
+  height:63vh;
 }
 @media screen and (max-width: 992px) {
   #inputPairWiseId
