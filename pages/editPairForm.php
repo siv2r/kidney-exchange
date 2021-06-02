@@ -17,6 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../js/editPairForm.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <style>
@@ -67,7 +68,7 @@
 </style>
 
 <link rel="stylesheet" href="../css/form-style.css">
-
+<link rel="stylesheet" href="../css/backToTop.css">
 <?php
 
 if (isset($_GET['pair_id'])) {
@@ -83,7 +84,8 @@ if (isset($_GET['pair_id'])) {
 ?>
 
 <body>
-
+<!-- Back to top button -->
+<a id="button" style="text-decoration:none"></a>
   <div class="header-img">
     <div class="nav-container">
       <?php include "../templates/navBar.php";?>
@@ -1006,6 +1008,6 @@ foreach ($relationValues as $value) {
 
     </form>
   </div>
-
+  <script src="../js/backToTop.js"></script>
   <?php
 require_once "../include/footer.inc.php";
