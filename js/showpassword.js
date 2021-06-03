@@ -1,4 +1,7 @@
 // for show passwords
+/**
+ * reuturn @void
+ */
 function box1()
 {
   var password=document.querySelectorAll('[id^="psw"]');
