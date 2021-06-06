@@ -8,7 +8,7 @@ If You don't have Git already installed on your System ,You can follow this [Ins
 
 <br>
 
- 1.  Firstly, Join our [Discord](https://discord.com/invite/d7j63WZV82) Server, Introduce yourself there, Interact with Others as 
+ 1.  Firstly, Join our [Discord](https://discord.gg/uH35zjW5cN) Server, Introduce yourself there, Interact with Others as 
       > **Open Source is more about Collaboration.** 
 
     
