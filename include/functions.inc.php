@@ -120,8 +120,6 @@ function createAdmin($conn, $uname, $email, $hosp_id, $pswd) {
   mysqli_stmt_bind_param($stmt, "ssssi", $uname, $encryptedPswd, $email, $type, $hosp_id);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-
-  
   exit();
 }
 
