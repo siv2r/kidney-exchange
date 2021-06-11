@@ -95,7 +95,7 @@ form a{
 	<div class="nav-container">
       <?php include("../templates/navBar.php") ?>
   </div>
-<div class="container col-lg-4 co-sm-11 px-1">
+<div class="container col-lg-4 co-sm-11 px-1 d-flex justify-content-center align-items-center" style="height: 90%;">
 	<form action="../include/login.inc.php" class="py-5 px-3" method="POST">
 
 			<!-- <div class="imgcontainer">
