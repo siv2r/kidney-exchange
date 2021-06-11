@@ -1,8 +1,8 @@
 <?php 
 
 $servername = "localhost";
-$username = "siv2r";
-$password = "sivaram535";
+$username = "your_username";
+$password = "your_password";
 $dbname = "kidney_exchange";
 
 // Create connection
