@@ -9,7 +9,10 @@ $("#submitBtn").click(function(event){
   $("#hospForm").submit();
 });
 
-
+/**
+ * 
+ * @returns @string
+ */
 function validate_form(){
   
   // Custom error messages

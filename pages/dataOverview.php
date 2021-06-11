@@ -16,13 +16,33 @@ mysqli_free_result($result);
   <link rel="stylesheet" href="../css/table-style.css">
 
   <style>
-   
+    
     
     table .button
     {
       padding:10px 15px;
     }
-      
+
+      /* On screens that are 992px or less, set the background color to blue */
+  @media screen and (max-width: 992px) {
+    .smallhide
+    {
+      display:none;
+    }
+    th,td
+    {
+      width:25vw !important;
+    }
+    th
+    {
+      font-size:17px;
+    }
+    td
+    {
+      font-size:16px;
+      color:#fff !important;
+    }
+  }
   </style>
 
   
@@ -35,9 +55,9 @@ mysqli_free_result($result);
         <th>Patient ID</th>
         <th>Donor ID</th>
         <th>Hosp ID</th>
-        <th>Status</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th class="smallhide">Status</th>
+        <th class="smallhide">Edit</th>
+        <th class="smallhide">Delete</th>
       </tr>
 
       <?php foreach ($result_array as $row) : ?>
@@ -51,14 +71,14 @@ mysqli_free_result($result);
           <td><?php echo $row['patient_id'] ?></td>
           <td><?php echo $row['donor_id'] ?></td>
           <td><?php echo $row['hosp_id'] ?></td>
-          <td>
-            <a href="../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
+          <td class="smallhide">
+            <a href="#../include/toggleStatus.inc.php?pair_id=<?php echo $row['pair_id']?>&hosp_id=<?php echo $row['hosp_id']?>" class="checkDisable button success confirmStatus"><?php echo $row['status'] ?></a>
           </td>
-          <td>
-            <a class="button info confirmEdit" href="../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
+          <td class="smallhide">
+            <a class="button info confirmEdit" href="#../pages/editPairForm.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Edit</a>
           </td>
-          <td>
-            <a class="button danger confirmDelete" href="../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
+          <td class="smallhide">
+            <a class="button danger confirmDelete" href="#../include/deleteData.inc.php?pair_id=<?php echo $row['pair_id'] ?>&hosp_id=<?php echo $row['hosp_id'] ?>">Delete</a>
           </td>
         </tr>
       <?php endforeach; ?>
@@ -66,20 +86,71 @@ mysqli_free_result($result);
 
     </table>
   </div>
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
   $( document ).ready(function() {
 
     $('.confirmDelete').on('click', function () {
-      return confirm('Do you want to delete this record?');
+      var href = $(this).attr('href');
+      href = href.substring(1);
+      console.log(href,typeof(href))
+      swal({
+      title: "Are you sure?",
+      text: "You Want Delete!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = href;
+      } else {
+        
+      }
+    });
     });
 
     $('.confirmEdit').on('click', function () {
-      return confirm('Do you want to edit this record?');
+      var href = $(this).attr('href');
+      href = href.substring(1);
+      console.log(href,typeof(href))
+      swal({
+      title: "Are you sure?",
+      text: "You Want Edit!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = href;
+      } else {
+        
+      }
+    });
     });
 
     $('.confirmStatus').on('click', function () {
-      return confirm('Do you want to change the status of this record?');
+      var href = $(this).attr('href');
+      href = href.substring(1);
+      console.log(href,typeof(href))
+      swal({
+      title: "Are you sure?",
+      text: "You Want Change Status!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = href;
+      } else {
+        
+      }
+    });
     });
 
     var statusArray = $('.checkDisable');
@@ -99,7 +170,5 @@ mysqli_free_result($result);
   });
     
   </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-</body>
-
-</html>
+<?php
+require_once "../include/footer.inc.php";

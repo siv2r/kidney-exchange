@@ -13,23 +13,15 @@ if (!isset($_SESSION)) {
   {
     background-color: rgb(0, 0, 0, 0.2);
     font-family: "Open Sans";
+    padding:4px;
   }
-  .brand_logo
-  {
-    height:12vh;
-    width:8vw;
-  }
+  
   .navbar-toggler
   {
     background:#fff;
     padding: .8rem 1.5rem;
   }
-  .space 
-  {
-    width: 30vw;
-    height:5vh;
-    visibility: hidden;
-  }
+  
 .navbar-brand
   {
     color: #fff;
@@ -40,27 +32,29 @@ if (!isset($_SESSION)) {
   }  
 .navbar-brand:hover
 {
-  color: red;
+  color: #fff;
 }
 .nav-item .nav-link , .dropdown-item
 {
   color:#fff;
   font-weight:400;
   background:none;
-  padding:10px 20px;
+  padding:20px 15px !important;
   text-transform: uppercase;
   font-size:1.1rem;
   letter-spacing: 2px;
 }
-.nav-item .nav-link:hover , .dropdown-item:hover
+.nav-item:hover , .dropdown-item:hover
 {
   background-color: #a28089;
 }
+.dropdown-menu
+{
+  background-color: #2d3358;
+}
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
-  .space {
-    display:none;
-  }
+
   .navbar-brand
   {
     color: #fff;
@@ -70,36 +64,32 @@ if (!isset($_SESSION)) {
     letter-spacing:1px;
     margin:0px;
   }
-  .brand_logo
-  {
-    height:10vh;
-    width:15vw;
-  }  
+    
   .nav-item .nav-link , .dropdown-item
   {
-    font-size:2rem;
-  }
-
-  .dropdown-menu
-  {
-    margin-left:5vw;
+    font-size:1rem;
+    padding: 10px 10px !important;
   }
   .navbar-toggler {
     background: #fff;
     padding: .6rem .8rem;
 }
+.navbar
+  {
+    background-color: rgb(0, 0, 0, 0.2);
+    font-family: "Open Sans";
+    padding:14px;
+  }
 }
 </style>
 <nav class="navbar navbar-expand-lg">
-  <div class="container px-0">
-    <img src="/kidney-exchange/images/logo3.png" class="brand_logo">
+  <div class="container px-2 py-0">
     <a class="navbar-brand" href="/kidney-exchange/">KIDNEY EXCHANGE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
-    <div class="space"></div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="/kidney-exchange/">Home</a>
         </li>
@@ -144,7 +134,17 @@ if (!isset($_SESSION)) {
                 if ($_SESSION['userType'] === "Admin") {
                   echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
                 } 
-                echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/include/logout.inc.php">Logout</a></li>';
+                echo '
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  ';echo $_SESSION['userId'];
+                  echo '
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="confirmationLogout()" >Logout</a></li>
+                  </ul>
+                </li>';
+                
                }
           else {
             echo '<li class="nav-item">
@@ -161,4 +161,24 @@ if (!isset($_SESSION)) {
     </div>
   </div>
 </nav>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script>
+    function confirmationLogout(){
+    swal({
+      title: "Are you sure?",
+      text: "You Want to LogOut!!",
+      icon: "warning",
+      buttons: true,
+      buttons: ['cancel','Yes, Log out'],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "/kidney-exchange/include/logout.inc.php";
+      } else {
+        
+      }
+    });
+    }
+  </script>

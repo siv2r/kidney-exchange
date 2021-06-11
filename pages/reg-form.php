@@ -16,9 +16,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
   <script src="../js/reg-form.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-</head>
-
-<style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 * {
@@ -27,12 +26,6 @@
   box-sizing: border-box;
 }
 
-.wrapper{
-  width: 70%;
-  margin: auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
 
 .header-img{
   background-image: url(../images/darkBackground.jpg);
@@ -45,24 +38,29 @@
 </style>
 
 <link rel="stylesheet" href="../css/form-style.css">
+<link rel="stylesheet" href="../css/backToTop.css">
+
+</head>
+
 
 <body>
+<!-- Back to top button -->
+<a id="button" style="text-decoration:none"></a>
+
 
   <div class="header-img">
-    <div class="nav-container">
       <?php include "../templates/navBar.php";?>
-    </div>
-    <h2 id="pd-heading">Registration form</h2>
+    <h2 id="pd-heading" class="text-center mt-5 py-5">Registration form</h2>
   </div>
 
-  <div class="wrapper">
-    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data">
+  <div class="container col-lg-8 col-sm-12 registrationform px-0">
+    <form action="./form-process.php" method="post" id="reg-form" enctype="multipart/form-data" class="px-0">
 
       <div class='tab'>
 
         <div class="input-field">
         <div class="heading-box">
-          <h3>Patient details</h3>
+          <h3 class="text-center">Patient details</h3>
         </div>
 
         <div class="pass-img-box">
@@ -74,7 +72,7 @@
        </div>
 
         <fieldset>
-          <legend>Personal Information</legend>
+          <legend><h3 class="text-center">Personal Information</h3></legend>
 
           <div class='input-field'>
             <div class="label-box">
@@ -82,8 +80,8 @@
               <label class="required">* </label>
             </div>
             <div class="input-box">
-              <input type="text" name="r_fname" value="" class="double requiredField">
-              <input type="text" name="r_lname" value="" class="double requiredField">
+              <input type="text" name="r_fname" value="" class="single requiredField" placeholder="First Name">
+              <input type="text" name="r_lname" value="" class="single requiredField" placeholder="Last Name">
             </div >
           </div>
 
@@ -186,10 +184,10 @@
             <div class="input-box">
               <input type="text" id="r_addr1" name="r_addr1" value="" placeholder="e.g Address line 1" class="requiredField single">
               <input type="text" id="r_addr2" name="r_addr2" value="" placeholder="e.g Address line 2" class="requiredField single">
-              <input type="text" id="r_city" name="r_city" value="" placeholder="e.g Chennai" class="requiredField double">
-              <input type="text" id="r_state" name="r_state" value="" placeholder="e.g TamilNadu" class="requiredField double">
-              <input type="number" id="r_pincode" name="r_pincode" value="" placeholder="e.g 600001" class="requiredField double">
-              <input type="text" id="r_country" name="r_country" value="" placeholder="e.g India" class="requiredField double">
+              <input type="text" id="r_city" name="r_city" value="" placeholder="e.g Chennai" class="requiredField single">
+              <input type="text" id="r_state" name="r_state" value="" placeholder="e.g TamilNadu" class="requiredField single">
+              <input type="number" id="r_pincode" name="r_pincode" value="" placeholder="e.g 600001" class="requiredField single">
+              <input type="text" id="r_country" name="r_country" value="" placeholder="e.g India" class="requiredField single">
             </div>
           </div>
 
@@ -804,7 +802,7 @@ if ($_SESSION['userType'] === "Transplant coordinator") {
 
     </form>
   </div>
-
+<script src="../js/backToTop.js"></script>
 <?php
 
 require_once "../include/footer.inc.php";

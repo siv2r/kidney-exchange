@@ -11,7 +11,8 @@ $dArray = getDonors($conn);
 
   <link rel="stylesheet" href="../css/button-style.css">
   <link rel="stylesheet" href="../css/blueContentTable.css">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/backToTop.css">
   <style>
     /* --------------------Background--------------------------- */
 
@@ -37,13 +38,36 @@ $dArray = getDonors($conn);
       font-size: 30px;
       margin: 50px auto 10px auto;
     }
-
+    @media screen and (max-width: 992px) {
+    .navbar , .content-table ,#footer
+    {
+      width: 235vw !important; 
+    }
+    .content-table td, .content-table th
+    {
+      padding:6px;
+    }
+    
+    }
+    
+    /* overwriting some css of back to top */
+#button {
+  width: 42px;
+  height: 42px;
+  bottom: 10px;
+  right: -20px;
+}
+#button::after {
+  font-size: 1.5em;
+  line-height: 40px;
+  color: #fff;
+}
   </style>
-
   <div class="nav-container">
     <?php include("../templates/navBar.php") ?>
   </div>
-
+<!-- Back to top button -->
+<a id="button" style="text-decoration:none"></a>
   <h2 class="heading">Patients</h2>
   <table class="content-table" id="patientTable">
     <tr>
@@ -129,5 +153,5 @@ $dArray = getDonors($conn);
     <?php endforeach; ?>
 
   </table>
-
+  <script src="../js/backToTop.js"></script>
 <?php include_once("../include/footer.inc.php") ?>

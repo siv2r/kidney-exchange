@@ -1,27 +1,16 @@
 
 /* Including css for the headers */
 
-.nav-container{
-  position: absolute;
-  width: 100%;
-}
+
 
 #pd-heading{
   color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 40%;
   letter-spacing: 2px;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 /* --------------------------------------------- */
-
-
-body{
-  font-size: 22px;
-}
 
 #reg-form{
   background-color: whitesmoke;
@@ -46,7 +35,7 @@ div.input-field{
   border-radius: 2px;
 }
 
-button, input, select, textarea{
+.registrationform button, .registrationform input, select, textarea{
   font-family: inherit;
   font-size: 95%;
   padding: 5px;
@@ -92,7 +81,7 @@ input[type='radio']{      /*increase the size of radio buttons*/
 }
 
 .input-box .double{
-  width: 44%;
+  width: 37%;
 }
 
 /* --------------------------Adjusting address input fields------------------------*/
@@ -198,3 +187,42 @@ label.required{
   margin-left: 45%;
 }
 
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+ 
+  .heading-box h3
+  {
+    font-size:25px;
+    margin-left:0;
+  }
+  .input-field
+  {
+    display:flex;
+    flex-direction: column;
+  }
+  #r-pass-img , #d-pass-img
+  {
+    margin: auto !important;
+  }
+  .label-box
+  {
+    text-align:left;
+  }
+  #btn-block{
+    text-align: center;
+    width: 65%;
+    margin-left: 0%;
+  }
+  .input-box .single
+  {
+    width:95%;
+  }
+  .pass-img-box input
+  {
+    width: 95%;
+  }
+  .selection .select2-selection
+  {
+    width:95%;
+  }
+}
