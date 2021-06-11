@@ -16,7 +16,7 @@
   
     <?php include "../templates/navBar.php";?>
   
-  <div class="container" id="graphimg">
+  <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 90%;" id="graphimg">
   <img src="/kidney-exchange/global_match/result/graph.png" alt="Solution Image">
   <!-- <img src="/kidney-exchange/global_match/result/solution" alt="Global Match"> -->
   </div>
