@@ -2,8 +2,8 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/kidney-exchange/css/404.css">
   <title>404 Page Not Found</title>
-  <link rel="stylesheet" href="./css/404.css">
 </head>
 <body>
 <!-- partial:index.partial.html -->

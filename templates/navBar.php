@@ -132,7 +132,9 @@ if (!isset($_SESSION)) {
                 </li>';
             
                 if ($_SESSION['userType'] === "Admin") {
-                  echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>';
+                  echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/displayRegHosp.php">Hospitals</a></li>
+                  ';
                 } 
                 echo '
                 <li class="nav-item dropdown">
