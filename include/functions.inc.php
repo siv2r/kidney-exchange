@@ -120,9 +120,6 @@ function createAdmin($conn, $uname, $email, $hosp_id, $pswd) {
   mysqli_stmt_bind_param($stmt, "ssssi", $uname, $encryptedPswd, $email, $type, $hosp_id);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-
-  // no redirection here since this is for creating admin and hece not part of display pages
-  // header("location: ../pages/signup.php?error=none");
   exit();
 }
 
@@ -376,12 +373,6 @@ function isValidPairId($pair_id) {
   if (sizeof($pair_id_array) !== 2) {
     return false;
   }
-  // elseif (strlen($pair_id_array[0]) !== 5) {
-  //   return false;
-  // }
-  // elseif ($pair_id_array[1] < 10000) {
-  //   return false;
-  // }
 
   return true;
 }
