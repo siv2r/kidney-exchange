@@ -221,8 +221,8 @@ $(document).ready(function(){
           $(element).next().addClass('has-error');   //tweak select2 field
         }
 
-        else if ($(element).is('input[radio]')){
-          $(element.parent()).addClass('has-error');
+        else if ($(element).attr('type')==='radio') {
+          $(element).parent().addClass('has-error');
         }
         else 
           $(element).addClass('has-error');
@@ -230,6 +230,9 @@ $(document).ready(function(){
       },
       unhighlight: function(element){
         // remove the tweak for select2 here
+        if ($(element).attr('type')==='radio') {
+          $(element).parent().removeClass('has-error');
+        }
         $(element).removeClass('has-error');
       },
       errorPlacement: function (error, element){
