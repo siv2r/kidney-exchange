@@ -133,7 +133,7 @@ if (!isset($_SESSION)) {
             
                 if ($_SESSION['userType'] === "Admin") {
                   echo '<li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/jsonData.php">Json</a></li>
-                  <li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/hospitals.php">Hospitals</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/kidney-exchange/pages/displayRegHosp.php">Hospitals</a></li>
                   ';
                 } 
                 echo '

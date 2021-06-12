@@ -22,7 +22,7 @@ body {
 
 
 th,td{
-  padding-top: 5vh!important;
+  padding: 3vh 0!important;
 }
 
 tr:hover
