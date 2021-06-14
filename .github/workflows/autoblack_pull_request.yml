@@ -19,8 +19,8 @@ jobs:
         if: failure()
         run: |
           printenv | grep GITHUB
-          git config --global user.name 'siv2r'
-          git config --global user.email 'siv2ram@gmail.com'          
+          git config --global user.name 'Sukriti-sood'
+          git config --global user.email 'soodsukriti1111@gmail.com'          
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git remote -v
           git branch
