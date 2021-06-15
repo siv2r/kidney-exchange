@@ -25,14 +25,8 @@ mysqli_free_result($result);
 
       /* On screens that are 992px or less, set the background color to blue */
   @media screen and (max-width: 992px) {
-    .smallhide
-    {
-      display:none;
-    }
-    th,td
-    {
-      width:25vw !important;
-    }
+
+ 
     th
     {
       font-size:17px;
@@ -43,13 +37,29 @@ mysqli_free_result($result);
       color:#fff !important;
     }
   }
+.table-wrapper{
+  margin: 7% 0;
+}
+    @media screen and (max-width: 992px) {
+
+    .content-table td, .content-table th
+    {
+      padding:0;
+    }
+
+    .table-wrapper{
+      margin: 7% 0%;
+      border: 2px solid
+    }
+    
+    }
   </style>
 
   
     <?php include("../templates/navBar.php") ?>
   
-  <div class="container-fluid mt-5 py-5 px-0 idtable">
-   <table>
+    <div class="table-wrapper table-responsive">
+   <table class="content-table table-condensed">
       <tr>
         <th>Pair ID</th>
         <th>Patient ID</th>

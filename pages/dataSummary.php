@@ -16,11 +16,10 @@ $dArray = getDonors($conn);
   <style>
     /* --------------------Background--------------------------- */
 
-    body{
-      background-color: seashell;
-      background-repeat: no-repeat;
-      background-size: cover;
-    } 
+    body {
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, #0c1138, #131c45, #192752, #20335f, #273f6c, #274b76, #28567f, #2b6287, #316f8b, #3d7b8e, #4e8690, #619193);
+}
 
     /* ------------------------Table styles------------------------- */
     #patientTable {
@@ -129,7 +128,7 @@ $dArray = getDonors($conn);
 
   <h2 class="heading">Donors</h2>
   <div class="table-wrapper table-responsive">
-  <table class="content-table" id="donorTable">
+  <table style="margin: 7% auto;" class="content-table" id="donorTable">
     <tr>
       <th>ID</th>
       <th>Name</th>
