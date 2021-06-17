@@ -67,6 +67,17 @@ $dArray = getDonors($conn);
   line-height: 40px;
   color: #fff;
 }
+
+.nav-item .nav-link , .dropdown-item
+{
+  color:#fff;
+  font-weight:400;
+  background:none;
+  padding:20px 0 !important;
+  text-transform: uppercase;
+  font-size:1.1rem;
+  letter-spacing: 2px;
+}
   </style>
   <div class="nav-container">
     <?php include("../templates/navBar.php") ?>
