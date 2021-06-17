@@ -50,6 +50,22 @@ body{
 }
 
 
+.wrapper .container{
+  background: #769f9c;
+}
+@media screen and (max-width:450px) {
+  .head{
+    font-size: 4.5vw;
+  }
+  .button{
+   font-size: 3.5vw; 
+  }
+
+  .button{
+    padding: 0;
+    width: fit-content;
+  }
+}
 
 </style>
 
@@ -82,7 +98,7 @@ body{
     <div class="col">
       <form method="post" action="#" class="row search">
         <input type="file" class="col custom-file-input" name="json" id="json">
-        <input type="submit" style="width: auto;" class=" colbutton searchBtn" name="submit" value="Upload">
+        <input type="submit" style="width: auto;" class=" col button searchBtn" name="submit" value="Upload">
       </form>
     </div>
   </div>
