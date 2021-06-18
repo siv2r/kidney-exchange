@@ -1,6 +1,6 @@
 <?php
 
-include_once "../db-connect.php";
+include_once "../templates/db-connect.php";
 include_once "../include/functions.inc.php";
 
 if (isset($_GET['pair_id'])) {

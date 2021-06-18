@@ -427,7 +427,7 @@
               <select name="r_d-center" class="requiredField single">
                 <?php
 
-require_once "../db-connect.php";
+require_once "../templates/db-connect.php";
 require_once "../include/functions.inc.php";
 
 if ($_SESSION['userType'] === "Transplant coordinator") {

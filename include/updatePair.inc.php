@@ -256,7 +256,7 @@ if (!empty($_POST['r_fname'])) {
   // Editing into the database
 
   //connecting to database
-  include "../db-connect.php";
+  include "../templates/db-connect.php";
 
   //creating sql queries
   $patientQuery = "UPDATE patients SET `name`=$r_name, sex=$r_sex, dob=$r_dob, height=$r_height, `weight`=$r_weight, blood_group=$r_btype, `address`=$r_address, contact_number=$r_cno, email=$r_email, hla_antigens=$r_hla, ua_antigens=$r_ua, basic_disease=$r_basicd, gr_biopsy=$r_gr, comorb=$r_comorb, hiv=$r_hiv, hep_b=$r_hepb, hep_c=$r_hepc, prev_transp=$r_prev_transp, dialysis=$r_dialysis, dd_program=$r_ddp, prime_nephro=$r_nephro, hospital=$r_dcenter, prov_clearance=$r_prov_clear, pre_transp_surgery=$r_pre_transp WHERE id=$r_id";

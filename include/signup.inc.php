@@ -9,7 +9,7 @@ if (isset($_POST['uname'])) {
   $pswd = $_POST['pswd'];
   $re_pswd = $_POST['re_pswd'];
 
-  require_once "../db-connect.php";
+  require_once "../templates/db-connect.php";
   require_once "functions.inc.php";
 
   if (emptyInputSignup($uname, $email, $hosp_id, $pswd, $re_pswd) !== false) {

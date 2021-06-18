@@ -8,7 +8,7 @@ $statusMsg = '';
 if (isset($_POST['submit'])) {
 
   //connection to database and custom functions
-  include "../db-connect.php";
+  include "../templates/db-connect.php";
   include "../include/functions.inc.php";
 
   $pair_id = $_POST['id'];

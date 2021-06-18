@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['id'])) {
   //connection to database and custom functions
-  require_once "../db-connect.php";
+  require_once "../templates/db-connect.php";
   require_once "../include/functions.inc.php";
   require_once "../include/matchFunctions.inc.php";
   require_once "../functions/scoring.func.php";

@@ -1,18 +1,8 @@
 <?php 
 
-
-require('vendor/autoload.php');
-
-use Symfony\Component\Dotenv\Dotenv;
-
-$dotenv = new Dotenv();
-$dotenv->load(__DIR__.'/.env');
-
-
-
 $servername = "localhost";
-$username =$_ENV["USERNAME"];
-$password = $_ENV["PASSWORD"];
+$username = "your_username";
+$password = "your_password";
 $dbname = "kidney_exchange";
 
 // Create connection

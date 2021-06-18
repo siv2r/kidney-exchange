@@ -24,7 +24,7 @@ if (isset($_POST['h_name'])) {
   $surg_id = addslashes($_POST['surg_id']);
 
   //connecting to database
-  include "../db-connect.php";
+  include "../templates/db-connect.php";
 
   $_SESSION['form'] = 'hospital-form';
 
@@ -51,7 +51,7 @@ if (isset($_POST['h_name'])) {
 
   if (!mysqli_query($conn, $query)) {
     $status = 0;
-    $statusMsg = "Insertion query error " . mysqli_error($conn);
+    $statusMsg = "Insertion query error " . mysqli_error($query);
   } else {
     $status = 1;
     $statusMsg = "Your registration is successful!!!";

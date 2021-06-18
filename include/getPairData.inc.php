@@ -2,7 +2,7 @@
 
 // this will be included in editPairForm.php
 
-require_once "../db-connect.php";
+require_once "../templates/db-connect.php";
 require_once "../include/functions.inc.php";
 
 $pData = getPatientById($conn, $patient_id);

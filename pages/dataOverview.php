@@ -1,6 +1,6 @@
 <?php
 
-include("../db-connect.php");
+include("../templates/db-connect.php");
 
 $sql = "SELECT * FROM pd_pairs ORDER BY pair_id";
 $result = mysqli_query($conn, $sql);
