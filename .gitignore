@@ -6,3 +6,6 @@ global_match/*.json
 *.csv
 result
 learnings.txt
+vendor
+composer.lock
+.env

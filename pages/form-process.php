@@ -270,7 +270,7 @@ if(!empty($_POST['r_fname'])){
   // Inserting into the database
 
 	//connecting to database
-	include("../templates/db-connect.php");
+	include("../db-connect.php");
 
 	//creating sql queries
   $sql1 = "INSERT INTO patients (id, `name`, sex, dob, height, `weight`, blood_group, `address`, contact_number, email, hla_antigens, ua_antigens, basic_disease, gr_biopsy, comorb, hiv, hep_b, hep_c, prev_transp, dialysis, dd_program, prime_nephro, hospital, prov_clearance, pre_transp_surgery) VALUES ($r_id, $r_name, $r_sex, $r_dob, $r_height, $r_weight, $r_btype, $r_address, $r_cno, $r_email, $r_hla, $r_ua, $r_basicd, $r_gr, $r_comorb, $r_hiv, $r_hepb, $r_hepc, $r_prev_transp, $r_dialysis, $r_ddp, $r_nephro, $r_dcenter, $r_prov_clear, $r_pre_transp)";

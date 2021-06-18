@@ -4,7 +4,7 @@ if (isset($_POST["submit"])) {
   $uid = $_POST["uid"];
   $pswd = $_POST["pswd"];
 
-  require_once "../templates/db-connect.php";
+  require_once "../db-connect.php";
   require_once "functions.inc.php";
 
   if (emptyInputLogin($uid, $pswd) !== false) {
