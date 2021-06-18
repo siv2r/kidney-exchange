@@ -1,9 +1,19 @@
 <?php 
 
+require('vendor/autoload.php');
+
+use Symfony\Component\Dotenv\Dotenv;
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/.env');
+
+
+
 $servername = "localhost";
-$username = "your_username";
-$password = "your_password";
+$username =$_ENV["USERNAME"];
+$password = $_ENV["PASSWORD"];
 $dbname = "kidney_exchange";
+
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

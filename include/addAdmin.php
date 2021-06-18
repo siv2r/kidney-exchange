@@ -1,6 +1,6 @@
 <?php
 
-require_once '../templates/db-connect.php';
+require_once '../db-connect.php';
 require_once 'functions.inc.php';
 
 $uname = 'admin1';
