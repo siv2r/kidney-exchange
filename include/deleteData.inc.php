@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../templates/db-connect.php";
+require_once "../db-connect.php";
 require_once "../include/functions.inc.php";
 
 if (isset($_GET['pair_id']) && isset($_GET['hosp_id'])) {

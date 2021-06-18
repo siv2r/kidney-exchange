@@ -49,7 +49,7 @@ tr:hover
         <tbody>
 
         <?php
-        include '../templates/db-connect.php';
+        include '../db-connect.php';
         $sql="SELECT * FROM `hospitals`";
         $results=mysqli_query($conn,$sql);
         if(!$results)
