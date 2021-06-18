@@ -52,6 +52,10 @@ if (!isset($_SESSION)) {
 {
   background-color: #2d3358;
 }
+.navbar>.container{
+  width: 100%!important;
+  max-width: 100%!important;
+}
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
 
@@ -80,6 +84,14 @@ if (!isset($_SESSION)) {
     font-family: "Open Sans";
     padding:14px;
   }
+
+}
+
+@media screen and (max-width: 350px) {
+  .navbar-brand{
+    font-size: 5vw;
+  }
+
 }
 </style>
 <nav class="navbar navbar-expand-lg">
@@ -90,9 +102,7 @@ if (!isset($_SESSION)) {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="/kidney-exchange/">Home</a>
-        </li>
+
         <?php
           if (isset($_SESSION['userId'])) {
             echo '<li class="nav-item dropdown">

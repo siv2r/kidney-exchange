@@ -16,11 +16,10 @@ $dArray = getDonors($conn);
   <style>
     /* --------------------Background--------------------------- */
 
-    body{
-      background-color: seashell;
-      background-repeat: no-repeat;
-      background-size: cover;
-    } 
+    body {
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, #0c1138, #131c45, #192752, #20335f, #273f6c, #274b76, #28567f, #2b6287, #316f8b, #3d7b8e, #4e8690, #619193);
+}
 
     /* ------------------------Table styles------------------------- */
     #patientTable {
@@ -38,14 +37,20 @@ $dArray = getDonors($conn);
       font-size: 30px;
       margin: 50px auto 10px auto;
     }
-    @media screen and (max-width: 992px) {
-    .navbar , .content-table ,#footer
-    {
-      width: 235vw !important; 
+
+    .table-wrapper{
+      margin: 4%;
     }
+    @media screen and (max-width: 992px) {
+
     .content-table td, .content-table th
     {
-      padding:6px;
+      padding:0;
+    }
+
+    .table-wrapper{
+      margin: 4%;
+      border: 2px solid
     }
     
     }
@@ -62,6 +67,17 @@ $dArray = getDonors($conn);
   line-height: 40px;
   color: #fff;
 }
+
+.nav-item .nav-link , .dropdown-item
+{
+  color:#fff;
+  font-weight:400;
+  background:none;
+  padding:20px 0 !important;
+  text-transform: uppercase;
+  font-size:1.1rem;
+  letter-spacing: 2px;
+}
   </style>
   <div class="nav-container">
     <?php include("../templates/navBar.php") ?>
@@ -69,7 +85,9 @@ $dArray = getDonors($conn);
 <!-- Back to top button -->
 <a id="button" style="text-decoration:none"></a>
   <h2 class="heading">Patients</h2>
-  <table class="content-table" id="patientTable">
+  <div class="table-wrapper table-responsive">
+
+  <table class="content-table table-condensed" id="patientTable">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -116,8 +134,12 @@ $dArray = getDonors($conn);
     <?php endforeach; ?>
   </table>
 
+  </div>
+  
+
   <h2 class="heading">Donors</h2>
-  <table class="content-table" id="donorTable">
+  <div class="table-wrapper table-responsive">
+  <table style="margin: 7% auto;" class="content-table" id="donorTable">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -153,5 +175,6 @@ $dArray = getDonors($conn);
     <?php endforeach; ?>
 
   </table>
+  </div>
   <script src="../js/backToTop.js"></script>
 <?php include_once("../include/footer.inc.php") ?>
