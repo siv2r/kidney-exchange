@@ -29,28 +29,27 @@ body{
 }
 /* -------------------------CSS Grids-----------------------------*/
 
-.grid-container {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 30px;
-  background-color: rgba(239, 225, 220, 0.8);
-}
 
-.grid-item {
-  padding: 20px;
-  font-size: 25px;
-  text-align: left;
-  font-family: "Open Sans"
-}
 
 .left {
   text-align: left;
 }
+.row,.col{
+  padding: 3%;
+}
 
+.head{
+  font-size: 3.5vh;
+}
 .doubleSpan {
   grid-column-end: span 2;
 }
+
+.wrapper{
+  height: 90vh;
+}
+
+
 
 </style>
 
@@ -58,28 +57,35 @@ body{
   <?php include("../templates/navBar.php") ?>
 </div>
 
-<div class="wrapper">
+<div class="wrapper d-flex justify-content-center align-items-center">
 
-  <div class="grid-container">
-    <div class="grid-item">Database Dump</div>
-    <div class="grid-item doubleSpan">
+  <div class="container">
+  <div class="row">
+  <div class="col head">Database Dump</div>
+    <div class="col doubleSpan">
       <form method="post" action="/kidney-exchange/generate_json/jsonDump.php" class="search">
         <input type="submit" class="button searchBtn" name="submit" value="Download">
       </form>
     </div>
-    <div class="grid-item">Compatibility Graph </div>
-    <div class="grid-item doubleSpan">
+  </div>
+  <div class="row">
+  <div class="col head">Compatibility Graph </div>
+    <div class="col doubleSpan">
       <form method="post" action="/kidney-exchange/generate_json/cmpGraph.php" class="search">
         <input type="submit" class="button searchBtn" name="submit" value="Download">
       </form>
-    </div>
-    <div class="grid-item">Data upload (Yet to be implemented...)</div>
-    <div class="grid-item">
-      <form method="post" action="#" class="search">
-        <input type="file" class="custom-file-input" name="json" id="json">
-        <input type="submit" class="button searchBtn" name="submit" value="Upload">
+    </div>  
+  </div>
+
+  <div class="row">
+  <div class="col head">Data upload (Yet to be implemented...)</div>
+    <div class="col">
+      <form method="post" action="#" class="row search">
+        <input type="file" class="col custom-file-input" name="json" id="json">
+        <input type="submit" style="width: auto;" class=" colbutton searchBtn" name="submit" value="Upload">
       </form>
     </div>
+  </div>
   </div>
 
   <?php 
