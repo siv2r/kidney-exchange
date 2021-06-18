@@ -38,14 +38,20 @@ $dArray = getDonors($conn);
       font-size: 30px;
       margin: 50px auto 10px auto;
     }
-    @media screen and (max-width: 992px) {
-    .navbar , .content-table ,#footer
-    {
-      width: 235vw !important; 
+
+    .table-wrapper{
+      margin: 4%;
     }
+    @media screen and (max-width: 992px) {
+
     .content-table td, .content-table th
     {
-      padding:6px;
+      padding:0;
+    }
+
+    .table-wrapper{
+      margin: 4%;
+      border: 2px solid
     }
     
     }
@@ -69,7 +75,9 @@ $dArray = getDonors($conn);
 <!-- Back to top button -->
 <a id="button" style="text-decoration:none"></a>
   <h2 class="heading">Patients</h2>
-  <table class="content-table" id="patientTable">
+  <div class="table-wrapper table-responsive">
+
+  <table class="content-table table-condensed" id="patientTable">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -116,7 +124,11 @@ $dArray = getDonors($conn);
     <?php endforeach; ?>
   </table>
 
+  </div>
+  
+
   <h2 class="heading">Donors</h2>
+  <div class="table-wrapper table-responsive">
   <table class="content-table" id="donorTable">
     <tr>
       <th>ID</th>
@@ -153,5 +165,6 @@ $dArray = getDonors($conn);
     <?php endforeach; ?>
 
   </table>
+  </div>
   <script src="../js/backToTop.js"></script>
 <?php include_once("../include/footer.inc.php") ?>
