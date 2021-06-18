@@ -1,12 +1,5 @@
-# Kidney Exchange Program
-
-<div align="center">
-<img src="https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png"/>
-</div>
-
 <div align="center"> 
- 
-	
+ 	
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Open%20Source-%F0%9F%A4%8D-Green"></a>
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=yellow"></a>
@@ -27,6 +20,12 @@
 <a href="https://github.com/topics/python"><img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/></a> 
 <a href="https://github.com/topics/css3"><img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/></a>
 <a href="https://github.com/topics/bootstrap"><img alt="BootStrap" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/></a> 
+</div>
+
+# Kidney Exchange Program
+
+<div align="center">
+<img src="https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png"/>
 </div>
 
 ## What is a living donor kidney exchange problem?
