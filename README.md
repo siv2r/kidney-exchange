@@ -11,11 +11,11 @@
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=yellow"></a>
 <a href="https://github.com/siv2r/"><img src="https://img.shields.io/badge/maintenance-yes-brightgreen"></a>
-
 <a href="https://github.com/siv2r/kidney-exchange/blob/master/LICENSE"><img src="https://img.shields.io/github/license/siv2r/kidney-exchange?color=brightgreen"></a>
+	
+<a href="https://github.com/siv2r/kidney-exchange/graphs/contributors"><img src="https://img.shields.io/github/contributors/siv2r/kidney-exchange?color=brightgreen"></a>
 <a href="https://github.com/siv2r/kidney-exchange/stargazers"><img src="https://img.shields.io/github/stars/siv2r/kidney-exchange?color=0059b3"></a>
 <a href="https://github.com/siv2r/kidney-exchange/network/members"><img src="https://img.shields.io/github/forks/siv2r/kidney-exchange?color=yellow"></a>
-<a href="https://github.com/siv2r/kidney-exchange/graphs/contributors"><img src="https://img.shields.io/github/contributors/siv2r/kidney-exchange?color=brightgreen"></a>
 <a href="https://github.com/siv2r/kidney-exchange/issues"><img src="https://img.shields.io/github/issues/siv2r/kidney-exchange?color=0059b3"></a>
 <a href="https://github.com/siv2r/kidney-exchange/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed-raw/siv2r/kidney-exchange?color=yellow"></a>
 <a href="https://github.com/siv2r/kidney-exchange/pulls"><img src="https://img.shields.io/github/issues-pr/siv2r/kidney-exchange?color=brightgreen"></a>
