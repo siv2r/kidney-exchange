@@ -314,25 +314,25 @@ $(document).ready(function () {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          startsCapital: true
+          // startsCapital: true
         },
         r_lname: {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          startsCapital: true
+          // startsCapital: true
         },
         d_fname: {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          startsCapital: true
+          // startsCapital: true
         },
         d_lname: {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          startsCapital: true
+          // startsCapital: true
         },
 
         //donor age restriction

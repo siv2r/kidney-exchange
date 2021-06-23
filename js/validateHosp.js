@@ -106,12 +106,12 @@ function validate_form(){
       h_city: {
         nowhitespace: true,
         lettersonly: true,
-        startsCapital: true
+        // startsCapital: true
       },
       h_state: {
         nowhitespace: true,
         lettersonly: true,
-        startsCapital: true
+        // startsCapital: true
       },
       h_pincode: {
         nowhitespace: true,
@@ -120,7 +120,7 @@ function validate_form(){
       h_country: {
         nowhitespace: true,
         lettersonly: true,
-        startsCapital: true
+        // startsCapital: true
       },
 
       //Id vaidations
