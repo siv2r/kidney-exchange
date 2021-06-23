@@ -48,10 +48,10 @@ After a doctor completes this process, this platform provides two main features.
 
 ## Documentation
 [First timers Guide](./docs/newContributors.md): **New Contributors** follow this to create **your first Pull Request**.  
-[Contributing Guidelines](./docs/CONTRIBUTING.md): Please follow the rules mention here while contributing to this project.  
+[Contributing Guide](./docs/CONTRIBUTING.md): Please follow the rules mention here while contributing to this project.  
 [Build documentation](./docs/build.md): Follow this to setup the project in your local machine.  
 [Scoring Functions](https://github.com/siv2r/kidney-exchange/projects/1): Parameters used for find the match score.  
-
+[FAQs](./docs/FAQs.md): Frequently asked questions  
 ## Get in Touch
 Suggestions or Queries ? Please feel free to join the [Discord Group](https://discord.gg/uH35zjW5cN) !
 
