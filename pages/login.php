@@ -1,12 +1,17 @@
 <style>
 body{
-  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
+ background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 } 
 
+
 form {
   background: rgb(0, 0, 0, 0.5);
+  border-radius: 25px;
+  width: 80%;
+    height: 88%;
+    backdrop-filter:blur(12px);
 }
 
 input{
@@ -17,25 +22,31 @@ input{
 	box-sizing: border-box;
 	outline: none;
 	font-size: 150%;
+  border-radius: 50px;
 }
 
 .form-elements button {
   /* background-color: #b30d4b; */
   background-color: #ad0c4d;
-  color: white;
-  padding: 16px 20px;
-  margin: 15px 0;
-	cursor: pointer;
-	border: none;
-	width: 100%;
-	font-size: 150%;
-  outline: none;
+    color: white;
+    margin: 15px 0;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    font-size: 26px;
+    outline: none;
+    height: 10%;
+    border-radius: 30px;
+    background-size: 200% 100%;
+    transition: background-position 0.5s, color 0.5s;
+    background-image: linear-gradient(to right, #dc3545 50%, #ad0c4d 50%);
 }
 
 .form-elements button:hover {
   opacity: 0.8;
-}
-
+  background-position: right bottom;
+  color: #fff;
+  }
 img.avatar {
 	width: 22%;
 	opacity: 0.8;
@@ -88,6 +99,17 @@ form a{
     width:55vw;
   } 
 }
+#showpass span{
+  font-size: 18px;
+  margin-left: 4px;
+}
+#showpass{
+  margin-left: -12px;
+}
+p{
+  color: white;
+  text-align: center;
+}
 </style>
 
 <?php include("../templates/header.php"); ?>
@@ -124,16 +146,19 @@ form a{
 			</div>
 
 			<div class="form-elements">
+     
 				<input type="text" class="my-2" name="uid" placeholder="Username/Email">
 				<input type="password" class="my-2" name="pswd" id="pswd" placeholder="Password">
         <div id="showpass">
             <input type="checkbox" id="box" onclick="box1()">
-            <span id="notice">show password</span>
+            <span id="notice">Show Password</span>
         </div>
+        <a href="#" style="float: right;">Forgot Password?</a>
 				<button type="submit" name="submit" value="submit">Login</button>
       </div>
+      <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
 
-      <a href="#">Forgot Password?</a>
+    
 
 
 			
