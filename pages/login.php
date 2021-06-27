@@ -3,7 +3,7 @@ body{
  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 
 
 form {
@@ -69,6 +69,11 @@ form a{
   text-decoration: underline;
   letter-spacing: 1px;
 }
+.field-icon{
+position: absolute;
+margin-left: -30px;
+margin-top: 30px;
+}
 
 /* ---------------error messages------------------------- */
 #failed{
@@ -97,7 +102,7 @@ form a{
   #showpass
   {
     width:55vw;
-  } 
+  }
 }
 #showpass span{
   font-size: 18px;
@@ -130,7 +135,7 @@ p{
 
 			<div class="form-elements">
           <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
-          <?php 
+          <?php
             if(isset($_GET["error"])) {
               if ($_GET["error"] == "emptyInputLogin") {
                 echo "<p id='failed'>Please fill all the fields</p>";
@@ -140,15 +145,15 @@ p{
               }
               else if ($_GET["error"] == "invalidPassword") {
                 echo "<p id='failed'>Invalid password</p>";
-              }            
+              }
             }
           ?>
 			</div>
 
 			<div class="form-elements">
-     
+
 				<input type="text" class="my-2" name="uid" placeholder="Username/Email">
-				<input type="password" class="my-2" name="pswd" id="pswd" placeholder="Password">
+				<input type="password" class="my-2" name="pswd" id="pswd" placeholder="Password"><i class="fa fa-fw fa-eye field-icon toggle-password" id="togglePassword"></i>
         <div id="showpass">
             <input type="checkbox" id="box" onclick="box1()">
             <span id="notice">Show Password</span>
@@ -158,13 +163,21 @@ p{
       </div>
       <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
 
-    
 
 
-			
+
+
 	</form>
   </div>
   <script src="../js/showpassword.js"></script>
+  <script>
+  $(".toggle-password").click(function() {
+   $(this).toggleClass("fa-eye fa-eye-slash");
+   if ($("#pswd").attr("type") == "password") {
+    $("#pswd").attr("type", "text");
+   } else {
+     $("#pswd").attr("type", "password");
+   }
+  });
+  </script>
   <?php include("../include/footer.inc.php") ?>
-
-

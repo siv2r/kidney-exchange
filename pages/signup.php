@@ -3,7 +3,7 @@ body{
  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 
 form {
   background: rgb(0, 0, 0, 0.5);
@@ -74,6 +74,11 @@ form{
     height: 100%;
     backdrop-filter:blur(12px);
 }
+.field-icon{
+position: absolute;
+margin-left: -30px;
+margin-top: 25px;
+}
 
 /* -------------------Styling the error messages----------------- */
 
@@ -103,7 +108,7 @@ form{
   #showpass
   {
     width:55vw;
-  } 
+  }
 }
 p{
   color: white;
@@ -134,7 +139,7 @@ p{
 
     <div class="form-elements">
         <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
-        <?php 
+        <?php
           if(isset($_GET["error"])) {
             if ($_GET["error"] == "emptyInputSignup") {
               echo "<p id='failed'>Please fill all the fields</p>";
@@ -166,7 +171,7 @@ p{
             else if ($_GET["error"] == "none") {
               echo "<p id='success'>Registration successful!!!</p>";
             }
-          
+
           }
         ?>
     </div>
@@ -176,8 +181,8 @@ p{
       <input type="text" class="my-2" name="email" placeholder="Email" class="requiredField">
       <input type="number" class="my-2" name="hosp_id" placeholder="Hospital ID" class="requiredField">
       <!-- <p class="text-start text-light m-0 p-0">Enter hospital Id given by hospital</p> -->
-      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField">
-      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
+      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField"><i class="fa fa-fw fa-eye field-icon toggle-password" id="togglePassword"></i>
+      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField"><i class="fa fa-fw fa-eye field-icon toggle-password2" id="togglePassword"></i>
       <div id="showpass">
           <input type="checkbox" id="box" onclick="box1()">
           <span id="notice">Show Password</span>
@@ -185,9 +190,27 @@ p{
       <button type="submit" name="submit" value="submit" id="submitBtn">Sign Up</button>
     <p>Already Have an Account? <a href="login.php">Log In</a></p>
     </div>
-      	
+
   </form>
   </div>
   <script src="../js/showpassword.js"></script>
-  
+  <script>
+  $(".toggle-password").click(function() {
+   $(this).toggleClass("fa-eye fa-eye-slash");
+   if ($("#pswd").attr("type") == "password") {
+    $("#pswd").attr("type", "text");
+   } else {
+     $("#pswd").attr("type", "password");
+   }
+  });
+  $(".toggle-password2").click(function() {
+   $(this).toggleClass("fa-eye fa-eye-slash");
+   if ($("#pswd2").attr("type") == "password") {
+    $("#pswd2").attr("type", "text");
+   } else {
+     $("#pswd2").attr("type", "password");
+   }
+  });
+  </script>
+
 <?php include("../include/footer.inc.php") ?>
