@@ -3,7 +3,7 @@ body{
  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701389136.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-} 
+}
 
 form {
   background: rgb(0, 0, 0, 0.5);
@@ -103,7 +103,7 @@ form{
   #showpass
   {
     width:55vw;
-  } 
+  }
 }
 p{
   color: white;
@@ -116,6 +116,11 @@ p{
 }
 #showpass{
   margin-left: -25px;
+}
+.field-icon{
+position: absolute;
+margin-left: -30px;
+margin-top: 25px;
 }
 </style>
 
@@ -134,7 +139,7 @@ p{
 
     <div class="form-elements">
         <img src="../images/red-avatar.png" alt="Avatar" class="avatar">
-        <?php 
+        <?php
           if(isset($_GET["error"])) {
             if ($_GET["error"] == "emptyInputSignup") {
               echo "<p id='failed'>Please fill all the fields</p>";
@@ -166,7 +171,7 @@ p{
             else if ($_GET["error"] == "none") {
               echo "<p id='success'>Registration successful!!!</p>";
             }
-          
+
           }
         ?>
     </div>
@@ -176,8 +181,8 @@ p{
       <input type="text" class="my-2" name="email" placeholder="Email" class="requiredField">
       <input type="number" class="my-2" name="hosp_id" placeholder="Hospital ID" class="requiredField">
       <!-- <p class="text-start text-light m-0 p-0">Enter hospital Id given by hospital</p> -->
-      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField">
-      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField">
+      <input type="password" class="my-2" name="pswd" placeholder="Password" id="pswd" class="requiredField"><i class="fa fa-fw fa-eye-slash field-icon toggle-password1" id="togglePassword" onclick="showPassword(pswd,1);" ></i>
+      <input type="password" class="my-2" name="re_pswd" placeholder="Re-enter Password" id="pswd2" class="requiredField"><i class="fa fa-fw fa-eye-slash field-icon toggle-password2" id="togglePassword" onclick="showPassword(pswd2,2);"></i>
       <div id="showpass">
           <input type="checkbox" id="box" onclick="box1()">
           <span id="notice">Show Password</span>
@@ -185,9 +190,10 @@ p{
       <button type="submit" name="submit" value="submit" id="submitBtn">Sign Up</button>
     <p>Already Have an Account? <a href="login.php">Log In</a></p>
     </div>
-      	
+
   </form>
   </div>
+  <script src="../js/showpassword2.js"></script>
   <script src="../js/showpassword.js"></script>
-  
+
 <?php include("../include/footer.inc.php") ?>
