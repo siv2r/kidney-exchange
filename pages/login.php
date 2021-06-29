@@ -169,6 +169,6 @@ margin-top: 30px;
 
 	</form>
   </div>
-  <script src="../js/showpassword2.js"></script>
+  <!--js-->
   <script src="../js/showpassword.js"></script>
   <?php include("../include/footer.inc.php") ?>
