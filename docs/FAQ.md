@@ -43,3 +43,9 @@
 ### **Q8.**  I am getting a **<ins>`hospital not registered`</ins>** error when I try to sign up. Why is this happening? 
 
 As mentioned in Q1, this website is for the use of doctors from the hospital registered with us. So, you must enter a valid hospital id during signup. 
+
+### **Q9.**  I am getting a **<ins>` Not Empty 4 Admin `</ins>** after importing data. Why is this happening? 
+
+Admins can see details of patients in all registered hospitals. But if you login with doctor account(that is `test1, test2`,etc).They can only see the details of patients from their hospital and not from other hospitals
+
+<b>U can tyr login using test2 or the credentials in the users database.<b>
