@@ -61,15 +61,6 @@ Please go through the [CODE_OF_CONDUCT](./CODE_OF_CONDUCT) before contributing
 ## License
 Distributed under the GNU General Public License v3.0 License. See [LICENSE](./LICENSE) for more information.
 
-## Contributors
-This project is possible due to these amazing people✨✨
+## Contributors ✨✨
 
-<table>
-	<tr>
-		<td>
-			<a href="https://github.com/siv2r/kidney-exchange/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=siv2r/kidney-exchange" />
-</a>
-		</td>
-	</tr>
-</table>
+
