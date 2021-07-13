@@ -72,7 +72,7 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](./L
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/siv2ram/"><img src="https://avatars.githubusercontent.com/u/56887198?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sivaram D</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=siv2r" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/siv2ram/"><img src="https://avatars.githubusercontent.com/u/56887198?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sivaram D</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=siv2r" title="Code">💻</a> <a href="https://github.com/siv2r/kidney-exchange/commits?author=siv2r" title="Documentation">📖</a></td>
   </tr>
 </table>
 
