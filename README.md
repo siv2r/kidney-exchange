@@ -1,4 +1,7 @@
 <div align="center"> 
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
  	
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Open%20Source-%F0%9F%A4%8D-Green"></a>
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Built%20by-developers%20%3C%2F%3E-0059b3"></a>
@@ -64,3 +67,16 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](./L
 ## Contributors ✨✨
 
 
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://agapito.dev"><img src="https://avatars.githubusercontent.com/u/51180770?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Thales Agapito</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=thalesagapito" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
