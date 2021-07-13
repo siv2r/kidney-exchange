@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "subhangi2731",
+      "name": "Subhangi Choudhary",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53938490?v=4",
+      "profile": "https://github.com/subhangi2731",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "kidney-exchange",
+  "projectOwner": "siv2r",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
