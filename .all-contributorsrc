@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Spurthi7768",
+      "name": "Spurthi7768",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67674744?v=4",
+      "profile": "https://github.com/Spurthi7768",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "kidney-exchange",
+  "projectOwner": "siv2r",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
