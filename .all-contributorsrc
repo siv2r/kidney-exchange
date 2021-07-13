@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "AshuKV",
+      "name": "Ashutosh Verma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48694961?v=4",
+      "profile": "https://github.com/AshuKV",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "kidney-exchange",
+  "projectOwner": "siv2r",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
