@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Sukriti-sood",
+      "name": "Sukriti Sood",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55010599?v=4",
+      "profile": "https://github.com/Sukriti-sood",
+      "contributions": [
+        "doc",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "kidney-exchange",
+  "projectOwner": "siv2r",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
