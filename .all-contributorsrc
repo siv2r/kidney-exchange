@@ -15,6 +15,15 @@
         "doc",
         "maintenance"
       ]
+    },
+    {
+      "login": "nandini040",
+      "name": "Nandini",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68437129?v=4",
+      "profile": "https://github.com/nandini040",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
