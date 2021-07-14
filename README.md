@@ -1,6 +1,6 @@
 <div align="center"> 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  	
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Open%20Source-%F0%9F%A4%8D-Green"></a>
@@ -73,6 +73,7 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](./L
 <table>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/siv2ram/"><img src="https://avatars.githubusercontent.com/u/56887198?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sivaram D</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=siv2r" title="Code">💻</a> <a href="https://github.com/siv2r/kidney-exchange/commits?author=siv2r" title="Documentation">📖</a> <a href="#maintenance-siv2r" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/kanchi12P"><img src="https://avatars.githubusercontent.com/u/78892305?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kanchi12P</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=kanchi12P" title="Documentation">📖</a></td>
   </tr>
 </table>
 
