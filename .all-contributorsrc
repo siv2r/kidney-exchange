@@ -15,6 +15,15 @@
         "doc",
         "maintenance"
       ]
+    },
+    {
+      "login": "ayushseth07",
+      "name": "Ayush Seth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54364704?v=4",
+      "profile": "https://github.com/ayushseth07",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
