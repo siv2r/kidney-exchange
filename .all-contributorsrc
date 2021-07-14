@@ -15,6 +15,15 @@
         "doc",
         "maintenance"
       ]
+    },
+    {
+      "login": "nisha331",
+      "name": "Nisha Yadav",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76838660?v=4",
+      "profile": "https://github.com/nisha331",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
