@@ -15,6 +15,15 @@
         "doc",
         "maintenance"
       ]
+    },
+    {
+      "login": "nitinshukla413",
+      "name": "Nitin Shukla",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50632879?v=4",
+      "profile": "https://www.linkedin.com/in/nitin-shukla-80b801161/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
