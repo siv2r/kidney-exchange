@@ -15,6 +15,15 @@
         "doc",
         "maintenance"
       ]
+    },
+    {
+      "login": "6D-pixel",
+      "name": "6D-pixel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/72263006?v=4",
+      "profile": "https://github.com/6D-pixel",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
