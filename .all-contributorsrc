@@ -248,12 +248,20 @@
       ]
     },
     {
+
       "login": "nitinshukla413",
       "name": "Nitin Shukla",
       "avatar_url": "https://avatars.githubusercontent.com/u/50632879?v=4",
       "profile": "https://www.linkedin.com/in/nitin-shukla-80b801161/",
       "contributions": [
-        "code"
+        "code"] }
+,{
+      "login": "Umesh-01",
+      "name": "Umesh Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/83420185?v=4",
+      "profile": "https://www.linkedin.com/in/umeshsingh19/",
+      "contributions": [
+        "doc"
       ]
     }
   ],
