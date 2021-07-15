@@ -164,6 +164,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "hardikvarshney",
+      "name": "Hardik Varshney",
+      "avatar_url": "https://avatars.githubusercontent.com/u/76947310?v=4",
+      "profile": "https://github.com/hardikvarshney",
+      "contributions": [
+        "doc",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
