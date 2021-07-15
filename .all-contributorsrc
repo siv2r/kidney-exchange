@@ -282,6 +282,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "M2kishore",
+      "name": "M M Kishore",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60045529?v=4",
+      "profile": "https://m2kishore.github.io/portfolio-website/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
