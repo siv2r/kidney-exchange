@@ -237,6 +237,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "kumarshobhit",
+      "name": "Shobhit Kumar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58087950?v=4",
+      "profile": "https://www.linkedin.com/in/shobhit-kumar-1979b1191/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
