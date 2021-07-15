@@ -1,6 +1,6 @@
 <div align="center"> 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-27-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  	
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Open%20Source-%F0%9F%A4%8D-Green"></a>
@@ -104,11 +104,11 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](./L
     <td align="center"><a href="https://github.com/nisha331"><img src="https://avatars.githubusercontent.com/u/76838660?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nisha Yadav</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=nisha331" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/889-dj"><img src="https://avatars.githubusercontent.com/u/73821023?v=4?s=100" width="100px;" alt=""/><br /><sub><b>889-dj</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=889-dj" title="Documentation">📖</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/shobhit-kumar-1979b1191/"><img src="https://avatars.githubusercontent.com/u/58087950?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shobhit Kumar</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=kumarshobhit" title="Code">💻</a></td>
-
     <td align="center"><a href="https://www.linkedin.com/in/nitin-shukla-80b801161/"><img src="https://avatars.githubusercontent.com/u/50632879?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nitin Shukla</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=nitinshukla413" title="Code">💻</a></td>
-
     <td align="center"><a href="https://www.linkedin.com/in/umeshsingh19/"><img src="https://avatars.githubusercontent.com/u/83420185?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Umesh Singh</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=Umesh-01" title="Documentation">📖</a></td>
-
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/nityaak5"><img src="https://avatars.githubusercontent.com/u/60267051?v=4?s=100" width="100px;" alt=""/><br /><sub><b>nityaak5</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=nityaak5" title="Documentation">📖</a></td>
   </tr>
 </table>
 
