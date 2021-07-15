@@ -1,6 +1,6 @@
 <div align="center"> 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  	
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Open%20Source-%F0%9F%A4%8D-Green"></a>
@@ -95,6 +95,7 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](./L
     <td align="center"><a href="https://www.linkedin.com/in/aditiyadav03"><img src="https://avatars.githubusercontent.com/u/72371906?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ADITI YADAV</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=aditi1403" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/hardikvarshney"><img src="https://avatars.githubusercontent.com/u/76947310?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hardik Varshney</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=hardikvarshney" title="Documentation">📖</a> <a href="#design-hardikvarshney" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/Swarga-codes"><img src="https://avatars.githubusercontent.com/u/72154312?v=4?s=100" width="100px;" alt=""/><br /><sub><b>SwargaRajDutta</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=Swarga-codes" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Subhangini"><img src="https://avatars.githubusercontent.com/u/68437435?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Coder_Subhangini</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=Subhangini" title="Documentation">📖</a></td>
   </tr>
 </table>
 
