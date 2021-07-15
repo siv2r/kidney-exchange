@@ -210,6 +210,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "devanshi-code",
+      "name": "Devanshi Mishra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/69320890?v=4",
+      "profile": "https://github.com/devanshi-code",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
