@@ -201,6 +201,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Hjaelp",
+      "name": "Yusuf",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3180166?v=4",
+      "profile": "https://github.com/Hjaelp",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
