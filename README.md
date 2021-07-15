@@ -1,6 +1,6 @@
 <div align="center"> 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
  	
 <a href="https://github.com/siv2r/kidney-exchange"><img src="https://img.shields.io/badge/Open%20Source-%F0%9F%A4%8D-Green"></a>
@@ -110,6 +110,7 @@ Distributed under the GNU General Public License v3.0 License. See [LICENSE](./L
   <tr>
     <td align="center"><a href="https://github.com/nityaak5"><img src="https://avatars.githubusercontent.com/u/60267051?v=4?s=100" width="100px;" alt=""/><br /><sub><b>nityaak5</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=nityaak5" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/ayushseth07"><img src="https://avatars.githubusercontent.com/u/54364704?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ayush Seth</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=ayushseth07" title="Code">💻</a></td>
+    <td align="center"><a href="https://m2kishore.github.io/portfolio-website/"><img src="https://avatars.githubusercontent.com/u/60045529?v=4?s=100" width="100px;" alt=""/><br /><sub><b>M M Kishore</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=M2kishore" title="Documentation">📖</a></td>
   </tr>
 </table>
 
