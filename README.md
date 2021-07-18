@@ -63,6 +63,16 @@ Please go through the [CODE_OF_CONDUCT](./CODE_OF_CONDUCT) before contributing
 ## License
 Distributed under the GNU General Public License v3.0 License. See [LICENSE](./LICENSE) for more information.
 
+## Maintainers ✨
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/riasenpai"><img src="https://avatars.githubusercontent.com/u/67195436?v=4" width="100px;" alt=""/><br /><sub><b>Ria Tyagi</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=riasenpai" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/priyanshuone6"><img src="https://avatars.githubusercontent.com/u/64051212?v=4" width="100px;" alt=""/><br /><sub><b>Priyanshu Agarwal</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=priyanshuone6" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/iam-sakshi"><img src="https://avatars.githubusercontent.com/u/59931342?v=4" width="100px;" alt=""/><br /><sub><b>Sakshi Arora</b></sub></a><br /><a href="https://github.com/siv2r/kidney-exchange/commits?author=iam-sakshi" title="Code">💻</a></td>
+  </tr>
+</table>
+
 ## Contributors ✨✨
 
 
