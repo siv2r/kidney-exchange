@@ -1,131 +1,41 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: ubuntu:14.04
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+version: 2.1
 
-      - image: mongo:2.6.8
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-        command: [mongod, --smallfiles]
-
-      - image: postgres:9.4.1
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-        # some containers require setting environment variables
-        environment:
-          POSTGRES_USER: root
-
-      - image: redis@sha256:54057dd7e125ca41afe526a877e8bd35ec2cdd33b9217e022ed37bdcf7d09673
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-
-      - image: rabbitmq:3.5.4
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-
-    environment:
-      TEST_REPORTS: /tmp/test-reports
-
-    working_directory: ~/my-project
-
-    steps:
-      - checkout
-
-      - run:
-          command: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
-
-      # Create Postgres users and database
-      # Note the YAML heredoc '|' for nicer formatting
-      - run: |
-          sudo -u root createuser -h localhost --superuser ubuntu &&
-          sudo createdb -h localhost test_db
-
-      - restore_cache:
-          keys:
-            - v1-my-project-{{ checksum "project.clj" }}
-            - v1-my-project-
-
-      - run:
-          environment:
-            SSH_TARGET: "localhost"
-            TEST_ENV: "linux"
-          command: |
-            set -xu
-            mkdir -p ${TEST_REPORTS}
-            run-tests.sh
-            cp out/tests/*.xml ${TEST_REPORTS}
-
-      - run: |
-          set -xu
-          mkdir -p /tmp/artifacts
-          create_jars.sh ${CIRCLE_BUILD_NUM}
-          cp *.jar /tmp/artifacts
-
-      - save_cache:
-          key: v1-my-project-{{ checksum "project.clj" }}
-          paths:
-            - ~/.m2
-
-      # Save artifacts
-      - store_artifacts:
-          path: /tmp/artifacts
-          destination: build
-
-      # Upload test results
-      - store_test_results:
-          path: /tmp/test-reports
-
-  deploy-stage:
-    docker:
-      - image: ubuntu:14.04
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    working_directory: /tmp/my-project
-    steps:
-      - run:
-          name: Deploy if tests pass and branch is Staging
-          command: ansible-playbook site.yml -i staging
-
-  deploy-prod:
-    docker:
-      - image: ubuntu:14.04
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    working_directory: /tmp/my-project
-    steps:
-      - run:
-          name: Deploy if tests pass and branch is Master
-          command: ansible-playbook site.yml -i production
+orbs:
+  # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
+  # Orb commands and jobs help you with common scripting around a language/tool
+  # so you dont have to copy and paste it everywhere.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+  python: circleci/python@1.2
 
 workflows:
-  version: 2
-  build-deploy:
+  sample:  # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run. 
+    # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows 
     jobs:
-      - build:
-          filters:
-            branches:
-              ignore:
-                - develop
-                - /feature-.*/
-      - deploy-stage:
-          requires:
-            - build
-          filters:
-            branches:
-              only: staging
-      - deploy-prod:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+      - build-and-test
+
+
+jobs:
+  build-and-test:  # This is the name of the job, feel free to change it to better match what you're trying to do!
+    # These next lines defines a Docker executors: https://circleci.com/docs/2.0/executor-types/
+    # You can specify an image from Dockerhub or use one of the convenience images from CircleCI's Developer Hub
+    # A list of available CircleCI Docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
+    # The executor is the environment in which the steps below will be executed - below will use a python 3.9 container
+    # Change the version below to your required version of python
+    docker:
+      - image: cimg/python:3.8
+    # Checkout the code as the first step. This is a dedicated CircleCI step.
+    # The python orb's install-packages step will install the dependencies from a Pipfile via Pipenv by default.
+    # Here we're making sure we use just use the system-wide pip. By default it uses the project root's requirements.txt.
+    # Then run your tests!
+    # CircleCI will report the results back to your VCS provider.
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+          # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
+          # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+      - run:
+          name: Run tests
+          # This assumes pytest is installed via the install-package step above
+          command: pytest
