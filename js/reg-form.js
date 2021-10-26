@@ -9,12 +9,8 @@ $(document).ready(function(){
     
     if ($.inArray("Others", $(this).val()) === -1) {
       $("#comorb-others").hide();
-      // $('#otherField').attr('required', '');
-      // $('#otherField').attr('data-error', 'This field is required.');
     } else {
       $("#comorb-others").show();
-      // $('#otherField').removeAttr('required');
-      // $('#otherField').removeAttr('data-error');
     }
   });
   $("#comorb").trigger("change"); //to make others field disappear on page start
@@ -23,12 +19,8 @@ $(document).ready(function(){
   $("#comorb2").change(function() {
     if ($.inArray("Others", $(this).val()) === -1) {
       $("#comorb-others2").hide();
-      // $('#otherField').attr('required', '');
-      // $('#otherField').attr('data-error', 'This field is required.');
     } else {
       $("#comorb-others2").show();
-      // $('#otherField').removeAttr('required');
-      // $('#otherField').removeAttr('data-error');
     }
   });
   $("#comorb2").trigger("change"); //to make others field disappear on page start
@@ -320,25 +312,21 @@ $(document).ready(function(){
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
         r_lname: {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
         d_fname: {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
         d_lname: {
           required: true,
           nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
 
         //donor age restriction
@@ -373,14 +361,9 @@ $(document).ready(function(){
         },
         r_city: {
           supernumeric:true
-          //nowhitespace: true,
-          //lettersonly: true,
-          // startsCapital: true
         },
         r_state: {
-          nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
         r_pincode: {
           nowhitespace: true,
@@ -389,7 +372,6 @@ $(document).ready(function(){
         r_country: {
           nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
         d_addr1: {
           //supernumeric: true
@@ -399,14 +381,9 @@ $(document).ready(function(){
         },
         d_city: {
           supernumeric:true
-          //nowhitespace: true,
-          //lettersonly: true,
-          // startsCapital: true
         },
         d_state: {
-          nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
         d_pincode: {
           nowhitespace: true,
@@ -415,7 +392,6 @@ $(document).ready(function(){
         d_country: {
           nowhitespace: true,
           lettersonly: true,
-          // startsCapital: true
         },
 
         //mobile number validations

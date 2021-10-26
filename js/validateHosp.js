@@ -9,10 +9,6 @@ $("#submitBtn").click(function(event){
   $("#hospForm").submit();
 });
 
-/**
- * 
- * @returns @string
- */
 function validate_form(){
   
   // Custom error messages
@@ -106,12 +102,9 @@ function validate_form(){
       h_city: {
         nowhitespace: true,
         lettersonly: true,
-        // startsCapital: true
       },
       h_state: {
-        nowhitespace: true,
         lettersonly: true,
-        // startsCapital: true
       },
       h_pincode: {
         nowhitespace: true,
@@ -120,7 +113,6 @@ function validate_form(){
       h_country: {
         nowhitespace: true,
         lettersonly: true,
-        // startsCapital: true
       },
 
       //Id vaidations

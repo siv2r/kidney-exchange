@@ -55,7 +55,7 @@ After a doctor completes this process, this platform provides two main features.
 [Scoring Functions](https://github.com/siv2r/kidney-exchange/projects/1): Parameters used for find the match score.  
 [FAQs](./docs/FAQs.md): Frequently asked questions  
 ## Get in Touch
-Suggestions or Queries ? Please feel free to join the [Discord Group](https://discord.gg/uH35zjW5cN) !
+Suggestions or Queries? Please feel free to join our [Discord Group](https://discord.gg/uH35zjW5cN) !
 
 ## Code of Conduct
 Please go through the [CODE_OF_CONDUCT](./CODE_OF_CONDUCT) before contributing
