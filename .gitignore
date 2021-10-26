@@ -1,11 +1,10 @@
-ignore
 .vscode
 .venv
 __pycache__
-global_match/*.json
+*.json
 *.csv
-result
-learnings.txt
+result/
 vendor
 composer.lock
 .env
+*.txt
