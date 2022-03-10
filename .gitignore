@@ -8,3 +8,4 @@ vendor
 composer.lock
 .env
 *.txt
+node_modules
