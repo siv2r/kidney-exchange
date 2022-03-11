@@ -61,7 +61,7 @@ p{
         <div class="sign">
         <h1>How To Signup..?</h1>
         <ol>
-        <li><p>Go to <strong><a href="/kidney-exchange/pages/signup.php" class="text-light">Signup Page</a></strong>.</p></li>
+        <li><p>Go to <strong><a href="https://kidney-exchange.herokuapp.com/kidney-exchange/pages/signup.php" class="text-light">Signup Page</a></strong>.</p></li>
         <li><p>Doctor Should fill his/her respective details and Hospital Id is the Id provided only to doctors of same Hospital.</p></li>
         </ol>
         </div>

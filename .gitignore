@@ -7,4 +7,5 @@ result/
 vendor
 .env
 *.txt
+/node_modules
 node_modules
