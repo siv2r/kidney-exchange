@@ -53,12 +53,12 @@ After a doctor completes this process, this platform provides two main features.
 [Contributing Guide](./docs/CONTRIBUTING.md): Please follow the rules mention here while contributing to this project.  
 [Build documentation](./docs/build.md): Follow this to setup the project in your local machine.  
 [Scoring Functions](https://github.com/siv2r/kidney-exchange/projects/1): Parameters used for find the match score.  
-[FAQs](./docs/FAQs.md): Frequently asked questions  
+[FAQs](./docs/FAQ.md): Frequently asked questions  
 ## Get in Touch
 Suggestions or Queries? Please feel free to join our [Discord Group](https://discord.gg/uH35zjW5cN) !
 
 ## Code of Conduct
-Please go through the [CODE_OF_CONDUCT](./CODE_OF_CONDUCT) before contributing
+Please go through the [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md) before contributing
 
 ## License
 Distributed under the GNU General Public License v3.0 License. See [LICENSE](./LICENSE) for more information.
