@@ -27,7 +27,7 @@
 # Kidney Exchange Program
 
 <div align="center">
-<img src="https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png"/>
+<img src="https://github.com/gSayak/kidney-exchange/blob/master/images/organ-donation.png"/> 
 </div>
 
 ## What is a living donor kidney exchange problem?
