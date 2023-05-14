@@ -27,7 +27,7 @@
 # Kidney Exchange Program
 
 <div align="center">
-<img src="[https://pngimage.net/wp-content/uploads/2018/06/kidney-logo-png-3.png](https://buzzrx.s3.amazonaws.com/ddffa833-f37f-451c-bafe-3a3ff420a3ed/KidneyStones.png)"/>
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.buzzrx.com%2Fblog%2Fhow-to-help-prevent-kidney-stones&psig=AOvVaw0C2NuJYC_BdJisRkTKP7qL&ust=1684161562866000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCOjgre6E9f4CFQAAAAAdAAAAABAE"/>
 </div>
 
 ## What is a living donor kidney exchange problem?
